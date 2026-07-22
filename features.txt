@@ -1,0 +1,27 @@
+Wiki
+	options
+		Classes
+		Backgrounds
+		Species
+		spells
+		feat
+	item
+		armor
+		weapon
+		other
+	rules
+		character creation
+		general rules
+
+characters
+	folders
+	characters
+		automatic calculation from stats
+		choices
+		moodboard
+campaign
+	custom calendar/time tracker
+	initiative tracker
+	character sheets
+		adding/removing hp, items, feats
+	music

@@ -1,0 +1,87 @@
+{
+
+    "Bard":{
+        "Basics":{
+            "Primary": "Cha",
+            "Hit die": "d8",
+        "Saves": ["Dex", "Cha"]
+        }
+    },
+    "Cleric":{
+        "Basics":{
+            "Primary": "Wis",
+            "Hit die": "d8",
+            "Saves": ["Wis", "Cha"]
+        }
+    },
+    "Druid":{
+        "Basics":{
+            "Primary": "Wis",
+            "Hit die": "d8",
+            "Saves": ["Int", "Wis"]
+        }
+    },
+    "Fighter":{
+        "Basics":{
+            "Primary": "Str or Dex",
+            "Hit die": "d10",
+            "Saves": ["Str", "Con"]
+        }
+    },
+    "Monk":{
+        "Basics":{
+            "Primary": "Dex & Wis",
+            "Hit die": "d8",
+            "Saves": ["Str", "Dex"]
+        }
+    },
+    "Paladin":{
+        "Basics":{
+            "Primary": "Str & Cha",
+            "Hit die": "d10",
+            "Saves": ["Wis", "Cha"]
+        }
+    },
+    "Ranger":{
+        "Basics":{
+            "Primary": "Dex & Wis",
+            "Hit die": "d10",
+            "Saves": ["Str", "Dex"]
+        }
+    },
+    "Rogue":{
+        "Basics":{
+            "Primary": "Dex",
+            "Hit die": "d8",
+            "Saves": ["Dex", "Int"]
+        }
+    },
+    "Sorcerer":{
+        "Basics":{
+            "Primary": "Cha",
+            "Hit die": "d6",
+            "Saves": ["Con", "Cha"]
+        }
+    },
+    "Warlock":{
+        "Basics":{
+            "Primary": "Cha",
+            "Hit die": "d8",
+            "Saves": ["Wis", "Cha"]
+        }
+    },
+    "Wizard":{
+        "Basics":{
+            "Primary": "Int",
+            "Hit die": "d6",
+            "Saves": ["Int", "Wis"]
+        }
+    },
+    "Barbarian": {
+        "Basics":{
+            "Primary": "Str",
+            "Hit die": "d12",
+            "Saves": ["Str", "Dex"]
+        }
+    }
+}
