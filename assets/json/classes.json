@@ -4,84 +4,132 @@
         "Basics":{
             "Primary": "Cha",
             "Hit die": "d8",
-        "Saves": ["Dex", "Cha"]
-        }
+            "Saves": ["Dex", "Cha"]
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/bard.jpg"
+        },
+        "Json": ""
     },
     "Cleric":{
         "Basics":{
             "Primary": "Wis",
             "Hit die": "d8",
             "Saves": ["Wis", "Cha"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/cleric.jpg"
+        },
+        "Json": ""
     },
     "Druid":{
         "Basics":{
             "Primary": "Wis",
             "Hit die": "d8",
             "Saves": ["Int", "Wis"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/druid.jpg"
+        },
+        "Json": ""
     },
     "Fighter":{
         "Basics":{
             "Primary": "Str or Dex",
             "Hit die": "d10",
             "Saves": ["Str", "Con"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/fighter.jpg"
+        },
+        "Json": ""
     },
     "Monk":{
         "Basics":{
             "Primary": "Dex & Wis",
             "Hit die": "d8",
             "Saves": ["Str", "Dex"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/monk.jpg"
+        },
+        "Json": ""
     },
     "Paladin":{
         "Basics":{
             "Primary": "Str & Cha",
             "Hit die": "d10",
             "Saves": ["Wis", "Cha"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/paladin.jpg"
+        },
+        "Json": ""
     },
     "Ranger":{
         "Basics":{
             "Primary": "Dex & Wis",
             "Hit die": "d10",
             "Saves": ["Str", "Dex"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/ranger.jpg"
+        },
+        "Json": ""
     },
     "Rogue":{
         "Basics":{
             "Primary": "Dex",
             "Hit die": "d8",
             "Saves": ["Dex", "Int"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/rogue.jpg"
+        },
+        "Json": ""
     },
     "Sorcerer":{
         "Basics":{
             "Primary": "Cha",
             "Hit die": "d6",
             "Saves": ["Con", "Cha"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/sorcerer.jpg"
+        },
+        "Json": ""
     },
     "Warlock":{
         "Basics":{
             "Primary": "Cha",
             "Hit die": "d8",
             "Saves": ["Wis", "Cha"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/warlock.jpg"
+        },
+        "Json": ""
     },
     "Wizard":{
         "Basics":{
             "Primary": "Int",
             "Hit die": "d6",
             "Saves": ["Int", "Wis"]
-        }
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/wizard.jpg"
+        },
+        "Json": ""
     },
     "Barbarian": {
         "Basics":{
             "Primary": "Str",
             "Hit die": "d12",
-            "Saves": ["Str", "Dex"]
-        }
+            "Saves": ["Str", "Con"]
+        },
+        "Icon": {
+            "base": "assets/icons/base/classes/barbarian.jpg"
+        },
+        "Json": ""
     }
 }

@@ -4,10 +4,15 @@
   import 'package:dnd_app/services/color_service.dart';
   import 'package:dnd_app/services/json_service.dart';
 
-  import 'package:dnd_app/widgets/Class_widget.dart';
+  import 'package:dnd_app/widgets/item_widget.dart';
+  import 'package:dnd_app/widgets/category_selector_widget.dart';
 
   class WikiPage extends StatefulWidget{
-    const WikiPage({super.key});
+    const WikiPage(this.headerHeight,this.listElementHeight,this.categoryNum, {super.key});
+
+    final double headerHeight;
+    final double listElementHeight;
+    final int categoryNum;
 
     @override
     State<WikiPage> createState() => _WikiState();
@@ -15,20 +20,29 @@
 
   class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
-
+    final PageController _pageController = PageController();  
     List<dynamic> categories=["classes", "spells", "feats", "species", "a", "b", "c"];
-    late String currentState="Classes";
+    late String currentState="classes";
 
     Map<String, dynamic> data={};
+
+    late double headerHeight;
+    late double listElementHeight;
+    late int categoryNum;
+
+    final GlobalKey<CategorySelectorWidgetState> categoryKey =
+      GlobalKey<CategorySelectorWidgetState>();
+
 
     @override
     void initState() {
       super.initState();
-
       loadOptions(categories[0]);
     }
 
+    @override
     void dispose() {
+      _pageController.dispose();
       super.dispose();
     }
 
@@ -44,8 +58,6 @@
       sorted[key] = items[key];
       }
       
-      print(sorted);      
-
       setState(() {
         data=sorted;
         currentState=file;
@@ -55,8 +67,9 @@
 
     @override
     Widget build(BuildContext context) {
-      
-
+      headerHeight=(widget.headerHeight/100)*MediaQuery.of(context).size.height;
+      listElementHeight=(widget.listElementHeight/100)*MediaQuery.of(context).size.height;
+      categoryNum=widget.categoryNum;
       List<dynamic> items= (data.keys.toList());
 
 
@@ -64,49 +77,66 @@
         backgroundColor: MyColor.background,
 
         appBar: AppBar(
-          toolbarHeight: 60,
+          toolbarHeight: headerHeight,
           backgroundColor: MyColor.primary,
           foregroundColor: MyColor.text,
           centerTitle: true,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(60),
-            child: SizedBox(
-              height: 60,
-              child: ListView.builder(scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-                itemBuilder: (BuildContext context, int index){
-                  final itemWidth = MediaQuery.of(context).size.width / 4;
-                  return SizedBox(
-                    width: itemWidth,
-                    height: 60,
-                    child: Container(                    
-                      decoration: currentState == categories[index]?BoxDecoration(
-                        color: MyColor.primary,
-                        border: Border(bottom: BorderSide(
-                          color: MyColor.secondary,
-                            width: 10,))
-                      ):null,
-                      child: TextButton(
-                        style: TextButton.styleFrom(foregroundColor: MyColor.text, 
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero, )),
-                        onPressed: () => loadOptions(categories[index]),
-                        child: Text(categories[index]),
-                      ),
-                    )
-                  );                  
+            preferredSize: Size.fromHeight(headerHeight),
+              child: CategorySelectorWdget(
+                height: headerHeight,
+                categoryNumber: categoryNum,
+                categories: categories,
+                currentState: currentState,
+                onCategorySelected: (category) {
+                  final index = categories.indexOf(category);
+
+                  if (index != -1) {
+                    _pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  }
                 },
-              ),
-            ),
+                key: categoryKey,
+              )
           ),
         ),
+        body: PageView.builder(
+          controller: _pageController,
+          itemCount: categories.length,
 
-        body: ListView.builder(
-          itemCount:data.length, 
-          itemBuilder: (BuildContext context, int index){
-            return ClassWidget(items[index], data[items[index]]);
-          } 
-        )
+          onPageChanged: (index) {
+            loadOptions(categories[index]);
+            categoryKey.currentState?.focusCategory(categories[index]);
+          },
+
+          itemBuilder: (context, index) {
+            final category = categories[index];
+
+            // only show data if this is the currently loaded category
+            if (category != currentState.toLowerCase()) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            final items = data.keys.toList();
+
+            return ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, itemIndex) {
+                return ItemWidget(
+                  items[itemIndex],
+                  data[items[itemIndex]],
+                  category,
+                  listElementHeight,
+                );
+              },
+            );
+          },
+        ),      
       );
     }
   }

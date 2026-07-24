@@ -1,0 +1,11 @@
+{
+    "Elf":{
+        "Basics":{
+            "Subspicies":["High elf", "Drow"]
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "Json": ""
+    }
+}
