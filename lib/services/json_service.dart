@@ -37,4 +37,13 @@ class JsonService {
 
     return null;
   }
+
+  static Future<Map<String, dynamic>> loadFromPath(String path) async {
+    try {
+      final jsonString = await rootBundle.loadString(path);
+      return json.decode(jsonString) as Map<String, dynamic>;
+    } catch (e) {
+      return {}; 
+    }
+  }
 }

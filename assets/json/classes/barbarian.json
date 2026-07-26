@@ -1,10 +1,18 @@
 {
   "id": "barbarian",
+  "catId":"class",
+  "name":"Barbarian",
+  "icon": {
+    "base": "assets/icons/base/classes/barbarian.jpg"
+  },
   "hitDie": "d12",
   "savingThrows": ["Str","Con"],
   "casterLevel": 0,
   "spellcastingAbility": "Int",
-  "attacksPerLevel": [1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+  "attacksPerLevel": {
+    "1":1,
+    "5":2
+  },
   "skillProficiencies": [
     {"options":2,
     "choices":[ "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]}

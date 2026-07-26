@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+import 'package:dnd_app/services/color_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
-import 'package:dnd_app/services/color_service.dart';
+
 import 'package:dnd_app/screens/home_page.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/icon_service.dart';
@@ -17,20 +19,46 @@ void main() async{
     manifest.listAssets().toSet(),
   );
 
+
   await SettingsService.init();
 
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<StatefulWidget> createState() => _MyApp();
+
+  
+}
+
+class _MyApp extends State<MyApp>{
+
+  @override
+  void initState(){
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final height = MediaQuery.sizeOf(context).height;
+
+
+      await SettingsService.setSetting("headerHeight",height * 0.14);
+      await SettingsService.setSetting("listItemHeight",height * 0.10);
+
+
+    });
+  }
+
+
+  @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'JSON Demo',
       debugShowCheckedModeBanner: false,
-      home: const HomePage(10),
+      home: const HomePage(),
     );
   }
 }

@@ -19,7 +19,7 @@ class IconService {
 
       if (path == null || !path.isNotEmpty) {
         return Image.asset(
-        "assets/icons/"+SettingsService.getTheme()+"/default.png",fit: BoxFit.cover,);
+        "assets/icons/"+SettingsService.getSetting("theme")+"/default.png",fit: BoxFit.cover,);
       }
 
       return Image.asset(
@@ -27,7 +27,7 @@ class IconService {
         cacheWidth: 100,
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) {
-          return Image.asset("assets/icons/"+SettingsService.getTheme()+"/default.png", fit: BoxFit.cover,);
+          return Image.asset("assets/icons/"+SettingsService.getSetting("theme")+"/default.png", fit: BoxFit.cover,);
         }
       );
     }

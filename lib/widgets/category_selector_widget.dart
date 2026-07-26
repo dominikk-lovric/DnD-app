@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
 
 class CategorySelectorWdget extends StatefulWidget{
@@ -68,22 +70,22 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
               child:Container(
                 decoration: BoxDecoration(
                   border:widget.categories[index]==widget.currentState?
-                  const Border(
+                  Border(
                     bottom: BorderSide(
-                      color: MyColor.secondary,
-                      width: 10,
+                      color: ColorService.getColor(1),
+                      width: SettingsService.getSetting("headerHeight")*0.1,
                     ),
                   )
                   :null
                 ),
                 child: TextButton(
-                  style: TextButton.styleFrom(foregroundColor: MyColor.text, 
+                  style: TextButton.styleFrom(foregroundColor: ColorService.getColor(4), 
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero, )),
                   onPressed: () => {
                     widget.onCategorySelected(widget.categories[index]),
                     },
-                    child: Text(widget.categories[index]),
+                  child: Text(widget.categories[index], style: TextStyle(fontSize: SettingsService.getSetting("headerHeight")*0.20),),
                 ),
               ),            
             );                  

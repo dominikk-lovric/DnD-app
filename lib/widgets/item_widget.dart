@@ -1,26 +1,27 @@
-import 'package:dnd_app/services/color_service.dart';
-import 'package:dnd_app/services/icon_service.dart';
-import 'package:dnd_app/services/settings_service.dart';
 import 'package:flutter/material.dart';
+
+import 'package:dnd_app/services/settings_service.dart';
+import 'package:dnd_app/services/color_service.dart';
 
 import 'package:dnd_app/widgets/optional_image_widget.dart';
 
+import 'package:dnd_app/screens/item_page.dart';
+
 class ItemWidget extends StatelessWidget{
-  const ItemWidget(this.name, this.classData, this.category, this.height, {super.key});
+  const ItemWidget(this.name, this.classData, this.category, {super.key});
     
   final String category;
   final String name;
   final Map<String, dynamic> classData;
-  final double height;
 
 
   @override
   Widget build(BuildContext context){
     final basics = Map<String, dynamic>.from(classData["Basics"]);
     final names = basics.keys.toList() as List<dynamic>;
-    final items = basics.values.toList() as List<dynamic>;
-    final String icon=classData["Icon"][SettingsService.getTheme()];
-
+    final items = basics.values.toList();
+    final String icon=classData["Icon"][SettingsService.getSetting("theme")];
+    final height=SettingsService.getSetting("headerHeight");
 
     String subtitle="";
     for(var i=0;i<items.length;i++){
@@ -35,10 +36,15 @@ class ItemWidget extends StatelessWidget{
     subtitle=subtitle.trimLeft();
       
     return GestureDetector(
+      onTap: () => {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (BuildContext context)=>ItemPage(classData["json"]))
+        ),
+      },
       child: Container(
-        height: this.height,
+        height: height,
         child: Card(
-        color:MyColor.accent,
+        color:ColorService.getColor(3),
         child: 
           Padding(
             padding:EdgeInsets.only(left: MediaQuery.of(context).size.width*(1/100)),
@@ -57,8 +63,8 @@ class ItemWidget extends StatelessWidget{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Hero(tag:name+"-hero-rectangle",child:Text(name, style: TextStyle(color: MyColor.textDark, fontSize: height*(2.5/5), height: 0.8), overflow: TextOverflow.fade, maxLines: 1,)),
-                      Text(subtitle, style: TextStyle(color: MyColor.textDarkSubtitle, fontSize: height*(1.5/10), height: 0.8),overflow: TextOverflow.fade,)
+                      Text(name, style: TextStyle(color: ColorService.getColor(5), fontSize: height*(2.5/5), height: 0.8), overflow: TextOverflow.fade, maxLines: 1,),
+                      Text(subtitle, style: TextStyle(color: ColorService.getColor(6), fontSize: height*(1.5/10), height: 0.8),overflow: TextOverflow.fade,)
                     ],                  
                   ),
                 ),

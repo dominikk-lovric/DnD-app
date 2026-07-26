@@ -107,3 +107,17 @@ flutter:
     - assets/icons/base/classes/warlock.jpg
     - assets/icons/base/classes/wizard.jpg
     - assets/icons/base/default.png
+    - assets/icons/base/arrow-down.png
+    
+    - assets/json/classes/barbarian.json
+    - assets/json/classes/bard.json
+    - assets/json/classes/cleric.json
+    - assets/json/classes/druid.json
+    - assets/json/classes/fighter.json
+    - assets/json/classes/monk.json
+    - assets/json/classes/paladin.json
+    - assets/json/classes/ranger.json
+    - assets/json/classes/rogue.json
+    - assets/json/classes/sorcerer.json
+    - assets/json/classes/warlock.json
+    - assets/json/classes/wizard.json
