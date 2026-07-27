@@ -8,10 +8,9 @@ import 'package:dnd_app/widgets/optional_image_widget.dart';
 import 'package:dnd_app/screens/item_page.dart';
 
 class ItemWidget extends StatelessWidget{
-  const ItemWidget(this.name, this.classData, this.category, {super.key});
-    
+  const ItemWidget(this.id, this.classData, this.category, {super.key});
+  final String id;
   final String category;
-  final String name;
   final Map<String, dynamic> classData;
 
 
@@ -38,7 +37,7 @@ class ItemWidget extends StatelessWidget{
     return GestureDetector(
       onTap: () => {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (BuildContext context)=>ItemPage(classData["json"]))
+          MaterialPageRoute(builder: (BuildContext context)=>ItemPage(classData["json"],id))
         ),
       },
       child: Container(
@@ -57,13 +56,13 @@ class ItemWidget extends StatelessWidget{
                 (icon!="none")?OptionalImageWidget(
                 height*(8/10),
                 icon,
-                key: ValueKey(name),):SizedBox.shrink(),
+                key: ValueKey(classData["name"]),):SizedBox.shrink(),
                 Expanded(child: 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(name, style: TextStyle(color: ColorService.getColor(5), fontSize: height*(2.5/5), height: 0.8), overflow: TextOverflow.fade, maxLines: 1,),
+                      Text(classData["name"], style: TextStyle(color: ColorService.getColor(5), fontSize: height*(2.5/5), height: 0.8), overflow: TextOverflow.fade, maxLines: 1,),
                       Text(subtitle, style: TextStyle(color: ColorService.getColor(6), fontSize: height*(1.5/10), height: 0.8),overflow: TextOverflow.fade,)
                     ],                  
                   ),

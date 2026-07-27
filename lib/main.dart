@@ -43,7 +43,8 @@ class _MyApp extends State<MyApp>{
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final height = MediaQuery.sizeOf(context).height;
 
-
+      await SettingsService.setSetting("theme", "base");
+      await SettingsService.setSetting("descriptionStyle", "popUp");
       await SettingsService.setSetting("headerHeight",height * 0.14);
       await SettingsService.setSetting("listItemHeight",height * 0.10);
 

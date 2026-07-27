@@ -1,5 +1,6 @@
   import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/widgets/attack_number_widget.dart';
+import 'package:dnd_app/widgets/class_info_widget.dart';
   import 'package:flutter/material.dart';
 
   import 'package:dnd_app/services/json_service.dart';
@@ -10,9 +11,9 @@ import 'package:dnd_app/widgets/attack_number_widget.dart';
 
   class ItemPage extends StatefulWidget {
     final String jsonPath;
+    final String id;
 
-
-    ItemPage(this.jsonPath);
+    ItemPage(this.jsonPath,this.id);
 
     @override
     State<ItemPage> createState()=>_ItemPageState();
@@ -42,27 +43,10 @@ import 'package:dnd_app/widgets/attack_number_widget.dart';
 
     @override
     Widget build(BuildContext context) {
-
-      List<Widget> info=[];
-
-      switch(type){
-        case "class":
-          info.add(SavingThrowWidget(items["savingThrows"]));
-          if(items["casterLevel"]>0){
-
-          }
-          info.add(AttackNumberWidget(items["attacksPerLevel"]));
-          break;
-        case "species":
-          break;
-        case "spell":
-          break;
-        case "feat":
-          break;
-        default:
-          info.add(SizedBox.shrink());
-          break;
-          
+      if (items.isEmpty) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
       }
 
       return AnimatedBuilder(
@@ -101,8 +85,8 @@ import 'package:dnd_app/widgets/attack_number_widget.dart';
               ),
             ),
             body: SingleChildScrollView(
-              child: Column(
-                children: info,
+              child: Center(
+                child: ClassInfoWidget(items)
               ),
             )
             

@@ -1,6 +1,7 @@
 {
 
-    "Bard":{
+    "c2":{
+        "name":"Bard",
         "Basics":{
             "Primary": "Cha",
             "Hit die": "d8",
@@ -11,7 +12,8 @@
         },
         "json": ""
     },
-    "Cleric":{
+    "c3":{
+        "name":"Cleric",
         "Basics":{
             "Primary": "Wis",
             "Hit die": "d8",
@@ -22,7 +24,8 @@
         },
         "json": ""
     },
-    "Druid":{
+    "c4":{
+        "name":"Druid",
         "Basics":{
             "Primary": "Wis",
             "Hit die": "d8",
@@ -33,7 +36,8 @@
         },
         "json": ""
     },
-    "Fighter":{
+    "c5":{
+        "name":"Fighter",
         "Basics":{
             "Primary": "Str or Dex",
             "Hit die": "d10",
@@ -44,7 +48,8 @@
         },
         "json": ""
     },
-    "Monk":{
+    "c6":{
+        "name":"Monk",
         "Basics":{
             "Primary": "Dex & Wis",
             "Hit die": "d8",
@@ -55,7 +60,8 @@
         },
         "json": ""
     },
-    "Paladin":{
+    "c7":{
+        "name":"Paladin",
         "Basics":{
             "Primary": "Str & Cha",
             "Hit die": "d10",
@@ -66,7 +72,8 @@
         },
         "json": ""
     },
-    "Ranger":{
+    "c8":{
+        "name":"Ranger",
         "Basics":{
             "Primary": "Dex & Wis",
             "Hit die": "d10",
@@ -77,7 +84,8 @@
         },
         "json": ""
     },
-    "Rogue":{
+    "c9":{
+        "name":"Rogue",
         "Basics":{
             "Primary": "Dex",
             "Hit die": "d8",
@@ -88,7 +96,8 @@
         },
         "json": ""
     },
-    "Sorcerer":{
+    "c10":{
+        "name":"Sorcerer",
         "Basics":{
             "Primary": "Cha",
             "Hit die": "d6",
@@ -99,7 +108,8 @@
         },
         "json": ""
     },
-    "Warlock":{
+    "c11":{
+        "name":"Warlock",
         "Basics":{
             "Primary": "Cha",
             "Hit die": "d8",
@@ -110,7 +120,8 @@
         },
         "json": ""
     },
-    "Wizard":{
+    "c12":{
+        "name":"Wizard",
         "Basics":{
             "Primary": "Int",
             "Hit die": "d6",
@@ -121,7 +132,8 @@
         },
         "json": ""
     },
-    "Barbarian": {
+    "c1": {
+        "name":"Barbarian",
         "Basics":{
             "Primary": "Str",
             "Hit die": "d12",

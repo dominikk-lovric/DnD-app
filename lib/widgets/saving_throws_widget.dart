@@ -14,40 +14,43 @@ import 'package:dnd_app/services/color_service.dart';
     Widget build(BuildContext context) {
       double width=MediaQuery.of(context).size.width;
       List<Widget> items=[];
-      for(int i=0;i<6;i++){
-        items.add(
-          Column(
-            children: [
-              Text(allStats[i], style: TextStyle(fontSize:20,color: ColorService.getColor(4)),),
-              Checkbox(
-                value: stats.contains(allStats[i]),
-                onChanged: (_){},
-                activeColor: ColorService.getColor(0),
-                checkColor: ColorService.getColor(4),
-                side: BorderSide(color: ColorService.getColor(4)),
-              )
-            ],
-          )
-        );
-        if(i<5){
-          items.add(
-            Container(
-              width: 1,
-              height: 50,
-              color: ColorService.getColor(4),
+      int k=0;
+      for(int i=0;i<2;i++){
+        List<Widget>tmp=[];
+        for(int j=0;j<3;j++){
+          tmp.add(
+            Column(
+              mainAxisSize: .min,
+              children: [
+                Text(allStats[k], style: TextStyle(fontSize:20,color: ColorService.getColor(4)),),
+                Checkbox(
+                  value: stats.contains(allStats[k]),
+                  onChanged: (_){},
+                  activeColor: ColorService.getColor(0),
+                  checkColor: ColorService.getColor(4),
+                  side: BorderSide(color: ColorService.getColor(4)),
+                )
+              ],
             )
           );
+          k++;
         }
+        items.add(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: width/100,
+            mainAxisSize: MainAxisSize.min,
+            children: tmp,
+          )
+        );
       }
-      return SizedBox(
-        width: width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          spacing: width/30,
-          children: 
-            items
-        ),
+      return Wrap(
+        alignment: WrapAlignment.center,
+        runAlignment: WrapAlignment.center,
+        runSpacing: SettingsService.getSetting("listItemHeight")/10,
+        spacing: width/100,
+        children: 
+          items
       );
     }
   }

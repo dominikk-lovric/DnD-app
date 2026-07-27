@@ -184,8 +184,13 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
         ),
         onChanged: (value) {
           final n = int.tryParse(value);
-          if (n == null) return;
-
+          if (n == null) {
+            controller.text="0";
+            setState(() {
+              ARGB[index]=0;
+            });
+            return;
+          };
           setState(() {
             ARGB[index] = n;
           });

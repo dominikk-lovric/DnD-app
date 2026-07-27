@@ -13,7 +13,23 @@ class AttackNumberWidget extends StatelessWidget{
   Widget build(BuildContext context) {
     List<String> levels=attackInfo.keys.toList();
     List<TableRow> rows=[];
-    
+    rows.add(
+        TableRow(
+          children: [
+            Center(
+              child:Text(
+                "Level",
+                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
+)            ),
+            Center(
+              child:Text(
+                "Attacks",
+                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
+              )
+            )
+          ]
+        )
+      );
     for (final level in levels){
       rows.add(
         TableRow(
@@ -21,24 +37,22 @@ class AttackNumberWidget extends StatelessWidget{
             Center(
               child:Text(
                 level,
-                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
+                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
 )            ),
             Center(
               child:Text(
                 attackInfo[level].toString(),
-                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
+                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
               )
             )
           ]
         )
       );
     }
-    return Container(
-      decoration: BoxDecoration(
-        border: BoxBorder.all(color: ColorService.getColor(4)),
-        borderRadius: BorderRadius.circular(4)
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.of(context).size.width/2
       ),
-      width: MediaQuery.of(context).size.width/2,
       child: ExpansionTile(
         title: Text(
           "Attacks per level",
@@ -54,8 +68,8 @@ class AttackNumberWidget extends StatelessWidget{
             padding: EdgeInsetsGeometry.all(10),
             child: Table(
               border: TableBorder(
-                verticalInside: BorderSide(color: ColorService.getColor(4), width: 1),
-                horizontalInside: BorderSide(color: ColorService.getColor(4), width: 1),
+                verticalInside: BorderSide(color: ColorService.getColor(5), width: 1),
+                horizontalInside: BorderSide(color: ColorService.getColor(5), width: 1),
               ),
               columnWidths: <int,TableColumnWidth>{
                 0:FlexColumnWidth(),

@@ -1,5 +1,6 @@
 {
-    "Elf":{
+    "s1":{
+        "name":"Elf",
         "Basics":{
             "Subspicies":["High elf", "Drow"]
         },
