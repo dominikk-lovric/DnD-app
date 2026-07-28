@@ -19,12 +19,12 @@ class AttackNumberWidget extends StatelessWidget{
             Center(
               child:Text(
                 "Level",
-                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
+                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
 )            ),
             Center(
               child:Text(
                 "Attacks",
-                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
+                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
               )
             )
           ]
@@ -37,12 +37,12 @@ class AttackNumberWidget extends StatelessWidget{
             Center(
               child:Text(
                 level,
-                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
+                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
 )            ),
             Center(
               child:Text(
                 attackInfo[level].toString(),
-                style: TextStyle(color: ColorService.getColor(5), fontSize: 20),
+                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
               )
             )
           ]
@@ -51,35 +51,40 @@ class AttackNumberWidget extends StatelessWidget{
     }
     return ConstrainedBox(
       constraints: BoxConstraints(
-        maxWidth: MediaQuery.of(context).size.width/2
+        maxWidth: 300
       ),
-      child: ExpansionTile(
-        title: Text(
-          "Attacks per level",
-          style: TextStyle(color:ColorService.getColor(4),fontSize: 30),
+      child: Theme(
+        data: ThemeData(
+          dividerColor: Colors.transparent 
         ),
-        children: [
-          Divider(
-            indent: 10,
-            endIndent: 10,
-            color: ColorService.getColor(5),
+        child: ExpansionTile(
+          initiallyExpanded: true,
+          showTrailingIcon: false,
+          title: Text(
+            "Attacks per level",
+            style: TextStyle(color:ColorService.getColor(4),fontSize: 30),
           ),
-          Padding(
-            padding: EdgeInsetsGeometry.all(10),
-            child: Table(
-              border: TableBorder(
-                verticalInside: BorderSide(color: ColorService.getColor(5), width: 1),
-                horizontalInside: BorderSide(color: ColorService.getColor(5), width: 1),
-              ),
-              columnWidths: <int,TableColumnWidth>{
-                0:FlexColumnWidth(),
-                1:FlexColumnWidth(),
-              },
-              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-              children: rows,
+          children: [
+            Divider(
+              color: ColorService.getColor(4),
             ),
-          )
-        ]
+            Padding(
+              padding: EdgeInsetsGeometry.all(10),
+              child: Table(
+                border: TableBorder(
+                  verticalInside: BorderSide(color: ColorService.getColor(4), width: 1),
+                  horizontalInside: BorderSide(color: ColorService.getColor(4), width: 1),
+                ),
+                columnWidths: <int,TableColumnWidth>{
+                  0:FlexColumnWidth(),
+                  1:FlexColumnWidth(),
+                },
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: rows,
+              ),
+            )
+          ]
+        ), 
       ),
     );
   }

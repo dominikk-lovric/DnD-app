@@ -85,7 +85,8 @@ import 'package:dnd_app/widgets/class_info_widget.dart';
               ),
             ),
             body: SingleChildScrollView(
-              child: Center(
+              child: Padding(
+                padding: EdgeInsetsGeometry.all(20),
                 child: ClassInfoWidget(items)
               ),
             )
