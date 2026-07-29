@@ -1,5 +1,6 @@
 
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/proficiency_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -48,9 +49,9 @@ class ClassInfoWidget extends StatelessWidget{
                     Divider(
                       color: ColorService.getColor(4),
                     ),
-                    ProficiencyWidget(info["skillProficiencies"],"Skill"),
-                    ProficiencyWidget(info["armorProficiencies"],"Armor"),
-                    ProficiencyWidget(info["weaponProficiencies"],"Weapon"),
+                    DescriptionWidget(ProficiencyWidget(info["skillProficiencies"]), "Skill", "descriptionStyle"),
+                    DescriptionWidget(ProficiencyWidget(info["armorProficiencies"]), "Armor", "descriptionStyle"),
+                    DescriptionWidget(ProficiencyWidget(info["weaponProficiencies"]), "Weapon", "descriptionStyle"),
                   ]
                 ),
               ],

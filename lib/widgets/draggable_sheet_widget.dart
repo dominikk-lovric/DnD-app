@@ -1,0 +1,145 @@
+import 'package:dnd_app/services/color_service.dart';
+import 'package:flutter/material.dart';
+
+class DraggableSheetWidget extends StatelessWidget{
+
+  String title;
+  Widget content;
+  DraggableSheetWidget(this.content, this.title, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          final sheetController = DraggableScrollableController();
+
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            backgroundColor: Colors.transparent,
+            enableDrag: false,
+            useSafeArea: true,
+            builder: (context) {
+              return Stack(
+                children: [
+                  DraggableScrollableSheet(
+                    controller: sheetController,
+                    maxChildSize: 1.0,
+                    minChildSize: 0.25,
+                    initialChildSize: 0.5,
+                    snap: true,
+                    snapSizes: const [0.25, 0.5, 1.0],
+                    expand: true,
+                    builder: (context, scrollController) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: ColorService.getColor(2),
+                          borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            GestureDetector(
+                              behavior: HitTestBehavior.opaque,
+                              onVerticalDragUpdate: (details) {
+                                final screenHeight = MediaQuery.of(context).size.height;
+                                final newSize = sheetController.size - details.delta.dy / screenHeight;
+                                sheetController.jumpTo(newSize.clamp(0.25, 1.0));
+                              },
+                              onVerticalDragEnd: (details) {
+                                const snapSizes = [0.25, 0.5, 1.0];
+                                final current = sheetController.size;
+                                final nearest = snapSizes.reduce(
+                                  (a, b) => (a - current).abs() < (b - current).abs() ? a : b,
+                                );
+                                sheetController.animateTo(
+                                  nearest,
+                                  duration: const Duration(milliseconds: 200),
+                                  curve: Curves.easeOut,
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 15),
+                                  Center(
+                                    child: Container(
+                                      width: 100,
+                                      height: 3,
+                                      decoration: BoxDecoration(
+                                        color: ColorService.getColor(4),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Text(
+                                    title,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(color: ColorService.getColor(4), fontSize: 35),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Divider(
+                                    height: 1,
+                                    color: ColorService.getColor(4),
+                                    indent: 30,
+                                    endIndent: 30,
+                                  ),
+                                ],
+                              ),
+                            ),    
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(15),
+                                child: PrimaryScrollController(
+                                  controller: scrollController,
+                                  automaticallyInheritForPlatforms: TargetPlatform.values.toSet(),
+                                  child: content,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 30),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+
+                  Positioned.fill(
+                    child: AnimatedBuilder(
+                      animation: sheetController,
+                      builder: (context, _) {
+                        double currentSize;
+                        try {
+                          currentSize = sheetController.size;
+                        } catch (_) {
+                          currentSize = 0.5; 
+                        }
+                        final screenHeight = MediaQuery.of(context).size.height;
+                        final emptyHeight = screenHeight * (1 - currentSize);
+                        if (emptyHeight <= 0) return const SizedBox.shrink();
+                        return Align(
+                          alignment: Alignment.topCenter,
+                          child: GestureDetector(
+                            behavior: HitTestBehavior.opaque,
+                            onTap: () => Navigator.of(context).pop(),
+                            child: SizedBox(
+                              height: emptyHeight,
+                              width: double.infinity,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+                );
+              },
+            );
+          },
+        child: Text(
+          title,
+          style: TextStyle(color: ColorService.getColor(4), fontSize: 25),
+        ),
+      );
+  }
+}
