@@ -1,4 +1,5 @@
-  import 'package:flutter/material.dart';
+  import 'package:dnd_app/services/color_service.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
   import 'package:shared_preferences/shared_preferences.dart';
   
@@ -9,7 +10,14 @@ import 'package:flutter/services.dart';
     static final ChangeNotifier themeNotifier = ChangeNotifier();
 
     static List<String> sizes=["Header", "Category", "text", "additional"];
-    static List<double> baseSizes=[35,30,20,10];
+    static List<double> baseSizes=[55,30,20,10];
+
+    static TextStyle getTextStyle(int size, int color){
+      return TextStyle(
+        color: ColorService.getColor(color),
+        fontSize: getFontSize(size)
+      );
+    }
 
     static double getFontSize(int size){
       double? setting = SettingsService.getSetting(sizes[size]);

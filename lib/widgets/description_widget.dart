@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 
 class DescriptionWidget extends StatelessWidget{
 
-  Widget descrption;
   String title;
+  Widget descrption;
   String descriptionType;
-  DescriptionWidget(this.descrption, this.title, this.descriptionType, {super.key});
+  String? subtitle;
+  DescriptionWidget( this.title, this.subtitle , this.descrption, this.descriptionType, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,20 @@ class DescriptionWidget extends StatelessWidget{
                       fontSize: 35,
                     )
                   ),
-                  content: descrption,
+                  content: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if(subtitle!=null)Text(
+                        subtitle.toString(),
+                        style: TextStyle(
+                          color: ColorService.getColor(4),
+                          fontSize: 25,
+                        ),
+                      ),
+                      descrption,
+                    ],
+                  ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
@@ -66,12 +80,25 @@ class DescriptionWidget extends StatelessWidget{
           ),
           Padding(
             padding: EdgeInsetsGeometry.all(10),
-            child: descrption,
+            child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if(subtitle!=null)Text(
+                        subtitle.toString(),
+                        style: TextStyle(
+                          color: ColorService.getColor(4),
+                          fontSize: 25,
+                        ),
+                      ),
+                      descrption,
+                    ],
+                  ),
           )
         ],
       );
     }else if(setting=="sheet"){
-      return DraggableSheetWidget(descrption, title);
+      return DraggableSheetWidget(title, subtitle, descrption);
     } else {
       return Column(
         mainAxisSize: MainAxisSize.min,

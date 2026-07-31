@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
 
 import 'package:dnd_app/screens/wiki_page.dart';
 import 'package:dnd_app/screens/settings_page.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
         return Scaffold(
           backgroundColor: ColorService.getColor(2),
           appBar: AppBar(
-            title: const Text("Main Page"),
+            title:  Text("Main Page", style: TextStyleService.getTextStyle(0, 4),),
             backgroundColor: ColorService.getColor(0), 
             foregroundColor: ColorService.getColor(4), 
             centerTitle: true,
@@ -42,7 +43,8 @@ class HomePage extends StatelessWidget {
                     foregroundColor: ColorService.getColor(4),
                     backgroundColor: ColorService.getColor(0),
                   ),
-                  onPressed: (){Navigator.push(context,MaterialPageRoute<void>(builder: (context) =>  WikiPage(4),),);}, child: Text('Wiki'))
+                  onPressed: (){Navigator.push(context,MaterialPageRoute<void>(builder: (context) =>  WikiPage(4),),);}, 
+                  child: Text('Wiki',style: TextStyleService.getTextStyle(1, 4)),),
               ],
             )        
           )

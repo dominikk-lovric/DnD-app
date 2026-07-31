@@ -5,7 +5,8 @@ class DraggableSheetWidget extends StatelessWidget{
 
   String title;
   Widget content;
-  DraggableSheetWidget(this.content, this.title, {super.key});
+  String? subtitle;
+  DraggableSheetWidget( this.title, this.subtitle,this.content, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,14 +87,24 @@ class DraggableSheetWidget extends StatelessWidget{
                                   ),
                                 ],
                               ),
-                            ),    
+                            ),
+                            if(subtitle!=null)Padding(
+                              padding: EdgeInsetsGeometry.directional(start: 15, top: 15),
+                              child: Text(
+                        subtitle.toString(),
+                        style: TextStyle(
+                          color: ColorService.getColor(4),
+                          fontSize: 25,
+                        ),
+                      ),
+                              ),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(15),
                                 child: PrimaryScrollController(
                                   controller: scrollController,
                                   automaticallyInheritForPlatforms: TargetPlatform.values.toSet(),
-                                  child: content,
+                                  child: content
                                 ),
                               ),
                             ),
