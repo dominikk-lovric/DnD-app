@@ -1,4 +1,5 @@
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
 class DraggableSheetWidget extends StatelessWidget{
@@ -92,19 +93,20 @@ class DraggableSheetWidget extends StatelessWidget{
                               padding: EdgeInsetsGeometry.directional(start: 15, top: 15),
                               child: Text(
                         subtitle.toString(),
-                        style: TextStyle(
-                          color: ColorService.getColor(4),
-                          fontSize: 25,
-                        ),
+                        style: TextStyleService.getTextStyle(3, 4),
                       ),
                               ),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.all(15),
-                                child: PrimaryScrollController(
-                                  controller: scrollController,
-                                  automaticallyInheritForPlatforms: TargetPlatform.values.toSet(),
-                                  child: content
+                                child: Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
+                                    child: SingleChildScrollView(
+                                      controller: scrollController,
+                                      child: content,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -149,7 +151,7 @@ class DraggableSheetWidget extends StatelessWidget{
           },
         child: Text(
           title,
-          style: TextStyle(color: ColorService.getColor(4), fontSize: 25),
+          style: TextStyleService.getTextStyle(3, 4),
         ),
       );
   }

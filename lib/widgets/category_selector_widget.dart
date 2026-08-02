@@ -1,3 +1,4 @@
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
@@ -85,7 +86,7 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
                   onPressed: () => {
                     widget.onCategorySelected(widget.categories[index]),
                     },
-                  child: Text(widget.categories[index], style: TextStyle(fontSize: SettingsService.getSetting("headerHeight")*0.20),),
+                  child: Text(widget.categories[index], style: TextStyleService.getTextStyle(3, 4),),
                 ),
               ),            
             );                  

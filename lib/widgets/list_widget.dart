@@ -2,12 +2,13 @@
 
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
-class ProficiencyWidget extends StatelessWidget{
+class ListWidget extends StatelessWidget{
 
   List<dynamic> items;
-  ProficiencyWidget(this.items, {super.key});
+  ListWidget(this.items, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +40,7 @@ class ProficiencyWidget extends StatelessWidget{
                     children: [
                       ...items.map((item)=>Text(
                         item.toString(),
-                        style: TextStyle(
-                          color: ColorService.getColor(5),
-                          fontSize: 20
-                        ),
-                        overflow: TextOverflow.clip,
+                        style: TextStyleService.getTextStyle(3, 5, Overflow:TextOverflow.clip)
                       )),
                     ],
                   ),

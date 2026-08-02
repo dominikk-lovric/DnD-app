@@ -9,14 +9,17 @@ import 'package:flutter/services.dart';
 
     static final ChangeNotifier themeNotifier = ChangeNotifier();
 
-    static List<String> sizes=["Header", "Category", "text", "additional"];
-    static List<double> baseSizes=[55,30,20,10];
+    static List<String> sizes=["Header", "SubHeader", "Category", "text", "additional"];
+    static List<double> baseSizes=[55,45,35,25,15];
 
-    static TextStyle getTextStyle(int size, int color){
-      return TextStyle(
-        color: ColorService.getColor(color),
-        fontSize: getFontSize(size)
-      );
+    static TextStyle getTextStyle(int size, int color,  {double? Height=null, TextOverflow Overflow=TextOverflow.visible}){
+        return TextStyle(
+          color: ColorService.getColor(color),
+          fontSize: getFontSize(size),
+          overflow: Overflow,
+          height: Height   
+        );
+      
     }
 
     static double getFontSize(int size){

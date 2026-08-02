@@ -44,7 +44,12 @@ class _MyApp extends State<MyApp>{
       final height = MediaQuery.sizeOf(context).height;
 
       await SettingsService.setSetting("theme", "base");
-      await SettingsService.setSetting("descriptionStyle", "sheet");
+      await SettingsService.setSetting("proficiencyDescriptionStyle", "sheet");
+      await SettingsService.setSetting("featureDescriptionStyle", "sheet");
+      await SettingsService.setSetting("proficiencyDisplayStyle", "expand");
+      await SettingsService.setSetting("featureDisplayStyle", "popUp");
+      await SettingsService.setSetting("archetypeDisplayStyle", "sheet");
+      await SettingsService.setSetting("sectionDescriptionType", "expand");
       await SettingsService.setSetting("headerHeight",height * 0.14);
       await SettingsService.setSetting("listItemHeight",height * 0.10);
 

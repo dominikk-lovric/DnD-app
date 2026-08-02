@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                     backgroundColor: ColorService.getColor(0),
                   ),
                   onPressed: (){Navigator.push(context,MaterialPageRoute<void>(builder: (context) =>  WikiPage(4),),);}, 
-                  child: Text('Wiki',style: TextStyleService.getTextStyle(1, 4)),),
+                  child: Text('Wiki',style: TextStyleService.getTextStyle(2, 4)),),
               ],
             )        
           )

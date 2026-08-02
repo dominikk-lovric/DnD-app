@@ -1,4 +1,5 @@
   import 'package:dnd_app/services/settings_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/attack_number_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
   import 'package:flutter/material.dart';
@@ -71,12 +72,7 @@ import 'package:dnd_app/widgets/class_info_widget.dart';
                     Expanded(
                       child: Text(
                         name,
-                        style: TextStyle(
-                          color: ColorService.getColor(5),
-                          fontSize: SettingsService.getSetting("headerHeight")*0.8,
-                          overflow: TextOverflow.fade
-                          
-                        ),
+                        style: TextStyleService.getTextStyle(0, 4, Overflow:TextOverflow.fade),
                         maxLines: 1,
                         softWrap: false,
                       ), 

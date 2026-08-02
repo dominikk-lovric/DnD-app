@@ -13,20 +13,25 @@
     "1":1,
     "5":2
   },
-  "skillProficiencies": {
-    "options":2,
-    "proficiencies":[ "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
-  },
-  "armorProficiencies": {
-    "proficiencies":["Light", "Medium", "Shields"]
-  },
-  "weaponProficiencies": {
-    "proficiencies":["Simple", "Martial"]
-  },
+  "proficiencies":[
+    {
+      "name":"Skill",
+      "options":2,
+      "proficiencies":[ "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
+    },
+    {
+      "name":"Armor",
+      "proficiencies":["Light", "Medium", "Shields"]
+    },
+    {
+      "name":"Weapon",
+      "proficiencies":["Simple", "Martial"]
+    }
+  ],
   "startingEquipment":[
     ["Greataxe","Handaxe","Handaxe","Handaxe","Handaxe","Explorer's pack","15 GP"],["75 GP"]
   ],
-  "Features": [
+  "features": [
     {
       "name":"Rage",
       "level":1,
@@ -129,9 +134,33 @@
     }
   ],
   "archetypes": [
-    {"name":"Path of the Berserker","path":""},
-    {"name":"Path of the Wild Heart","path":""},
-    {"name":"Path of the World Tree","path":""},
-    {"name":"Path of the Zealot","path":""}
+    {
+      "name":"Path of the Berserker",
+      "features":[
+
+      ]
+      
+    },
+    {
+      "name":"Path of the Wild Heart",
+      "features":[
+
+      ]
+      
+    },
+    {
+      "name":"Path of the World Tree",
+      "features":[
+
+      ]
+      
+    },
+    {
+      "name":"Path of the Zealot",
+      "features":[
+
+      ]
+      
+    }
   ]
 }

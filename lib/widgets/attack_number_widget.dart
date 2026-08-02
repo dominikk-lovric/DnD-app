@@ -1,6 +1,7 @@
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/icon_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
 class AttackNumberWidget extends StatelessWidget{
@@ -37,12 +38,12 @@ class AttackNumberWidget extends StatelessWidget{
             Center(
               child:Text(
                 level,
-                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
+                style: TextStyleService.getTextStyle(3, 4),
 )            ),
             Center(
               child:Text(
                 attackInfo[level].toString(),
-                style: TextStyle(color: ColorService.getColor(4), fontSize: 20),
+                style: TextStyleService.getTextStyle(3,4),
               )
             )
           ]
@@ -51,7 +52,7 @@ class AttackNumberWidget extends StatelessWidget{
     }
     return ConstrainedBox(
       constraints: BoxConstraints(
-        maxWidth: 300
+        maxWidth: 350
       ),
       child: Theme(
         data: ThemeData(
@@ -62,7 +63,7 @@ class AttackNumberWidget extends StatelessWidget{
           showTrailingIcon: false,
           title: Text(
             "Attacks per level",
-            style: TextStyle(color:ColorService.getColor(4),fontSize: 30),
+            style: TextStyleService.getTextStyle(2, 4)
           ),
           children: [
             Divider(
