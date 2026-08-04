@@ -33,45 +33,46 @@ class DescriptionWidget extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) => Theme(
-  data: Theme.of(context).copyWith(
-    dialogTheme: DialogThemeData(
-      backgroundColor: ColorService.getColor(2)
-    ),
-  ),
-  child: Dialog(
-    insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
-    child: ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 800),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title, style: TextStyleService.getTextStyle(1, 4)),
-            const Divider(indent: 10, endIndent: 10),
-            if (subtitle != null)
-              Text(subtitle.toString(), style: TextStyleService.getTextStyle(2, 4)),
-            Flexible(child: SingleChildScrollView(child: descrption)),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text("Close"),
+              data: Theme.of(context).copyWith(
+                dialogTheme: DialogThemeData(
+                  backgroundColor: ColorService.getColor(2)
+                ),
+              ),
+              child: Dialog(
+                insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 800),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(title, style: TextStyleService.getTextStyle(0, 4)),
+                        const Divider(indent: 10, endIndent: 10),
+                        if (subtitle != null && subtitle!="")
+                          Text(subtitle.toString(), style: TextStyleService.getTextStyle(2, 4)),
+                        Flexible(child: SingleChildScrollView(child: descrption)),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text("Close"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
-          ],
-        ),
-      ),
-    ),
-  ),
-),
           )
         },
         child: Text(title, style: TextStyleService.getTextStyle(titleLevel, 1)),
       );
     } else if (setting == "expand") {
-      return ExpansionTile(
+      return IntrinsicWidth(
+        child: ExpansionTile(
         initiallyExpanded: true,
         showTrailingIcon: false,
         title: Text(title, style: TextStyleService.getTextStyle(titleLevel, 4)),
@@ -93,6 +94,7 @@ class DescriptionWidget extends StatelessWidget {
             ),
           )
         ],
+      ),
       );
     } else if (setting == "sheet") {
       return DraggableSheetWidget(title, subtitle, descrption);

@@ -16,7 +16,7 @@ from test import clean_text, split_or_list, get_page_content, detect_spellcastin
 BASE_URL = "http://dnd2024.wikidot.com"
 CLASS_LIST_URL = f"{BASE_URL}/class:all"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; dnd2024-json-export/1.0)"}
-REQUEST_DELAY = 0.6
+REQUEST_DELAY = 0.3
 
 ABILITY_ABBR = {
     "strength": "Str", "dexterity": "Dex", "constitution": "Con",
@@ -143,20 +143,39 @@ def parseProgression(rows):
     items=[]
     n=len(rows[0])
     firstRow= rows[0]
+    a=0
     cells = firstRow.find_all(["th", "td"])
-    for cell in cells[3:]:
-        items.append(
-            {
-                "name":clean_text(cell),
-                "value":[]
-            }
-        )
+    for cell in cells:
+        if clean_text(cell).lower()=="level" or clean_text(cell).lower()=="proficiency bonus" or clean_text(cell).lower()=="features" or clean_text(cell).lower()=="class features":
+            a+=1
+        else:
+            items.append(
+                {
+                    "name":clean_text(cell),
+                    "value":[]
+                }
+            )
     for row in rows[1:]:
         cells = row.find_all(["th", "td"])
-        for i, cell in enumerate(cells[3:]):
-            items[i]["value"].append(clean_text(cell))
-
-    return items
+        for i, cell in enumerate(cells[a:]):
+            celltext=clean_text(cell)
+            if celltext=="-":
+                items[i]["value"].append(0)
+            else:
+                try:
+                    cellnum=int(celltext)
+                    items[i]["value"].append(cellnum)
+                except:
+                    items[i]["value"].append(celltext)
+    spells={}
+    progression=[]
+    for i in range(len(items)):
+        if (len(items[i]["name"])==3 and items[i]["name"][0].isdigit())or items[i]["name"].lower()=="cantrips" or items[i]["name"].lower()=="prepared spells" or items[i]["name"].lower()=="spell slots" or items[i]["name"].lower()=="slot level" or items[i]["name"].lower()=="sorcery points":
+            spells[items[i]["name"]]=items[i]["value"]
+        else:
+            progression.append(items[i])
+    progression.append(spells)
+    return progression
 
 
 def parseSubclass(rows, base_url):
@@ -200,7 +219,8 @@ def getInfoFromSite(content, url):
             if type=="traits":
                 traits.update(parseTraits(tableRows))
             elif type=="progression":
-                progression=parseProgression(tableRows)
+                progression=progression+parseProgression(tableRows)
+                progression=[f for f in progression if f]
             elif type=="subclass":
                 archetypeLinks=parseSubclass(tableRows, BASE_URL)
             i+=1
@@ -288,9 +308,9 @@ def parseStartingItems(text):
 def getCasterLevel(progression):
     casterLevel=0
     for item in progression:
-        if item["name"]=="1st":
+        if "1st" in item:
             casterLevel=0.5
-        if item["name"]=="6nd":
+        if "6th" in item:
             casterLevel=1
     return casterLevel
 
@@ -427,18 +447,20 @@ def findUrl(classes, inputCLass):
             return url
 
 def main():
-    inputClass=input("class: ")
-    print(inputClass)
     classes=discover_core_classes()
 
-    classUrl=findUrl(classes, inputClass)
+    i=1
+    for inputClass in ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]:
 
-    print(classUrl)
-    classJson= parseClassPage(inputClass, classUrl, inputClass)
+        classUrl=findUrl(classes, inputClass)
+        classJson= parseClassPage(inputClass, classUrl, i)
 
 
-    with open("../assets/json/classes/"+inputClass.lower()+".json", "w") as outputFile:
-        printDict(outputFile, classJson,0)
+        with open("../assets/json/classes/"+inputClass.lower()+".json", "w") as outputFile:
+            printDict(outputFile, classJson,0)
+
+        print("DONE: "+inputClass.lower())
+        i+=1
 
 if __name__ == "__main__":
     main()

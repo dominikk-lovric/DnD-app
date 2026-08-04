@@ -1,14 +1,295 @@
 {
-  "Hit die": "",
-  "Saving throws": [],
-  "Caster level": "",
-  "Spellcasting ability": "",
-  "Attacks per level": {
-    "1": "1"
-  },
-  "Skill proficiencies": [],
-  "Armor proficiencies": [],
-  "Weapon proficiencies": [],
-  "Features": [],
-  "Archetypes": []
+	"id": "c7",
+	"catId": "class",
+	"name": "Paladin",
+	"icon": {
+		"base": "assets/icons/base/classes/paladin.jpg"
+	},
+	"hitDie": "d10",
+	"savingThrows": ["Wis", "Cha"],
+	"casterLevel":  0.5,
+	"spellcastingAbility": "Cha",
+	"attacksPerLevel": {
+		"1":  1,
+		"5":  2
+	},
+	"proficiencies": [
+		{
+			"name": "Skill",
+			"options":  2,
+			"proficiencies": ["Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"]
+		}, 
+		{
+			"name": "Armor",
+			"proficiencies": ["Light", "Medium", "Heavy", "Shields"]
+		}, 
+		{
+			"name": "Weapon",
+			"proficiencies": ["Simple", "Martial"]
+		}
+	],
+	"startingEquipment": [["Chain Mail", "Shield", "Longsword", "6 Javelins", "Holy Symbol", "Priest's Pack and 9 GP"], ["150 GP"]],
+	"progression": [
+		{
+			"name": "Channel Divinity",
+			"value": [0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+		}, 
+		{
+			"Prepared Spells": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
+			"1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+			"2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+			"3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+			"4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
+			"5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
+		}
+	],
+	"features": [
+		{
+			"name": "Lay On Hands",
+			"level":  1,
+			"description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level. As a Bonus Action, you can touch a creature (which could be yourself) and draw power from the pool of healing to restore a number of Hit Points to that creature, up to the maximum amount remaining in the pool. You can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature; those points don't also restore Hit Points to the creature."
+		}, 
+		{
+			"name": "Spellcasting",
+			"level":  1,
+			"description": "You have learned to cast spells through prayer and meditation. See Chapter 7 for the rules on Spellcasting. The Information below details how you use those rules with Paladin spells, which appear in the Paladin spell list later in the class's description. Spell Slots. The Paladin Features table shows how many spell slots you have to cast your level 1+ spells. You regain all expended slots when you finish a Long Rest. Prepared Spells of Level 1+. You prepare the list of level 1+ spells that are available for you to cast with this feature. To start, choose two level 1 Paladin spells. Heroism and Searing Smite are recommended. The number of spells on your list increases as you gain Paladin levels, as shown in the Prepared Spells column of the Paladin Features table. Whenever that number increases, choose additional spells from the Paladin spell list until the number of spells on your list matches the number on the table. The chosen spells must be of a level for which you have spell slots. For example, if you're a level 5 Paladin, your list of prepared spells can include six spells of levels 1 and 2 in any combination. If another Paladin feature gives you spells that you always have prepared, those spells don’t count against the number of spells you can prepare with this feature, but those spells otherwise count as Paladin spells for you. Changing Your Prepared Spells. Whenever you finish a Long Rest, you can replace one spell on your list with another Paladin spell for which you have spell slots. Spellcasting Ability. Charisma is your spellcasting ability for your Paladin spells. Spellcasting Focus. You can use a Holy Symbol as a Spellcasting Focus for your Paladin spells."
+		}, 
+		{
+			"name": "Weapon Mastery",
+			"level":  1,
+			"description": "Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Longswords and Javelins. Whenever you finish a Long Rest, you can change the kinds of weapons you chose. For Example, you could switch to using the mastery properties of Halberds and Flails."
+		}, 
+		{
+			"name": "Fighting Style",
+			"level":  2,
+			"description": "You gain a Fighting Style feat of your choice (see chapter 5). Instead of choosing one of those feats, you can choose the option below. Blessed Warrior. You learn two Cleric cantrips of your choice (See the Cleric class's section for a list of Cleric spells). Guidance and Sacred Flame are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Paladin level, you can replace one of these cantrips with another Cleric cantrip."
+		}, 
+		{
+			"name": "Paladin's Smite",
+			"level":  2,
+			"description": "You always have the Divine Smite spell prepared. You can cast it without expending a spell slot, but you must finish a Long Rest before you can cast it this way again."
+		}, 
+		{
+			"name": "Channel Divinity",
+			"level":  3,
+			"description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You start with one such effect: Divine Sense, which is described below. Other Paladin features give additional Channel Divinity effect options. Each time you use this class's Channel Divinity, you choose which effect from this class to create. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting Feature. Divine Sense. As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell."
+		}, 
+		{
+			"name": "Paladin Subclass",
+			"level":  3,
+			"description": "You gain a Paladin Subclass of your choice. The Oath of Devotion, Oath of Glory, Oath of the Ancients and Oath of Vengeance subclasses are detailed after this class's description. A Subclass is a specialization that grants you features at certain Paladin levels. For the rest of your career, you gain each of your subclass’s features that are of your Paladin level or lower. Breaking Your Oath A Paladin tries to hold to the highest standards of conduct, but even the most dedicated are fallible. Sometimes a Paladin transgresses on their oath. A Paladin who has broken a vow typically seeks absolution, spending an all-night vigil as a sign of penitence or undertaking a fast. After a rite of forgiveness, the Paladin starts fresh. If your Paladin unrepentantly violates their oath, talk to your DM. Your Paladin should probably take a more appropriate subclass or even abandon the class and adopt another one."
+		}, 
+		{
+			"name": "Ability Score Improvement",
+			"level":  4,
+			"description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Paladin levels 8, 12, and 16."
+		}, 
+		{
+			"name": "Extra Attack",
+			"level":  5,
+			"description": "You can attack twice instead of once whenever you take the Attack action on your turn."
+		}, 
+		{
+			"name": "Faithful Steed",
+			"level":  5,
+			"description": "You can call on the aid of an otherworldly steed. You always have the Find Steed spell prepared. You can also cast the spell once without expending a spell slot, and you regain your ability to do so when you finish a Long Rest."
+		}, 
+		{
+			"name": "Aura of Protection",
+			"level":  6,
+			"description": "You radiate a protective, unseeable aura in a 10-foot Emanation that originates from you. The aura is inactive while you have the Incapacitated condition. You and your allies in the aura gain a bonus to saving throws equal to your Charisma modifier (minimum bonus of +1). If another Paladin is present, a creature can benefit from only one Aura of Protection at a time; the creature chooses which aura while in them."
+		}, 
+		{
+			"name": "Abjure Foes",
+			"level":  9,
+			"description": "As a Magic action, you can expend one use of this class's Channel Divinity to overwhelm foes with awe. As you present your Holy Symbol or weapon, you can target a number of creatures equal to your Charisma modifier (minimum of one creature) that you can see within 60 feet of yourself. Each target must succeed on a Wisdom saving throw or have the Frightened condition for 1 minute or until it takes any damage. While Frightened in this way, a target can only do one of the following on its turns: move, take an action or take a Bonus Action."
+		}, 
+		{
+			"name": "Aura of Courage",
+			"level":  10,
+			"description": "You and your allies have Immunity to the Frightened condition while in your Aura of Protection. If a Frightened ally enters the aura, that condition has no effect on that ally while there."
+		}, 
+		{
+			"name": "Radiant Strikes",
+			"level":  11,
+			"description": "Your strikes now carry supernatural power. When you hit a target with an attack roll using a Melee weapon or an Unarmed Strike, the target takes an extra 1d8 Radiant damage."
+		}, 
+		{
+			"name": "Restoring Touch",
+			"level":  14,
+			"description": "When you use Lay On Hands on a creature, you can also remove one or more of the following conditions from the creature: Blinded, Charmed, Deafened, Frightened, Paralyzed, or Stunned. You must expend 5 Hit Points from the healing pool of Lay On Hands for each of these conditions you remove; those points don't also restore Hit Points to the creature."
+		}, 
+		{
+			"name": "Aura Expansion",
+			"level":  18,
+			"description": "Your Aura of Protection is now a 30-foot Emanation."
+		}, 
+		{
+			"name": "Epic Boon",
+			"level":  19,
+			"description": "You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Truesight is recommended."
+		}
+	],
+	"archetypes": [
+		{
+			"name": "Oath of Devotion",
+			"features": [
+				{
+					"name": "Oath of Devotion Spells",
+					"level":  3,
+					"description": "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oath of Devotion Spells table, you thereafter always have the listed spells prepared."
+				}, 
+				{
+					"name": "Sacred Weapon",
+					"level":  3,
+					"description": "When you take the Attack action, you can expend one use of your Channel Divinity to imbue one Melee weapon that you are holding with positive energy. For 10 minutes or until you use this feature again, you add your Charisma modifier to attack rolls you make with that weapon (minimum bonus of +1), and each time you hit with it, you cause it to deal its normal damage type or Radiant Damage. The weapon also emits Bright Light in a 20-foot radius and Dim Light 20 feet beyond that. You can end this effect early (no action required). This effect also ends if you aren't carrying the weapon."
+				}, 
+				{
+					"name": "Aura of Devotion",
+					"level":  7,
+					"description": "You and your allies have Immunity to the Charmed condition while in your Aura of Protection. If a Charmed ally enters the aura, that condition has no effect on that ally while there."
+				}, 
+				{
+					"name": "Smite of Protection",
+					"level":  15,
+					"description": "Your magical smite now radiates protective energy. Whenever you cast Divine Smite , you and your allies have Half Cover while in your Aura of Protection. The aura has this benefit until the start of your next turn."
+				}, 
+				{
+					"name": "Holy Nimbus",
+					"level":  20,
+					"description": "As a Bonus Action, you can imbue your Aura of Protection with holy power, granting the benefits below for 10 minutes or until you end them (no action required). Once you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Holy Ward. You have Advantage on any saving throw you are forced to make by a Fiend or an Undead. Radiant Damage. Whenever an enemy starts its turn in the aura, that creature takes Radiant damage equal to your Charisma modifier plus your Proficiency Bonus. Sunlight. The aura is filled with Bright Light that is sunlight."
+				}
+			]
+		}, 
+		{
+			"name": "Oath of Glory",
+			"features": [
+				{
+					"name": "Inspiring Smite",
+					"level":  3,
+					"description": "Immediately after you cast Divine Smite , you can expend one use of your Channel Divinity and distribute Temporary Hit Points to creatures of your choice within 30 feet of yourself, which can include you. The total number of Temporary Hit Points equals 2d8 plus your Paladin level, divided among the chosen creatures however you like."
+				}, 
+				{
+					"name": "Oath of Glory Spells.",
+					"level":  3,
+					"description": "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oath of Glory Spells table, you thereafter always have the listed spells prepared."
+				}, 
+				{
+					"name": "Peerless Athlete",
+					"level":  3,
+					"description": "As a Bonus Action, you can expend one use of your Channel Divinity to augment your athleticism. For 1 hour, you have Advantage on Strength (Athletics) and Dexterity (Acrobatics) checks, and the distance of your Long and High Jumps increases by 10 feet (this extra distance costs movement as normal)."
+				}, 
+				{
+					"name": "Aura of Alacrity",
+					"level":  7,
+					"description": "Your Speed increases by 10 feet. In addition, whenever an ally enters your Aura of Protection for the first time on a turn or starts their turn there, the ally's Speed increases by 10 feet until the end of their next turn."
+				}, 
+				{
+					"name": "Glorious Defense",
+					"level":  15,
+					"description": "You can turn defense into a sudden strike. When you or another creature you can see within 10 feet of you is hit by an attack roll, you can take a Reaction to grant a bonus to the target's AC against that attack, potentially causing it to miss. The bonus equals your Charisma modifier (minimum of +1). If the attack misses, you can make one attack with a weapon against the attacker as part of this Reaction if the attacker is within your weapon's range. You can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a Long Rest."
+				}, 
+				{
+					"name": "Living Legend",
+					"level":  20,
+					"description": "You can empower yourself with the legends - whether true or exaggerated - of your great deeds. As a Bonus Action, you gain the benefits below for 10 minutes. Once you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Charismatic. You are blessed with an otherworldly presence and have Advantage on all Charisma checks. Saving Throw Reroll. If you fail a saving throw, you can take a Reaction to reroll it. You must use this new roll. Unerring Strike. Once on each of your turns when you make an attack roll with a weapon and miss, you can cause that attack to hit instead."
+				}
+			]
+		}, 
+		{
+			"name": "Oath of the Ancients",
+			"features": [
+				{
+					"name": "Nature's Wrath",
+					"level":  3,
+					"description": "As a Magic action, you can expend one of your uses of Channel Divinity to conjure spectral vines around nearby creatures. Each creature of your choice that you can see within 15 feet of yourself must succeed on a Strength saving throw or have the Restrained condition for 1 minute. A Restrained creature repeats the save at the end of each of its turns, ending the effect on a success."
+				}, 
+				{
+					"name": "Oath of the Ancients Spells",
+					"level":  3,
+					"description": "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oath of the Ancients Spells table, you thereafter always have the listed spells prepared."
+				}, 
+				{
+					"name": "Aura of Warding",
+					"level":  7,
+					"description": "Ancient magic lies so heavily upon you that it forms an eldritch ward, blunting energy from beyond the Material Plane; you and your allies have Resistance to Necrotic, Psychic and Radiant damage while in your Aura of Protection."
+				}, 
+				{
+					"name": "Undying Sentinel",
+					"level":  15,
+					"description": "When you are reduced to 0 Hit Points and not killed outright, you can drop to 1 Hit Point instead, and regain a number of Hit Points equal to three times your Paladin level. Once you use this feature, you can't do so again until you finish a Long Rest. Additionally, you can't be aged magically, and you cease visibly aging."
+				}, 
+				{
+					"name": "Elder Champion",
+					"level":  20,
+					"description": "As a Bonus Action, you can imbue your Aura of Protection with primal power, granting the benefits below for 1 minute or until you end them (no action required). Once you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Diminish Defiance. Enemies in the aura have Disadvantage on saving throws against your spells and Channel Divinity options. Regeneration. At the start of each of your turns, you regain 10 Hit Points. Swift Spells. Whenever you cast a spell that has a casting time of an action, you can cast it using a Bonus Action instead."
+				}
+			]
+		}, 
+		{
+			"name": "Oath of the Noble Genies",
+			"features": [
+				{
+					"name": "Elemental Smite",
+					"level":  3,
+					"description": "Immediately after you cast Divine Smite , you can expend one use of your Channel Divinity and invoke one of the following effects. Dao’s Crush. Earth rises up around the target of your Divine Smite. The target has the Grappled condition (escape DC equal to your spell save DC). While Grappled, the target has the Restrained condition. Djinni’s Escape. You teleport to an unoccupied space you can see within 30 feet of yourself and take on a semi-incorporeal form, which lasts until the end of your next turn. While in this form, you have Resistance to Bludgeoning, Piercing, and Slashing damage, and you have Immunity to the Grappled, Prone, and Restrained conditions. Efreeti’s Fury. The target of your Divine Smite takes an extra 2d4 Fire damage, and fire jumps from the target to another creature you can see within 30 feet of yourself. The second creature also takes 2d4 Fire damage. Marid’s Surge. The target of your Divine Smite and each creature of your choice in a 10-foot Emanation originating from you make a Strength saving throw against your spell save DC. On a failed save, a creature is pushed 15 feet straight away from you and has the Prone condition."
+				}, 
+				{
+					"name": "Genie Spells",
+					"level":  3,
+					"description": "When you reach a Paladin level specified in the Genie Spells table, you thereafter always have the listed spells prepared"
+				}, 
+				{
+					"name": "Genie's Splendor",
+					"level":  3,
+					"description": "When you aren’t wearing any armor, your base Armor Class equals 10 plus your Dexterity and Charisma modifiers. You can use a Shield and still gain this benefit. You also gain proficiency in one of the following skills of your choice: Acrobatics, Intimidation, Performance, or Persuasion."
+				}, 
+				{
+					"name": "Aura of Elemental Shielding",
+					"level":  7,
+					"description": "Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. You and your allies have Resistance to that damage type while in your Aura of Protection. At the start of each of your turns, you can change the damage type affected by this feature to one of the other listed options (no action required)."
+				}, 
+				{
+					"name": "Elemental Rebuke",
+					"level":  15,
+					"description": "When you are hit by an attack roll, you can take a Reaction to halve the attack’s damage against yourself (round down) and force the attacker to make a Dexterity saving throw against your spell save DC. On a failed save, the attacker takes damage equal to 2d10 plus your Charisma modifier of one of the following types (your choice): Acid, Cold, Fire, Lightning, or Thunder. On a successful save, the attacker takes half as much damage. You can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a Long Rest."
+				}, 
+				{
+					"name": "Noble Scion",
+					"level":  20,
+					"description": "As a Bonus Action, you gain the benefits below for 10 minutes or until you end them (no action required). Once you use this feature, you can’t use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Flight. You have a Fly Speed of 60 feet and can hover. Minor Wish. When you or an ally in your Aura of Protection fails a D20 Test, you can take a Reaction to make you or that ally succeed instead."
+				}
+			]
+		}, 
+		{
+			"name": "Oath of Vengeance",
+			"features": [
+				{
+					"name": "Oath of Vengeance Spells",
+					"level":  3,
+					"description": "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oath of Vengeance Spells table, you thereafter always have the listed spells prepared."
+				}, 
+				{
+					"name": "Vow of Enmity",
+					"level":  3,
+					"description": "When you take the Attack action, you can expend one use of your Channel Divinity to utter a vow of enmity against a creature you can see within 30 feet of yourself. You have Advantage on attack rolls against the creature for 1 minute or until you use this feature again. If the creature drops to 0 Hit Points before the vow ends, you can transfer the vow to a different creature within 30 feet of yourself (no action required)."
+				}, 
+				{
+					"name": "Relentless Avenger",
+					"level":  7,
+					"description": "Your supernatural focus helps you close off a foe's retreat. When you hit a creature with an Opportunity Attack, you can reduce the creature's Speed to 0 until the end of the current turn. You can then move up to half your Speed as part of the same Reaction. This movement doesn't provoke Opportunity Attacks."
+				}, 
+				{
+					"name": "Soul of Vengeance",
+					"level":  15,
+					"description": "Immediately after a creature under the effect of your Vow of Enmity hits or misses with an attack roll, you can take a Reaction to make a melee attack against that creature if it's within range."
+				}, 
+				{
+					"name": "Avenging Angel",
+					"level":  20,
+					"description": "As a Bonus Action, you gain the benefits below for 10 minutes or until you end them (no action required). Once you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Flight. You sprout spectral wings on your back and have a Fly Speed of 60 feet, and can hover. Frightful Aura. Whenever an enemy starts its turn in your Aura of Protection, that creature must succeed on a Wisdom saving throw or have the Frightened condition for 1 minute or until it takes any damage. Attack rolls against the Frightened creature have Advantage."
+				}
+			]
+		}
+	]
 }

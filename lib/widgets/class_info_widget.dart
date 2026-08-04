@@ -42,7 +42,7 @@ class SectionWidget extends StatelessWidget {
                   style: TextStyleService.getTextStyle((SettingsService.getSetting(style)=="sheet" || SettingsService.getSetting(style)=="popUp")?3:4, 4),
                 );
 
-          return DescriptionWidget(displayTitle, subtitle, body, style, titleLevel: 2, subtitleLevel: 3,);
+          return DescriptionWidget(displayTitle, subtitle, body, style, titleLevel: (SettingsService.getSetting(style)=="popUp")?3:2, subtitleLevel: 3,);
         }),
       ],
     );

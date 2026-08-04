@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +39,7 @@ class ItemWidget extends StatelessWidget{
       
     return GestureDetector(
       onTap: () => {
+        print(classData),
         Navigator.of(context).push(
           MaterialPageRoute(builder: (BuildContext context)=>ItemPage(classData["json"],id))
         ),

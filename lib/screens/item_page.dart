@@ -35,6 +35,7 @@ import 'package:dnd_app/widgets/class_info_widget.dart';
 
     Future<void> loadOptions(String path) async {
       items=await JsonService.loadFromPath(path);
+      print(items);
       setState(() {
         type=items["catId"];
         name=items["name"];
