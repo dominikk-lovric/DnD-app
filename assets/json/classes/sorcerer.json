@@ -7,9 +7,21 @@
 	},
 	"hitDie": "d6",
 	"savingThrows": ["Con", "Cha"],
-	"casterLevel":  0,
-	"spellcastingAbility": "Cha",
 	"spells": {
+		"casterLevel":  1,
+		"spellcastingAbility": "Cha",
+		"cantrips":[4,4,4,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6],
+		"prepared spells":[2,4,6,7,9,10,11,12,13,14,15,16,16,17,17,18,19,20,21,22],
+		"1st": [2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+		"2nd": [0, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"3rd": [0, 0, 0, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
+		"6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2],
+		"7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2],
+		"8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
+		"9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+
 	},
 	"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	"proficiencies": [
@@ -43,7 +55,8 @@
 		{
 			"name": "Innate Sorcery",
 			"level":  1,
-			"description": "An event in your past left an indelible mark on you, infusing you with simmering magic. As a Bonus Action, you can unleash that magic for 1 minute, during which you gain the following benefits: The spell save DC of your Sorcerer spells increases by 1. You have Advantage on the attack rolls of Sorcerer spells you cast. You can use this feature twice, and you regain all expended uses of it when you finish a Long Rest."
+			"description": "An event in your past left an indelible mark on you, infusing you with simmering magic. As a Bonus Action, you can unleash that magic for 1 minute, during which you gain the following benefits: The spell save DC of your Sorcerer spells increases by 1. You have Advantage on the attack rolls of Sorcerer spells you cast. You can use this feature twice, and you regain all expended uses of it when you finish a Long Rest.",
+			"sorcery points": [0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 		}, 
 		{
 			"name": "Font of Magic",

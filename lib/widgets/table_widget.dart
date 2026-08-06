@@ -18,9 +18,13 @@ class TableWidget extends StatelessWidget{
         children: [
           ...names.map(
             (name)=>Center(
-              child: Text(
-                name.toString(),
-                style: TextStyleService.getTextStyle(3, 4),
+              child: Padding(
+                padding: EdgeInsetsGeometry.all(10),
+                child:Text(
+                  name.toString(),
+                  style: TextStyleService.getTextStyle(3, 4),
+                  maxLines: 1,
+                ),
               ),
             )
           )
@@ -48,10 +52,7 @@ class TableWidget extends StatelessWidget{
                   verticalInside: BorderSide(color: ColorService.getColor(4), width: 1),
                   horizontalInside: BorderSide(color: ColorService.getColor(4), width: 1),
                 ),
-                columnWidths: <int,TableColumnWidth>{
-                  0:FlexColumnWidth(),
-                  1:FlexColumnWidth(),
-                },
+                defaultColumnWidth: IntrinsicColumnWidth(),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: rows,
               );

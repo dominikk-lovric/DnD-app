@@ -1,4 +1,6 @@
-  import 'package:flutter/material.dart';
+  import 'package:dnd_app/services/map_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
+import 'package:flutter/material.dart';
 
   import 'package:dnd_app/services/json_service.dart';
   import 'package:dnd_app/services/settings_service.dart';
@@ -7,10 +9,12 @@
   import 'package:dnd_app/widgets/item_widget.dart';
   import 'package:dnd_app/widgets/category_selector_widget.dart';
 
+
   class WikiPage extends StatefulWidget{
-    const WikiPage(this.categoryNum, {super.key});
+    const WikiPage(this.categoryNum, this.sortKey,{super.key});
 
     final int categoryNum;
+    final String sortKey;
 
     @override
     State<WikiPage> createState() => _WikiState();
@@ -35,7 +39,7 @@
     @override
     void initState() {
       super.initState();
-      loadOptions(categories[0]);
+      loadOptions(categories[0], widget.sortKey);
     }
 
     @override
@@ -44,17 +48,14 @@
       super.dispose();
     }
 
-    Future<void> loadOptions(String file) async {
+    Future<void> loadOptions(String file, String sortKey) async {
       final json = JsonService(file);
       Map<String, dynamic> items = await json.loadData(); 
 
       final keys = items.keys.toList()..sort();
 
-      Map<String, dynamic> sorted={};
 
-      for (final key in keys) {
-      sorted[key] = items[key];
-      }
+      Map<String, dynamic> sorted=MapService.sortMap("sort",items, sortKey);
       
       setState(() {
         data=sorted;
@@ -108,7 +109,7 @@
               itemCount: categories.length,
 
               onPageChanged: (index) {
-                loadOptions(categories[index]);
+                loadOptions(categories[index], widget.sortKey);
                 categoryKey.currentState?.focusCategory(categories[index]);
               },
 
@@ -127,10 +128,40 @@
                 return ListView.builder(
                   itemCount: items.length,
                   itemBuilder: (context, itemIndex) {
-                    return ItemWidget(
-                      items[itemIndex],
-                      data[items[itemIndex]],
-                      category,
+                    String name=data[items[itemIndex]][widget.sortKey];
+                    final firstLetter= name[0].toUpperCase();
+
+                    final showSeparator = itemIndex==0||firstLetter!=data[items[itemIndex-1]][widget.sortKey][0].toUpperCase();
+
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if(showSeparator)
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsGeometry.directional(start: 30),
+                                child: Text(
+                                  firstLetter,
+                                  style: TextStyleService.getTextStyle(1, 4),
+                                ),  
+                              ),
+                              Divider(
+                                indent: 20,
+                                endIndent: 20,
+                                color: ColorService.getColor(4),
+                              )
+                            ],
+                          ),
+                        ItemWidget(
+                          items[itemIndex],
+                          data[items[itemIndex]],
+                          category,
+                        )
+                      ],
                     );
                   },
                 );

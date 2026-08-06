@@ -70,26 +70,44 @@ class ClassInfoWidget extends StatelessWidget{
 
     List<dynamic> archetypes = info["archetypes"];
 
-    List<dynamic> atts=info["attacksPerLevel"].toSet().toList();
-    List<dynamic> attackLevels=[];
-    int lastnum=0;
-    for(int i=0;i<20;i++){
-      if (lastnum!=info["attacksPerLevel"][i]){
-        attackLevels.add(i+1);
-        lastnum=info["attacksPerLevel"][i];
+    Map<String, dynamic> attacks= {};
+
+    Map<String,dynamic> spells={};
+
+    if(info["attacksPerLevel"][19].toString()!="1"){
+      List<dynamic> atts=info["attacksPerLevel"].toSet().toList();
+      List<dynamic> attackLevels=[];
+      int lastnum=0;
+      for(int i=0;i<20;i++){
+        if (lastnum!=info["attacksPerLevel"][i]){
+          attackLevels.add(i+1);
+          lastnum=info["attacksPerLevel"][i];
+        }
+      }
+
+      attacks= {
+        "Level":attackLevels,
+        "Attacks":atts
+      };
+    }
+
+    if(info["spells"]["casterLevel"]!=0){
+      List<dynamic> keys=info["spells"].keys.toList();
+      spells["level"]=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+      for (int i=0;i<keys.length;i++){
+        if(keys[i].toString().toLowerCase()!="casterlevel"&&keys[i].toString().toLowerCase()!="spellcastingability"){
+          spells[keys[i]]=info["spells"][keys[i]];
+        }
       }
     }
 
-    Map<String, dynamic> attacks= {
-      "Level":attackLevels,
-      "Attacks":atts
-    };
     return Column(
       spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SavingThrowWidget(info["savingThrows"]),
-        //spellcasting
+        if(info["spells"]["casterLevel"]!=0)
+          DescriptionWidget("Spellcasting", null, TableWidget(spells), "sectionDescriptionType"),
         if(info["attacksPerLevel"][19].toString()!="1")
           DescriptionWidget("Attacks per level",null,TableWidget(attacks),"sectionDescriptionType"),
         SectionWidget("Proficiencies", proficiencies, "proficiencyDisplayStyle"),
