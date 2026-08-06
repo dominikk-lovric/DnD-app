@@ -7,12 +7,17 @@
 	},
 	"hitDie": "d10",
 	"savingThrows": ["Str", "Dex"],
-	"casterLevel":  0.5,
+	"casterLevel":  0,
 	"spellcastingAbility": "Wis",
-	"attacksPerLevel": {
-		"1":  1,
-		"5":  2
+	"spells": {
+		"Prepared Spells": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
+		"1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+		"2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
+		"5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
 	},
+	"attacksPerLevel": [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	"proficiencies": [
 		{
 			"name": "Skill",
@@ -29,20 +34,7 @@
 		}
 	],
 	"startingEquipment": [["Studded Leather Armor", "Scimitar", "Shortsword", "Longbow", "20 Arrows", "Quiver", "Druidic Focus (sprig of mistletoe)", "Explorer's Pack and 7 GP"], ["150 GP"]],
-	"progression": [
-		{
-			"name": "Favored Enemy",
-			"value": [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6]
-		}, 
-		{
-			"Prepared Spells": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
-			"1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-			"2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
-			"5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
-		}
-	],
+	"progression": [],
 	"features": [
 		{
 			"name": "Spellcasting",
@@ -52,7 +44,8 @@
 		{
 			"name": "Favored Enemy",
 			"level":  1,
-			"description": "You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest. The number of times you can cast the spell without a spell slot increases when you reach certain Ranger Levels, as shown in the Favored Enemy column of the Ranger Features table."
+			"description": "You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest. The number of times you can cast the spell without a spell slot increases when you reach certain Ranger Levels, as shown in the Favored Enemy column of the Ranger Features table.",
+			"value": [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6]
 		}, 
 		{
 			"name": "Weapon Mastery",
@@ -133,6 +126,15 @@
 	"archetypes": [
 		{
 			"name": "Beast Master",
+			"traits": {
+				"STR (Mod/Save)": "DEX (Mod/Save)",
+				"14 (+2/+2)": "14 (+2/+2)",
+				"6 (-2/-2)": "16 (+3/+3)"
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Primal Companion",
@@ -158,6 +160,23 @@
 		}, 
 		{
 			"name": "Fey Wanderer",
+			"traits": {
+				"1": "Illusory butterflies flutter around you while you take a Short or Long Rest.",
+				"2": "Flowers bloom from your hair each dawn.",
+				"3": "You faintly smell of cinnamon, lavender, nutmeg, or another comforting herb or spice.",
+				"4": "Your shadow dances while no one is looking directly at it.",
+				"5": "Horns or antlers sprout from your head.",
+				"6": "Your skin and hair change color each dawn."
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spell",
+					"value": ["Charm Person", "Misty Step", "Summon Fey", "Dimension Door", "Mislead"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Dreadful Strikes",
@@ -193,6 +212,17 @@
 		}, 
 		{
 			"name": "Gloom Stalker",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Disguise Self", "Rope Trick", "Fear", "Greater Invisibility", "Seeming"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Dread Ambusher",
@@ -228,6 +258,17 @@
 		}, 
 		{
 			"name": "Hollow Warden",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Wrathful Smite", "Alter Self", "Phantom Steed", "Dominate Beast", "Steel Wind Strike"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Hollow Warden Spells",
@@ -258,6 +299,12 @@
 		}, 
 		{
 			"name": "Hunter",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Hunter's Lore",
@@ -288,6 +335,17 @@
 		}, 
 		{
 			"name": "Winter Walker",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Ice Knife", "Hold Person", "Remove Curse", "Ice Storm", "Cone of Cold"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Frigid Explorer",

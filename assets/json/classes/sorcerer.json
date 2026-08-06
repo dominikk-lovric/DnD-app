@@ -7,11 +7,11 @@
 	},
 	"hitDie": "d6",
 	"savingThrows": ["Con", "Cha"],
-	"casterLevel":  1,
+	"casterLevel":  0,
 	"spellcastingAbility": "Cha",
-	"attacksPerLevel": {
-		"1":  1
+	"spells": {
 	},
+	"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	"proficiencies": [
 		{
 			"name": "Skill",
@@ -30,18 +30,8 @@
 	"startingEquipment": [["Spear", "2 Daggers", "Arcane Focus (crystal)", "Dungeoneer's Pack", "and 28 GP"], ["50 GP"]],
 	"progression": [
 		{
-			"Sorcery Points": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-			"Cantrips": [4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
-			"Prepared Spells": [2, 4, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20, 21, 22],
-			"1st": [2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-			"2nd": [0, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"3rd": [0, 0, 0, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
-			"6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2],
-			"7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2],
-			"8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
-			"9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+			"name": "Sorcery Point Cost",
+			"value": [2, 3, 5, 7, 9]
 		}
 	],
 	"features": [
@@ -99,6 +89,17 @@
 	"archetypes": [
 		{
 			"name": "Aberrant Sorcery",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Arms of Hadar , Calm Emotions , Detect Thoughts , Dissonant Whispers , Mind Sliver", "Hunger of Hadar , Sending", "Evard's Black Tentacles , Summon Aberration", "Rary's Telepathic Bond , Telekinesis"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Psionic Spells",
@@ -134,6 +135,23 @@
 		}, 
 		{
 			"name": "Clockwork Sorcery",
+			"traits": {
+				"1": "Spectral cogwheels hover behind you.",
+				"2": "The hands of a clock spin in your eyes.",
+				"3": "Your skin glows with a brassy sheen.",
+				"4": "Floating equations and geometric objects overlay your body.",
+				"5": "Your Spellcasting Focus temporarily takes the form of a Tiny clockwork mechanism.",
+				"6": "The ticking of gears or ringing of a clock can be heard by you and those affected by your magic."
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Aid , Alarm , Lesser Restoration , Protection from Evil and Good", "Dispel Magic , Protection from Energy", "Freedom of Movement , Summon Construct", "Greater Restoration , Wall of Force"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Clockwork Spells",
@@ -164,6 +182,17 @@
 		}, 
 		{
 			"name": "Draconic Sorcery",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Alter Self , Chromatic Orb , Command , Dragon's Breath", "Fear , Fly", "Arcane Eye , Charm Monster", "Legend Lore , Summon Dragon"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Draconic Resilience",
@@ -194,6 +223,17 @@
 		}, 
 		{
 			"name": "Shadow Sorcery",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Bane , Darkness , Inflict Wounds , Pass Without Trace", "Hunger of Hadar , Nondetection", "Greater Invisibility , Phantasmal Killer", "Contagion , Creation"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Shadow Spells",
@@ -224,6 +264,17 @@
 		}, 
 		{
 			"name": "Spellfire Sorcery",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Cure Wounds , Guiding Bolt , Lesser Restoration , Scorching Ray", "Aura of Vitality , Dispel Magic", "Fire Shield , Wall of Fire", "Greater Restoration , Flame Strike"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Spellfire Burst",
@@ -254,6 +305,37 @@
 		}, 
 		{
 			"name": "Wild Magic Sorcery",
+			"traits": {
+				"01-04": "Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.",
+				"05-08": "A creature that is Friendly toward you appears in a random unoccupied space within 60 feet of you. The creature is under the DM’s control and disappears 1 minute later. Roll 1d4 to determine the creature: on a 1, a Modron Duodrone appears; on a 2, a Flumph appears; on a 3, a Modron Monodrone appears; on a 4, a Unicorn appears. See the Monster Manual for the creature’s stat block.",
+				"09-12": "For the next minute, you regain 5 Hit Points at the start of each of your turns.",
+				"13-16": "Creatures have Disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.",
+				"17-20": "You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll 1d8 to determine the effect: on a 1, you’re surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you Advantage on Wisdom (Perception) checks; on an 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a Remove Curse spell.",
+				"21-24": "For the next minute, all your spells with a casting time of an action have a casting time of a Bonus Action.",
+				"25-28": "You are transported to the Astral Plane until the end of your next turn. You then return to the space you previously occupied or the nearest unoccupied space if that space is occupied.",
+				"29-32": "The next time you cast a spell that deals damage within the next minute, don’t roll the spell’s damage dice for the damage. Instead use the highest number possible for each damage die.",
+				"33-36": "You have Resistance to all damage for the next minute.",
+				"37-40": "You turn into a potted plant until the start of your next turn. While you’re a plant, you have the Incapacitated condition and have Vulnerability to all damage. If you drop to 0 Hit Points, your pot breaks, and your form reverts.",
+				"41-44": "For the next minute, you can teleport up to 20 feet as a Bonus Action on each of your turns.",
+				"45-48": "You and up to three creatures you choose within 30 feet of you have the Invisible condition for 1 minute. This invisibility ends on a creature immediately after it makes an attack roll, deals damage, or casts a spell.",
+				"49-52": "A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to Magic Missile .",
+				"53-56": "You can take one extra action on this turn.",
+				"57-60": "You cast a random spell. If the spell normally requires Concentration, it doesn’t require Concentration in this case; the spell lasts for its full duration. Roll 1d10 to determine the spell: on a 1, Confusion ; on a 2, Fireball ; on a 3, Fog Cloud ; on a 4, Fly (cast on a random creature within 60 feet of you), on a 5, Grease ; on a 6, Levitate (cast on yourself); on a 7, Magic Missile (cast as a level 5 spell); on an 8, Mirror Image ; on a 9, Polymorph (cast on yourself), and if you fail the saving throw, you turn into a Goat (see appendix B); on a 10, See Invisibility .",
+				"61-64": "For the next minute, any flammable, nonmagical object you touch that isn’t being worn or carried by another creature bursts into flame, takes 1d4 Fire damage, and is burning.",
+				"65-68": "If you die within the next hour, you immediately revive as if by the Reincarnate spell.",
+				"69-72": "You have the Frightened condition until the end of your next turn. The DM determines the source of your fear.",
+				"73-76": "You teleport up to 60 feet to an unoccupied space you can see.",
+				"77-80": "A random creature within 60 feet of you has the Poisoned condition for 1d4 hours.",
+				"81-84": "You radiate Bright Light in a 30-foot radius for the next minute. Any creature that ends its turn within 5 feet of you has the Blinded condition until the end of its next turn.",
+				"85-88": "Up to three creatures of your choice that you can see within 30 feet of you take 1d10 Necrotic damage. You regain Hit Points equal to the sum of the Necrotic damage dealt.",
+				"89-92": "Up to three creatures of your choice that you can see within 30 feet of you take 4d10 Lightning damage.",
+				"93-96": "You and all creatures within 30 feet of you have Vulnerability to Piercing damage for the next minute.",
+				"97-00": "Roll 1d6: On a 1, you regain 2d10 Hit Points; on a 2, one ally of your choice within 300 feet of you regains 2d10 Hit Points; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17–20 affect you simultaneously."
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Wild Magic Surge",

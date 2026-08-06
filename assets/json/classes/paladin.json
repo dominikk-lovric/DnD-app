@@ -7,12 +7,17 @@
 	},
 	"hitDie": "d10",
 	"savingThrows": ["Wis", "Cha"],
-	"casterLevel":  0.5,
+	"casterLevel":  0,
 	"spellcastingAbility": "Cha",
-	"attacksPerLevel": {
-		"1":  1,
-		"5":  2
+	"spells": {
+		"Prepared Spells": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
+		"1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+		"2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+		"4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
+		"5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
 	},
+	"attacksPerLevel": [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
 	"proficiencies": [
 		{
 			"name": "Skill",
@@ -29,20 +34,7 @@
 		}
 	],
 	"startingEquipment": [["Chain Mail", "Shield", "Longsword", "6 Javelins", "Holy Symbol", "Priest's Pack and 9 GP"], ["150 GP"]],
-	"progression": [
-		{
-			"name": "Channel Divinity",
-			"value": [0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
-		}, 
-		{
-			"Prepared Spells": [2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15],
-			"1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-			"2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-			"4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
-			"5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
-		}
-	],
+	"progression": [],
 	"features": [
 		{
 			"name": "Lay On Hands",
@@ -72,7 +64,8 @@
 		{
 			"name": "Channel Divinity",
 			"level":  3,
-			"description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You start with one such effect: Divine Sense, which is described below. Other Paladin features give additional Channel Divinity effect options. Each time you use this class's Channel Divinity, you choose which effect from this class to create. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting Feature. Divine Sense. As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell."
+			"description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You start with one such effect: Divine Sense, which is described below. Other Paladin features give additional Channel Divinity effect options. Each time you use this class's Channel Divinity, you choose which effect from this class to create. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting Feature. Divine Sense. As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell.",
+			"value": [0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 		}, 
 		{
 			"name": "Paladin Subclass",
@@ -133,6 +126,17 @@
 	"archetypes": [
 		{
 			"name": "Oath of Devotion",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Protection from Evil and Good , Shield of Faith", "Aid , Zone of Truth", "Beacon of Hope , Dispel Magic", "Freedom of Movement , Guardian of Faith", "Commune , Flame Strike"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Oath of Devotion Spells",
@@ -163,6 +167,17 @@
 		}, 
 		{
 			"name": "Oath of Glory",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Guiding Bolt , Heroism", "Enhance Ability , Magic Weapon", "Haste , Protection from Energy", "Compulsion , Freedom of Movement", "Legend Lore , Yolande's Regal Presence"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Inspiring Smite",
@@ -198,6 +213,17 @@
 		}, 
 		{
 			"name": "Oath of the Ancients",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Ensnaring Strike , Speak with Animals", "Misty Step , Moonbeam", "Plant Growth , Protection from Energy", "Ice Storm , Stoneskin", "Commune with Nature , Tree Stride"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Nature's Wrath",
@@ -228,6 +254,17 @@
 		}, 
 		{
 			"name": "Oath of the Noble Genies",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Chromatic Orb , Elementalism , Thunderous Smite", "Mirror Image , Phantasmal Force", "Fly , Gaseous Form", "Conjure Minor Elementals , Summon Elemental", "Banishing Smite , Contact Other Plane"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Elemental Smite",
@@ -263,6 +300,17 @@
 		}, 
 		{
 			"name": "Oath of Vengeance",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Bane , Hunter's Mark", "Hold Person , Misty Step", "Haste , Protection from Energy", "Banishment , Dimension Door", "Hold Monster , Scrying"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Oath of Vengeance Spells",

@@ -11,8 +11,6 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from test import clean_text, split_or_list, get_page_content, detect_spellcasting_ability
-
 BASE_URL = "http://dnd2024.wikidot.com"
 CLASS_LIST_URL = f"{BASE_URL}/class:all"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; dnd2024-json-export/1.0)"}
@@ -24,6 +22,10 @@ ABILITY_ABBR = {
 }
 
 LEVEL_HEADER_RE = re.compile(r"^\s*Level\s+(\d+)\s*:\s*(.+?)\s*$", re.IGNORECASE)
+
+def clean_text(el):
+    return el.get_text(" ", strip=True)
+
 
 def printTabs(outputFile, n):
     print("\t"*n,end="", file=outputFile)
@@ -108,14 +110,24 @@ def getPageContent(soup: BeautifulSoup) -> Tag:
 def slugify(name):
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
-def computeAttacksPerLevel(features: list) -> dict:
+def computeAttacksPerLevel(features):
     result = {"1": 1}
     count = 1
     for feat in sorted(features, key=lambda f: f["level"]):
-        if feat["name"].strip().lower() == "extra attack":
+        if "extra attack" in feat["name"].strip().lower():
             count += 1
             result[str(feat["level"])] = count
-    return result
+    print(result)
+    attacks=[]
+    num=0
+    keys=result.keys()
+    keys=list(keys)
+    for i in range(20):
+        for key in keys:
+            if int(key)==i+1:
+                num+=1
+        attacks.append(num)
+    return attacks
 
 def parseTable(table):
     rows = table.find_all("tr")
@@ -123,7 +135,7 @@ def parseTable(table):
         return "unknown", rows
     header_cells = rows[0].find_all(["th", "td"])
     header_texts = [clean_text(c) for c in header_cells]
-    if header_texts and header_texts[0].strip().lower() == "level":
+    if header_texts and "level" in header_texts[0].strip().lower():
         return "progression", rows
     if len(header_texts) == 1 and header_texts[0].strip().lower() == "name":
         return "subclass", rows
@@ -146,7 +158,7 @@ def parseProgression(rows):
     a=0
     cells = firstRow.find_all(["th", "td"])
     for cell in cells:
-        if clean_text(cell).lower()=="level" or clean_text(cell).lower()=="proficiency bonus" or clean_text(cell).lower()=="features" or clean_text(cell).lower()=="class features":
+        if "level" in clean_text(cell).lower() or "proficiency bonus" in clean_text(cell).lower() or "features" in clean_text(cell).lower():
             a+=1
         else:
             items.append(
@@ -174,8 +186,7 @@ def parseProgression(rows):
             spells[items[i]["name"]]=items[i]["value"]
         else:
             progression.append(items[i])
-    progression.append(spells)
-    return progression
+    return progression, spells
 
 
 def parseSubclass(rows, base_url):
@@ -201,6 +212,7 @@ def getInfoFromSite(content, url):
     features:list=[]
     archetypeLinks=[]
     progression=[]
+    spells={}
     feature: Optional[dict] = None
 
 
@@ -219,7 +231,8 @@ def getInfoFromSite(content, url):
             if type=="traits":
                 traits.update(parseTraits(tableRows))
             elif type=="progression":
-                progression=progression+parseProgression(tableRows)
+                p,spells=parseProgression(tableRows)
+                progression=progression+p
                 progression=[f for f in progression if f]
             elif type=="subclass":
                 archetypeLinks=parseSubclass(tableRows, BASE_URL)
@@ -264,7 +277,7 @@ def getInfoFromSite(content, url):
     for f in features:
         f["description"]=" ".join(f["description"])
 
-    return traits, features, progression, archetypeLinks
+    return traits, features, progression, spells, archetypeLinks
 
 def splitOrList(text: str) -> list[str]:
     text = text.rstrip(".").strip()
@@ -350,14 +363,19 @@ def parseSubclassPage(sub_url, name_hint):
             f"Could not find page content for {sub_url}"
         )
 
-    traits, features, progression, subclass_links = (
+    traits, features, progression, spells, subclass_links = (
         getInfoFromSite(content, BASE_URL)
     )
 
-    name = name_hint or getPageTitle(soup)
+    attacks=computeAttacksPerLevel(features)
 
+    name = name_hint or getPageTitle(soup)
     return {
         "name": name,
+        "traits": traits,
+        **({"spells": spells if "1st" in spells else {}}),
+        "progression": progression,
+        **({"attacksPerLevel": attacks if len(attacks) > 1 else {}}),
         "features": [
             {
                 "name": f["name"],
@@ -375,7 +393,7 @@ def parseClassPage(name, url, id, fetchSubclasses=True):
     soup=fetchSoup(url)
     content=getPageContent(soup)
     slug=slugify(name)
-    traits, features, progression, archetypeLinks = getInfoFromSite(content, BASE_URL)
+    traits, features, progression, spells, archetypeLinks = getInfoFromSite(content, BASE_URL)
 
     proficiencies = []
     if "Skill Proficiencies" in traits:
@@ -395,6 +413,17 @@ def parseClassPage(name, url, id, fetchSubclasses=True):
     if "Starting Equipment" in traits:
         startingItems = parseStartingItems(traits["Starting Equipment"])
 
+    k=0
+    for f in features:
+        j=0;
+        for p in progression:
+            if f["name"].strip().lower() in p["name"].strip().lower():
+                features[k]["value"]=p["value"]
+                progression.pop(j)
+                break
+            j+=1
+        k+=1
+
     class_json = {
         "id": f"c{id}",
         "catId": "class",
@@ -404,12 +433,18 @@ def parseClassPage(name, url, id, fetchSubclasses=True):
         "savingThrows": parseSavingThrows(traits.get("Saving Throw Proficiencies", "")),
         "casterLevel": getCasterLevel(progression),
         "spellcastingAbility": detectSpellcastingAbility(features),
+        "spells":spells,
         "attacksPerLevel": computeAttacksPerLevel(features),
         "proficiencies": proficiencies,
         "startingEquipment": startingItems,
         "progression" : progression,
         "features": [
-            {"name": f["name"], "level": f["level"], "description": f["description"]}
+            {
+                "name": f["name"],
+                "level": f["level"],
+                "description": f["description"],
+                **({"value": f["value"]} if "value" in f else {}),
+            }
             for f in features
         ],
         "archetypes": [],

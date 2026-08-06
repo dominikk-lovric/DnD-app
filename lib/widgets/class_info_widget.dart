@@ -4,9 +4,10 @@ import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/list_widget.dart';
+import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:dnd_app/widgets/attack_number_widget.dart';
+import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:dnd_app/widgets/saving_throws_widget.dart';
 
 class SectionWidget extends StatelessWidget {
@@ -25,12 +26,10 @@ class SectionWidget extends StatelessWidget {
           final lastKey = item.keys.toList().last;
           final lastValue = item[lastKey];
 
-          // subtitle only exists for proficiency entries that have "options"
           final String? subtitle = item.containsKey("options")
               ? "Choose ${item["options"]} from:"
               : "";
 
-          // features get a "[level] name" title, everything else just uses name
           final String displayTitle = item.containsKey("level")
               ? "[${item["level"]}] ${item["name"]}"
               : item["name"];
@@ -40,7 +39,7 @@ class SectionWidget extends StatelessWidget {
               : Text(
                   lastValue?.toString() ?? "",
                   style: TextStyleService.getTextStyle((SettingsService.getSetting(style)=="sheet" || SettingsService.getSetting(style)=="popUp")?3:4, 4),
-                );
+          );
 
           return DescriptionWidget(displayTitle, subtitle, body, style, titleLevel: (SettingsService.getSetting(style)=="popUp")?3:2, subtitleLevel: 3,);
         }),
@@ -71,14 +70,28 @@ class ClassInfoWidget extends StatelessWidget{
 
     List<dynamic> archetypes = info["archetypes"];
 
+    List<dynamic> atts=info["attacksPerLevel"].toSet().toList();
+    List<dynamic> attackLevels=[];
+    int lastnum=0;
+    for(int i=0;i<20;i++){
+      if (lastnum!=info["attacksPerLevel"][i]){
+        attackLevels.add(i+1);
+        lastnum=info["attacksPerLevel"][i];
+      }
+    }
+
+    Map<String, dynamic> attacks= {
+      "Level":attackLevels,
+      "Attacks":atts
+    };
     return Column(
       spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SavingThrowWidget(info["savingThrows"]),
         //spellcasting
-        if(info["attacksPerLevel"].keys.toList().length>1)
-          AttackNumberWidget(info["attacksPerLevel"]),
+        if(info["attacksPerLevel"][19].toString()!="1")
+          DescriptionWidget("Attacks per level",null,TableWidget(attacks),"sectionDescriptionType"),
         SectionWidget("Proficiencies", proficiencies, "proficiencyDisplayStyle"),
         SectionWidget("Features", features, "featureDisplayStyle"),
         SectionWidget("Archetypes", archetypes, "archetypeDisplayStyle"),

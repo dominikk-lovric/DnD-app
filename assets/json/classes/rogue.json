@@ -9,9 +9,9 @@
 	"savingThrows": ["Dex", "Int"],
 	"casterLevel":  0,
 	"spellcastingAbility": "Int",
-	"attacksPerLevel": {
-		"1":  1
+	"spells": {
 	},
+	"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	"proficiencies": [
 		{
 			"name": "Skill",
@@ -32,12 +32,7 @@
 		}
 	],
 	"startingEquipment": [["Leather Armor", "2 Daggers", "Shortsword", "Shortbow", "20 Arrows", "Quiver", "Thieves' Tools", "Burglar's Pack and 8 GP"], ["100 GP"]],
-	"progression": [
-		{
-			"name": "Sneak Attack",
-			"value": ["1d6", "1d6", "2d6", "2d6", "3d6", "3d6", "4d6", "4d6", "5d6", "5d6", "6d6", "6d6", "7d6", "7d6", "8d6", "8d6", "9d6", "9d6", "10d6", "10d6"]
-		}
-	],
+	"progression": [],
 	"features": [
 		{
 			"name": "Expertise",
@@ -47,7 +42,8 @@
 		{
 			"name": "Sneak Attack",
 			"level":  1,
-			"description": "You know how to strike subtly and exploit a foe's distraction. Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack roll if you have Advantage on the roll and the attack uses a Finesse or a Ranged weapon. The extra damage's type is the same as the weapon's type. You don't need Advantage on the attack roll if at least one of your allies is within 5 feet of the target, the ally doesn't have the Incapacitated condition and you don't have Disadvantage on the attack roll. The extra damage increases as you gain Rogue levels, as shown in the Sneak Attack column of the Rogue Features table."
+			"description": "You know how to strike subtly and exploit a foe's distraction. Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack roll if you have Advantage on the roll and the attack uses a Finesse or a Ranged weapon. The extra damage's type is the same as the weapon's type. You don't need Advantage on the attack roll if at least one of your allies is within 5 feet of the target, the ally doesn't have the Incapacitated condition and you don't have Disadvantage on the attack roll. The extra damage increases as you gain Rogue levels, as shown in the Sneak Attack column of the Rogue Features table.",
+			"value": ["1d6", "1d6", "2d6", "2d6", "3d6", "3d6", "4d6", "4d6", "5d6", "5d6", "6d6", "6d6", "7d6", "7d6", "8d6", "8d6", "9d6", "9d6", "10d6", "10d6"]
 		}, 
 		{
 			"name": "Thieves' Cant",
@@ -133,6 +129,17 @@
 	"archetypes": [
 		{
 			"name": "Arcane Trickster",
+			"traits": {
+			},
+			"spells": {
+				"Prepared Spells": [3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13],
+				"1st": [2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+				"2nd": [0, 0, 0, 0, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+				"3rd": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 3, 3, 3, 3, 3],
+				"4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Spellcasting",
@@ -163,6 +170,12 @@
 		}, 
 		{
 			"name": "Assassin",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Assassinate",
@@ -193,6 +206,12 @@
 		}, 
 		{
 			"name": "Phantom",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Wails from the Grave",
@@ -228,6 +247,15 @@
 		}, 
 		{
 			"name": "Scion of the Three",
+			"traits": {
+				"Bane": "Psychic",
+				"Bhaal": "Poison",
+				"Myrkul": "Necrotic"
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Bloodthirst",
@@ -258,6 +286,21 @@
 		}, 
 		{
 			"name": "Soulknife",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Die Size",
+					"value": ["D6", "D8", "D8", "D10", "D10", "D12"]
+				}, 
+				{
+					"name": "Number",
+					"value": [4, 6, 8, 8, 10, 12]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Psionic Power",
@@ -288,6 +331,12 @@
 		}, 
 		{
 			"name": "Thief",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Fast Hands",

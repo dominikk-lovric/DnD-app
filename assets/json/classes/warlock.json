@@ -9,9 +9,12 @@
 	"savingThrows": ["Wis", "Cha"],
 	"casterLevel":  0,
 	"spellcastingAbility": "Int",
-	"attacksPerLevel": {
-		"1":  1
+	"spells": {
+		"Cantrips": [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15],
+		"Prepared Spells": [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4],
+		"Spell Slots": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
 	},
+	"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 	"proficiencies": [
 		{
 			"name": "Skill",
@@ -28,23 +31,13 @@
 		}
 	],
 	"startingEquipment": [["Leather Armor", "Sickle", "2 Daggers", "Arcane Focus (orb)", "Book (occult lore)", "Scholar's Pack and 15 GP"], ["100 GP"]],
-	"progression": [
-		{
-			"name": "Eldritch Invocations",
-			"value": [1, 3, 3, 3, 5, 5, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10]
-		}, 
-		{
-			"Cantrips": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-			"Prepared Spells": [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15],
-			"Spell Slots": [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4],
-			"Slot Level": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-		}
-	],
+	"progression": [],
 	"features": [
 		{
 			"name": "Eldritch Invocations",
 			"level":  1,
-			"description": "You have unearthed Eldritch Invocations , pieces of forbidden knowledge that imbue you with an abiding magical ability or other lessons. You gain one invocation of your choice, such as Pact of the Tome. Invocations are described in the “Eldritch Invocation Options” section later in this class’s description. Prerequisites. If an invocation has a prerequisite, you must meet it to learn that invocation. For example, if an invocation requires you to be a level 5+ Warlock, you can select the invocation once you reach Warlock level 5. Replacing and Gaining Invocations. Whenever you gain a Warlock level, you can replace one of your invocations with another one for which you qualify. You can’t replace an invocation if it’s a prerequisite for another invocation that you have. When you gain certain Warlock levels, you gain more invocations of your choice, as shown in the Invocations column of the Warlock Features table. You can’t pick the same invocation more than once unless its description says otherwise."
+			"description": "You have unearthed Eldritch Invocations , pieces of forbidden knowledge that imbue you with an abiding magical ability or other lessons. You gain one invocation of your choice, such as Pact of the Tome. Invocations are described in the “Eldritch Invocation Options” section later in this class’s description. Prerequisites. If an invocation has a prerequisite, you must meet it to learn that invocation. For example, if an invocation requires you to be a level 5+ Warlock, you can select the invocation once you reach Warlock level 5. Replacing and Gaining Invocations. Whenever you gain a Warlock level, you can replace one of your invocations with another one for which you qualify. You can’t replace an invocation if it’s a prerequisite for another invocation that you have. When you gain certain Warlock levels, you gain more invocations of your choice, as shown in the Invocations column of the Warlock Features table. You can’t pick the same invocation more than once unless its description says otherwise.",
+			"value": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 		}, 
 		{
 			"name": "Pact Magic",
@@ -90,6 +83,17 @@
 	"archetypes": [
 		{
 			"name": "Archfey Patron",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Calm Emotions , Faerie Fire , Misty Step , Phantasmal Force , Sleep", "Blink , Plant Growth", "Dominate Beast , Greater Invisibility", "Dominate Person , Seeming"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Archfey Spells",
@@ -120,6 +124,17 @@
 		}, 
 		{
 			"name": "Celestial Patron",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Aid , Cure Wounds , Guiding Bolt , Lesser Restoration , Light , Sacred Flame", "Daylight , Revivify", "Guardian of Faith , Wall of Fire", "Greater Restoration , Summon Celestial"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Celestial Spells",
@@ -150,6 +165,17 @@
 		}, 
 		{
 			"name": "Fiend Patron",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Burning Hands , Command , Scorching Ray , Suggestion", "Fireball , Stinking Cloud", "Fire Shield , Wall of Fire", "Geas , Insect Plague"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Dark One’s Blessing",
@@ -180,6 +206,17 @@
 		}, 
 		{
 			"name": "Great Old One Patron",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Detect Thoughts , Dissonant Whispers , Phantasmal Force , Tasha's Hideous Laughter", "Clairvoyance , Hunger of Hadar", "Confusion , Summon Aberration", "Modify Memory , Telekinesis"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Awakened Mind",
@@ -220,6 +257,17 @@
 		}, 
 		{
 			"name": "Undead Patron",
+			"traits": {
+			},
+			"spells": {
+			},
+			"progression": [
+				{
+					"name": "Spells",
+					"value": ["Bane , Blindness/Deafness , Phantasmal Force , Ray of Sickness", "Speak with Dead , Summon Undead", "Greater Invisibility , Phantasmal Killer", "Antilife Shell , Cloudkill"]
+				}
+			],
+			"attacksPerLevel": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			"features": [
 				{
 					"name": "Form of Dread",

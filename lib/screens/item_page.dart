@@ -1,6 +1,6 @@
   import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
-import 'package:dnd_app/widgets/attack_number_widget.dart';
+import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
   import 'package:flutter/material.dart';
 
