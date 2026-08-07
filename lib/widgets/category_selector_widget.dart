@@ -34,11 +34,22 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
   @override
   void initState() {
     super.initState();
-
     _itemKeys = List.generate(
       widget.categories.length,
       (_) => GlobalKey(),
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant CategorySelectorWdget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.categories.length != widget.categories.length) {
+      _itemKeys = List.generate(
+        widget.categories.length,
+        (_) => GlobalKey(),
+      );
+    }
   }
 
   void focusCategory(String category) {
@@ -58,6 +69,10 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
   Widget build(BuildContext context) {
     final itemWidth = MediaQuery.of(context).size.width / widget.categoryNumber;
     final double barHeight = widget.height/6;
+
+    if(widget.categories.isEmpty){
+      return SizedBox.shrink();
+    }
 
     return SizedBox(
       height: widget.height,

@@ -93,7 +93,9 @@ flutter:
     - assets/json/spells.json
     - assets/json/feats.json
     - assets/json/species.json
-    
+    - assets/json/backgrounds.json
+    - assets/json/categories.json
+  
     - assets/icons/base/classes/barbarian.jpg
     - assets/icons/base/classes/bard.jpg
     - assets/icons/base/classes/cleric.jpg
@@ -121,3 +123,30 @@ flutter:
     - assets/json/classes/sorcerer.json
     - assets/json/classes/warlock.json
     - assets/json/classes/wizard.json
+    - assets/json/species/aasimar.json
+
+    - assets/json/species/dragonborn.json
+    - assets/json/species/dwarf.json
+    - assets/json/species/elf.json
+    - assets/json/species/gnome.json
+    - assets/json/species/goliath.json
+    - assets/json/species/halfling.json
+    - assets/json/species/human.json
+    - assets/json/species/orc.json
+    - assets/json/species/tiefling.json
+    - assets/json/species/changeling.json
+    - assets/json/species/kalashtar.json
+    - assets/json/species/khoravar.json
+    - assets/json/species/shifter.json
+    - assets/json/species/warforged.json
+    - assets/json/species/boggart.json
+    - assets/json/species/faerie.json
+    - assets/json/species/flamekin.json
+    - assets/json/species/lorwyn.json
+    - assets/json/species/changeling.json
+    - assets/json/species/rimekin.json
+    - assets/json/species/dhampir.json
+    - assets/json/species/hexblood.json
+    - assets/json/species/lupin.json
+    - assets/json/species/reborn.json
+    - assets/json/species/dhampir.json

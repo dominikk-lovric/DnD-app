@@ -3,7 +3,7 @@
     "c2":{
         "name":"Bard",
         "Basics":{
-            "Primary": "Cha",
+            "Primary": ["Cha"],
             "Hit die": "d8",
             "Saves": ["Dex", "Cha"]
         },
@@ -15,7 +15,7 @@
     "c3":{
         "name":"Cleric",
         "Basics":{
-            "Primary": "Wis",
+            "Primary": ["Wis"],
             "Hit die": "d8",
             "Saves": ["Wis", "Cha"]
         },
@@ -27,7 +27,7 @@
     "c4":{
         "name":"Druid",
         "Basics":{
-            "Primary": "Wis",
+            "Primary": ["Wis"],
             "Hit die": "d8",
             "Saves": ["Int", "Wis"]
         },
@@ -39,7 +39,7 @@
     "c5":{
         "name":"Fighter",
         "Basics":{
-            "Primary": "Str or Dex",
+            "Primary": ["Str", "Dex"],
             "Hit die": "d10",
             "Saves": ["Str", "Con"]
         },
@@ -51,7 +51,7 @@
     "c6":{
         "name":"Monk",
         "Basics":{
-            "Primary": "Dex & Wis",
+            "Primary": ["Dex","Wis"],
             "Hit die": "d8",
             "Saves": ["Str", "Dex"]
         },
@@ -63,7 +63,7 @@
     "c7":{
         "name":"Paladin",
         "Basics":{
-            "Primary": "Str & Cha",
+            "Primary": ["Str","Cha"],
             "Hit die": "d10",
             "Saves": ["Wis", "Cha"]
         },
@@ -75,7 +75,7 @@
     "c8":{
         "name":"Ranger",
         "Basics":{
-            "Primary": "Dex & Wis",
+            "Primary": ["Dex","Wis"],
             "Hit die": "d10",
             "Saves": ["Str", "Dex"]
         },
@@ -87,7 +87,7 @@
     "c9":{
         "name":"Rogue",
         "Basics":{
-            "Primary": "Dex",
+            "Primary": ["Dex"],
             "Hit die": "d8",
             "Saves": ["Dex", "Int"]
         },
@@ -99,7 +99,7 @@
     "c10":{
         "name":"Sorcerer",
         "Basics":{
-            "Primary": "Cha",
+            "Primary": ["Cha"],
             "Hit die": "d6",
             "Saves": ["Con", "Cha"]
         },
@@ -111,7 +111,7 @@
     "c11":{
         "name":"Warlock",
         "Basics":{
-            "Primary": "Cha",
+            "Primary": ["Cha"],
             "Hit die": "d8",
             "Saves": ["Wis", "Cha"]
         },
@@ -123,7 +123,7 @@
     "c12":{
         "name":"Wizard",
         "Basics":{
-            "Primary": "Int",
+            "Primary": ["Int"],
             "Hit die": "d6",
             "Saves": ["Int", "Wis"]
         },
@@ -135,7 +135,7 @@
     "c1": {
         "name":"Barbarian",
         "Basics":{
-            "Primary": "Str",
+            "Primary": ["Str"],
             "Hit die": "d12",
             "Saves": ["Str", "Con"]
         },

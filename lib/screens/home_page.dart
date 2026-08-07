@@ -26,9 +26,12 @@ class HomePage extends StatelessWidget {
             centerTitle: true,
             toolbarHeight: SettingsService.getSetting("headerHeight"),
             actions: [
-              IconButton(
-                onPressed: (){Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>SettingsPage()),);},
-                icon: Icon(Icons.settings),
+              Padding(
+                padding: EdgeInsetsGeometry.directional(end: 10), 
+                child: IconButton(
+                  onPressed: (){Navigator.push(context, MaterialPageRoute<void>(builder: (context)=>SettingsPage()),);},
+                  icon: Icon(Icons.settings),
+                )
               )
             ],
           ),
@@ -43,7 +46,7 @@ class HomePage extends StatelessWidget {
                     foregroundColor: ColorService.getColor(4),
                     backgroundColor: ColorService.getColor(0),
                   ),
-                  onPressed: (){Navigator.push(context,MaterialPageRoute<void>(builder: (context) =>  WikiPage(4,"name"),),);}, 
+                  onPressed: (){Navigator.push(context,MaterialPageRoute<void>(builder: (context) =>  WikiPage(4),),);}, 
                   child: Text('Wiki',style: TextStyleService.getTextStyle(2, 4)),),
               ],
             )        

@@ -1,0 +1,22 @@
+{
+    "classes":{
+        "path":"assets/json/classes.json",
+        "sorting":["alphabetical","primary"]
+    },
+    "species":{
+        "path":"assets/json/species.json",
+        "sorting":["alphabetical"]
+    },
+    "spells":{
+        "path":"assets/json/spells.json",
+        "sorting":["alphabetical"]
+    },
+    "feats":{
+        "path":"assets/json/feats.json",
+        "sorting":["alphabetical"]
+    },
+    "backgrounds":{
+        "path":"assets/json/backgrounds.json",
+        "sorting":["alphabetical"]
+    }
+}

@@ -3,26 +3,21 @@ import 'package:flutter/services.dart';
 
 class MapService {
 
-  static Map<String, dynamic> sortMap(String sortType, Map<String, dynamic> info, [String key=""]){
+
+  static Map<String, dynamic> sortMap(String sortType, Map<String, dynamic> info, dynamic Function(Map<String,dynamic>)selector){
+
     String setting=SettingsService.getSetting(sortType);
     Map<String,dynamic> sorted={};
     if(setting.toLowerCase()=="alphabetical"){
-      if(key==""){
-        final keys = info.keys.toList()..sort();
-        for (final k in keys){
-          sorted[k]=info[k];
-        }
-      }else{
-        Map<String,dynamic> tmp={};
-        final keys = info.keys.toList();
-        for (final k in keys){
-          tmp[info[k][key]]=k;
-        }
-        final sortedKeys=tmp.keys.toList()..sort();
-        for (final k in sortedKeys){
-          sorted[tmp[k]]=info[tmp[k]];
-        }
-      }
+        final entries=info.entries.toList();
+
+        entries.sort(
+          (a,b){
+            return selector(a.value).compareTo(selector(b.value));
+          }
+        );
+
+        sorted= Map.fromEntries(entries);        
     }
     return sorted;
   }

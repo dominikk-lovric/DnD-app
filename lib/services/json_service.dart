@@ -15,8 +15,11 @@ class JsonService {
     try {
       final jsonString = await rootBundle.loadString(path);
       return json.decode(jsonString) as Map<String, dynamic>;
-    } catch (e) {
-      return {}; 
+    } catch (e, stackTrace) {
+      print("Error loading $path");
+      print(e);
+      print(stackTrace);
+    return {};
     }
   }
 

@@ -15,7 +15,8 @@ class SettingsService {
 
 
   static dynamic getSetting(String setting){
-    return _preferences.get(setting);
+    final set=_preferences.get(setting);
+    return set;
   }
 
   static Future<bool> setSetting(String setting, dynamic item){
@@ -29,6 +30,9 @@ class SettingsService {
       return _preferences.setBool(setting, item);
     }else if(item is Color){
       return _preferences.setInt(setting, item.toARGB32());
+    }
+    else if(item is List<String>){
+      return _preferences.setStringList(setting, item);
     }
     else{
       return Future.value(false);

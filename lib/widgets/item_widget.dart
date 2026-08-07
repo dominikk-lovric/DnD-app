@@ -29,10 +29,14 @@ class ItemWidget extends StatelessWidget{
     for(var i=0;i<items.length;i++){
       subtitle=subtitle+"   • "+names[i]+": ";
       if(items[i] is List){
-        subtitle=subtitle+(items[i] as List).join(", ");
+        if(names[i].toLowerCase()=="primary"){
+          subtitle=subtitle+(items[i] as List).join(" or ");
         }else{
-          subtitle=subtitle+items[i];
+          subtitle=subtitle+(items[i] as List).join(", ");
         }
+      }else{
+        subtitle=subtitle+items[i];
+      }
     }
     
     subtitle=subtitle.trimLeft();

@@ -50,7 +50,8 @@ class _MyApp extends State<MyApp>{
       await SettingsService.setSetting("featureDisplayStyle", "popUp");
       await SettingsService.setSetting("archetypeDisplayStyle", "sheet");
       await SettingsService.setSetting("sectionDescriptionType", "expand");
-      await SettingsService.setSetting("sort", "alphabetical");
+      await SettingsService.setSetting("wikiSorting", ["Primary", "alphabetical", "alphabetical", "alphabetical", "alphabetical"]);
+      await SettingsService.setSetting("groupItemsWiki", true);
       await SettingsService.setSetting("headerHeight",height * 0.14);
       await SettingsService.setSetting("listItemHeight",height * 0.10);
 

@@ -1,6 +1,8 @@
+
+
   import 'package:dnd_app/services/map_service.dart';
-import 'package:dnd_app/services/text_style_service.dart';
-import 'package:flutter/material.dart';
+  import 'package:dnd_app/services/text_style_service.dart';
+  import 'package:flutter/material.dart';
 
   import 'package:dnd_app/services/json_service.dart';
   import 'package:dnd_app/services/settings_service.dart';
@@ -10,11 +12,13 @@ import 'package:flutter/material.dart';
   import 'package:dnd_app/widgets/category_selector_widget.dart';
 
 
+
   class WikiPage extends StatefulWidget{
-    const WikiPage(this.categoryNum, this.sortKey,{super.key});
+    const WikiPage(this.categoryNum,{super.key});
+
+
 
     final int categoryNum;
-    final String sortKey;
 
     @override
     State<WikiPage> createState() => _WikiState();
@@ -22,8 +26,12 @@ import 'package:flutter/material.dart';
 
   class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
+    late dynamic Function(Map<String,dynamic>)selector;
+    bool? goruping;
+
     final PageController _pageController = PageController();  
-    List<dynamic> categories=["classes", "spells", "feats", "species", "a", "b", "c"];
+    late List<dynamic> categories=[];
+    late Map<String, dynamic> categoryData={};
     late String currentState="classes";
 
     Map<String, dynamic> data={};
@@ -39,7 +47,28 @@ import 'package:flutter/material.dart';
     @override
     void initState() {
       super.initState();
-      loadOptions(categories[0], widget.sortKey);
+      init();
+    }
+
+    Future<void> init() async {
+      await loadCategories();
+      getSelector(categories[0]);
+      await loadOptions(categories[0]);
+      sortData();
+    }
+
+    void getSelector(String category){
+      int index=categories.indexOf(category);
+      List<String> settings=SettingsService.getSetting("wikiSorting");
+      if(categoryData[categories[index]]["sorting"].contains(settings[index])){
+        if(settings[index]=="alphabetical"){
+          selector=(el)=>el["name"];
+        }else if(settings[index]=="primary"){
+          selector=(el)=>el["Basics"]["Primary"][0];
+        }
+      }else{
+        selector=(el)=>el["name"];
+      }
     }
 
     @override
@@ -48,28 +77,48 @@ import 'package:flutter/material.dart';
       super.dispose();
     }
 
-    Future<void> loadOptions(String file, String sortKey) async {
-      final json = JsonService(file);
-      Map<String, dynamic> items = await json.loadData(); 
-
-      final keys = items.keys.toList()..sort();
-
-
-      Map<String, dynamic> sorted=MapService.sortMap("sort",items, sortKey);
-      
+    Future<void> loadCategories() async {
+      final json = JsonService("categories");
+      Map<String, dynamic> items = await json.loadData();
       setState(() {
-        data=sorted;
+        categoryData=items;
+        categories=items.keys.toList();
+      });
+    }
+
+    Future<void> loadOptions(String file) async {
+      final json = JsonService(file);
+      Map<String, dynamic> items = await json.loadData();
+
+      setState(() {
+        data=items;
         currentState=file;
       });
     }
 
+    void sortData(){
+      Map<String, dynamic> sorted={};
+      Map<String, dynamic> alphabetized=MapService.sortMap("sort", data, (el)=>(el["name"])); 
+      List<dynamic> test=data.entries.toList();
+      if(test.isNotEmpty&&selector(test[0].value)!=null){
+        sorted=MapService.sortMap(
+          "sort",
+          alphabetized,
+          selector
+        );
+      }else{
+        sorted=alphabetized;
+      }
+      setState(() {
+        data=sorted;
+      });
+    }
 
     @override
     Widget build(BuildContext context) {
       headerHeight=SettingsService.getSetting("headerHeight")/2;
       listElementHeight=SettingsService.getSetting("listItemHeight");
       categoryNum=widget.categoryNum;
-      List<dynamic> items= (data.keys.toList());
 
       return AnimatedBuilder(
         animation: ColorService.themeNotifier,
@@ -82,12 +131,15 @@ import 'package:flutter/material.dart';
               backgroundColor: ColorService.getColor(0),
               foregroundColor: ColorService.getColor(4),
               centerTitle: true,
+              actions: [
+
+              ],
               bottom: PreferredSize(
                 preferredSize: Size.fromHeight(headerHeight),
                   child: CategorySelectorWdget(
                     height: headerHeight,
                     categoryNumber: categoryNum,
-                    categories: categories,
+                    categories: categoryData.keys.toList(),
                     currentState: currentState,
                     onCategorySelected: (category) {
                       final index = categories.indexOf(category);
@@ -108,8 +160,10 @@ import 'package:flutter/material.dart';
               controller: _pageController,
               itemCount: categories.length,
 
-              onPageChanged: (index) {
-                loadOptions(categories[index], widget.sortKey);
+              onPageChanged: (index) async {
+                await loadOptions(categories[index]);
+                getSelector(categories[index]);
+                sortData();
                 categoryKey.currentState?.focusCategory(categories[index]);
               },
 
@@ -128,11 +182,45 @@ import 'package:flutter/material.dart';
                 return ListView.builder(
                   itemCount: items.length,
                   itemBuilder: (context, itemIndex) {
-                    String name=data[items[itemIndex]][widget.sortKey];
-                    final firstLetter= name[0].toUpperCase();
+                    dynamic name=selector(data[items[itemIndex]]);
+                    String firstLetter="";
+                    bool showSeparator=false;
+                    String title="";
+                    if(name is String){
+                      firstLetter= name[0].toUpperCase();
+                      showSeparator = itemIndex==0||firstLetter!=selector(data[items[itemIndex-1]])[0].toUpperCase();
+                      if(categoryData[category]["sorting"].contains("primary")&&name==data[items[itemIndex]]["Basics"]["Primary"][0]){
+                        switch(name){
+                          case "Str":
+                            title="Strength";
+                            break;
+                          case "Dex":
+                            title="Dexterity";
+                            break;
+                          case "Con":
+                            title="Constitution";
+                            break;
+                          case "Int":
+                            title="Inteligence";
+                            break;
+                          case "Wis":
+                            title="Wisdom";
+                            break;
+                          case "Cha":
+                            title="Charisma";
+                            break;
+                          default:
+                          title="";
+                          break;
+                        }
+                      }else{
+                        title=firstLetter;
+                      }
+                    }
 
-                    final showSeparator = itemIndex==0||firstLetter!=data[items[itemIndex-1]][widget.sortKey][0].toUpperCase();
-
+                    if(!SettingsService.getSetting("groupItemsWiki")){
+                      showSeparator=false;
+                    }
                     return Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,15 +231,15 @@ import 'package:flutter/material.dart';
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsGeometry.directional(start: 30),
+                                padding: EdgeInsetsGeometry.directional(start: 15),
                                 child: Text(
-                                  firstLetter,
-                                  style: TextStyleService.getTextStyle(1, 4),
+                                  title,
+                                  style: TextStyleService.getTextStyle(2, 4),
                                 ),  
                               ),
                               Divider(
-                                indent: 20,
-                                endIndent: 20,
+                                indent: 5,
+                                endIndent: 5,
                                 color: ColorService.getColor(4),
                               )
                             ],
@@ -171,4 +259,66 @@ import 'package:flutter/material.dart';
         }
       );
     }
+/*
+  MenuAnchor menu= MenuAnchor(
+    builder: (context, controller, child) {
+      return IconButton(
+        icon: const Icon(Icons.tune),
+        onPressed: () {
+          controller.isOpen ? controller.close() : controller.open();
+        },
+      );
+    },
+    menuChildren: [
+      Padding(
+        padding: EdgeInsetsGeometry.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 10,
+          children: [
+            DropdownMenu(
+              label: Text("Sorting type"),
+              initialSelection: "alphabetical",
+              requestFocusOnTap: true,
+              dropdownMenuEntries: [
+                DropdownMenuEntry(value: "alphabetical", label: "Alphabetical"),
+              ],
+              onSelected: (value){
+
+              },
+            ),
+            DropdownMenu(
+              label: Text("Sort by"),
+              requestFocusOnTap: true,
+              dropdownMenuEntries:[
+                DropdownMenuEntry(value: (el)=>el["name"], label: "Name"),
+                DropdownMenuEntry(value: (el)=>el["Basics"]["Primary"], label: "Primary Ability")
+              ],
+            ),
+            RadioGroup<bool?>(
+              groupValue: goruping,
+              onChanged: (bool? value) async{
+                await SettingsService.setSetting("groupItemsWiki", value);
+              },
+              child: Row(
+                children: [
+                  RadioListTile(
+                    title: Text("yes"),
+                    value: true,
+                  ),
+                  RadioListTile(
+                    title: Text("no"),
+                    value: false,
+                  )
+                ],
+              )
+            )
+          ],
+        ),
+      )
+    ],
+  );
+  */
   }
+
