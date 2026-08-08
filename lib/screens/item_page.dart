@@ -14,7 +14,7 @@ import 'package:dnd_app/widgets/class_info_widget.dart';
     final String jsonPath;
     final String id;
 
-    ItemPage(this.jsonPath,this.id);
+    const ItemPage(this.jsonPath,this.id, {super.key});
 
     @override
     State<ItemPage> createState()=>_ItemPageState();

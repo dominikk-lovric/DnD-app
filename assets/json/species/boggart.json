@@ -2,9 +2,25 @@
   "id": "s16",
   "catId": "species",
   "name": "boggart",
-  "creatureType": "",
-  "size": [],
-  "speed": ,
-  "features": [],
-  "subspecies": []
+  "creatureType": "Humanoid",
+  "size": ["Small"],
+  "speed":  30,
+  "features": [
+    {
+      "name":"Darkvision",
+      "description":"You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+    },    
+    {
+      "name":"Fey Ancestry",
+      "description":"You have advantage on saving throws you make to avoid or end the charmed condition on yourself."
+    },    
+    {
+      "name":"Fury of the Small",
+      "description":"When you damage a creature with an attack or a spell and the creature’s size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your proficiency bonus. You can use this trait a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest, and you can use it no more than once per turn."
+    },    
+    {
+      "name":"Nimble Escape",
+      "description":"You can take the Disengage or Hide action as a bonus action on each of your turns."
+    }
+  ]
 }

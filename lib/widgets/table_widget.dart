@@ -46,7 +46,7 @@ class TableWidget extends StatelessWidget{
           ]
         )
       );
-    };
+    }
     return Table(
                 border: TableBorder(
                   verticalInside: BorderSide(color: ColorService.getColor(4), width: 1),

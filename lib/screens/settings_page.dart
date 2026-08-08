@@ -5,6 +5,8 @@ import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
 
 class SettingsPage extends StatelessWidget{
+  const SettingsPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {

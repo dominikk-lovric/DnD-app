@@ -190,7 +190,7 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
               ARGB[index]=0;
             });
             return;
-          };
+          }
           setState(() {
             ARGB[index] = n;
           });

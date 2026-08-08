@@ -6,7 +6,7 @@ class OptionalImageWidget extends StatefulWidget {
   final String path;
   final double height;
   
-  OptionalImageWidget(
+  const OptionalImageWidget(
     this.height,
     this.path,
     {super.key}

@@ -8,7 +8,7 @@ import 'package:dnd_app/services/color_service.dart';
     final List<String>allStats=["Str","Dex","Con","Int","Wis","Cha"];
     final List<dynamic> stats;
 
-    SavingThrowWidget( this.stats);
+    SavingThrowWidget( this.stats, {super.key});
 
     @override
     Widget build(BuildContext context) {

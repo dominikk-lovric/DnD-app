@@ -26,7 +26,7 @@ class SectionWidget extends StatelessWidget {
           final lastKey = item.keys.toList().last;
           final lastValue = item[lastKey];
 
-          final String? subtitle = item.containsKey("options")
+          final String subtitle = item.containsKey("options")
               ? "Choose ${item["options"]} from:"
               : "";
 

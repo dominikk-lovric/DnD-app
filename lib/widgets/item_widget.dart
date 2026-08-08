@@ -27,7 +27,7 @@ class ItemWidget extends StatelessWidget{
 
     String subtitle="";
     for(var i=0;i<items.length;i++){
-      subtitle=subtitle+"   • "+names[i]+": ";
+      subtitle="$subtitle   • "+names[i]+": ";
       if(items[i] is List){
         if(names[i].toLowerCase()=="primary"){
           subtitle=subtitle+(items[i] as List).join(" or ");

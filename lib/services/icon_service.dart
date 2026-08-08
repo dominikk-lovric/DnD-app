@@ -17,7 +17,7 @@ class IconService {
     static Image getIcon(
     String path) {
 
-      if (path == null || !path.isNotEmpty) {
+      if (!path.isNotEmpty) {
         return Image.asset(
         "assets/icons/"+SettingsService.getSetting("theme")+"/default.png",fit: BoxFit.cover,);
       }

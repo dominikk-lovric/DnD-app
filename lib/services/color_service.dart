@@ -16,7 +16,9 @@ import 'package:flutter/services.dart';
       if(col!=null) {
         List<int> parts=fromARGB32(col);
         return Color.fromARGB(parts[0], parts[1], parts[2], parts[3]);
-      }else return getBasicColor(color);
+      }else {
+        return getBasicColor(color);
+      }
     }
 
 

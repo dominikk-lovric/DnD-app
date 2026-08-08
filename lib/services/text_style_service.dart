@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
     static List<String> sizes=["Header", "SubHeader", "Category", "text", "additional"];
     static List<double> baseSizes=[55,45,35,25,15];
 
-    static TextStyle getTextStyle(int size, int color,  {double? Height=null, TextOverflow Overflow=TextOverflow.visible}){
+    static TextStyle getTextStyle(int size, int color,  {double? Height, TextOverflow Overflow=TextOverflow.visible}){
         return TextStyle(
           color: ColorService.getColor(color),
           fontSize: getFontSize(size),

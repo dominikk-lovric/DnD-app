@@ -1,5 +1,4 @@
 import 'package:dnd_app/services/settings_service.dart';
-import 'package:flutter/services.dart';
 
 class MapService {
 

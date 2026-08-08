@@ -2,9 +2,115 @@
   "id": "s4",
   "catId": "species",
   "name": "elf",
-  "creatureType": "",
-  "size": [],
-  "speed": ,
-  "features": [],
-  "subspecies": []
+  "creatureType": "Humanoid",
+  "size": ["Medium"],
+  "speed": 30,
+  "features": [
+    {
+      "name":"Darkvision",
+      "description":"You have Darkvision with a range of 60 feet."
+    },
+    {
+      "name":"Elven Lineage",
+      "description":"You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Elven Lineages table. You gain the level 1 benefit of that lineage.\nWhen you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level.\nIntelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage)."
+    },
+    {
+      "name":"Fey Ancestry",
+      "description":"You have Advantage on saving throws you make to avoid or end the Charmed condition."
+    },
+    {
+      "name":"Keen Senses",
+      "description":"You have proficiency in the Insight, Perception, or Survival skill."
+    },
+    {
+      "name":"Trance",
+      "description":"You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness."
+    }
+  ],
+  "subspecies": [
+    {
+      "name":"Drow",
+      "spells":{
+        "addedSpells":{
+          "1":["Dancing Lights"],
+          "3":["Faerie Fire"],
+          "5":["Darkness"]
+        }
+      },
+      "features":[
+        {
+          "name":"Drow Lineage",
+          "level":1,
+          "description":"The range of your Darkvision increases to 120 feet"
+        }
+      ]
+    },
+    {
+      "name":"High Elf",
+      "spells":{
+        "addedSpells":{
+          "1":["Prestidigitation"],
+          "3":["Detect Magic"],
+          "5":["Misty Step"]
+        }
+      },
+      "features":[
+        {
+          "name":"High Elf Lineage",
+          "level":1,
+          "description":"Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Wizard spell list."
+        }
+      ]
+    },
+    {
+      "name":"Wood Elf",
+      "speed":35,
+      "spells":{
+        "addedSpells":{
+          "1":["Druidcrafe"],
+          "3":["Longstrider"],
+          "5":["Pass without trace"]
+        }
+      },
+      "features":[
+        {
+          "name":"Wood Elf Lineage",
+          "level":1,
+          "description":"Your Speed increases to 35 feet."
+        }
+      ]
+    },
+    {
+      "name":"Lorwyn Elf",
+      "spells":{
+        "addedSpells":{
+          "1":["Thorn Whip"],
+          "3":["Command"],
+          "5":["Silence"]
+        }
+      },
+      "features":[
+        {
+          "name":"Lorwyn Elf Lineage",
+          "description":"You know the Thorn Whip cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Druid spell list."
+        }
+      ]
+    },
+    {
+      "name":"Shadowmoor Elf",
+      "spells":{
+        "addedSpells":{
+          "1":["Starry wisp"],
+          "3":["Heroism"],
+          "5":["Gentle Repose"]
+        }
+      },
+      "features":[
+        {
+          "name":"Shadowmoor Elf Lineage",
+          "description":"The range of your Darkvision increases to 120 feet. You also know the Starry Wisp cantrip."
+        }
+      ]
+    }
+  ]
 }

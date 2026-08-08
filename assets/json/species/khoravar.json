@@ -2,9 +2,35 @@
   "id": "s13",
   "catId": "species",
   "name": "khoravar",
-  "creatureType": "",
-  "size": [],
-  "speed": ,
-  "features": [],
+  "creatureType": "Humanoid",
+  "size": ["Medium", "Small"],
+  "speed": 30,
+  "spells":{
+    "addedSpells":{
+      "1":["Friends"]
+    }
+  },
+  "features": [
+    {
+      "name":"Darkvision",
+      "description":"You have Darkvision with a range of 60 feet."
+    },    
+    {
+      "name":"Fey Ancestry",
+      "description":"You have Advantage on saving throws you make to avoid or end the Charmed condition."
+    },    
+    {
+      "name":"Fey Gift",
+      "description":"You have Advantage on saving throws you make to avoid or end the Charmed condition."
+    },    
+    {
+      "name":"Lethargy Resilience",
+      "description":"When you fail a saving throw to avoid or end the Unconscious condition, you can succeed instead. Once you use this trait, you can’t do so again until you finish 1d4 Long Rests. "
+    },    
+    {
+      "name":"Skill Versatility",
+      "description":"You gain proficiency in one skill or with one tool of your choice. Whenever you finish a Long Rest, you can replace it with another skill or tool proficiency."
+    }
+  ],
   "subspecies": []
 }

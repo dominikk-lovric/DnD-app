@@ -2,9 +2,29 @@
   "id": "s15",
   "catId": "species",
   "name": "warforged",
-  "creatureType": "",
-  "size": [],
-  "speed": ,
-  "features": [],
-  "subspecies": []
+  "creatureType": "Construct",
+  "size": ["Medium", "Small"],
+  "speed": 30,
+  "features": [
+    {
+      "name":"Construct Resilience",
+      "description":"You have Resistance to Poison damage. You also have Advantage on saving throws to avoid or end the Poisoned condition."
+    },  
+    {
+      "name":"Integrated Protection",
+      "description":"You gain a +1 bonus to your Armor Class. In addition, armor you have donned can’t be removed against your will while you’re alive."
+    },  
+    {
+      "name":"Sentry's Rest",
+      "description":"You don’t need to sleep, and magic can’t put you to sleep. You can finish a Long Rest in 6 hours if you spend those hours in an inactive, motionless state. During this time, you appear inert but remain conscious."
+    },  
+    {
+      "name":"Specialized Design",
+      "description":"You gain one skill proficiency and one tool proficiency of your choice."
+    },  
+    {
+      "name":"Tireless",
+      "description":"You don’t gain Exhaustion levels from dehydration, malnutrition, or suffocation."
+    }
+  ]
 }
