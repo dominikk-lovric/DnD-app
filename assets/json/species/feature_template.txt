@@ -1,0 +1,30 @@
+{
+	"name":"",
+	"description":"",
+	"uses":{
+		"amount":,
+		"replenish":[
+			{
+				"amount":,
+				"condition":""
+			}
+		]
+	},
+	"usage":[
+		{
+			"activation":"",
+			"restriction":"",
+			"bonus":{
+				
+			},
+			"duration":
+		}
+	],
+	"options":{
+		"amount":,
+		"change":{
+			"event":"",
+			"amount":,
+		}
+	}
+}

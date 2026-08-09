@@ -38,7 +38,11 @@ import 'package:dnd_app/widgets/class_info_widget.dart';
       setState(() {
         type=items["catId"];
         name=items["name"];
-        icon=items["icon"][SettingsService.getSetting("theme")];
+        if(items.containsKey("icon")){
+          icon=items["icon"][SettingsService.getSetting("theme")];
+        }else{
+          icon="none";
+        } 
       });
     }
 

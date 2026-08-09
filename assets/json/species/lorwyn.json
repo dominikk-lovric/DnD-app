@@ -2,7 +2,7 @@
   "id": "s19",
   "catId": "species",
   "name": "lorwyn changeling",
-  "creatureType": "Fex",
+  "creatureType": "Fey",
   "size": ["Medium","Small"],
   "speed": 30,
   "features": [

@@ -125,6 +125,7 @@ flutter:
     - assets/json/classes/wizard.json
     - assets/json/species/aasimar.json
 
+    - assets/json/species/aasimar.json
     - assets/json/species/dragonborn.json
     - assets/json/species/dwarf.json
     - assets/json/species/elf.json
@@ -149,4 +150,3 @@ flutter:
     - assets/json/species/hexblood.json
     - assets/json/species/lupin.json
     - assets/json/species/reborn.json
-    - assets/json/species/dhampir.json

@@ -35,7 +35,7 @@ class ItemWidget extends StatelessWidget{
           subtitle=subtitle+(items[i] as List).join(", ");
         }
       }else{
-        subtitle=subtitle+items[i];
+        subtitle=subtitle+items[i].toString();
       }
     }
     
@@ -61,14 +61,16 @@ class ItemWidget extends StatelessWidget{
                 (icon!="none")?Padding(padding: EdgeInsetsGeometry.directional(top: 10, bottom: 10,  end: 10),child: OptionalImageWidget(
                 height*(8/10),
                 icon,
-                key: ValueKey(classData["name"]),)):SizedBox.shrink(),
+                key: ValueKey(classData["name"]),)):SizedBox(
+                  height: 100,
+                ),
                 Expanded(child: 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(classData["name"], style: TextStyleService.getTextStyle(1, 5, Overflow:TextOverflow.fade), maxLines: 1,),
-                      Text(subtitle, style: TextStyleService.getTextStyle(4, 6, Overflow:TextOverflow.fade),)
+                      Text(classData["name"], style: TextStyleService.getTextStyle(1, 5, Overflow:TextOverflow.clip), maxLines: 1,),
+                      Text(subtitle, style: TextStyleService.getTextStyle(4, 6, Overflow:TextOverflow.clip),maxLines: 1,)
                     ],                  
                   ),
                 ),
