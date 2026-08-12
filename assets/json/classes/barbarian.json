@@ -1,759 +1,783 @@
 {
-	"id": "c1",
-	"catId": "class",
-	"name": "Barbarian",
-	"icon": {
-		"base": "assets/icons/base/classes/barbarian.jpg"
-	},
-	"hitDie": "d12",
-	"savingThrows": ["Str", "Con"],
-	"spells": {
-		"casterLevel":  0,
-		"spellcastingAbility": "Int"
-	},
-	"attacksPerLevel": [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-	"proficiencies": [
-		{
-			"name": "Skill",
-			"options":  2,
-			"proficiencies": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
-		}, 
-		{
-			"name": "Armor",
-			"proficiencies": ["Light", "Medium", "Shields"]
-		}, 
-		{
-			"name": "Weapon",
-			"proficiencies": ["Simple", "Martial"]
-		}
-	],
-	"startingEquipment": [["Greataxe", "4 Handaxes", "Explorer’s Pack", "and 15 GP"], ["75 GP"]],
-	"features": [
-		{
-			"name": "Rage",
-			"level":  1,
-			"description": "You can imbue yourself with a primal power called Rage, a force that grants you extraordinary might and resilience. You can enter it as a Bonus Action if you aren't wearing Heavy armor. You can enter your Rage the number of times shown for your Barbarian level in the Rages column of the Barbarian Features table. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. While active, your Rage follows the rules below. Damage Resistance. You have Resistance to Bludgeoning, Piercing, and Slashing damage. Rage Damage. When you make an attack using Strength—with either a weapon or an Unarmed Strike—and deal damage to the target, you gain a bonus to the damage that increases as you gain levels as a Barbarian, as shown in the Rage Damage column of the Barbarian Features table. Strength Advantage. You have Advantage on Strength checks and Strength saving throws. No Concentration or Spells. You can't maintain Concentration, and you can't cast spells. Duration. The Rage lasts until the end of your next turn, and it ends early if you don Heavy armor or have the Incapacitated condition. If your Rage is still active on your next turn, you can extend the Rage for another round by doing one of the following: Make an attack roll against an enemy. Force an enemy to make a saving throw. Take a Bonus Action to extend your Rage. Each time the Rage is extended, it lasts until the end of your next turn. You can maintain a Rage for up to 10 minutes.",
-			"uses":{
-				"amount":[2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6],
-				"replenish":[
-					{
-						"amount":1,
-						"condition":"shortRest"
-					},
-					{
-						"amount":"all",
-						"condition":"longRest"
-					}
-				]
-			},
-			"usage":[
-				{
-					"activation":"bonusAction",
-					"resource":"Rage",
-					"restriction":"!heavyArmor",
-					"bonus":{
-						"attackStr":{
-							"type":"add",
-							"value":[2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4]
-						},
-						"resistance":{
-							"type":"add",
-							"value":["Bludgeoning", "Piercing", "Slashing"]
-						},
-						"savingThrows":{
-							"Str":{
-								"advantage":true
-							}
-						},
-						"status":{
-							"type":"add",
-							"value":"rage"
-						}
-					},
-					"duration":{
-						"for":{
-							"turns":1
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Unarmored Defense",
-			"level":  1,
-			"description": "While you aren't wearing any armor, your base Armor Class equals 10 plus your Dexterity and Constitution modifiers. You can use a Shield and still gain this benefit.",
-			"usage":[
-				{
-					"activation":"passive",
-					"restriction":"!armor",
-					"bonus":{
-						"AC":{
-							"type":"set",
-							"value":[10, "dexMod", "conMod"]
-						}
-					}
-				}
-			]
-			
-		}, 
-		{
-			"name": "Weapon Mastery",
-			"level":  1,
-			"description": "Your training with weapons allows you to use the mastery properties of two kinds of Simple or Martial Melee weapons of your choice, such as Greataxes and Handaxes. Whenever you finish a Long Rest, you can practice weapon drills and change one of those weapon choices. When you reach certain Barbarian levels, you gain the ability to use the mastery properties of more kinds of weapons, as shown in the Weapon Mastery column of the Barbarian Features table.",
-			"options":{
-				"amount":[2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-				"change":{
-					"event":"longRest",
-					"amount":1
-				},
-				"features":"assets/json/other/weaponMastery.json"
-			}
-		}, 
-		{
-			"name": "Danger Sense",
-			"level":  2,
-			"description": "You gain an uncanny sense of when things aren't as they should be, giving you an edge when you dodge perils. You have Advantage on Dexterity saving throws unless you have the Incapacitated condition.",
-			"usage":[
-				{
-					"activation":"passive",
-					"restriction":"!incapacitated",
-					"bonus":{
-						"savingThrows":{
-							"Dex":{
-								"advantage":true
-							}
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Reckless Attack",
-			"level":  2,
-			"description": "You can throw aside all concern for defense to attack with increased ferocity. When you make your first attack roll on your turn, you can decide to attack recklessly. Doing so gives you Advantage on attack rolls using Strength until the start of your next turn, but attack rolls against you have Advantage during that time.",
-			"usage":[
-				{
-					"activation":"action",
-					"bonus":{
-						"attackStr":{
-							"type":"add",
-							"value":"strMod"
-						},
-						"takenAttack":{
-							"advantage":true
-						},
-						"status":{
-							"type":"add",
-							"value":"reckless"
-						}
-					},
-					"duration":{
-						"until":{
-							"turns":1
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Barbarian Subclass",
-			"level":  3,
-			"description": "You gain a Barbarian subclass of your choice. The Path of the Berserker, Path of the Wild Heart, Path of the World Tree, and Path of the Zealot subclasses are detailed after this class’s description. A subclass is a specialization that grants you features at certain Barbarian levels. For the rest of your career, you gain each of your subclass’s features that are of your Barbarian level or lower."
-		}, 
-		{
-			"name": "Primal Knowledge",
-			"level":  3,
-			"description": "You gain proficiency in another skill of your choice from the skill list available to Barbarians at level 1. In addition, while your Rage is active, you can channel primal power when you attempt certain tasks; whenever you make an ability check using one of the following skills, you can make it as a Strength check even if it normally uses a different ability: Acrobatics, Intimidation, Perception, Stealth, or Survival. When you use this ability, your Strength represents primal power coursing through you, honing your agility, bearing, and senses.",
-			"usage":[
-				{
-					"activation":"passive",
-					"restriction":"rage",
-					"bonus":{
-						"Acrobatics":{
-							"type":"chMod",
-							"value":"strMod"
-						},
-						"Intimidation":{
-							"type":"chMod",
-							"value":"strMod"
-						},
-						"Perception":{
-							"type":"chMod",
-							"value":"strMod"
-						},
-						"Stealth":{
-							"type":"chMod",
-							"value":"strMod"
-						},
-						"Survival":{
-							"type":"chMod",
-							"value":"strMod"
-						}
-					}
-				}
-			],
-			"options":{
-				"amount":1,
-				"features":[
-					{
-						"name":"Primal Knowledge: Animal Handling",
-						"description":"You gain proficiency in the Animal Handling skill.",
-						"usage":[
-							{
-								"activation":"passive",
-								"bonus":{
-									"Animal Handling":{
-										"type":"setProf",
-										"value":"true"
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Primal Knowledge: Athletics",
-						"description":"You gain proficiency in the Athletics skill.",
-						"usage":[
-							{
-								"activation":"passive",
-								"bonus":{
-									"Athletics":{
-										"type":"setProf",
-										"value":"true"
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Primal Knowledge: Intimidation",
-						"description":"You gain proficiency in the Intimidation skill.",
-						"usage":[
-							{
-								"activation":"passive",
-								"bonus":{
-									"Intimidation":{
-										"type":"setProf",
-										"value":"true"
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Primal Knowledge: Nature",
-						"description":"You gain proficiency in the Nature skill.",
-						"usage":[
-							{
-								"activation":"passive",
-								"bonus":{
-									"Nature":{
-										"type":"setProf",
-										"value":"true"
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Primal Knowledge: Perception",
-						"description":"You gain proficiency in the Perception skill.",
-						"usage":[
-							{
-								"activation":"passive",
-								"bonus":{
-									"Perception":{
-										"type":"setProf",
-										"value":"true"
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Primal Knowledge: Survival",
-						"description":"You gain proficiency in the Survival skill.",
-						"usage":[
-							{
-								"activation":"passive",
-								"bonus":{
-									"Survival":{
-										"type":"setProf",
-										"value":"true"
-									}
-								}
-							}
-						]
-					}
-				]
-			}
-		}, 
-		{
-			"name": "Ability Score Improvement",
-			"level":  4,
-			"description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Barbarian levels 8, 12, and 16."
-		}, 
-		{
-			"name": "Extra Attack",
-			"level":  5,
-			"description": "You can attack twice instead of once whenever you take the Attack action on your turn.",
-			"usage":[
-				{
-					"activation":"passive",
-					"bonus":{
-						"attackNum":{
-							"type":"set",
-							"value":2
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Fast Movement",
-			"level":  5,
-			"description": "Your speed increases by 10 feet while you aren't wearing Heavy armor.",
-			"usage":[
-				{
-					"activation":"passive",
-					"restriction":"!heavyArmor",
-					"bonus":{
-						"speed":{
-							"type":"add",
-							"value":10
-						}	
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Feral Instinct",
-			"level":  7,
-			"description": "Your instincts are so honed that you have Advantage on Initiative rolls.",
-			"usage":[
-			{
-				"activation":"passive",
-				"bonus":{
-					"initiative":{
-						"type":"advantage",
-						"value":true
-					}	
-				}
-			}
-		]
-		}, 
-		{
-			"name": "Instinctive Pounce",
-			"level":  7,
-			"description": "As part of the Bonus Action you take to enter your Rage, you can move up to half your Speed.",
-			"usage":[
-				{
-					"activation":"passive",
-					"restriction":"rage",
-					"bonus":{
-						"speed":{
-							"type":"mul",
-							"value":1.5
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Brutal Strike",
-			"level":  9,
-			"description": "If you use Reckless Attack, you can forgo any Advantage on one Strength-based attack roll of your choice on your turn. The chosen attack roll mustn't have Disadvantage. If the chosen attack roll hits, the target takes an extra 1d10 damage of the same type dealt by the weapon or Unarmed Strike, and you can cause one Brutal Strike effect of your choice. You have the following effect options. Forceful Blow. The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks. Hamstring Blow. The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
-			"usage":[
-				{
-					"activation":"passive",
-					"restriction":["disadvantage","reckless"],
-					"bonus":{
-						"attack":{
-							"type":"advantage",
-							"value":false
-						},
-						"attackDamage":{
-							"type":"add",
-							"value":"d10"
-						}
-					}
-				}
-			],
-			"options":{
-				"amount":1,
-				"change":{
-					"event":"Reckless Attack",
-					"amount":1
-				},
-				"features":[
-					{
-						"name":"Forcefull Blow",
-						"description":"The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
-						"usage":[
-							{
-								"bonus":{
-									"target":{
-										"position":{
-											"direction":"away",
-											"amount":15
-										}
-									},
-									"speed":{
-										"type":"add",
-										"value":"half"
-									},
-									"opportunityAttacksTake":{
-										"type":"set",
-										"value":false	
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Hamstring blow",
-						"description":"The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
-						"usage":[
-							{
-								"bonus":{
-									"target":{
-										"speed":{
-											"type":"add",
-											"value":-15
-										}
-									}
-								}
-							}
-						]
-					}
-				]
-			}
-		}, 
-		{
-			"name": "Relentless Rage",
-			"level":  11,
-			"description": "Your Rage can keep you fighting despite grievous wounds. If you drop to 0 Hit Points while your Rage is active and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, your Hit Points instead change to a number equal to twice your Barbarian level. Each time you use this feature after the first, the DC increases by 5. When you finish a Short or Long Rest, the DC resets to 10.",
-			"usage":[
-				{
-					"activation":["downed", "rage"],
-					"restriction":"",
-					"save":{
-						"ability":"Con",
-						"dc":{
-							"type":"increment",
-							"base":10,
-							"amound":5,
-							"reset":[
-								"shortRest", "longRest"
-							]
-						},
-						"sucess":{
-							"hp":{
-								"type":"add",
-								"amount":"barbarianLevel*2"
-							}
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Improved Brutal Strike",
-			"level":  13,
-			"description": "You have honed new ways to attack furiously. The following effects are now among your Brutal Strike options. Staggering Blow. The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn. Sundering Blow. Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
-			"options": {
-			"amount": 1,
-			"features": [
-				{
-					"name":"Forcefull Blow",
-					"description":"The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
-					"usage":[
-						{
-							"bonus":{
-								"target":{
-									"position":{
-										"direction":"away",
-										"amount":15
-									}
-								},
-								"speed":{
-									"type":"add",
-									"value":"half"
-								},
-								"opportunityAttacksTake":{
-									"type":"set",
-									"value":false	
-								}
-							}
-						}
-					]
-				},
-				{
-					"name":"Hamstring blow",
-					"description":"The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
-					"usage":[
-						{
-							"bonus":{
-								"target":{
-									"speed":{
-										"type":"add",
-										"value":-15
-									}
-								}
-							}
-						}
-					]
-				},
-				{
-					"name": "Staggering Blow",
-					"description": "The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn.",
-					"usage": [
-						{
-							"bonus": {
-								"target": {
-									"savingThrows": {
-										"all": {
-											"disadvantage": true
-										}
-									},
-									"opportunityAttacksGive": {
-										"type": "set",
-										"value": false
-									}
-								}
-							},
-							"duration": {
-								"until": {
-									"turns": 1
-								}
-							}
-						}
-					]
-				},
-				{
-					"name": "Sundering Blow",
-					"description": "Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
-					"usage": [
-						{
-							"bonus": {
-								"target": {
-									"takenAttack": {
-										"type": "add",
-										"value": 5
-									}
-								}
-							},
-							"duration": {
-								"until": {
-									"attackTake": 1
-								}
-							}
-						}
-					]
-				}
-			]
-		}
-		}, 
-		{
-			"name": "Persistent Rage",
-			"level":  15,
-			"description": "When you roll Initiative, you can regain all expended uses of Rage. After you regain uses of Rage in this way, you can’t do so again until you finish a Long Rest. In addition, your Rage is so fierce that it now lasts for 10 minutes without you needing to do anything to extend it from round to round. Your Rage ends early if you have the Unconscious condition (not just the Incapacitated condition) or don Heavy armor.",
-			"usage": [
-				{
-					"activation": "initiative",
-					"bonus": {
-						"resource": {
-							"Rage": {
-								"type": "restore",
-								"value": "all"
-							}
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Improved Brutal Strike",
-			"level":  17,
-			"description": "The extra damage of your Brutal Strike increases to 2d10. In addition, you can use two different Brutal Strike effects whenever you use your Brutal Strike feature.",
-			"usage": [
-				{
-					"activation": "passive",
-					"bonus": {
-						"Brutal Strike": {
-							"attackDamage": {
-								"type": "add",
-								"value": "d10"
-							}
-						}
-					}
-				}
-			],
-			"options": {
-				"amount": 2,
-				"features": [
-					{
-						"name":"Forcefull Blow",
-						"description":"The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
-						"usage":[
-							{
-								"bonus":{
-									"target":{
-										"position":{
-											"direction":"away",
-											"amount":15
-										}
-									},
-									"speed":{
-										"type":"add",
-										"value":"half"
-									},
-									"opportunityAttacksTake":{
-										"type":"set",
-										"value":false	
-									}
-								}
-							}
-						]
-					},
-					{
-						"name":"Hamstring blow",
-						"description":"The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
-						"usage":[
-							{
-								"bonus":{
-									"target":{
-										"speed":{
-											"type":"add",
-											"value":-15
-										}
-									}
-								}
-							}
-						]
-					},
-					{
-						"name": "Staggering Blow",
-						"description": "The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn.",
-						"usage": [
-							{
-								"bonus": {
-									"target": {
-										"savingThrows": {
-											"all": {
-												"disadvantage": true
-											}
-										},
-										"opportunityAttacksGive": {
-											"type": "set",
-											"value": false
-										}
-									}
-								},
-								"duration": {
-									"until": {
-										"turns": 1
-									}
-								}
-							}
-						]
-					},
-					{
-						"name": "Sundering Blow",
-						"description": "Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
-						"usage": [
-							{
-								"bonus": {
-									"target": {
-										"takenAttack": {
-											"type": "add",
-											"value": 5
-										}
-									}
-								},
-								"duration": {
-									"until": {
-										"attackTake": 1
-									}
-								}
-							}
-						]
-					}
-				]
-			}
-		}, 
-		{
-			"name": "Indomitable Might",
-			"level":  18,
-			"description": "If your total for a Strength check or Strength saving throw is less than your Strength score, you can use that score in place of the total.",
-			"usage": [
-				{
-					"activation": "passive",
-					"bonus": {
-						"abilityChecks": {
-							"Str": {
-								"type": "minimum",
-								"value": "strScore"
-							}
-						},
-						"savingThrows": {
-							"Str": {
-								"type": "minimum",
-								"value": "strScore"
-							}
-						}
-					}
-				}
-			]
-		}, 
-		{
-			"name": "Epic Boon",
-			"level":  19,
-			"description": "You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Irresistible Offense is recommended.",
-			"options":{
-				"amount":1,
-				"features":"assets/json/feats/epicBoons.json"
-			}
-		}, 
-		{
-			"name": "Primal Champion",
-			"level":  20,
-			"description": "You embody primal power. Your Strength and Constitution scores increase by 4, to a maximum of 25.",
-			"usage": [
-				{
-					"activation": "passive",
-					"bonus": {
-						"Str": {
-							"type": "add",
-							"value": 4,
-							"maximum": 25
-						},
-						"Con": {
-							"type": "add",
-							"value": 4,
-							"maximum": 25
-						}
-					}
-				}
-			]
-		}
-	],
-	"archetypes": [
-		{
-			"name": "Path of the Berserker",
-			"path":"assets/json/classes/barbarian/berserker.json"
-		}, 
-		{
-			"name": "Path of the Wild Heart",
-			"path":"assets/json/classes/barbarian/wild_heart.json"
-		}, 
-		{
-			"name": "Path of the World Tree",
-			"path": "assets/json/classes/barbarian/world_tree.json"
-		}, 
-		{
-			"name": "Path of the Zealot",
-			"path": "assets/json/classes/barbarian/zealot.json"
-		}
-	]
+    "id": "c1",
+    "catId": "class",
+    "name": "Barbarian",
+    "icon": {
+        "base": "assets/icons/base/classes/barbarian.jpg"
+    },
+    "hitDie": "d12",
+    "savingThrows": ["Str", "Con"],
+    "spells": {
+        "casterLevel": 0,
+        "spellcastingAbility": "Int"
+    },
+    "attacksPerLevel": [
+        1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+    ],
+    "proficiencies": [
+        {
+            "name": "Skill",
+            "options": 2,
+            "proficiencies": [
+                "Animal Handling",
+                "Athletics",
+                "Intimidation",
+                "Nature",
+                "Perception",
+                "Survival"
+            ]
+        },
+        {
+            "name": "Armor",
+            "proficiencies": ["Light", "Medium", "Shields"]
+        },
+        {
+            "name": "Weapon",
+            "proficiencies": ["Simple", "Martial"]
+        }
+    ],
+    "startingEquipment": [
+        ["Greataxe", "4 Handaxes", "Explorer’s Pack", "and 15 GP"],
+        ["75 GP"]
+    ],
+    "features": [
+        {
+            "name": "Rage",
+            "level": 1,
+            "description": "You can imbue yourself with a primal power called Rage, a force that grants you extraordinary might and resilience. You can enter it as a Bonus Action if you aren't wearing Heavy armor. You can enter your Rage the number of times shown for your Barbarian level in the Rages column of the Barbarian Features table. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. While active, your Rage follows the rules below. Damage Resistance. You have Resistance to Bludgeoning, Piercing, and Slashing damage. Rage Damage. When you make an attack using Strength—with either a weapon or an Unarmed Strike—and deal damage to the target, you gain a bonus to the damage that increases as you gain levels as a Barbarian, as shown in the Rage Damage column of the Barbarian Features table. Strength Advantage. You have Advantage on Strength checks and Strength saving throws. No Concentration or Spells. You can't maintain Concentration, and you can't cast spells. Duration. The Rage lasts until the end of your next turn, and it ends early if you don Heavy armor or have the Incapacitated condition. If your Rage is still active on your next turn, you can extend the Rage for another round by doing one of the following: Make an attack roll against an enemy. Force an enemy to make a saving throw. Take a Bonus Action to extend your Rage. Each time the Rage is extended, it lasts until the end of your next turn. You can maintain a Rage for up to 10 minutes.",
+            "uses": {
+                "amount": [
+                    2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6
+                ],
+                "replenish": [
+                    {
+                        "amount": 1,
+                        "condition": "shortRest"
+                    },
+                    {
+                        "amount": [
+                            2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6,
+                            6, 6, 6
+                        ],
+                        "condition": "longRest"
+                    }
+                ]
+            },
+            "usage": [
+                {
+                    "activation": "bonusAction",
+                    "resource": "Rage",
+                    "restriction": "!heavyArmor",
+                    "bonus": {
+                        "attackStr": {
+                            "type": "add",
+                            "value": [
+                                2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4,
+                                4, 4, 4, 4
+                            ]
+                        },
+                        "resistance": {
+                            "type": "add",
+                            "value": ["Bludgeoning", "Piercing", "Slashing"]
+                        },
+                        "savingThrows": {
+                            "Str": {
+                                "advantage": true
+                            }
+                        },
+                        "status": {
+                            "type": "add",
+                            "value": "rage"
+                        }
+                    },
+                    "duration": {
+                        "for": {
+                            "turns": 1
+                        }
+                    }
+                }
+            ],
+            "other": {
+                "Rage damage": [
+                    2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4
+                ]
+            }
+        },
+        {
+            "name": "Unarmored Defense",
+            "level": 1,
+            "description": "While you aren't wearing any armor, your base Armor Class equals 10 plus your Dexterity and Constitution modifiers. You can use a Shield and still gain this benefit.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "restriction": "!armor",
+                    "bonus": {
+                        "AC": {
+                            "type": "set",
+                            "value": [10, "dexMod", "conMod"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Weapon Mastery",
+            "level": 1,
+            "description": "Your training with weapons allows you to use the mastery properties of two kinds of Simple or Martial Melee weapons of your choice, such as Greataxes and Handaxes. Whenever you finish a Long Rest, you can practice weapon drills and change one of those weapon choices. When you reach certain Barbarian levels, you gain the ability to use the mastery properties of more kinds of weapons, as shown in the Weapon Mastery column of the Barbarian Features table.",
+            "options": {
+                "amount": [
+                    2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
+                ],
+                "change": {
+                    "event": "longRest",
+                    "amount": 1
+                },
+                "features": "assets/json/other/weaponMastery.json"
+            }
+        },
+        {
+            "name": "Danger Sense",
+            "level": 2,
+            "description": "You gain an uncanny sense of when things aren't as they should be, giving you an edge when you dodge perils. You have Advantage on Dexterity saving throws unless you have the Incapacitated condition.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "restriction": "!incapacitated",
+                    "bonus": {
+                        "savingThrows": {
+                            "Dex": {
+                                "advantage": true
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Reckless Attack",
+            "level": 2,
+            "description": "You can throw aside all concern for defense to attack with increased ferocity. When you make your first attack roll on your turn, you can decide to attack recklessly. Doing so gives you Advantage on attack rolls using Strength until the start of your next turn, but attack rolls against you have Advantage during that time.",
+            "usage": [
+                {
+                    "activation": "action",
+                    "bonus": {
+                        "attackStr": {
+                            "type": "add",
+                            "value": "strMod"
+                        },
+                        "takenAttack": {
+                            "advantage": true
+                        },
+                        "status": {
+                            "type": "add",
+                            "value": "reckless"
+                        }
+                    },
+                    "duration": {
+                        "until": {
+                            "turns": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Barbarian Subclass",
+            "level": 3,
+            "description": "You gain a Barbarian subclass of your choice. The Path of the Berserker, Path of the Wild Heart, Path of the World Tree, and Path of the Zealot subclasses are detailed after this class’s description. A subclass is a specialization that grants you features at certain Barbarian levels. For the rest of your career, you gain each of your subclass’s features that are of your Barbarian level or lower."
+        },
+        {
+            "name": "Primal Knowledge",
+            "level": 3,
+            "description": "You gain proficiency in another skill of your choice from the skill list available to Barbarians at level 1. In addition, while your Rage is active, you can channel primal power when you attempt certain tasks; whenever you make an ability check using one of the following skills, you can make it as a Strength check even if it normally uses a different ability: Acrobatics, Intimidation, Perception, Stealth, or Survival. When you use this ability, your Strength represents primal power coursing through you, honing your agility, bearing, and senses.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "restriction": "rage",
+                    "bonus": {
+                        "Acrobatics": {
+                            "type": "chMod",
+                            "value": "strMod"
+                        },
+                        "Intimidation": {
+                            "type": "chMod",
+                            "value": "strMod"
+                        },
+                        "Perception": {
+                            "type": "chMod",
+                            "value": "strMod"
+                        },
+                        "Stealth": {
+                            "type": "chMod",
+                            "value": "strMod"
+                        },
+                        "Survival": {
+                            "type": "chMod",
+                            "value": "strMod"
+                        }
+                    }
+                }
+            ],
+            "options": {
+                "amount": 1,
+                "features": [
+                    {
+                        "name": "Primal Knowledge: Animal Handling",
+                        "description": "You gain proficiency in the Animal Handling skill.",
+                        "usage": [
+                            {
+                                "activation": "passive",
+                                "bonus": {
+                                    "Animal Handling": {
+                                        "type": "setProf",
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Primal Knowledge: Athletics",
+                        "description": "You gain proficiency in the Athletics skill.",
+                        "usage": [
+                            {
+                                "activation": "passive",
+                                "bonus": {
+                                    "Athletics": {
+                                        "type": "setProf",
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Primal Knowledge: Intimidation",
+                        "description": "You gain proficiency in the Intimidation skill.",
+                        "usage": [
+                            {
+                                "activation": "passive",
+                                "bonus": {
+                                    "Intimidation": {
+                                        "type": "setProf",
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Primal Knowledge: Nature",
+                        "description": "You gain proficiency in the Nature skill.",
+                        "usage": [
+                            {
+                                "activation": "passive",
+                                "bonus": {
+                                    "Nature": {
+                                        "type": "setProf",
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Primal Knowledge: Perception",
+                        "description": "You gain proficiency in the Perception skill.",
+                        "usage": [
+                            {
+                                "activation": "passive",
+                                "bonus": {
+                                    "Perception": {
+                                        "type": "setProf",
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Primal Knowledge: Survival",
+                        "description": "You gain proficiency in the Survival skill.",
+                        "usage": [
+                            {
+                                "activation": "passive",
+                                "bonus": {
+                                    "Survival": {
+                                        "type": "setProf",
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Ability Score Improvement",
+            "level": 4,
+            "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Barbarian levels 8, 12, and 16."
+        },
+        {
+            "name": "Extra Attack",
+            "level": 5,
+            "description": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "bonus": {
+                        "attackNum": {
+                            "type": "set",
+                            "value": 2
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Fast Movement",
+            "level": 5,
+            "description": "Your speed increases by 10 feet while you aren't wearing Heavy armor.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "restriction": "!heavyArmor",
+                    "bonus": {
+                        "speed": {
+                            "type": "add",
+                            "value": 10
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Feral Instinct",
+            "level": 7,
+            "description": "Your instincts are so honed that you have Advantage on Initiative rolls.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "bonus": {
+                        "initiative": {
+                            "type": "advantage",
+                            "value": true
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Instinctive Pounce",
+            "level": 7,
+            "description": "As part of the Bonus Action you take to enter your Rage, you can move up to half your Speed.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "restriction": "rage",
+                    "bonus": {
+                        "speed": {
+                            "type": "mul",
+                            "value": 1.5
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Brutal Strike",
+            "level": 9,
+            "description": "If you use Reckless Attack, you can forgo any Advantage on one Strength-based attack roll of your choice on your turn. The chosen attack roll mustn't have Disadvantage. If the chosen attack roll hits, the target takes an extra 1d10 damage of the same type dealt by the weapon or Unarmed Strike, and you can cause one Brutal Strike effect of your choice. You have the following effect options. Forceful Blow. The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks. Hamstring Blow. The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "restriction": ["disadvantage", "reckless"],
+                    "bonus": {
+                        "attack": {
+                            "type": "advantage",
+                            "value": false
+                        },
+                        "attackDamage": {
+                            "type": "add",
+                            "value": "d10"
+                        }
+                    }
+                }
+            ],
+            "options": {
+                "amount": 1,
+                "change": {
+                    "event": "Reckless Attack",
+                    "amount": 1
+                },
+                "features": [
+                    {
+                        "name": "Forcefull Blow",
+                        "description": "The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "position": {
+                                            "direction": "away",
+                                            "amount": 15
+                                        }
+                                    },
+                                    "speed": {
+                                        "type": "add",
+                                        "value": "half"
+                                    },
+                                    "opportunityAttacksTake": {
+                                        "type": "set",
+                                        "value": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Hamstring blow",
+                        "description": "The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "speed": {
+                                            "type": "add",
+                                            "value": -15
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Relentless Rage",
+            "level": 11,
+            "description": "Your Rage can keep you fighting despite grievous wounds. If you drop to 0 Hit Points while your Rage is active and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, your Hit Points instead change to a number equal to twice your Barbarian level. Each time you use this feature after the first, the DC increases by 5. When you finish a Short or Long Rest, the DC resets to 10.",
+            "usage": [
+                {
+                    "activation": ["downed", "rage"],
+                    "restriction": "",
+                    "save": {
+                        "ability": "Con",
+                        "dc": {
+                            "type": "increment",
+                            "base": 10,
+                            "amound": 5,
+                            "reset": ["shortRest", "longRest"]
+                        },
+                        "sucess": {
+                            "hp": {
+                                "type": "add",
+                                "amount": "barbarianLevel*2"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Improved Brutal Strike",
+            "level": 13,
+            "description": "You have honed new ways to attack furiously. The following effects are now among your Brutal Strike options. Staggering Blow. The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn. Sundering Blow. Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
+            "options": {
+                "amount": 1,
+                "features": [
+                    {
+                        "name": "Forcefull Blow",
+                        "description": "The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "position": {
+                                            "direction": "away",
+                                            "amount": 15
+                                        }
+                                    },
+                                    "speed": {
+                                        "type": "add",
+                                        "value": "half"
+                                    },
+                                    "opportunityAttacksTake": {
+                                        "type": "set",
+                                        "value": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Hamstring blow",
+                        "description": "The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "speed": {
+                                            "type": "add",
+                                            "value": -15
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Staggering Blow",
+                        "description": "The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "savingThrows": {
+                                            "all": {
+                                                "disadvantage": true
+                                            }
+                                        },
+                                        "opportunityAttacksGive": {
+                                            "type": "set",
+                                            "value": false
+                                        }
+                                    }
+                                },
+                                "duration": {
+                                    "until": {
+                                        "turns": 1
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Sundering Blow",
+                        "description": "Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "takenAttack": {
+                                            "type": "add",
+                                            "value": 5
+                                        }
+                                    }
+                                },
+                                "duration": {
+                                    "until": {
+                                        "attackTake": 1
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Persistent Rage",
+            "level": 15,
+            "description": "When you roll Initiative, you can regain all expended uses of Rage. After you regain uses of Rage in this way, you can’t do so again until you finish a Long Rest. In addition, your Rage is so fierce that it now lasts for 10 minutes without you needing to do anything to extend it from round to round. Your Rage ends early if you have the Unconscious condition (not just the Incapacitated condition) or don Heavy armor.",
+            "usage": [
+                {
+                    "activation": "initiative",
+                    "bonus": {
+                        "resource": {
+                            "Rage": {
+                                "type": "restore",
+                                "value": "all"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Improved Brutal Strike",
+            "level": 17,
+            "description": "The extra damage of your Brutal Strike increases to 2d10. In addition, you can use two different Brutal Strike effects whenever you use your Brutal Strike feature.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "bonus": {
+                        "Brutal Strike": {
+                            "attackDamage": {
+                                "type": "add",
+                                "value": "d10"
+                            }
+                        }
+                    }
+                }
+            ],
+            "options": {
+                "amount": 2,
+                "features": [
+                    {
+                        "name": "Forcefull Blow",
+                        "description": "The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "position": {
+                                            "direction": "away",
+                                            "amount": 15
+                                        }
+                                    },
+                                    "speed": {
+                                        "type": "add",
+                                        "value": "half"
+                                    },
+                                    "opportunityAttacksTake": {
+                                        "type": "set",
+                                        "value": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Hamstring blow",
+                        "description": "The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "speed": {
+                                            "type": "add",
+                                            "value": -15
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Staggering Blow",
+                        "description": "The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "savingThrows": {
+                                            "all": {
+                                                "disadvantage": true
+                                            }
+                                        },
+                                        "opportunityAttacksGive": {
+                                            "type": "set",
+                                            "value": false
+                                        }
+                                    }
+                                },
+                                "duration": {
+                                    "until": {
+                                        "turns": 1
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Sundering Blow",
+                        "description": "Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
+                        "usage": [
+                            {
+                                "bonus": {
+                                    "target": {
+                                        "takenAttack": {
+                                            "type": "add",
+                                            "value": 5
+                                        }
+                                    }
+                                },
+                                "duration": {
+                                    "until": {
+                                        "attackTake": 1
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Indomitable Might",
+            "level": 18,
+            "description": "If your total for a Strength check or Strength saving throw is less than your Strength score, you can use that score in place of the total.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "bonus": {
+                        "abilityChecks": {
+                            "Str": {
+                                "type": "minimum",
+                                "value": "strScore"
+                            }
+                        },
+                        "savingThrows": {
+                            "Str": {
+                                "type": "minimum",
+                                "value": "strScore"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Epic Boon",
+            "level": 19,
+            "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Irresistible Offense is recommended.",
+            "options": {
+                "amount": 1,
+                "features": "assets/json/feats/epicBoons.json"
+            }
+        },
+        {
+            "name": "Primal Champion",
+            "level": 20,
+            "description": "You embody primal power. Your Strength and Constitution scores increase by 4, to a maximum of 25.",
+            "usage": [
+                {
+                    "activation": "passive",
+                    "bonus": {
+                        "Str": {
+                            "type": "add",
+                            "value": 4,
+                            "maximum": 25
+                        },
+                        "Con": {
+                            "type": "add",
+                            "value": 4,
+                            "maximum": 25
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "archetypes": [
+        {
+            "name": "Path of the Berserker",
+            "path": "assets/json/classes/barbarian/berserker.json"
+        },
+        {
+            "name": "Path of the Wild Heart",
+            "path": "assets/json/classes/barbarian/wild_heart.json"
+        },
+        {
+            "name": "Path of the World Tree",
+            "path": "assets/json/classes/barbarian/world_tree.json"
+        },
+        {
+            "name": "Path of the Zealot",
+            "path": "assets/json/classes/barbarian/zealot.json"
+        }
+    ]
 }

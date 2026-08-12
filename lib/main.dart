@@ -1,21 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 
 import 'package:dnd_app/screens/home_page.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/icon_service.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
 
-  IconService.initAssets(
-    manifest.listAssets().toSet(),
-  );
-
+  IconService.initAssets(manifest.listAssets().toSet());
 
   await SettingsService.init();
 
@@ -27,39 +22,42 @@ class MyApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _MyApp();
-
-  
 }
 
-class _MyApp extends State<MyApp>{
-
+class _MyApp extends State<MyApp> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final height = MediaQuery.sizeOf(context).height;
 
       await SettingsService.setSetting("theme", "base");
+
+      await SettingsService.setSetting("tableDescriptionStyle", "expand");
+
       await SettingsService.setSetting("proficiencyDescriptionStyle", "sheet");
       await SettingsService.setSetting("featureDescriptionStyle", "sheet");
       await SettingsService.setSetting("proficiencyDisplayStyle", "expand");
       await SettingsService.setSetting("featureDisplayStyle", "popUp");
       await SettingsService.setSetting("archetypeDisplayStyle", "sheet");
       await SettingsService.setSetting("sectionDescriptionType", "expand");
-      await SettingsService.setSetting("wikiSorting", ["Primary", "alphabetical", "alphabetical", "alphabetical", "alphabetical"]);
+
+      await SettingsService.setSetting("wikiSorting", [
+        "Primary",
+        "alphabetical",
+        "alphabetical",
+        "alphabetical",
+        "alphabetical",
+      ]);
       await SettingsService.setSetting("groupItemsWiki", true);
-      await SettingsService.setSetting("headerHeight",height * 0.14);
-      await SettingsService.setSetting("listItemHeight",height * 0.10);
-
-
+      await SettingsService.setSetting("headerHeight", height * 0.14);
+      await SettingsService.setSetting("listItemHeight", height * 0.10);
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'JSON Demo',
       debugShowCheckedModeBanner: false,
@@ -67,6 +65,3 @@ class _MyApp extends State<MyApp>{
     );
   }
 }
-
-
-
