@@ -6,7 +6,18 @@ class DraggableSheetWidget extends StatelessWidget {
   String title;
   Widget content;
   String? subtitle;
-  DraggableSheetWidget(this.title, this.subtitle, this.content, {super.key});
+  int titleLevel;
+  int subtitleLevel;
+  int clickLevel;
+  DraggableSheetWidget(
+    this.title,
+    this.subtitle,
+    this.content, {
+    super.key,
+    this.titleLevel = 3,
+    this.subtitleLevel = 3,
+    this.clickLevel = 1,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +96,9 @@ class DraggableSheetWidget extends StatelessWidget {
                                 Text(
                                   title,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: ColorService.getColor(4),
-                                    fontSize: 35,
+                                  style: TextStyleService.getTextStyle(
+                                    titleLevel,
+                                    4,
                                   ),
                                 ),
                                 const SizedBox(height: 10),
@@ -109,7 +120,7 @@ class DraggableSheetWidget extends StatelessWidget {
                               child: Text(
                                 subtitle.toString(),
                                 style: TextStyleService.getTextStyle(
-                                  3,
+                                  subtitleLevel,
                                   4,
                                   Height: 0.8,
                                 ),
@@ -172,7 +183,7 @@ class DraggableSheetWidget extends StatelessWidget {
           },
         );
       },
-      child: Text(title, style: TextStyleService.getTextStyle(3, 4)),
+      child: Text(title, style: TextStyleService.getTextStyle(clickLevel, 4)),
     );
   }
 }

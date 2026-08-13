@@ -39,7 +39,6 @@ class _MyApp extends State<MyApp> {
       await SettingsService.setSetting("proficiencyDescriptionStyle", "sheet");
       await SettingsService.setSetting("featureDescriptionStyle", "sheet");
       await SettingsService.setSetting("proficiencyDisplayStyle", "expand");
-      await SettingsService.setSetting("featureDisplayStyle", "popUp");
       await SettingsService.setSetting("archetypeDisplayStyle", "sheet");
       await SettingsService.setSetting("sectionDescriptionType", "expand");
 

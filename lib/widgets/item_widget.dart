@@ -88,7 +88,7 @@ class ItemWidget extends StatelessWidget {
                       Text(
                         subtitle,
                         style: TextStyleService.getTextStyle(
-                          4,
+                          5,
                           6,
                           Overflow: TextOverflow.clip,
                         ),

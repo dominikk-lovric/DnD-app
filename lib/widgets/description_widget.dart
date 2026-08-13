@@ -1,5 +1,3 @@
-
-
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
@@ -11,8 +9,9 @@ class DescriptionWidget extends StatelessWidget {
   Widget descrption;
   String descriptionType;
   String? subtitle;
-  int titleLevel;    
-  int subtitleLevel; 
+  int titleLevel;
+  int subtitleLevel;
+  int clickLevel;
 
   DescriptionWidget(
     this.title,
@@ -22,6 +21,7 @@ class DescriptionWidget extends StatelessWidget {
     super.key,
     this.titleLevel = 3,
     this.subtitleLevel = 3,
+    this.clickLevel = 2,
   });
 
   @override
@@ -35,11 +35,14 @@ class DescriptionWidget extends StatelessWidget {
             builder: (context) => Theme(
               data: Theme.of(context).copyWith(
                 dialogTheme: DialogThemeData(
-                  backgroundColor: ColorService.getColor(2)
+                  backgroundColor: ColorService.getColor(2),
                 ),
               ),
               child: Dialog(
-                insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+                insetPadding: const EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 24,
+                ),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 800),
                   child: Padding(
@@ -48,11 +51,22 @@ class DescriptionWidget extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title, style: TextStyleService.getTextStyle(0, 4)),
+                        Text(
+                          title,
+                          style: TextStyleService.getTextStyle(titleLevel, 4),
+                        ),
                         const Divider(indent: 10, endIndent: 10),
-                        if (subtitle != null && subtitle!="")
-                          Text(subtitle.toString(), style: TextStyleService.getTextStyle(2, 4)),
-                        Flexible(child: SingleChildScrollView(child: descrption)),
+                        if (subtitle != null && subtitle != "")
+                          Text(
+                            subtitle.toString(),
+                            style: TextStyleService.getTextStyle(
+                              subtitleLevel,
+                              4,
+                            ),
+                          ),
+                        Flexible(
+                          child: SingleChildScrollView(child: descrption),
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
@@ -66,38 +80,48 @@ class DescriptionWidget extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         },
-        child: Text(title, style: TextStyleService.getTextStyle(titleLevel, 1)),
+        child: Text(title, style: TextStyleService.getTextStyle(clickLevel, 1)),
       );
     } else if (setting == "expand") {
       return IntrinsicWidth(
         child: ExpansionTile(
-        initiallyExpanded: true,
-        showTrailingIcon: false,
-        title: Text(title, style: TextStyleService.getTextStyle(titleLevel, 4)),
-        children: [
-          Divider(indent: 15, endIndent: 15, color: ColorService.getColor(4)),
-          Padding(
-            padding: EdgeInsetsGeometry.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (subtitle != null)
-                  Text(
-                    subtitle.toString(),
-                    style: TextStyleService.getTextStyle(subtitleLevel, 4),
-                  ),
-                descrption,
-              ],
+          initiallyExpanded: true,
+          showTrailingIcon: false,
+          title: Text(
+            title,
+            style: TextStyleService.getTextStyle(titleLevel, 4),
+          ),
+          children: [
+            Divider(indent: 15, endIndent: 15, color: ColorService.getColor(4)),
+            Padding(
+              padding: EdgeInsetsGeometry.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (subtitle != null)
+                    Text(
+                      subtitle.toString(),
+                      style: TextStyleService.getTextStyle(subtitleLevel, 4),
+                    ),
+                  descrption,
+                ],
+              ),
             ),
-          )
-        ],
-      ),
+          ],
+        ),
       );
     } else if (setting == "sheet") {
-      return DraggableSheetWidget(title, subtitle, descrption);
+      return DraggableSheetWidget(
+        title,
+        subtitle,
+        descrption,
+        titleLevel: titleLevel,
+        subtitleLevel: subtitleLevel,
+        clickLevel: clickLevel,
+      );
     } else {
       return Column(
         mainAxisSize: MainAxisSize.min,

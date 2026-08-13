@@ -23,7 +23,7 @@ class TableWidget extends StatelessWidget {
                   padding: EdgeInsetsGeometry.all(10),
                   child: Text(
                     name.toString(),
-                    style: TextStyleService.getTextStyle(3, 4),
+                    style: TextStyleService.getTextStyle(4, 4),
                     maxLines: 1,
                   ),
                 ),
@@ -40,7 +40,7 @@ class TableWidget extends StatelessWidget {
                 (name) => Center(
                   child: Text(
                     info[name][i].toString(),
-                    style: TextStyleService.getTextStyle(3, 4),
+                    style: TextStyleService.getTextStyle(4, 4),
                   ),
                 ),
               ),
@@ -61,7 +61,7 @@ class TableWidget extends StatelessWidget {
                     padding: EdgeInsetsGeometry.all(10),
                     child: Text(
                       item.toString(),
-                      style: TextStyleService.getTextStyle(3, 4),
+                      style: TextStyleService.getTextStyle(4, 4),
                     ),
                   ),
                 );

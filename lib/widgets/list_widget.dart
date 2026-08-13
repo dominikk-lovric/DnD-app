@@ -1,55 +1,51 @@
-
-
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
-class ListWidget extends StatelessWidget{
-
+class ListWidget extends StatelessWidget {
   List<dynamic> items;
   ListWidget(this.items, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    String descriptionSetting=SettingsService.getSetting("descriptionStyle");
+    String descriptionSetting = SettingsService.getSetting("descriptionStyle");
     return SingleChildScrollView(
       child: Column(
-          spacing: 10,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IntrinsicHeight(
-              child: Row(
+        spacing: 10,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IntrinsicHeight(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                  Container(
-                    width: 10,
-                  ),
-                  Container(
-                    color: ColorService.getColor(5),
-                    width: 1,
-                  ),
-                  Container(
-                    width: 5,
-                  ),
-                  Expanded(
-                    child: Column(
-                    spacing:10,
+                Container(width: 10),
+                Container(color: ColorService.getColor(5), width: 1),
+                Container(width: 5),
+                Expanded(
+                  child: Column(
+                    spacing: 10,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ...items.map((item)=>Text(
-                        item.toString(),
-                        style: TextStyleService.getTextStyle(3, 5, Overflow:TextOverflow.clip)
-                      )),
+                      ...items.map(
+                        (item) => Text(
+                          item.toString(),
+                          style: TextStyleService.getTextStyle(
+                            4,
+                            5,
+                            Overflow: TextOverflow.clip,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  )
-                ],
-              ),
-            )   
-          ]
-        ),
-    );  
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
