@@ -12,6 +12,7 @@ class DescriptionWidget extends StatelessWidget {
   int titleLevel;
   int subtitleLevel;
   int clickLevel;
+  String clickTitle;
 
   DescriptionWidget(
     this.title,
@@ -22,6 +23,7 @@ class DescriptionWidget extends StatelessWidget {
     this.titleLevel = 3,
     this.subtitleLevel = 3,
     this.clickLevel = 2,
+    this.clickTitle = "",
   });
 
   @override
@@ -82,7 +84,10 @@ class DescriptionWidget extends StatelessWidget {
             ),
           ),
         },
-        child: Text(title, style: TextStyleService.getTextStyle(clickLevel, 1)),
+        child: Text(
+          (clickTitle == "") ? title : clickTitle,
+          style: TextStyleService.getTextStyle(clickLevel, 1),
+        ),
       );
     } else if (setting == "expand") {
       return IntrinsicWidth(
@@ -90,7 +95,7 @@ class DescriptionWidget extends StatelessWidget {
           initiallyExpanded: true,
           showTrailingIcon: false,
           title: Text(
-            title,
+            (clickTitle == "") ? title : clickTitle,
             style: TextStyleService.getTextStyle(titleLevel, 4),
           ),
           children: [
@@ -121,12 +126,16 @@ class DescriptionWidget extends StatelessWidget {
         titleLevel: titleLevel,
         subtitleLevel: subtitleLevel,
         clickLevel: clickLevel,
+        clickTitle: (clickTitle == "") ? title : clickTitle,
       );
     } else {
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(title, style: TextStyleService.getTextStyle(titleLevel, 4)),
+          Text(
+            (clickTitle == "") ? title : clickTitle,
+            style: TextStyleService.getTextStyle(titleLevel, 4),
+          ),
           descrption,
         ],
       );

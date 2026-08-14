@@ -16,7 +16,7 @@ class TextStyleService {
     "text",
     "additional",
   ];
-  static List<double> baseSizes = [55, 45, 35, 20, 25, 15];
+  static List<double> baseSizes = [55, 45, 35, 25, 20, 15];
 
   static TextStyle getTextStyle(
     int size,

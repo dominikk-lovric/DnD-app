@@ -1,4 +1,5 @@
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
@@ -12,9 +13,50 @@ import 'package:dnd_app/widgets/saving_throws_widget.dart';
 
 import 'package:dnd_app/widgets/section_widget.dart';
 
-class ClassInfoWidget extends StatelessWidget {
+class ClassInfoWidget extends StatefulWidget {
   Map<String, dynamic> info;
   ClassInfoWidget(this.info, {super.key});
+
+  @override
+  createState() => ClassInfoWidgetState(info);
+}
+
+class ClassInfoWidgetState extends State<ClassInfoWidget> {
+  Map<String, dynamic> info;
+  ClassInfoWidgetState(this.info);
+
+  List<Map<String, dynamic>> subclasses = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    subclasses = [];
+
+    if (info["archetypes"][0]["features"] is String) {
+      print("string");
+      for (final item in info["archetypes"]) {
+        loadFileAndAdd(item["features"]);
+      }
+    } else {
+      print("list");
+      for (final item in info["archetypes"]) {
+        subclasses.add(item);
+      }
+    }
+  }
+
+  Future<void> loadFile(String fileName) async {
+    final json = await JsonService.loadFromPath(fileName);
+    setState(() {});
+  }
+
+  Future<void> loadFileAndAdd(String fileName) async {
+    final json = await JsonService.loadFromPath(fileName);
+    setState(() {
+      subclasses.add(json);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,22 +103,28 @@ class ClassInfoWidget extends StatelessWidget {
           DescriptionWidget(
             "Spellcasting",
             null,
-            TableWidget(spells),
-            "sectionDescriptionType",
+            TableWidget(spells, 3),
+            "sectionDescriptionStyle",
           ),
         if (info["attacksPerLevel"][19].toString() != "1")
           DescriptionWidget(
             "Attacks per level",
             null,
-            TableWidget(attacks, "horizontal"),
-            "sectionDescriptionType",
+            TableWidget(attacks, 4, "horizontal"),
+            "sectionDescriptionStyle",
           ),
-        SectionWidget(
-          "Proficiencies",
-          proficiencies,
-          "proficiencyDisplayStyle",
-        ),
-
+        SectionWidget("Proficiencies", [
+          ...proficiencies.map((e) {
+            return DescriptionWidget(
+              e["name"],
+              (e["options"] != null)
+                  ? ("Choose " + e["options"].toString() + " from:")
+                  : "",
+              ListWidget(e["proficiencies"]),
+              "proficiencyDescriptionStyle",
+            );
+          }),
+        ], "sectionDescriptionStyle"),
         DescriptionWidget(
           "Features",
           null,
@@ -91,17 +139,51 @@ class ClassInfoWidget extends StatelessWidget {
                   return FeatureDescriptionWidget(
                     element,
                     "featureDescriptionStyle",
+                    clickLevel: 3,
+                    levelTitle: true,
                   );
                 }),
               ],
             ),
           ),
-          "tableDescriptionStyle",
+          "sectionDescriptionStyle",
           titleLevel: 1,
         ),
 
-        SectionWidget("Archetypes", archetypes, "archetypeDisplayStyle"),
+        SectionWidget("Archetypes", [
+          ...subclasses.map((el) {
+            return DescriptionWidget(
+              el["name"],
+              null,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ...el["features"].map((feature) {
+                    return FeatureDescriptionWidget(
+                      feature,
+                      "featureDescriptionStyle",
+                      levelTitle: true,
+                    );
+                  }),
+                ],
+              ),
+              "archetypeDescriptionStyle",
+              titleLevel: 1,
+              clickLevel: 2,
+            );
+          }),
+        ], "sectionDescriptionStyle"),
       ],
     );
   }
 }
+
+
+/*
+
+
+
+
+
+*/

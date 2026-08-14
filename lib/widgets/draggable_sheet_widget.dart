@@ -9,6 +9,7 @@ class DraggableSheetWidget extends StatelessWidget {
   int titleLevel;
   int subtitleLevel;
   int clickLevel;
+  String clickTitle;
   DraggableSheetWidget(
     this.title,
     this.subtitle,
@@ -17,6 +18,7 @@ class DraggableSheetWidget extends StatelessWidget {
     this.titleLevel = 3,
     this.subtitleLevel = 3,
     this.clickLevel = 1,
+    this.clickTitle = "",
   });
 
   @override
@@ -93,13 +95,19 @@ class DraggableSheetWidget extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 15),
-                                Text(
-                                  title,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyleService.getTextStyle(
-                                    titleLevel,
-                                    4,
-                                  ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      title,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyleService.getTextStyle(
+                                        titleLevel,
+                                        4,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 const SizedBox(height: 10),
                                 Divider(
@@ -127,20 +135,15 @@ class DraggableSheetWidget extends StatelessWidget {
                               ),
                             ),
                           Expanded(
-                            child: Padding(
-                              padding: const EdgeInsetsGeometry.directional(
-                                start: 10,
-                                end: 10,
-                                bottom: 10,
-                              ),
-                              child: Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(15),
-                                  child: SingleChildScrollView(
-                                    controller: scrollController,
-                                    child: content,
-                                  ),
+                            child: SingleChildScrollView(
+                              controller: scrollController,
+                              child: Padding(
+                                padding: EdgeInsetsGeometry.directional(
+                                  start: 30,
+                                  top: 10,
+                                  end: 10,
                                 ),
+                                child: content,
                               ),
                             ),
                           ),
@@ -183,7 +186,10 @@ class DraggableSheetWidget extends StatelessWidget {
           },
         );
       },
-      child: Text(title, style: TextStyleService.getTextStyle(clickLevel, 4)),
+      child: Text(
+        (clickTitle == "") ? title : clickTitle,
+        style: TextStyleService.getTextStyle(clickLevel, 4),
+      ),
     );
   }
 }

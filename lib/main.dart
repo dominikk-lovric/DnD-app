@@ -38,9 +38,9 @@ class _MyApp extends State<MyApp> {
 
       await SettingsService.setSetting("proficiencyDescriptionStyle", "sheet");
       await SettingsService.setSetting("featureDescriptionStyle", "sheet");
-      await SettingsService.setSetting("proficiencyDisplayStyle", "expand");
-      await SettingsService.setSetting("archetypeDisplayStyle", "sheet");
-      await SettingsService.setSetting("sectionDescriptionType", "expand");
+      await SettingsService.setSetting("proficiencyDescriptionStyle", "expand");
+      await SettingsService.setSetting("archetypeDescriptionStyle", "sheet");
+      await SettingsService.setSetting("sectionDescriptionStyle", "expand");
 
       await SettingsService.setSetting("wikiSorting", [
         "Primary",

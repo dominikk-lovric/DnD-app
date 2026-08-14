@@ -50,7 +50,12 @@ class _ItemPageState extends State<ItemPage> {
     if (items.isEmpty) {
       return const Center(child: CircularProgressIndicator());
     }
-
+    Widget infoWidget;
+    if (type == "class") {
+      infoWidget = ClassInfoWidget(items);
+    } else {
+      infoWidget = SizedBox.shrink();
+    }
     return AnimatedBuilder(
       animation: ColorService.themeNotifier,
       builder: (context, child) {
@@ -91,7 +96,7 @@ class _ItemPageState extends State<ItemPage> {
           body: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsetsGeometry.all(20),
-              child: ClassInfoWidget(items),
+              child: infoWidget,
             ),
           ),
         );

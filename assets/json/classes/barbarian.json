@@ -765,19 +765,19 @@
     "archetypes": [
         {
             "name": "Path of the Berserker",
-            "path": "assets/json/classes/barbarian/berserker.json"
+            "features": "assets/json/classes/barbarian/berserker.json"
         },
         {
             "name": "Path of the Wild Heart",
-            "path": "assets/json/classes/barbarian/wild_heart.json"
+            "features": "assets/json/classes/barbarian/wild_heart.json"
         },
         {
             "name": "Path of the World Tree",
-            "path": "assets/json/classes/barbarian/world_tree.json"
+            "features": "assets/json/classes/barbarian/world_tree.json"
         },
         {
             "name": "Path of the Zealot",
-            "path": "assets/json/classes/barbarian/zealot.json"
+            "features": "assets/json/classes/barbarian/zealot.json"
         }
     ]
 }
