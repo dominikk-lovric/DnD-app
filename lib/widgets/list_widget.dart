@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 class ListWidget extends StatelessWidget {
   List<dynamic> items;
-  ListWidget(this.items, {super.key});
+  int size;
+  ListWidget(this.items, {super.key, this.size = 4});
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class ListWidget extends StatelessWidget {
                         (item) => Text(
                           item.toString(),
                           style: TextStyleService.getTextStyle(
+                            size,
                             4,
-                            5,
                             Overflow: TextOverflow.clip,
                           ),
                         ),

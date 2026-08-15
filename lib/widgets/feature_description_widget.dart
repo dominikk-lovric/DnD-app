@@ -150,20 +150,26 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
     }
     return DescriptionWidget(
       info["name"],
-      (info["level"] == null) ? "" : "Level:" + info["level"].toString(),
       Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: items,
       ),
       settingName,
+      subtitle: (info["level"] == null)
+          ? ""
+          : "Level: " + info["level"].toString(),
       titleLevel: titleLevel,
       subtitleLevel: subtitleLevel,
       clickLevel: clickLevel,
       clickTitle: (clickTitle != "")
-          ? ((levelTitle) ? "[" + info["level"].toString() + "] " : "") +
+          ? ((levelTitle && info["level"] != null)
+                    ? "[" + info["level"].toString() + "] "
+                    : "") +
                 clickTitle
-          : ((levelTitle) ? "[" + info["level"].toString() + "] " : "") +
+          : ((levelTitle && info["level"] != null)
+                    ? "[" + info["level"].toString() + "] "
+                    : "") +
                 info["name"],
     );
   }

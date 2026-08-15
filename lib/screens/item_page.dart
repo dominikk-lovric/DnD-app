@@ -1,5 +1,6 @@
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/species_info_widget.dart';
 import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,8 @@ class _ItemPageState extends State<ItemPage> {
     Widget infoWidget;
     if (type == "class") {
       infoWidget = ClassInfoWidget(items);
+    } else if (type == "species") {
+      infoWidget = SpeciesInfoWidget(items);
     } else {
       infoWidget = SizedBox.shrink();
     }
@@ -95,8 +98,11 @@ class _ItemPageState extends State<ItemPage> {
           ),
           body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsetsGeometry.all(20),
-              child: infoWidget,
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [infoWidget],
+              ),
             ),
           ),
         );

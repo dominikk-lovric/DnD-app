@@ -11,11 +11,18 @@ import 'package:flutter/material.dart';
 import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:dnd_app/widgets/saving_throws_widget.dart';
 
-import 'package:dnd_app/widgets/section_widget.dart';
-
 class ClassInfoWidget extends StatefulWidget {
   Map<String, dynamic> info;
-  ClassInfoWidget(this.info, {super.key});
+  int sectionLevel;
+  int subtitleLevel;
+  int descriptionLevel;
+  ClassInfoWidget(
+    this.info, {
+    super.key,
+    this.sectionLevel = 1,
+    this.subtitleLevel = 2,
+    this.descriptionLevel = 3,
+  });
 
   @override
   createState() => ClassInfoWidgetState(info);
@@ -89,7 +96,8 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
       spells["level"] = List.generate(20, (i) => i + 1);
       for (int i = 0; i < keys.length; i++) {
         if (keys[i].toString().toLowerCase() != "casterlevel" &&
-            keys[i].toString().toLowerCase() != "spellcastingability") {
+            keys[i].toString().toLowerCase() != "spellcastingability" &&
+            keys[i].toString().toLowerCase() != "addedSpells") {
           spells[keys[i]] = info["spells"][keys[i]];
         }
       }
@@ -98,36 +106,57 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
       spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Stack(
+          alignment: AlignmentGeometry.center,
+          children: [
+            Container(child: Icon(Icons.favorite, color: Colors.red, size: 80)),
+            Container(
+              child: Text(
+                info["hitDie"],
+                style: TextStyleService.getTextStyle(3, 4),
+              ),
+            ),
+          ],
+        ),
         SavingThrowWidget(info["savingThrows"]),
+
         if (info["spells"]["casterLevel"] != 0)
           DescriptionWidget(
             "Spellcasting",
-            null,
             TableWidget(spells, 3),
             "sectionDescriptionStyle",
+            clickLevel: widget.sectionLevel,
+            titleLevel: widget.sectionLevel,
           ),
         if (info["attacksPerLevel"][19].toString() != "1")
           DescriptionWidget(
             "Attacks per level",
-            null,
-            TableWidget(attacks, 4, "horizontal"),
+            TableWidget(attacks, 3, "horizontal", true),
             "sectionDescriptionStyle",
+            clickLevel: widget.sectionLevel,
+            titleLevel: widget.sectionLevel,
           ),
-        SectionWidget("Proficiencies", [
-          ...proficiencies.map((e) {
-            return DescriptionWidget(
-              e["name"],
-              (e["options"] != null)
-                  ? ("Choose " + e["options"].toString() + " from:")
-                  : "",
-              ListWidget(e["proficiencies"]),
-              "proficiencyDescriptionStyle",
-            );
-          }),
-        ], "sectionDescriptionStyle"),
+        DescriptionWidget(
+          "Proficiencies",
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ...proficiencies.map((e) {
+                return DescriptionWidget(
+                  e["name"],
+                  ListWidget(e["proficiencies"], size: widget.descriptionLevel),
+                  "proficiencyDescriptionStyle",
+                  titleLevel: widget.subtitleLevel,
+                );
+              }),
+            ],
+          ),
+          "sectionDescriptionStyle",
+          titleLevel: widget.sectionLevel,
+        ),
         DescriptionWidget(
           "Features",
-          null,
           Padding(
             padding: EdgeInsetsGeometry.directional(start: 20),
             child: Column(
@@ -139,7 +168,7 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
                   return FeatureDescriptionWidget(
                     element,
                     "featureDescriptionStyle",
-                    clickLevel: 3,
+                    clickLevel: widget.subtitleLevel,
                     levelTitle: true,
                   );
                 }),
@@ -147,33 +176,41 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
             ),
           ),
           "sectionDescriptionStyle",
-          titleLevel: 1,
+          titleLevel: widget.sectionLevel,
         ),
 
-        SectionWidget("Archetypes", [
-          ...subclasses.map((el) {
-            return DescriptionWidget(
-              el["name"],
-              null,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ...el["features"].map((feature) {
-                    return FeatureDescriptionWidget(
-                      feature,
-                      "featureDescriptionStyle",
-                      levelTitle: true,
-                    );
-                  }),
-                ],
-              ),
-              "archetypeDescriptionStyle",
-              titleLevel: 1,
-              clickLevel: 2,
-            );
-          }),
-        ], "sectionDescriptionStyle"),
+        DescriptionWidget(
+          "Archetypes",
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ...subclasses.map((el) {
+                return DescriptionWidget(
+                  el["name"],
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ...el["features"].map((feature) {
+                        return FeatureDescriptionWidget(
+                          feature,
+                          "featureDescriptionStyle",
+                          levelTitle: true,
+                        );
+                      }),
+                    ],
+                  ),
+                  "archetypeDescriptionStyle",
+                  titleLevel: 1,
+                  clickLevel: widget.subtitleLevel,
+                );
+              }),
+            ],
+          ),
+          "sectionDescriptionStyle",
+          titleLevel: widget.sectionLevel,
+        ),
       ],
     );
   }

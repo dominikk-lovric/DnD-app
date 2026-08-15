@@ -1,26 +1,26 @@
 {
-  "id": "s22",
-  "catId": "species",
-  "name": "reborn",
-  "creatureType": "Humanoid",
-  "size": ["Medium","Small"],
-  "speed": 30,
-  "features": [
-    {
-      "name":"Escaped Death",
-      "description":"You have Advantage on Death Saving Throws."
-    },
-    {
-      "name":"Everlasting",
-      "description":"You don’t gain Exhaustion levels from dehydration, malnutrition, or suffocation. You don’t need to sleep, and magic can’t put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in an inactive, motionless state, during which you retain consciousness."
-    },
-    {
-      "name":"Knowledge from a Past Life",
-      "description":"You gain proficiency in one skill of your choice.\n\nIn addition, you can temporarily peer into the past to aid you in the present. When you fail an ability check, you can roll 1d6 and add the number rolled to the d20, potentially turning the failure into a success. You can do this a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
-    },
-    {
-      "name":"Strange Endurance",
-      "description":"You have Resistance to one of the following damage types of your choice: Cold, Necrotic, or Poison."
-    }
-  ]
+    "id": "s22",
+    "catId": "species",
+    "name": "Reborn",
+    "creatureType": "Humanoid",
+    "size": ["Medium", "Small"],
+    "speed": 30,
+    "features": [
+        {
+            "name": "Escaped Death",
+            "description": "You have Advantage on Death Saving Throws."
+        },
+        {
+            "name": "Everlasting",
+            "description": "You don’t gain Exhaustion levels from dehydration, malnutrition, or suffocation. You don’t need to sleep, and magic can’t put you to sleep. You can finish a Long Rest in 4 hours if you spend those hours in an inactive, motionless state, during which you retain consciousness."
+        },
+        {
+            "name": "Knowledge from a Past Life",
+            "description": "You gain proficiency in one skill of your choice.\n\nIn addition, you can temporarily peer into the past to aid you in the present. When you fail an ability check, you can roll 1d6 and add the number rolled to the d20, potentially turning the failure into a success. You can do this a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+        },
+        {
+            "name": "Strange Endurance",
+            "description": "You have Resistance to one of the following damage types of your choice: Cold, Necrotic, or Poison."
+        }
+    ]
 }

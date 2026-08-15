@@ -1,26 +1,26 @@
 {
-  "id": "s7",
-  "catId": "species",
-  "name": "halfling",
-  "creatureType": "Humanoid",
-  "size": ["Small"],
-  "speed": 30,
-  "features": [
-    {
-      "name":"Brave",
-      "description":"You have Advantage on saving throws you make to avoid or end the Frightened condition."
-    },
-    {
-      "name":"Halfling Nimbleness",
-      "description":"You can move through the space of any creature that is a size larger than you, but you can't stop in the same space."
-    },
-    {
-      "name":"Luck",
-      "description":"When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll."
-    },
-    {
-      "name":"Naturally Stealthy",
-      "description":"You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you."
-    }
-  ]
+    "id": "s7",
+    "catId": "species",
+    "name": "Halfling",
+    "creatureType": "Humanoid",
+    "size": ["Small"],
+    "speed": 30,
+    "features": [
+        {
+            "name": "Brave",
+            "description": "You have Advantage on saving throws you make to avoid or end the Frightened condition."
+        },
+        {
+            "name": "Halfling Nimbleness",
+            "description": "You can move through the space of any creature that is a size larger than you, but you can't stop in the same space."
+        },
+        {
+            "name": "Luck",
+            "description": "When you roll a 1 on the d20 of a D20 Test, you can reroll the die, and you must use the new roll."
+        },
+        {
+            "name": "Naturally Stealthy",
+            "description": "You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you."
+        }
+    ]
 }

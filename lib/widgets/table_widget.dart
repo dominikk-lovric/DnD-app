@@ -2,13 +2,20 @@ import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/icon_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/list_widget.dart';
 import 'package:flutter/material.dart';
 
 class TableWidget extends StatelessWidget {
   Map<String, dynamic> info;
   String type;
   int size;
-  TableWidget(this.info, this.size, [this.type = "vertical"]);
+  bool noListing;
+  TableWidget(
+    this.info,
+    this.size, [
+    this.type = "vertical",
+    this.noListing = false,
+  ]);
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +58,39 @@ class TableWidget extends StatelessWidget {
       }
     } else if (type == "horizontal") {
       for (int i = 0; i < names.length; i++) {
-        List<dynamic> myList = [names[i]];
-        myList.addAll(info[names[i]]);
+        List<Widget> myList = [
+          Text(names[i], style: TextStyleService.getTextStyle(size, 4)),
+        ];
+        if (noListing) {
+          myList.addAll([
+            ...info[names[i]].map((el) {
+              return Text(
+                el.toString(),
+                style: TextStyleService.getTextStyle(size, 4),
+              );
+            }),
+          ]);
+        } else {
+          if (info[names[i]] is List) {
+            if (info[names[i]].length > 1) {
+              myList.add(ListWidget(info[names[i]]));
+            } else {
+              myList.add(
+                Text(
+                  info[names[i]][0],
+                  style: TextStyleService.getTextStyle(size, 4),
+                ),
+              );
+            }
+          } else {
+            myList.add(
+              Text(
+                info[names[i]],
+                style: TextStyleService.getTextStyle(size, 4),
+              ),
+            );
+          }
+        }
         rows.add(
           TableRow(
             children: [
@@ -60,10 +98,7 @@ class TableWidget extends StatelessWidget {
                 return Center(
                   child: Padding(
                     padding: EdgeInsetsGeometry.all(10),
-                    child: Text(
-                      item.toString(),
-                      style: TextStyleService.getTextStyle(size, 4),
-                    ),
+                    child: item,
                   ),
                 );
               }),

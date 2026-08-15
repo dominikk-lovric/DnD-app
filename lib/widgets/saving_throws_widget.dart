@@ -14,42 +14,49 @@ class SavingThrowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     List<Widget> items = [];
-    int k = 0;
-    for (int i = 0; i < 2; i++) {
-      List<Widget> tmp = [];
-      for (int j = 0; j < 3; j++) {
-        tmp.add(
-          Column(
-            mainAxisSize: .min,
-            children: [
-              Text(allStats[k], style: TextStyleService.getTextStyle(2, 4)),
-              Checkbox(
-                value: stats.contains(allStats[k]),
-                onChanged: (_) {},
-                activeColor: ColorService.getColor(0),
-                checkColor: ColorService.getColor(4),
-                side: BorderSide(color: ColorService.getColor(4)),
-              ),
-            ],
-          ),
-        );
-        k++;
-      }
+    for (int i = 0; i < 6; i++) {
       items.add(
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: width / 100,
-          mainAxisSize: MainAxisSize.min,
-          children: tmp,
+        Column(
+          mainAxisSize: .min,
+          children: [
+            Text(allStats[i], style: TextStyleService.getTextStyle(2, 4)),
+            Checkbox(
+              value: stats.contains(allStats[i]),
+              onChanged: (_) {},
+              activeColor: ColorService.getColor(0),
+              checkColor: ColorService.getColor(4),
+              side: BorderSide(color: ColorService.getColor(4)),
+            ),
+          ],
         ),
       );
     }
-    return Wrap(
-      alignment: WrapAlignment.center,
-      runAlignment: WrapAlignment.center,
-      runSpacing: SettingsService.getSetting("listItemHeight") / 10,
-      spacing: width / 100,
-      children: items,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        int columns;
+
+        if (constraints.maxWidth > 500) {
+          columns = 6;
+        } else if (constraints.maxWidth > 300) {
+          columns = 2;
+        } else {
+          columns = 1;
+        }
+
+        final itemWidth = 65.0;
+        final spacing = 10.0;
+
+        return SizedBox(
+          width: columns * itemWidth + (columns - 1) * spacing,
+          child: Wrap(
+            spacing: spacing,
+            runSpacing: spacing,
+            children: items.map((item) {
+              return SizedBox(width: itemWidth, child: item);
+            }).toList(),
+          ),
+        );
+      },
     );
   }
 }

@@ -1,29 +1,30 @@
 {
-  "id": "s21",
-  "catId": "species",
-  "name": "rimekin",
-  "creatureType": "Humanoid",
-  "size": ["Medium", "Small"],
-  "speed": 30,
-  "spells":{
-    "addedSpells":{
-      "1":["Ray of Frost"],
-      "3":["Ice Knife"],
-      "5":["Flame Blade"]
-    }
-  },
-  "features": [
-    {
-      "name":"Cold Fire Magic",
-      "description":"You know the Ray of Frost cantrip. When you reach character levels 3 and 5, you learn the Ice Knife spell and the Flame Blade spell, respectively. You always have those spells prepared. You can cast each once without a spell slot, and you regain the ability to cast these spells in this way when you finish a Long Rest. You can also cast the spells using any spell slots you have of the appropriate level. When you cast Flame Blade using this trait, the spell deals Cold damage instead of Fire damage.\n\nIntelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose the ability when you select this species)."
+    "id": "s21",
+    "catId": "species",
+    "name": "Rimekin",
+    "creatureType": "Humanoid",
+    "size": ["Medium", "Small"],
+    "speed": 30,
+    "spells": {
+        "addedSpells": {
+            "Level": "Spells",
+            "1": ["Ray of Frost"],
+            "3": ["Ice Knife"],
+            "5": ["Flame Blade"]
+        }
     },
-    {
-      "name":"Cold Resistance",
-      "description":"You have Resistance to Cold damage."
-    },
-    {
-      "name":"Darkvision",
-      "description":"You have Darkvision with a range of 60 feet."
-    }
-  ]
+    "features": [
+        {
+            "name": "Cold Fire Magic",
+            "description": "You know the Ray of Frost cantrip. When you reach character levels 3 and 5, you learn the Ice Knife spell and the Flame Blade spell, respectively. You always have those spells prepared. You can cast each once without a spell slot, and you regain the ability to cast these spells in this way when you finish a Long Rest. You can also cast the spells using any spell slots you have of the appropriate level. When you cast Flame Blade using this trait, the spell deals Cold damage instead of Fire damage.\n\nIntelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose the ability when you select this species)."
+        },
+        {
+            "name": "Cold Resistance",
+            "description": "You have Resistance to Cold damage."
+        },
+        {
+            "name": "Darkvision",
+            "description": "You have Darkvision with a range of 60 feet."
+        }
+    ]
 }

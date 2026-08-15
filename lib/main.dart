@@ -42,6 +42,9 @@ class _MyApp extends State<MyApp> {
       await SettingsService.setSetting("archetypeDescriptionStyle", "sheet");
       await SettingsService.setSetting("sectionDescriptionStyle", "expand");
 
+      await SettingsService.setSetting("sizeDescriptionStyle", "expand");
+      await SettingsService.setSetting("subspeciesDescriptionType", "sheet");
+
       await SettingsService.setSetting("wikiSorting", [
         "Primary",
         "alphabetical",

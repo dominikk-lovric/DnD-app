@@ -1,35 +1,36 @@
 {
-  "id": "s23",
-  "catId": "species",
-  "name": "hexblood",
-  "creatureType": "Fey",
-  "size": ["Mediun","Small"],
-  "speed": 30,
-  "spells":{
-    "addedSpells":{
-      "1":["Disguise Self", "Hex"]
-    }
-  },
-  "features": [
-    {
-      "name":"Darkvision ",
-      "description":"You have Darkvision with a range of 60 feet."
+    "id": "s23",
+    "catId": "species",
+    "name": "Hexblood",
+    "creatureType": "Fey",
+    "size": ["Mediun", "Small"],
+    "speed": 30,
+    "spells": {
+        "addedSpells": {
+            "Level": "Spells",
+            "1": ["Disguise Self", "Hex"]
+        }
     },
-    {
-      "name":"Eerie Token",
-      "description":"As a Bonus Action, you can create a magical token by harmlessly removing a lock of hair, detaching a nail, or using some other method. While the token exists, you gain the following benefits:"
-    },
-    {
-      "name":"Distant Message",
-      "description":"As a Magic action, you can send a telepathic message of 25 words or fewer to a creature holding or carrying the token, as long as you are within 10 miles of it."
-    },
-    {
-      "name":"Remote Viewing",
-      "description":"If you are within 10 miles of the token, you can take a Magic action to extend your senses through the token for 1 minute, until you have the Incapacitated condition, or until you end this state (no action required). During this state, you can see and hear from the token as if you were located where it is. When this state ends, the token is harmlessly destroyed.\n\nUnless the token is destroyed early, it lasts until you finish a Long Rest. Once you create a token using this feature, you can’t do so again until you finish a Long Rest."
-    },
-    {
-      "name":"Hex Magic",
-      "description":"You always have the Disguise Self and Hex spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select this species)."
-    } 
-  ]
+    "features": [
+        {
+            "name": "Darkvision ",
+            "description": "You have Darkvision with a range of 60 feet."
+        },
+        {
+            "name": "Eerie Token",
+            "description": "As a Bonus Action, you can create a magical token by harmlessly removing a lock of hair, detaching a nail, or using some other method. While the token exists, you gain the following benefits:"
+        },
+        {
+            "name": "Distant Message",
+            "description": "As a Magic action, you can send a telepathic message of 25 words or fewer to a creature holding or carrying the token, as long as you are within 10 miles of it."
+        },
+        {
+            "name": "Remote Viewing",
+            "description": "If you are within 10 miles of the token, you can take a Magic action to extend your senses through the token for 1 minute, until you have the Incapacitated condition, or until you end this state (no action required). During this state, you can see and hear from the token as if you were located where it is. When this state ends, the token is harmlessly destroyed.\n\nUnless the token is destroyed early, it lasts until you finish a Long Rest. Once you create a token using this feature, you can’t do so again until you finish a Long Rest."
+        },
+        {
+            "name": "Hex Magic",
+            "description": "You always have the Disguise Self and Hex spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select this species)."
+        }
+    ]
 }

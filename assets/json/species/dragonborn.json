@@ -1,108 +1,118 @@
 {
-  "id": "s2",
-  "catId": "species",
-  "name": "dragonborn",
-  "creatureType": "Humanoid",
-  "size": ["Medium"],
-  "speed": 30,
-  "features": [
-    {
-      "name":"Breath Weapon",
-      "desctiption": "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot Cone or a 30-foot Line that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (DC 8 plus your Constitution modifier and Proficiency Bonus). On a failed save, a creature takes 1d10 damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by 1d10 when you reach character levels 5 (2d10), 11 (3d10), and 17 (4d10).\nYou can use this Breath Weapon a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
-    },
-    {
-      "name":"Damage Resistance",
-      "description": "You have Resistance to the damage type determined by your Draconic Ancestry trait."
-    },
-    {
-      "name":"Darkvision",
-      "description":"You have Darkvision with a range of 60 feet."
-    },
-    {
-      "name":"Draconic Flight",
-      "description": "When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest."
-    }
-  ],
-  "subspecies": [
-    {"name":"Black dragon",
-     	"features":[
+    "id": "s2",
+    "catId": "species",
+    "name": "Dragonborn",
+    "creatureType": "Humanoid",
+    "size": ["Medium"],
+    "speed": 30,
+    "features": [
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Acid"
-        }
-      ]
-    },
-    {"name":"Blue dragon",
-     	"features":[
+            "name": "Breath Weapon",
+            "desctiption": "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in either a 15-foot Cone or a 30-foot Line that is 5 feet wide (choose the shape each time). Each creature in that area must make a Dexterity saving throw (DC 8 plus your Constitution modifier and Proficiency Bonus). On a failed save, a creature takes 1d10 damage of the type determined by your Draconic Ancestry trait. On a successful save, a creature takes half as much damage. This damage increases by 1d10 when you reach character levels 5 (2d10), 11 (3d10), and 17 (4d10).\nYou can use this Breath Weapon a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Lightning"
-        }
-      ]
-    },
-    {"name":"Brass dragon",
-     	"features":[
+            "name": "Damage Resistance",
+            "description": "You have Resistance to the damage type determined by your Draconic Ancestry trait."
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Fire"
-        }
-      ]
-    },
-    {"name":"Bronze dragon",
-     	"features":[
+            "name": "Darkvision",
+            "description": "You have Darkvision with a range of 60 feet."
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Lightning"
+            "name": "Draconic Flight",
+            "description": "When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest."
         }
-      ]
-    },
-    {"name":"Copper dragon",
-     	"features":[
+    ],
+    "subspecies": [
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Acid"
-        }
-      ]
-    },
-    {"name":"Gold dragon",
-     	"features":[
+            "name": "Black dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Acid"
+                }
+            ]
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Fire"
-        }
-      ]
-    },
-    {"name":"Green dragon",
-     	"features":[
+            "name": "Blue dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Lightning"
+                }
+            ]
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Poison"
-        }
-      ]
-    },
-    {"name":"Red dragon",
-     	"features":[
+            "name": "Brass dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Fire"
+                }
+            ]
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Fire"
-        }
-      ]
-    },
-    {"name":"Silver dragon",
-     	"features":[
+            "name": "Bronze dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Lightning"
+                }
+            ]
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Cold"
-        }
-      ]
-    },
-    {"name":"White dragon",
-     	"features":[
+            "name": "Copper dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Acid"
+                }
+            ]
+        },
         {
-        "name":"Draconic Ancestry",
-        "description":"Breath Weapon damage and your Damage Resistance is Cold"
+            "name": "Gold dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Fire"
+                }
+            ]
+        },
+        {
+            "name": "Green dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Poison"
+                }
+            ]
+        },
+        {
+            "name": "Red dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Fire"
+                }
+            ]
+        },
+        {
+            "name": "Silver dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Cold"
+                }
+            ]
+        },
+        {
+            "name": "White dragon",
+            "features": [
+                {
+                    "name": "Draconic Ancestry",
+                    "description": "Breath Weapon damage and your Damage Resistance is Cold"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

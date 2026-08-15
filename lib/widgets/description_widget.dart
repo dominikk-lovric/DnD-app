@@ -16,10 +16,10 @@ class DescriptionWidget extends StatelessWidget {
 
   DescriptionWidget(
     this.title,
-    this.subtitle,
     this.descrption,
     this.descriptionType, {
     super.key,
+    this.subtitle = "",
     this.titleLevel = 3,
     this.subtitleLevel = 3,
     this.clickLevel = 2,
@@ -90,32 +90,49 @@ class DescriptionWidget extends StatelessWidget {
         ),
       );
     } else if (setting == "expand") {
-      return IntrinsicWidth(
-        child: ExpansionTile(
-          initiallyExpanded: true,
-          showTrailingIcon: false,
-          title: Text(
-            (clickTitle == "") ? title : clickTitle,
-            style: TextStyleService.getTextStyle(titleLevel, 4),
-          ),
-          children: [
-            Divider(indent: 15, endIndent: 15, color: ColorService.getColor(4)),
-            Padding(
-              padding: EdgeInsetsGeometry.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (subtitle != null)
-                    Text(
-                      subtitle.toString(),
-                      style: TextStyleService.getTextStyle(subtitleLevel, 4),
-                    ),
-                  descrption,
-                ],
+      return Material(
+        color: Colors.transparent,
+        child: Theme(
+          data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+          child: IntrinsicWidth(
+            child: ExpansionTile(
+              initiallyExpanded: true,
+              showTrailingIcon: false,
+              tilePadding: EdgeInsets.zero,
+              title: Text(
+                (clickTitle == "") ? title : clickTitle,
+                style: TextStyleService.getTextStyle(titleLevel, 4),
               ),
+              children: [
+                Divider(
+                  indent: 15,
+                  endIndent: 15,
+                  color: ColorService.getColor(4),
+                ),
+                Padding(
+                  padding: const EdgeInsetsGeometry.directional(
+                    start: 10,
+                    end: 10,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (subtitle != null && subtitle != "")
+                        Text(
+                          subtitle.toString(),
+                          style: TextStyleService.getTextStyle(
+                            subtitleLevel,
+                            4,
+                          ),
+                        ),
+                      descrption,
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       );
     } else if (setting == "sheet") {
