@@ -1,0 +1,15 @@
+{
+	"name": "House Thuranni Heir",
+	"catId": "background",
+	"description": "Choose A or B: (A) Musical Instrument (same as above), Costume, Fine Clothes, 13 GP; or (B) 50 GP",
+	"abilities": ["Dex", "Int", "Cha"],
+	"feat": [
+		{
+			"name": "Mark of Shadow",
+			"path": "assets/json/feats/mark-of-shadow"
+		}
+	],
+	"skills": ["Performance", "Stealth"],
+	"tools": "Musical Instrument",
+	"equipment": [["Musical Instrument (same as above)", "Costume", "Fine Clothes", "13 GP"], ["50 GP"]]
+}

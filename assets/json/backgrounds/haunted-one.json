@@ -1,0 +1,33 @@
+{
+    "name": "Haunted One",
+    "catId": "background",
+    "description": "You are haunted by the events of your past. Whether it was a lone terrible incident or an accumulation of painful moments, you bear the unshakable weight of what happened to you. You’ve tried to bury it and run away from it, to no avail; it can’t be slain with a sword or banished via magic. Nevertheless, you persist.",
+    "abilities": ["Con", "Wis", "Cha"],
+    "feat": [
+        {
+            "name": "Survivor",
+            "path": "assets/json/feats/survivor"
+        },
+        {
+            "options": "assets/json/feats/darkGift"
+        }
+    ],
+    "skills": ["Arcana", "Survival"],
+    "tools": "One kind of Gaming Set",
+    "equipment": [
+        [
+            "Gaming Set",
+            "Crowbar",
+            "Holy Water (1 flask)",
+            "Mirror",
+            "Oil(2 flasks)",
+            "Signal Whistle",
+            "Tinderbox",
+            "Traveler’s Clothes",
+            "5 Torches",
+            "Waterskin",
+            "14 GP"
+        ],
+        ["50 GP"]
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Mist Wanderer",
+    "catId": "background",
+    "description": "You once knew your home. But one day, the Mists rose and drew you into a Domain of Dread. Ever since, you have wandered between domains, braving the mercurial Mists as you search for a way home. Your time in these cursed realms has changed you, yet you find solace in communities of fellow wanderers throughout the Mists.",
+    "abilities": ["Dex", "Con", "Wis"],
+    "feat": [
+        {
+            "options": "assets/json/feats/darkGift"
+        }
+    ],
+    "skills": ["Survival", "Stealth"],
+    "tools": "One kind of Artisan’s Tools",
+    "equipment": [
+        [
+            "Artisan’s Tools",
+            "Lamp",
+            "Oil (5 flasks)",
+            "Pouch",
+            "Rope",
+            "Tinderbox",
+            "Traveler’s Clothes",
+            "30 GP"
+        ],
+        ["50 GP"]
+    ]
+}

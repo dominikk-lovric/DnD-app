@@ -1,0 +1,15 @@
+{
+	"name": "Mythalkeeper",
+	"catId": "background",
+	"description": "Choose A or B: (A) Quarterstaff, Jeweler’s Tools, Perfume, Pouch, Robe, Shovel, String, Waterskin, 16 GP; or (B) 50 GP",
+	"abilities": ["Int", "Wis", "Cha"],
+	"feat": [
+		{
+			"name": "Crafter",
+			"path": "assets/json/feats/crafter"
+		}
+	],
+	"skills": ["Arcana", "History"],
+	"tools": "Jeweler’s Tools",
+	"equipment": [["Quarterstaff", "Jeweler’s Tools", "Perfume", "Pouch", "Robe", "Shovel", "String", "Waterskin", "16 GP"], ["50 GP"]]
+}

@@ -1,0 +1,16 @@
+{
+	"name": "Guide",
+	"catId": "background",
+	"description": "You came of age outdoors, far from settled lands. Your home was anywhere you chose to spread your bedroll. There are wonders in the wilderness— strange monsters, pristine forests and streams, overgrown ruins of great halls once trod by giants— and you learned to fend for yourself as you explored them. From time to time, you guided friendly nature priests who instructed you in the fundamentals of channeling the magic of the wild.",
+	"abilities": ["Dex", "Con", "Wis"],
+	"feat": [
+		{
+			"name": "Magic Initiate",
+			"path": "assets/json/feats/magic-initiate",
+			"type": "Druid"
+		}
+	],
+	"skills": ["Stealth", "Survival"],
+	"tools": "Cartographer's Tools",
+	"equipment": [["Shortbow", "20 Arrows", "Cartographer’s Tools", "Bedroll", "Quiver", "Tent", "Traveler's Clothes", "3 GP"], ["50 GP"]]
+}

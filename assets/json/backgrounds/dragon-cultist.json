@@ -1,0 +1,15 @@
+{
+	"name": "Dragon Cultist",
+	"catId": "background",
+	"description": "Choose A or B: (A) Calligrapher’s Supplies, Dagger, Glass Bottle, Lamp, Manacles, Oil (5 flasks), 2 Pouches, Robe, Rope, 30 GP; or (B) 50 GP",
+	"abilities": ["Dex", "Con", "Int"],
+	"feat": [
+		{
+			"name": "Cult of the Dragon Initiate",
+			"path": "assets/json/feats/cult-of-the-dragon-initiate"
+		}
+	],
+	"skills": ["Deception", "Stealth"],
+	"tools": "Calligrapher’s Supplies",
+	"equipment": [["Calligrapher’s Supplies", "Dagger", "Glass Bottle", "Lamp", "Manacles", "Oil (5 flasks)", "2 Pouches", "Robe", "Rope", "30 GP"], ["50 GP"]]
+}

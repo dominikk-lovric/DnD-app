@@ -1,0 +1,15 @@
+{
+	"name": "House Orien Heir",
+	"catId": "background",
+	"description": "Choose A or B: (A) Cartographer’s Tools, Fine Clothes, Map, Map or Scroll Case, 18 GP; or (B) 50 GP",
+	"abilities": ["Dex", "Con", "Int"],
+	"feat": [
+		{
+			"name": "Mark of Passage",
+			"path": "assets/json/feats/mark-of-passage"
+		}
+	],
+	"skills": ["Acrobatics", "Athletics"],
+	"tools": "Cartographer’s Tools",
+	"equipment": [["Cartographer’s Tools", "Fine Clothes", "Map", "Map or Scroll Case", "18 GP"], ["50 GP"]]
+}

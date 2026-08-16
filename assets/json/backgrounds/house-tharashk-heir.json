@@ -1,0 +1,15 @@
+{
+	"name": "House Tharashk Heir",
+	"catId": "background",
+	"description": "Choose A or B: (A) Gaming Set (same as above), Climber’s Kit, Fine Clothes, Hunting Trap, Manacles, 2 GP; or (B) 50 GP",
+	"abilities": ["Con", "Int", "Wis"],
+	"feat": [
+		{
+			"name": "Mark of Finding",
+			"path": "assets/json/feats/mark-of-finding"
+		}
+	],
+	"skills": ["Perception", "Survival"],
+	"tools": "Gaming Set",
+	"equipment": [["Gaming Set (same as above)", "Climber’s Kit", "Fine Clothes", "Hunting Trap", "Manacles", "2 GP"], ["50 GP"]]
+}

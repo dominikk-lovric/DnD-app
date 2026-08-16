@@ -1,0 +1,15 @@
+{
+	"name": "Rashemi Wanderer",
+	"catId": "background",
+	"description": "Choose A or B: (A) Cartographer’s Tools, Backpack, Bedroll, Hooded Lantern, Oil (3 flasks), Rope, Tinderbox, Traveler’s Clothes, Waterskin, 23 GP; or (B) 50 GP",
+	"abilities": ["Str", "Con", "Cha"],
+	"feat": [
+		{
+			"name": "Tough",
+			"path": "assets/json/feats/tough"
+		}
+	],
+	"skills": ["Intimidation", "Perception"],
+	"tools": "Cartographer’s Tools",
+	"equipment": [["Cartographer’s Tools", "Backpack", "Bedroll", "Hooded Lantern", "Oil (3 flasks)", "Rope", "Tinderbox", "Traveler’s Clothes", "Waterskin", "23 GP"], ["50 GP"]]
+}

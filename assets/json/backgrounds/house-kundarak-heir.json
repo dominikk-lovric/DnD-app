@@ -1,0 +1,15 @@
+{
+	"name": "House Kundarak Heir",
+	"catId": "background",
+	"description": "Choose A or B: (A) Thieves’ Tools, Fine Clothes, 10 GP; or (B) 50 GP",
+	"abilities": ["Str", "Con", "Int"],
+	"feat": [
+		{
+			"name": "Mark of Warding",
+			"path": "assets/json/feats/mark-of-warding"
+		}
+	],
+	"skills": ["Arcana", "Investigation"],
+	"tools": "Thieves’ Tools",
+	"equipment": [["Thieves’ Tools", "Fine Clothes", "10 GP"], ["50 GP"]]
+}

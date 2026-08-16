@@ -162,5 +162,68 @@ flutter:
         - assets/json/species/lupin.json
         - assets/json/species/reborn.json
 
+        #backgrounds
+        - assets/json/backgrounds/acolyte.json
+        - assets/json/backgrounds/artisan.json
+        - assets/json/backgrounds/charlatan.json
+        - assets/json/backgrounds/criminal.json
+        - assets/json/backgrounds/entertainer.json
+        - assets/json/backgrounds/farmer.json
+        - assets/json/backgrounds/guard.json
+        - assets/json/backgrounds/guide.json
+        - assets/json/backgrounds/hermit.json
+        - assets/json/backgrounds/merchant.json
+        - assets/json/backgrounds/noble.json
+        - assets/json/backgrounds/sage.json
+        - assets/json/backgrounds/sailor.json
+        - assets/json/backgrounds/scribe.json
+        - assets/json/backgrounds/soldier.json
+        - assets/json/backgrounds/wayfarer.json
+        - assets/json/backgrounds/aberrant-heir.json
+        - assets/json/backgrounds/archaeologist.json
+        - assets/json/backgrounds/house-agent.json
+        - assets/json/backgrounds/house-cannith-heir.json
+        - assets/json/backgrounds/house-deneith-heir.json
+        - assets/json/backgrounds/house-ghallanda-heir.json
+        - assets/json/backgrounds/house-jorasco-heir.json
+        - assets/json/backgrounds/house-kundarak-heir.json
+        - assets/json/backgrounds/house-lyrandar-heir.json
+        - assets/json/backgrounds/house-medani-heir.json
+        - assets/json/backgrounds/house-orien-heir.json
+        - assets/json/backgrounds/house-phiarlan-heir.json
+        - assets/json/backgrounds/house-sivis-heir.json
+        - assets/json/backgrounds/house-tharashk-heir.json
+        - assets/json/backgrounds/house-thuranni-heir.json
+        - assets/json/backgrounds/house-vadalis-heir.json
+        - assets/json/backgrounds/inquisitive.json
+        - assets/json/backgrounds/chondathan-freebooter.json
+        - assets/json/backgrounds/dead-magic-dweller.json
+        - assets/json/backgrounds/dragon-cultist.json
+        - assets/json/backgrounds/emerald-enclave-caretaker.json
+        - assets/json/backgrounds/flaming-fist-mercenary.json
+        - assets/json/backgrounds/genie-touched.json
+        - assets/json/backgrounds/harper.json
+        - assets/json/backgrounds/ice-fisher.json
+        - assets/json/backgrounds/knight-of-the-gauntlet.json
+        - assets/json/backgrounds/lords-alliance-vassal.json
+        - assets/json/backgrounds/moonwell-pilgrim.json
+        - assets/json/backgrounds/mulhorandi-tomb-raider.json
+        - assets/json/backgrounds/mythalkeeper.json
+        - assets/json/backgrounds/purple-dragon-squire.json
+        - assets/json/backgrounds/rashemi-wanderer.json
+        - assets/json/backgrounds/shadowmasters-exile.json
+        - assets/json/backgrounds/spellfire-initiate.json
+        - assets/json/backgrounds/zhentarim-mercenary.json
+        - assets/json/backgrounds/haunted-one.json
+        - assets/json/backgrounds/investigator.json
+        - assets/json/backgrounds/mist-wanderer.json
+        - assets/json/backgrounds/spirit-medium.json
+        - assets/json/backgrounds/carouser.json
+        - assets/json/backgrounds/lorwyn-expert.json
+        - assets/json/backgrounds/pact-seeker.json
+        - assets/json/backgrounds/shadowmoor-expert.json
+        - assets/json/backgrounds/vampire-devotee.json
+        - assets/json/backgrounds/vampire-survivor.json
+
         #other
         - assets/json/other/weaponMastery.json

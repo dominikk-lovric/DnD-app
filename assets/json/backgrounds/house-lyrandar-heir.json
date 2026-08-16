@@ -1,0 +1,15 @@
+{
+	"name": "House Lyrandar Heir",
+	"catId": "background",
+	"description": "Choose A or B: (A) Navigator’s Tools, Fine Clothes, 10 GP; or (B) 50 GP",
+	"abilities": ["Str", "Dex", "Cha"],
+	"feat": [
+		{
+			"name": "Mark of Storm",
+			"path": "assets/json/feats/mark-of-storm"
+		}
+	],
+	"skills": ["Acrobatics", "Nature"],
+	"tools": "Navigator’s Tools",
+	"equipment": [["Navigator’s Tools", "Fine Clothes", "10 GP"], ["50 GP"]]
+}

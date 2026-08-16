@@ -1,0 +1,15 @@
+{
+	"name": "Farmer",
+	"catId": "background",
+	"description": "You grew up close to the land. Years tending animals and cultivating the earth rewarded you with patience and good health. You have a keen appreciation for nature’s bounty alongside a healthy respect for nature's wrath.",
+	"abilities": ["Str", "Con", "Wis"],
+	"feat": [
+		{
+			"name": "Tough",
+			"path": "assets/json/feats/tough"
+		}
+	],
+	"skills": ["Animal Handling", "Nature"],
+	"tools": "Carpenter's Tools",
+	"equipment": [["Sickle", "Carpenter's Tools", "Healer's Kit", "Iron Pot", "Shovel", "Traveler's Clothes", "30 GP"], ["50 GP"]]
+}

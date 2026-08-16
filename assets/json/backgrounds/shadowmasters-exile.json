@@ -1,0 +1,15 @@
+{
+	"name": "Shadowmasters Exile",
+	"catId": "background",
+	"description": "Choose A or B: (A) 2 Daggers, Thieves’ Tools, Caltrops, Costume, Grappling Hook, Iron Spikes, Mirror, 2 Pouches, Rope, Traveler’s Clothes, 3 GP; or (B) 50 GP",
+	"abilities": ["Dex", "Int", "Cha"],
+	"feat": [
+		{
+			"name": "Savage Attacker",
+			"path": "assets/json/feats/savage-attacker"
+		}
+	],
+	"skills": ["Acrobatics", "Stealth"],
+	"tools": "Thieves’ Tools",
+	"equipment": [["2 Daggers", "Thieves’ Tools", "Caltrops", "Costume", "Grappling Hook", "Iron Spikes", "Mirror", "2 Pouches", "Rope", "Traveler’s Clothes", "3 GP"], ["50 GP"]]
+}

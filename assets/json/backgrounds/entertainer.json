@@ -1,0 +1,15 @@
+{
+	"name": "Entertainer",
+	"catId": "background",
+	"description": "You spent much of your youth following roving fairs and carnivals, performing odd jobs for musicians and acrobats in exchange for lessons. You may have learned how to walk a tightrope, how to play a lute in a distinct style, or how to recite poetry with impeccable diction. To this day, you thrive on applause and long for the stage.",
+	"abilities": ["Str", "Dex", "Cha"],
+	"feat": [
+		{
+			"name": "Musician",
+			"path": "assets/json/feats/musician"
+		}
+	],
+	"skills": ["Acrobatics", "Performance"],
+	"tools": "Musical Instrument",
+	"equipment": [["Musical Instrument (same as above)", "2 Costumes", "Mirror", "Perfume", "Traveler’s Clothes", "11 GP"], ["50 GP"]]
+}

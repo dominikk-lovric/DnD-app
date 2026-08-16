@@ -1,1 +1,745 @@
-{}
+{
+    "bg0": {
+        "name": "Acolyte",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Int", "Wis", "Cha"],
+            "feat": "Magic Initiate"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/acolyte.json"
+    },
+    "bg1": {
+        "name": "Artisan",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Dex", "Int"],
+            "feat": "Crafter"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/artisan.json"
+    },
+    "bg2": {
+        "name": "Charlatan",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Dex", "Con", "Cha"],
+            "feat": "Skilled"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/charlatan.json"
+    },
+    "bg3": {
+        "name": "Criminal",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Dex", "Con", "Int"],
+            "feat": "Alert"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/criminal.json"
+    },
+    "bg4": {
+        "name": "Entertainer",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Dex", "Cha"],
+            "feat": "Musician"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/entertainer.json"
+    },
+    "bg5": {
+        "name": "Farmer",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Con", "Wis"],
+            "feat": "Tough"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/farmer.json"
+    },
+    "bg6": {
+        "name": "Guard",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Int", "Wis"],
+            "feat": "Alert"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/guard.json"
+    },
+    "bg7": {
+        "name": "Guide",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Dex", "Con", "Wis"],
+            "feat": "Magic Initiate"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/guide.json"
+    },
+    "bg8": {
+        "name": "Hermit",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Con", "Wis", "Cha"],
+            "feat": "Healer"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/hermit.json"
+    },
+    "bg9": {
+        "name": "Merchant",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Con", "Int", "Cha"],
+            "feat": "Lucky"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/merchant.json"
+    },
+    "bg10": {
+        "name": "Noble",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Int", "Cha"],
+            "feat": "Skilled"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/noble.json"
+    },
+    "bg11": {
+        "name": "Sage",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Con", "Int", "Wis"],
+            "feat": "Magic Initiate"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/sage.json"
+    },
+    "bg12": {
+        "name": "Sailor",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Dex", "Wis"],
+            "feat": "Tavern Brawler"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/sailor.json"
+    },
+    "bg13": {
+        "name": "Scribe",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Dex", "Int", "Wis"],
+            "feat": "Skilled"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/scribe.json"
+    },
+    "bg14": {
+        "name": "Soldier",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Str", "Dex", "Con"],
+            "feat": "Savage Attacker"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/soldier.json"
+    },
+    "bg15": {
+        "name": "Wayfarer",
+        "Basics": {
+            "source": "Player's Handbook",
+            "abilities": ["Dex", "Wis", "Cha"],
+            "feat": "Lucky"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/wayfarer.json"
+    },
+    "bg16": {
+        "name": "Aberrant Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Str", "Con", "Cha"],
+            "feat": "Aberrant Dragonmark"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/aberrant-heir.json"
+    },
+    "bg17": {
+        "name": "Archaeologist",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Int", "Wis"],
+            "feat": "Skilled"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/archaeologist.json"
+    },
+    "bg18": {
+        "name": "House Agent",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Str", "Int", "Cha"],
+            "feat": "Lucky"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-agent.json"
+    },
+    "bg19": {
+        "name": "House Cannith Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Str", "Dex", "Int"],
+            "feat": "Mark of Making"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-cannith-heir.json"
+    },
+    "bg20": {
+        "name": "House Deneith Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Str", "Con", "Wis"],
+            "feat": "Mark of Sentinel"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-deneith-heir.json"
+    },
+    "bg21": {
+        "name": "House Ghallanda Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Wis", "Cha"],
+            "feat": "Mark of Hospitality"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-ghallanda-heir.json"
+    },
+    "bg22": {
+        "name": "House Jorasco Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Con", "Wis"],
+            "feat": "Mark of Healing"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-jorasco-heir.json"
+    },
+    "bg23": {
+        "name": "House Kundarak Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Str", "Con", "Int"],
+            "feat": "Mark of Warding"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-kundarak-heir.json"
+    },
+    "bg24": {
+        "name": "House Lyrandar Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Str", "Dex", "Cha"],
+            "feat": "Mark of Storm"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-lyrandar-heir.json"
+    },
+    "bg25": {
+        "name": "House Medani Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Int", "Wis"],
+            "feat": "Mark of Detection"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-medani-heir.json"
+    },
+    "bg26": {
+        "name": "House Orien Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Con", "Int"],
+            "feat": "Mark of Passage"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-orien-heir.json"
+    },
+    "bg27": {
+        "name": "House Phiarlan Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Wis", "Cha"],
+            "feat": "Mark of Shadow"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-phiarlan-heir.json"
+    },
+    "bg28": {
+        "name": "House Sivis Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Int", "Wis", "Cha"],
+            "feat": "Mark of Scribing"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-sivis-heir.json"
+    },
+    "bg29": {
+        "name": "House Tharashk Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Con", "Int", "Wis"],
+            "feat": "Mark of Finding"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-tharashk-heir.json"
+    },
+    "bg30": {
+        "name": "House Thuranni Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Dex", "Int", "Cha"],
+            "feat": "Mark of Shadow"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-thuranni-heir.json"
+    },
+    "bg31": {
+        "name": "House Vadalis Heir",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Con", "Wis", "Cha"],
+            "feat": "Mark of Handling"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/house-vadalis-heir.json"
+    },
+    "bg32": {
+        "name": "Inquisitive",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "abilities": ["Con", "Int", "Cha"],
+            "feat": "Alert"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/inquisitive.json"
+    },
+    "bg33": {
+        "name": "Chondathan Freebooter",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Dex", "Wis"],
+            "feat": "Skilled"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/chondathan-freebooter.json"
+    },
+    "bg34": {
+        "name": "Dead Magic Dweller",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Con", "Wis"],
+            "feat": "Healer"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/dead-magic-dweller.json"
+    },
+    "bg35": {
+        "name": "Dragon Cultist",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Dex", "Con", "Int"],
+            "feat": "Cult of the Dragon Initiate"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/dragon-cultist.json"
+    },
+    "bg36": {
+        "name": "Emerald Enclave Caretaker",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Con", "Int", "Wis"],
+            "feat": "Emerald Enclave Fledgling"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/emerald-enclave-caretaker.json"
+    },
+    "bg37": {
+        "name": "Flaming Fist Mercenary",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Con", "Cha"],
+            "feat": "Tough"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/flaming-fist-mercenary.json"
+    },
+    "bg38": {
+        "name": "Genie Touched",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Dex", "Wis", "Cha"],
+            "feat": "Magic Initiate"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/genie-touched.json"
+    },
+    "bg39": {
+        "name": "Harper",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Dex", "Int", "Cha"],
+            "feat": "Harper Agent"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/harper.json"
+    },
+    "bg40": {
+        "name": "Ice Fisher",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Dex", "Con"],
+            "feat": "Alert"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/ice-fisher.json"
+    },
+    "bg41": {
+        "name": "Knight Of The Gauntlet",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Int", "Wis"],
+            "feat": "Tyro of the Gauntlet"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/knight-of-the-gauntlet.json"
+    },
+    "bg42": {
+        "name": "Lords Alliance Vassal",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Int", "Cha"],
+            "feat": "Lords’ Alliance Agent"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/lords-alliance-vassal.json"
+    },
+    "bg43": {
+        "name": "Moonwell Pilgrim",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Con", "Wis", "Cha"],
+            "feat": "Magic Initiate"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/moonwell-pilgrim.json"
+    },
+    "bg44": {
+        "name": "Mulhorandi Tomb Raider",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Dex", "Con", "Int"],
+            "feat": "Lucky"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/mulhorandi-tomb-raider.json"
+    },
+    "bg45": {
+        "name": "Mythalkeeper",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Int", "Wis", "Cha"],
+            "feat": "Crafter"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/mythalkeeper.json"
+    },
+    "bg46": {
+        "name": "Purple Dragon Squire",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Wis", "Cha"],
+            "feat": "Purple Dragon Rook"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/purple-dragon-squire.json"
+    },
+    "bg47": {
+        "name": "Rashemi Wanderer",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Con", "Cha"],
+            "feat": "Tough"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/rashemi-wanderer.json"
+    },
+    "bg48": {
+        "name": "Shadowmasters Exile",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Dex", "Int", "Cha"],
+            "feat": "Savage Attacker"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/shadowmasters-exile.json"
+    },
+    "bg49": {
+        "name": "Spellfire Initiate",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Con", "Int", "Cha"],
+            "feat": "Spellfire Spark"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/spellfire-initiate.json"
+    },
+    "bg50": {
+        "name": "Zhentarim Mercenary",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "abilities": ["Str", "Dex", "Cha"],
+            "feat": "Zhentarim Ruffian"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/zhentarim-mercenary.json"
+    },
+    "bg51": {
+        "name": "Haunted One",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "abilities": ["Con", "Wis", "Cha"],
+            "feat": "Survivor or Dark Gift feat of your choice"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/haunted-one.json"
+    },
+    "bg52": {
+        "name": "Investigator",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "abilities": ["Int", "Wis", "Cha"],
+            "feat": "Sharp Eye or a Dark Gift feat of your choice"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/investigator.json"
+    },
+    "bg53": {
+        "name": "Mist Wanderer",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "abilities": ["Dex", "Con", "Wis"],
+            "feat": "A Dark Gift feat of your choice"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/mist-wanderer.json"
+    },
+    "bg54": {
+        "name": "Spirit Medium",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "abilities": ["Con", "Int", "Wis"],
+            "feat": "A Dark Gift feat of your choice"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/spirit-medium.json"
+    },
+    "bg55": {
+        "name": "Carouser",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "abilities": ["Dex", "Int", "Cha"],
+            "feat": "Tireless Reveler"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/carouser.json"
+    },
+    "bg56": {
+        "name": "Lorwyn Expert",
+        "Basics": {
+            "source": "Lorwyn - First Light",
+            "abilities": ["Str", "Con", "Wis"],
+            "feat": "Child of the Sun"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/lorwyn-expert.json"
+    },
+    "bg57": {
+        "name": "Pact Seeker",
+        "Basics": {
+            "source": "D&D Beyond Drops - May 2026",
+            "abilities": ["Con", "Int", "Cha"],
+            "feat": ": Choose one Planar Pact feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/pact-seeker.json"
+    },
+    "bg58": {
+        "name": "Shadowmoor Expert",
+        "Basics": {
+            "source": "Lorwyn - First Light",
+            "abilities": ["Dex", "Int", "Cha"],
+            "feat": "Shadowmoor Hexer"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/shadowmoor-expert.json"
+    },
+    "bg59": {
+        "name": "Vampire Devotee",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "abilities": ["Str", "Con", "Cha"],
+            "feat": "Vampire’s Plaything"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/vampire-devotee.json"
+    },
+    "bg60": {
+        "name": "Vampire Survivor",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "abilities": ["Dex", "Con", "Wis"],
+            "feat": "Vampire Hunter"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/backgrounds/vampire-survivor.json"
+    },
+    "bg61": {
+        "name": "Bratatatatat",
+        "Basics": {
+            "source": "Slavonski Brod",
+            "abilities": ["cute", "smart", "funni"],
+            "feat": "bas je cool "
+        },
+        "Icon": {
+            "base": "none"
+        }
+    }
+}

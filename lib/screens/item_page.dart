@@ -36,6 +36,7 @@ class _ItemPageState extends State<ItemPage> {
   Future<void> loadOptions(String path) async {
     items = await JsonService.loadFromPath(path);
     setState(() {
+      print(items);
       type = items["catId"];
       name = items["name"];
       if (items.containsKey("icon")) {

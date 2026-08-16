@@ -1,0 +1,15 @@
+{
+	"name": "Aberrant Heir",
+	"catId": "background",
+	"description": "Choose A or B: (A) Dagger, Disguise Kit, Costume, Traveler’s Clothes, 16 GP; or (B) 50 GP",
+	"abilities": ["Str", "Con", "Cha"],
+	"feat": [
+		{
+			"name": "Aberrant Dragonmark",
+			"path": "assets/json/feats/aberrant-dragonmark"
+		}
+	],
+	"skills": ["History", "Intimidation"],
+	"tools": "Disguise Kit",
+	"equipment": [["Dagger", "Disguise Kit", "Costume", "Traveler’s Clothes", "16 GP"], ["50 GP"]]
+}

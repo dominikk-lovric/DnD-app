@@ -1,0 +1,15 @@
+{
+	"name": "Lorwyn Expert",
+	"catId": "background",
+	"description": "Choose A or B: (A) Quarterstaff, Cartographer’s Tools, Backpack, Basket, Parchment (4 sheets), Rope, Traveler’s Clothes, 29 GP; or (B) 50 GP",
+	"abilities": ["Str", "Con", "Wis"],
+	"feat": [
+		{
+			"name": "Child of the Sun",
+			"path": "assets/json/feats/child-of-the-sun"
+		}
+	],
+	"skills": ["Athletics", "Nature"],
+	"tools": "Cartographer’s Tools",
+	"equipment": [["Quarterstaff", "Cartographer’s Tools", "Backpack", "Basket", "Parchment (4 sheets)", "Rope", "Traveler’s Clothes", "29 GP"], ["50 GP"]]
+}

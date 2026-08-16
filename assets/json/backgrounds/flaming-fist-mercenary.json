@@ -1,0 +1,15 @@
+{
+	"name": "Flaming Fist Mercenary",
+	"catId": "background",
+	"description": "Choose A or B: (A) Mace, Smith’s Tools, Fine Clothes, Manacles, Portable Ram, 4 GP; or (B) 50 GP",
+	"abilities": ["Str", "Con", "Cha"],
+	"feat": [
+		{
+			"name": "Tough",
+			"path": "assets/json/feats/tough"
+		}
+	],
+	"skills": ["Intimidation", "Perception"],
+	"tools": "Smith’s Tools",
+	"equipment": [["Mace", "Smith’s Tools", "Fine Clothes", "Manacles", "Portable Ram", "4 GP"], ["50 GP"]]
+}
