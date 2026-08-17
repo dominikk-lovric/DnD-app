@@ -730,16 +730,5 @@
             "base": "none"
         },
         "json": "assets/json/backgrounds/vampire-survivor.json"
-    },
-    "bg61": {
-        "name": "Bratatatatat",
-        "Basics": {
-            "source": "Slavonski Brod",
-            "abilities": ["cute", "smart", "funni"],
-            "feat": "bas je cool "
-        },
-        "Icon": {
-            "base": "none"
-        }
     }
 }
