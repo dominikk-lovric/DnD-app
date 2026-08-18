@@ -94,44 +94,39 @@ class DescriptionWidget extends StatelessWidget {
         color: Colors.transparent,
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-          child: IntrinsicWidth(
-            child: ExpansionTile(
-              initiallyExpanded: true,
-              showTrailingIcon: false,
-              tilePadding: EdgeInsets.zero,
-              title: Text(
-                (clickTitle == "") ? title : clickTitle,
-                style: TextStyleService.getTextStyle(titleLevel, 4),
-              ),
-              children: [
-                Divider(
-                  indent: 15,
-                  endIndent: 15,
-                  color: ColorService.getColor(4),
-                ),
-                Padding(
-                  padding: const EdgeInsetsGeometry.directional(
-                    start: 10,
-                    end: 10,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (subtitle != null && subtitle != "")
-                        Text(
-                          subtitle.toString(),
-                          style: TextStyleService.getTextStyle(
-                            subtitleLevel,
-                            4,
-                          ),
-                        ),
-                      descrption,
-                    ],
-                  ),
-                ),
-              ],
+          child: ExpansionTile(
+            initiallyExpanded: true,
+            showTrailingIcon: false,
+            tilePadding: EdgeInsets.zero,
+            title: Text(
+              (clickTitle == "") ? title : clickTitle,
+              style: TextStyleService.getTextStyle(titleLevel, 4),
             ),
+            children: [
+              Divider(
+                indent: 15,
+                endIndent: 15,
+                color: ColorService.getColor(4),
+              ),
+              Padding(
+                padding: const EdgeInsetsGeometry.directional(
+                  start: 10,
+                  end: 10,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (subtitle != null && subtitle != "")
+                      Text(
+                        subtitle.toString(),
+                        style: TextStyleService.getTextStyle(subtitleLevel, 4),
+                      ),
+                    descrption,
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       );

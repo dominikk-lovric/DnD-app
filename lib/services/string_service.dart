@@ -12,4 +12,17 @@ class StringService {
     }
     return words.join(split);
   }
+
+  static String choicesFromString(List<dynamic> list, String end) {
+    String res = "";
+    for (int i = 0; i < list.length; i++) {
+      res += list[i].toString();
+      if (i != list.length - 1 || i != list.length - 2) {
+        res += ", ";
+      } else if (i != list.length - 2) {
+        res += " " + end + " ";
+      }
+    }
+    return res;
+  }
 }

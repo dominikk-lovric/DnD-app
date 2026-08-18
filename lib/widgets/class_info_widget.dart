@@ -1,6 +1,7 @@
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
+import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feature_description_widget.dart';
@@ -53,11 +54,6 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
     }
   }
 
-  Future<void> loadFile(String fileName) async {
-    final json = await JsonService.loadFromPath(fileName);
-    setState(() {});
-  }
-
   Future<void> loadFileAndAdd(String fileName) async {
     final json = await JsonService.loadFromPath(fileName);
     setState(() {
@@ -101,6 +97,10 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
           spells[keys[i]] = info["spells"][keys[i]];
         }
       }
+    }
+    List<String> equipmentList = [];
+    for (final list in info["startingEquipment"]) {
+      equipmentList.add(StringService.choicesFromString(list, "and"));
     }
     return Column(
       spacing: 20,
@@ -153,6 +153,13 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
             ],
           ),
           "sectionDescriptionStyle",
+          titleLevel: widget.sectionLevel,
+        ),
+        DescriptionWidget(
+          "Equipment",
+          ListWidget(equipmentList),
+          "equipmentDescriptionStyle",
+          clickLevel: widget.sectionLevel,
           titleLevel: widget.sectionLevel,
         ),
         DescriptionWidget(

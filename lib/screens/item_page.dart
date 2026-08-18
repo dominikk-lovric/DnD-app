@@ -1,5 +1,6 @@
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/background_info_widget.dart';
 import 'package:dnd_app/widgets/species_info_widget.dart';
 import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
@@ -57,6 +58,8 @@ class _ItemPageState extends State<ItemPage> {
       infoWidget = ClassInfoWidget(items);
     } else if (type == "species") {
       infoWidget = SpeciesInfoWidget(items);
+    } else if (type == "background") {
+      infoWidget = BackgroundInfoWidget(items);
     } else {
       infoWidget = SizedBox.shrink();
     }

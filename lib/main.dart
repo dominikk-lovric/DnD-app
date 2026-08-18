@@ -44,6 +44,14 @@ class _MyApp extends State<MyApp> {
 
       await SettingsService.setSetting("sizeDescriptionStyle", "expand");
       await SettingsService.setSetting("subspeciesDescriptionType", "sheet");
+      await SettingsService.setSetting("skillDescriptionType", "expand");
+      await SettingsService.setSetting("equipmentDescriptionStyle", "expand");
+      await SettingsService.setSetting("toolDescriptionStyle", "expand");
+
+      await SettingsService.setSetting(
+        "abilityScoresDescriptionStyle",
+        "expand",
+      );
 
       await SettingsService.setSetting("wikiSorting", [
         "Primary",
