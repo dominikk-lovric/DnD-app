@@ -1,0 +1,25 @@
+{
+  "name": "Symbiotic Being",
+  "catId": "feat",
+  "type": "Dark Gift Feat",
+  "source": "Ravenloft - The Horrors Within",
+  "description": "Dark Gift Feat (Prerequisite: Ravenloft Campaign) A second being resides within your body, offering knowledge and assistance while furthering its own agenda. You gain the following features. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. At the DM’s discretion, you might make this saving throw whenever you act contrary to the symbiote’s agenda.",
+  "features": [
+    {
+      "name": "Entwined Existence",
+      "description": "The symbiote can’t be targeted. If you die, so does your symbiote. If you are returned to life, your symbiote also revives."
+    },
+    {
+      "name": "Second Mind",
+      "description": "You gain proficiency in one of the following skills: Arcana, Deception, History, Intimidation, Insight, Investigation, Nature, Religion, Perception, or Persuasion. You also know one additional language of your choice, chosen from the language tables in the Player’s Handbook."
+    },
+    {
+      "name": "Sustained Symbiosis",
+      "description": "When you fail a saving throw, you can take a Reaction and expend one of your Hit Dice. Roll the die and add the number rolled to the saving throw, potentially turning the failure into a success."
+    },
+    {
+      "name": "Symbiotic Agenda",
+      "description": "Immediately after you make a D20 Test and roll a 1 on the d20, your symbiote attempts to assert control. Make a Charisma saving throw (DC 13 plus your Proficiency Bonus). On a failed save, you have the Charmed condition for 1d12 hours. While Charmed, you must try to follow the symbiote’s commands and further its goals, as determined by the DM. Whenever you take damage, you can repeat this save, ending the effect on a success."
+    }
+  ]
+}

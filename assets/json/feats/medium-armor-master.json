@@ -1,0 +1,17 @@
+{
+  "name": "Medium Armor Master",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Medium Armor Training You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Dexterous Wearer",
+      "description": "While you're wearing Medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity score of 16 or higher."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Heavily Armored",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Medium Armor Training You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Constitution or Strength score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Armor Training",
+      "description": "You gain training with Heavy armor."
+    }
+  ]
+}

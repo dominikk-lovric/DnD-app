@@ -54,12 +54,43 @@ class _MyApp extends State<MyApp> {
       );
 
       await SettingsService.setSetting("wikiSorting", [
-        "Primary",
+        "primary",
+        "speed",
         "alphabetical",
-        "alphabetical",
-        "alphabetical",
-        "alphabetical",
+        "featType",
+        "source",
       ]);
+
+      await SettingsService.setSetting("abilitySubSort", [
+        "Str",
+        "Dex",
+        "Con",
+        "Int",
+        "Wis",
+        "Cha",
+      ]);
+
+      await SettingsService.setSetting("featSubSort", [
+        "Origin Feat",
+        "General Feat",
+        "Fighting Style Feat",
+        "Epic Boon Feat",
+        "Dragonmark Feat",
+        "Planar Pact Feat",
+        "Dark Gift Feat",
+      ]);
+      await SettingsService.setSetting("sourceSubSort", [
+        "Player's Handbook",
+        "Forgotten Realms - Heroes of Faerun",
+        "Astarion's Book of Hungers",
+        "Lorwyn - First Light",
+        "Eberron - Forge of the Artificer",
+        "D&D Beyond Drops - May 2026",
+        "DND Beyond Drops - July 2026",
+        "Ravenloft - The Horrors Within",
+        "D&D Beyond Drops - August 2026",
+      ]);
+
       await SettingsService.setSetting("groupItemsWiki", true);
       await SettingsService.setSetting("headerHeight", height * 0.14);
       await SettingsService.setSetting("listItemHeight", height * 0.10);

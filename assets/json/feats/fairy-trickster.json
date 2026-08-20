@@ -1,0 +1,21 @@
+{
+  "name": "Fairy Trickster",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits. You can use this benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Dexterity or Charisma ability score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Faerie Trod Trotter",
+      "description": "When you take the Disengage action on your turn, Difficult Terrain doesn’t cost you extra movement for the rest of that turn."
+    },
+    {
+      "name": "Flustering Strike",
+      "description": "When you hit a creature with an attack roll, you can attempt to fluster the target. The target must succeed on a Wisdom saving throw (DC 8 plus the ability modifier of the score increased by this feat and your Proficiency Bonus) or have Disadvantage on saving throws until the end of your next turn."
+    }
+  ]
+}

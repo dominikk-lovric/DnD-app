@@ -1,0 +1,21 @@
+{
+  "name": "Observant",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Intelligence or Wisdom 13+ You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Intelligence or Wisdom score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Keen Observer",
+      "description": "Choose one of the following skills: Insight, Investigation, or Perception. If you lack proficiency with the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it."
+    },
+    {
+      "name": "Quick Search",
+      "description": "You can take the Search action as a Bonus Action."
+    }
+  ]
+}

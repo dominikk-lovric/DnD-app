@@ -1,0 +1,17 @@
+{
+  "name": "Tyro Of The Gauntlet",
+  "catId": "feat",
+  "type": "Origin Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Origin Feat You gain the following benefits.",
+  "features": [
+    {
+      "name": "Stand as One",
+      "description": "When an ally within 5 feet of you is subjected to an effect that would push or pull it, you can take a Reaction to prevent that ally from being pushed or pulled. To receive this benefit, the ally can’t have the Incapacitated condition."
+    },
+    {
+      "name": "Vigilant",
+      "description": "When you take the Ready action, the next attack roll made against you has Disadvantage before the start of your next turn."
+    }
+  ]
+}

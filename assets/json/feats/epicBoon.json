@@ -1,0 +1,33 @@
+{
+  "options": [
+    "assets/json/feats/boon-of-combat-prowess.json",
+    "assets/json/feats/boon-of-dimensional-travel.json",
+    "assets/json/feats/boon-of-energy-resistance.json",
+    "assets/json/feats/boon-of-fate.json",
+    "assets/json/feats/boon-of-fortitude.json",
+    "assets/json/feats/boon-of-irresistible-offense.json",
+    "assets/json/feats/boon-of-recovery.json",
+    "assets/json/feats/boon-of-skill.json",
+    "assets/json/feats/boon-of-speed.json",
+    "assets/json/feats/boon-of-spell-recall.json",
+    "assets/json/feats/boon-of-the-night-spirit.json",
+    "assets/json/feats/boon-of-truesight.json",
+    "assets/json/feats/boon-of-siberys.json",
+    "assets/json/feats/boon-of-bloodshed.json",
+    "assets/json/feats/boon-of-bountiful-health.json",
+    "assets/json/feats/boon-of-communication.json",
+    "assets/json/feats/boon-of-desperate-resilience.json",
+    "assets/json/feats/boon-of-exquisite-radiance.json",
+    "assets/json/feats/boon-of-fluid-forms.json",
+    "assets/json/feats/boon-of-fortune-s-favor.json",
+    "assets/json/feats/boon-of-poison-mastery.json",
+    "assets/json/feats/boon-of-revelry.json",
+    "assets/json/feats/boon-of-terror.json",
+    "assets/json/feats/boon-of-the-bright-sun.json",
+    "assets/json/feats/boon-of-the-furious-storm.json",
+    "assets/json/feats/boon-of-the-soul-drinker.json",
+    "assets/json/feats/boon-of-blazing-dawn.json",
+    "assets/json/feats/boon-of-looming-shadows.json",
+    "assets/json/feats/boon-of-misty-escape.json"
+  ]
+}

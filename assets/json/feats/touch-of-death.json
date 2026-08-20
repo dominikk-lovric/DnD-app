@@ -1,0 +1,17 @@
+{
+  "name": "Touch Of Death",
+  "catId": "feat",
+  "type": "Dark Gift Feat",
+  "source": "Ravenloft - The Horrors Within",
+  "description": "Dark Gift Feat (Prerequisite: Ravenloft Campaign) Deathly power resides within you, bursting out at the slightest provocation. You gain the following features.",
+  "features": [
+    {
+      "name": "Death Touch",
+      "description": "You learn the Chill Touch spell and can cast it without spell components. Necrotic damage you deal with this spell ignores Resistance. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat)."
+    },
+    {
+      "name": "Pull of the Grave",
+      "description": "You have Disadvantage on Death Saving Throws."
+    }
+  ]
+}

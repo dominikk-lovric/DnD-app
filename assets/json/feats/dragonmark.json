@@ -1,0 +1,31 @@
+{
+  "options": [
+    "assets/json/feats/aberrant-dragonmark.json",
+    "assets/json/feats/mark-of-detection.json",
+    "assets/json/feats/mark-of-finding.json",
+    "assets/json/feats/mark-of-handling.json",
+    "assets/json/feats/mark-of-healing.json",
+    "assets/json/feats/mark-of-hospitality.json",
+    "assets/json/feats/mark-of-making.json",
+    "assets/json/feats/mark-of-passage.json",
+    "assets/json/feats/mark-of-scribing.json",
+    "assets/json/feats/mark-of-sentinel.json",
+    "assets/json/feats/mark-of-shadow.json",
+    "assets/json/feats/mark-of-storm.json",
+    "assets/json/feats/mark-of-warding.json",
+    "assets/json/feats/greater-aberrant-mark.json",
+    "assets/json/feats/greater-mark-of-detection.json",
+    "assets/json/feats/greater-mark-of-finding.json",
+    "assets/json/feats/greater-mark-of-handling.json",
+    "assets/json/feats/greater-mark-of-healing.json",
+    "assets/json/feats/greater-mark-of-hospitality.json",
+    "assets/json/feats/greater-mark-of-making.json",
+    "assets/json/feats/greater-mark-of-passage.json",
+    "assets/json/feats/greater-mark-of-scribing.json",
+    "assets/json/feats/greater-mark-of-sentinel.json",
+    "assets/json/feats/greater-mark-of-shadow.json",
+    "assets/json/feats/greater-mark-of-storm.json",
+    "assets/json/feats/greater-mark-of-warding.json",
+    "assets/json/feats/potent-dragonmark.json"
+  ]
+}

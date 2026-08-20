@@ -1,0 +1,17 @@
+{
+  "name": "Purple Dragon Rook",
+  "catId": "feat",
+  "type": "Origin Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Origin Feat You gain the following benefits. Once you use this benefit, you can’t do so again until you finish a Long Rest.",
+  "features": [
+    {
+      "name": "Entreat",
+      "description": "You gain proficiency in one of the following skills: Insight, Performance, or Persuasion."
+    },
+    {
+      "name": "Rallying Cry",
+      "description": "When you roll Initiative and don’t have the Incapacitated condition, you can choose a number of creatures equal to your Proficiency Bonus that you can see within 30 feet of yourself. Those creatures gain Heroic Inspiration."
+    }
+  ]
+}

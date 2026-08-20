@@ -1,0 +1,21 @@
+{
+  "name": "Bloodlust",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Astarion's Book of Hungers",
+  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Strength, Dexterity, or Constitution score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Powerful Recovery",
+      "description": "When you roll a Hit Point Die to regain Hit Points, you can treat any roll of 1 or 2 as a 3."
+    },
+    {
+      "name": "Sanguine Feast",
+      "description": "Once per turn when you hit a Bloodied creature that isn’t a Construct or Undead with an attack roll, you can expend a Hit Point Die, roll it, and regain a number of Hit Points equal to the number rolled plus your Constitution modifier."
+    }
+  ]
+}

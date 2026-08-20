@@ -1,0 +1,21 @@
+{
+  "name": "Harper Teamwork",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "General Feat (Prerequisite: Level 4+, Harper Agent Feat) You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Dexterity or Charisma score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Withering Wordplay",
+      "description": "When you take the Help action to assist an ally’s attack roll against an enemy, that enemy also has Disadvantage on the first saving throw it makes before the start of your next turn."
+    },
+    {
+      "name": "Inspiring Willpower",
+      "description": "If you succeed on a saving throw to end the Frightened or Paralyzed condition on yourself, you can choose one ally you can see within 30 feet of yourself that has the same condition. That condition immediately ends for that ally."
+    }
+  ]
+}

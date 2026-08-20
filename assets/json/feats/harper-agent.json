@@ -1,0 +1,21 @@
+{
+  "name": "Harper Agent",
+  "catId": "feat",
+  "type": "Origin Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Origin Feat You gain the following benefits.",
+  "features": [
+    {
+      "name": "Thieves’ Cant",
+      "description": "You know Thieves’ Cant."
+    },
+    {
+      "name": "Instrument Training",
+      "description": "You gain proficiency with a Musical Instrument of your choice."
+    },
+    {
+      "name": "Distracting Melody",
+      "description": "When you take the Help action to assist an ally’s attack roll, the enemy you’re distracting can be within 30 feet of you, rather than within 5 feet of you, provided the enemy can see or hear you."
+    }
+  ]
+}

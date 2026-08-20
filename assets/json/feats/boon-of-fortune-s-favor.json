@@ -1,0 +1,17 @@
+{
+  "name": "Boon Of Fortune S Favor",
+  "catId": "feat",
+  "type": "Epic Boon Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    {
+      "name": "Saving Throw Reroll",
+      "description": "When you fail a saving throw, you can reroll it and must use the new roll. Once you use this benefit, you can’t do so again until the start of your next turn."
+    }
+  ]
+}

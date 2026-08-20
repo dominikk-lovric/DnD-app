@@ -52,15 +52,64 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   void getSelector(String category) {
     int index = categories.indexOf(category);
     List<String> settings = SettingsService.getSetting("wikiSorting");
-    if (categoryData[categories[index]]["sorting"].contains(settings[index])) {
+    dynamic Function(Map<String, dynamic>) ss;
+    if ((categoryData[categories[index]]["sorting"]).contains(
+          settings[index].toLowerCase(),
+        ) ||
+        (categoryData[categories[index]]["sorting"]).contains(
+          settings[index],
+        )) {
       if (settings[index] == "alphabetical") {
-        selector = (el) => el["name"];
+        ss = (el) => el["name"];
       } else if (settings[index] == "primary") {
-        selector = (el) => el["Basics"]["Primary"][0];
+        print("primary");
+        if (SettingsService.getSetting("abilitySubSort") is List) {
+          ss = (el) {
+            final source = el["Basics"]["Primary"][0];
+            print(source);
+            final List<String> sourceList = SettingsService.getSetting(
+              "abilitySubSort",
+            );
+            return sourceList.indexOf(source);
+          };
+        } else {
+          ss = (el) => el["Basics"]["Primary"][0];
+        }
+      } else if (settings[index] == "source") {
+        if (SettingsService.getSetting("sourceSubSort") is List) {
+          ss = (el) {
+            final source = el["Basics"]["source"];
+            final List<String> sourceList = SettingsService.getSetting(
+              "sourceSubSort",
+            );
+            return sourceList.indexOf(source);
+          };
+        } else {
+          ss = (el) => el["Basics"]["source"];
+        }
+      } else if (settings[index] == "featType") {
+        if (SettingsService.getSetting("featSubSort") is List) {
+          ss = (el) {
+            final source = el["Basics"]["type"];
+            final List<String> typeOrder = SettingsService.getSetting(
+              "featSubSort",
+            );
+            return typeOrder.indexOf(source);
+          };
+        } else {
+          ss = (el) => el["Basics"]["type"];
+        }
+      } else if (settings[index] == "speed") {
+        ss = (el) => el["Basics"]["speed"];
+      } else {
+        ss = (el) => el["name"];
       }
     } else {
-      selector = (el) => el["name"];
+      ss = (el) => el["name"];
     }
+    setState(() {
+      selector = ss;
+    });
   }
 
   @override
@@ -89,18 +138,14 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   }
 
   void sortData() {
-    Map<String, dynamic> sorted = {};
-    Map<String, dynamic> alphabetized = MapService.sortMap(
-      "sort",
+    if (data.isEmpty) return;
+
+    final sorted = MapService.sortMap(
       data,
-      (el) => (el["name"]),
+      selector,
+      secondarySelector: (el) => el["name"],
     );
-    List<dynamic> test = data.entries.toList();
-    if (test.isNotEmpty && selector(test[0].value) != null) {
-      sorted = MapService.sortMap("sort", alphabetized, selector);
-    } else {
-      sorted = alphabetized;
-    }
+
     setState(() {
       data = sorted;
     });
@@ -258,64 +303,64 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   }
 
   /*
-  MenuAnchor menu= MenuAnchor(
-    builder: (context, controller, child) {
-      return IconButton(
-        icon: const Icon(Icons.tune),
-        onPressed: () {
-          controller.isOpen ? controller.close() : controller.open();
-        },
-      );
-    },
-    menuChildren: [
-      Padding(
-        padding: EdgeInsetsGeometry.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 10,
-          children: [
-            DropdownMenu(
-              label: Text("Sorting type"),
-              initialSelection: "alphabetical",
-              requestFocusOnTap: true,
-              dropdownMenuEntries: [
-                DropdownMenuEntry(value: "alphabetical", label: "Alphabetical"),
-              ],
-              onSelected: (value){
-
-              },
-            ),
-            DropdownMenu(
-              label: Text("Sort by"),
-              requestFocusOnTap: true,
-              dropdownMenuEntries:[
-                DropdownMenuEntry(value: (el)=>el["name"], label: "Name"),
-                DropdownMenuEntry(value: (el)=>el["Basics"]["Primary"], label: "Primary Ability")
-              ],
-            ),
-            RadioGroup<bool?>(
-              groupValue: goruping,
-              onChanged: (bool? value) async{
-                await SettingsService.setSetting("groupItemsWiki", value);
-              },
-              child: Row(
-                children: [
-                  RadioListTile(
-                    title: Text("yes"),
-                    value: true,
-                  ),
-                  RadioListTile(
-                    title: Text("no"),
-                    value: false,
-                  )
+    MenuAnchor menu= MenuAnchor(
+      builder: (context, controller, child) {
+        return IconButton(
+          icon: const Icon(Icons.tune),
+          onPressed: () {
+            controller.isOpen ? controller.close() : controller.open();
+          },
+        );
+      },
+      menuChildren: [
+        Padding(
+          padding: EdgeInsetsGeometry.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 10,
+            children: [
+              DropdownMenu(
+                label: Text("Sorting type"),
+                initialSelection: "alphabetical",
+                requestFocusOnTap: true,
+                dropdownMenuEntries: [
+                  DropdownMenuEntry(value: "alphabetical", label: "Alphabetical"),
                 ],
+                onSelected: (value){
+
+                },
+              ),
+              DropdownMenu(
+                label: Text("Sort by"),
+                requestFocusOnTap: true,
+                dropdownMenuEntries:[
+                  DropdownMenuEntry(value: (el)=>el["name"], label: "Name"),
+                  DropdownMenuEntry(value: (el)=>el["Basics"]["Primary"], label: "Primary Ability")
+                ],
+              ),
+              RadioGroup<bool?>(
+                groupValue: goruping,
+                onChanged: (bool? value) async{
+                  await SettingsService.setSetting("groupItemsWiki", value);
+                },
+                child: Row(
+                  children: [
+                    RadioListTile(
+                      title: Text("yes"),
+                      value: true,
+                    ),
+                    RadioListTile(
+                      title: Text("no"),
+                      value: false,
+                    )
+                  ],
+                )
               )
-            )
-          ],
-        ),
-      )
-    ],
-  );
-  */
+            ],
+          ),
+        )
+      ],
+    );
+    */
 }

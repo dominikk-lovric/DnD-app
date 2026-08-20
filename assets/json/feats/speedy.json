@@ -1,0 +1,25 @@
+{
+  "name": "Speedy",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Dexterity or Constitution 13+ You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Dexterity or Constitution score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Speed Increase",
+      "description": "Your Speed increases by 10 feet."
+    },
+    {
+      "name": "Dash over Difficult Terrain",
+      "description": "When you take the Dash action on your turn, Difficult Terrain doesn't cost you extra movement for the rest of that turn."
+    },
+    {
+      "name": "Agile Movement",
+      "description": "Opportunity Attacks have Disadvantage against you."
+    }
+  ]
+}

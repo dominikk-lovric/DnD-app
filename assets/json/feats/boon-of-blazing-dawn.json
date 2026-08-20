@@ -1,0 +1,25 @@
+{
+  "name": "Boon Of Blazing Dawn",
+  "catId": "feat",
+  "type": "Epic Boon Feat",
+  "source": "Astarion's Book of Hungers",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    {
+      "name": "Beloved of the Sun",
+      "description": "You have Immunity to Radiant damage."
+    },
+    {
+      "name": "Blazing Strike",
+      "description": "When you hit a creature with a weapon attack, the damage can be Radiant or the weapon’s normal damage type (your choice)."
+    },
+    {
+      "name": "Burst of Sunlight",
+      "description": "Once per turn when you hit a creature with an attack that deals Radiant damage, you can emit Bright Light in a 30-foot radius from yourself and Dim Light for an additional 30 feet until the start of your next turn. This light is sunlight."
+    }
+  ]
+}

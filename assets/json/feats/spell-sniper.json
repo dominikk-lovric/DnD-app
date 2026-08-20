@@ -1,0 +1,25 @@
+{
+  "name": "Spell Sniper",
+  "catId": "feat",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Spellcasting or Pact Magic Feature You gain the following benefits.",
+  "features": [
+    {
+      "name": "Ability Score Increase",
+      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+    },
+    {
+      "name": "Bypass Cover",
+      "description": "Your attack rolls for spells ignore Half Cover and Three-Quarters Cover."
+    },
+    {
+      "name": "Casting in Melee",
+      "description": "Being within 5 feet of an enemy doesn’t impose Disadvantage on your attack rolls with spells."
+    },
+    {
+      "name": "Increased Range",
+      "description": "When you cast a spell that has a range of at least 10 feet and requires you to make an attack roll, you can increase the spell's range by 60 feet."
+    }
+  ]
+}
