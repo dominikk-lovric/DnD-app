@@ -42,12 +42,10 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
     subclasses = [];
 
     if (info["archetypes"][0]["features"] is String) {
-      print("string");
       for (final item in info["archetypes"]) {
         loadFileAndAdd(item["features"]);
       }
     } else {
-      print("list");
       for (final item in info["archetypes"]) {
         subclasses.add(item);
       }

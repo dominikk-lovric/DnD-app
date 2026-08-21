@@ -10,6 +10,8 @@ class DraggableSheetWidget extends StatelessWidget {
   int subtitleLevel;
   int clickLevel;
   String clickTitle;
+  Widget? clickWidget;
+  Widget? titleWidget;
   DraggableSheetWidget(
     this.title,
     this.subtitle,
@@ -19,7 +21,25 @@ class DraggableSheetWidget extends StatelessWidget {
     this.subtitleLevel = 3,
     this.clickLevel = 1,
     this.clickTitle = "",
+    this.clickWidget,
+    this.titleWidget,
   });
+
+  Widget getClickWidget() {
+    return clickWidget ??
+        Text(
+          clickTitle == "" ? title : clickTitle,
+          style: TextStyleService.getTextStyle(clickLevel, 4),
+        );
+  }
+
+  Widget getTitleWidget() {
+    return titleWidget ??
+        Text(
+          clickTitle == "" ? title : clickTitle,
+          style: TextStyleService.getTextStyle(titleLevel, 4),
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,16 +118,7 @@ class DraggableSheetWidget extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      title,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyleService.getTextStyle(
-                                        titleLevel,
-                                        4,
-                                      ),
-                                    ),
-                                  ],
+                                  children: [getTitleWidget()],
                                 ),
                                 const SizedBox(height: 10),
                                 Divider(
@@ -186,10 +197,7 @@ class DraggableSheetWidget extends StatelessWidget {
           },
         );
       },
-      child: Text(
-        (clickTitle == "") ? title : clickTitle,
-        style: TextStyleService.getTextStyle(clickLevel, 4),
-      ),
+      child: getClickWidget(),
     );
   }
 }

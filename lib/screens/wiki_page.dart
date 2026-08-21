@@ -1,5 +1,10 @@
 import 'package:dnd_app/services/map_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/background_info_widget.dart';
+import 'package:dnd_app/widgets/class_info_widget.dart';
+import 'package:dnd_app/widgets/description_widget.dart';
+import 'package:dnd_app/widgets/optional_image_widget.dart';
+import 'package:dnd_app/widgets/species_info_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/json_service.dart';
@@ -20,7 +25,6 @@ class WikiPage extends StatefulWidget {
 
 class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   late dynamic Function(Map<String, dynamic>) selector;
-  bool? goruping;
 
   final PageController _pageController = PageController();
   late List<dynamic> categories = [];
@@ -30,7 +34,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   Map<String, dynamic> data = {};
 
   late double headerHeight;
-  late double listElementHeight;
   late int categoryNum;
 
   final GlobalKey<CategorySelectorWidgetState> categoryKey =
@@ -181,22 +184,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
       return null;
     }
 
-    switch (settings[index]) {
-      case "primary":
-        final value = SettingsService.getSetting("primarySubSort");
-        return value is List ? List<String>.from(value) : null;
-
-      case "source":
-        final value = SettingsService.getSetting("sourceSubSort");
-        return value is List ? List<String>.from(value) : null;
-
-      case "featType":
-        final value = SettingsService.getSetting("featTypeSubSort");
-        return value is List ? List<String>.from(value) : null;
-
-      default:
-        return null;
+    if (settings[index] == "primary" ||
+        settings[index] == "source" ||
+        settings[index] == "featType") {
+      final value = SettingsService.getSetting(settings[index] + "SubSort");
+      return value is List ? List<String>.from(value) : null;
     }
+    return null;
   }
 
   Future<void> changeSorting(String value) async {
@@ -261,12 +255,25 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     }
   }
 
+  String getTitle(String category, Map<String, dynamic> currentItem) {
+    if (category == "featType" &&
+        SettingsService.getSetting("featTypeSubSort") is List) {
+      return currentItem["Basics"]["type"].toString();
+    } else if (category == "source" &&
+        SettingsService.getSetting("sourceSubSort") is List) {
+      return currentItem["Basics"]["source"].toString();
+    } else if (category == "primary" &&
+        SettingsService.getSetting("primarySubSort") is List) {
+      return currentItem["Basics"]["Primary"][0].toString();
+    } else {
+      return selector(currentItem).toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     headerHeight = SettingsService.getSetting("headerHeight") / 2;
-    listElementHeight = SettingsService.getSetting("listItemHeight");
     categoryNum = widget.categoryNum;
-
     return AnimatedBuilder(
       animation: ColorService.themeNotifier,
       builder: (context, child) {
@@ -280,6 +287,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             centerTitle: true,
             actions: [
               PopupMenuButton<String>(
+                color: ColorService.getColor(2),
+                iconColor: ColorService.getColor(4),
                 icon: const Icon(Icons.tune),
                 onSelected: (value) async {
                   if (value == "group_yes") {
@@ -299,12 +308,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                     "wikiSorting",
                   )[currentCategoryIndex];
 
-                  final grouping = SettingsService.getSetting("groupItemsWiki");
-
                   return [
-                    const PopupMenuItem<String>(
+                    PopupMenuItem<String>(
                       enabled: false,
-                      child: Text("Grouping"),
+                      child: Text(
+                        "Grouping",
+                        style: TextStyleService.getTextStyle(3, 4),
+                      ),
                     ),
 
                     PopupMenuItem<String>(
@@ -318,9 +328,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                                     "true"
                                 ? Icons.radio_button_checked
                                 : Icons.radio_button_unchecked,
+                            color: ColorService.getColor(4),
                           ),
                           const SizedBox(width: 8),
-                          const Text("Yes"),
+                          Text(
+                            "Yes",
+                            style: TextStyleService.getTextStyle(4, 4),
+                          ),
                         ],
                       ),
                     ),
@@ -336,18 +350,25 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                                     "false"
                                 ? Icons.radio_button_checked
                                 : Icons.radio_button_unchecked,
+                            color: ColorService.getColor(4),
                           ),
                           const SizedBox(width: 8),
-                          const Text("No"),
+                          Text(
+                            "No",
+                            style: TextStyleService.getTextStyle(4, 4),
+                          ),
                         ],
                       ),
                     ),
 
                     const PopupMenuDivider(),
 
-                    const PopupMenuItem<String>(
+                    PopupMenuItem<String>(
                       enabled: false,
-                      child: Text("Sort by"),
+                      child: Text(
+                        "Sort by",
+                        style: TextStyleService.getTextStyle(3, 4),
+                      ),
                     ),
 
                     ...availableSorts.map(
@@ -359,9 +380,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                               currentSorting == sort
                                   ? Icons.radio_button_checked
                                   : Icons.radio_button_unchecked,
+                              color: ColorService.getColor(4),
                             ),
                             const SizedBox(width: 8),
-                            Text(sort),
+                            Text(
+                              sort,
+                              style: TextStyleService.getTextStyle(4, 4),
+                            ),
                           ],
                         ),
                       ),
@@ -372,9 +397,12 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                         currentSorting == "source") ...[
                       const PopupMenuDivider(),
 
-                      const PopupMenuItem<String>(
+                      PopupMenuItem<String>(
                         enabled: false,
-                        child: Text("Secondary sorting"),
+                        child: Text(
+                          "Secondary sorting",
+                          style: TextStyleService.getTextStyle(3, 4),
+                        ),
                       ),
 
                       PopupMenuItem<String>(
@@ -388,9 +416,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                                       is List)
                                   ? Icons.radio_button_unchecked
                                   : Icons.radio_button_checked,
+                              color: ColorService.getColor(4),
                             ),
                             const SizedBox(width: 8),
-                            Text("Alphabetical"),
+                            Text(
+                              "Alphabetical",
+                              style: TextStyleService.getTextStyle(4, 4),
+                            ),
                           ],
                         ),
                       ),
@@ -406,9 +438,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                                       is List)
                                   ? Icons.radio_button_checked
                                   : Icons.radio_button_unchecked,
+                              color: ColorService.getColor(4),
                             ),
                             const SizedBox(width: 8),
-                            Text("Standard"),
+                            Text(
+                              "Standard",
+                              style: TextStyleService.getTextStyle(4, 4),
+                            ),
                           ],
                         ),
                       ),
@@ -417,15 +453,22 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                     if (secondarySort != null) ...[
                       const PopupMenuDivider(),
 
-                      const PopupMenuItem<String>(
+                      PopupMenuItem<String>(
                         enabled: false,
-                        child: Text("Secondary sorting"),
+                        child: Text(
+                          "Secondary sorting order",
+                          style: TextStyleService.getTextStyle(3, 4),
+                        ),
                       ),
 
                       ...secondarySort!.map(
                         (value) => PopupMenuItem<String>(
+                          enabled: false,
                           value: "secondary_$value",
-                          child: Text(value),
+                          child: Text(
+                            value,
+                            style: TextStyleService.getTextStyle(4, 4),
+                          ),
                         ),
                       ),
                     ],
@@ -475,15 +518,19 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
               final items = data.keys.toList();
 
-              bool showSeparator = false;
-              String title = "";
-
               int catIndex = categories.indexOf(category);
               List<String> settings = SettingsService.getSetting("wikiSorting");
 
               return ListView.builder(
                 itemCount: items.length,
                 itemBuilder: (context, itemIndex) {
+                  final String icon =
+                      data[items[itemIndex]]["Icon"][SettingsService.getSetting(
+                        "theme",
+                      )];
+                  final item = data[items[itemIndex]];
+                  Widget infoWidget = buildInfoWidget(category, item["json"]);
+
                   bool showSeparator = false;
                   String title = "";
 
@@ -496,46 +543,17 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                       final currentItem = data[items[itemIndex]];
 
                       // Get the group title for this item.
-                      if (settings[catIndex] == "featType" &&
-                          SettingsService.getSetting("featTypeSubSort")
-                              is List) {
-                        title = currentItem["Basics"]["type"].toString();
-                      } else if (settings[catIndex] == "source" &&
-                          SettingsService.getSetting("sourceSubSort") is List) {
-                        title = currentItem["Basics"]["source"].toString();
-                      } else if (settings[catIndex] == "primary" &&
-                          SettingsService.getSetting("primarySubSort")
-                              is List) {
-                        title = currentItem["Basics"]["Primary"][0].toString();
-                      } else {
-                        title = selector(currentItem).toString();
-                      }
+                      title = getTitle(settings[catIndex], currentItem);
 
                       if (itemIndex == 0) {
                         showSeparator = true;
                       } else {
                         final previousItem = data[items[itemIndex - 1]];
 
-                        String previousTitle;
-
-                        if (settings[catIndex] == "featType" &&
-                            SettingsService.getSetting("featTypeSubSort")
-                                is List) {
-                          previousTitle = previousItem["Basics"]["type"]
-                              .toString();
-                        } else if (settings[catIndex] == "source" &&
-                            SettingsService.getSetting("sourceSubSort")
-                                is List) {
-                          previousTitle = previousItem["Basics"]["source"]
-                              .toString();
-                        } else if (settings[catIndex] == "primary" &&
-                            SettingsService.getSetting("primarySubSort")
-                                is List) {
-                          previousTitle = previousItem["Basics"]["Primary"][0]
-                              .toString();
-                        } else {
-                          previousTitle = selector(previousItem).toString();
-                        }
+                        String previousTitle = getTitle(
+                          settings[catIndex],
+                          previousItem,
+                        );
 
                         showSeparator = title != previousTitle;
                       }
@@ -566,10 +584,44 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                             ),
                           ],
                         ),
-                      ItemWidget(
-                        items[itemIndex],
-                        data[items[itemIndex]],
-                        category,
+                      DescriptionWidget(
+                        data[items[itemIndex]]["name"],
+                        infoWidget,
+                        "itemDescriptionStyle",
+                        clickWidget: ItemWidget(
+                          items[itemIndex],
+                          data[items[itemIndex]],
+                          category,
+                        ),
+                        titleWidget: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          spacing: (icon != "none") ? 10 : 0.0,
+                          children: [
+                            (icon != "none")
+                                ? OptionalImageWidget(
+                                    SettingsService.getSetting("headerHeight") *
+                                        (8 / 10),
+                                    icon,
+                                    key: ValueKey(
+                                      data[items[itemIndex]]["name"],
+                                    ),
+                                  )
+                                : SizedBox.shrink(),
+                            Expanded(
+                              child: Text(
+                                data[items[itemIndex]]["name"],
+                                style: TextStyleService.getTextStyle(
+                                  0,
+                                  4,
+                                  Overflow: TextOverflow.fade,
+                                ),
+                                maxLines: 1,
+                                softWrap: false,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   );
@@ -578,6 +630,37 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             },
           ),
         );
+      },
+    );
+  }
+
+  Widget buildInfoWidget(String category, String item) {
+    return FutureBuilder<Map<String, dynamic>>(
+      future: JsonService.loadFromPath(item),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (snapshot.hasError) {
+          return Text("Error loading data: ${snapshot.error}");
+        }
+
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        final infoData = snapshot.data!;
+
+        if (category == "classes") {
+          return ClassInfoWidget(infoData);
+        } else if (category == "species") {
+          return SpeciesInfoWidget(infoData);
+        } else if (category == "backgrounds") {
+          return BackgroundInfoWidget(infoData);
+        }
+
+        return const SizedBox.shrink();
       },
     );
   }

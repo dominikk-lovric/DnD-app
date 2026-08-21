@@ -14,6 +14,7 @@ class DescriptionWidget extends StatelessWidget {
   int clickLevel;
   String clickTitle;
   Widget? clickWidget;
+  Widget? titleWidget;
 
   DescriptionWidget(
     this.title,
@@ -26,6 +27,7 @@ class DescriptionWidget extends StatelessWidget {
     this.clickLevel = 2,
     this.clickTitle = "",
     this.clickWidget,
+    this.titleWidget,
   });
 
   Widget getClickWidget() {
@@ -33,6 +35,14 @@ class DescriptionWidget extends StatelessWidget {
         Text(
           clickTitle == "" ? title : clickTitle,
           style: TextStyleService.getTextStyle(clickLevel, 4),
+        );
+  }
+
+  Widget getTitleWidget() {
+    return titleWidget ??
+        Text(
+          clickTitle == "" ? title : clickTitle,
+          style: TextStyleService.getTextStyle(titleLevel, 4),
         );
   }
 
@@ -63,10 +73,7 @@ class DescriptionWidget extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          title,
-                          style: TextStyleService.getTextStyle(titleLevel, 4),
-                        ),
+                        getTitleWidget(),
                         const Divider(indent: 10, endIndent: 10),
                         if (subtitle != null && subtitle != "")
                           Text(
@@ -104,13 +111,13 @@ class DescriptionWidget extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => Scaffold(
                 appBar: AppBar(
+                  backgroundColor: ColorService.getColor(0),
+                  foregroundColor: ColorService.getColor(4),
+                  toolbarHeight: SettingsService.getSetting("headerHeight"),
                   title: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        title,
-                        style: TextStyleService.getTextStyle(titleLevel, 4),
-                      ),
+                      getTitleWidget(),
                       (subtitle != null && subtitle != "")
                           ? Text(
                               subtitle,
@@ -122,10 +129,16 @@ class DescriptionWidget extends StatelessWidget {
                           : SizedBox.shrink(),
                     ],
                   ),
-                  backgroundColor: ColorService.getBasicColor(1),
                 ),
                 backgroundColor: ColorService.getBasicColor(2),
-                body: SafeArea(child: descrption),
+                body: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsetsGeometry.all(20),
+                      child: descrption,
+                    ),
+                  ),
+                ),
               ),
             ),
           );
@@ -141,10 +154,7 @@ class DescriptionWidget extends StatelessWidget {
             initiallyExpanded: true,
             showTrailingIcon: false,
             tilePadding: EdgeInsets.zero,
-            title: Text(
-              (clickTitle == "") ? title : clickTitle,
-              style: TextStyleService.getTextStyle(titleLevel, 4),
-            ),
+            title: getTitleWidget(),
             children: [
               Divider(
                 indent: 15,
@@ -182,6 +192,8 @@ class DescriptionWidget extends StatelessWidget {
         subtitleLevel: subtitleLevel,
         clickLevel: clickLevel,
         clickTitle: (clickTitle == "") ? title : clickTitle,
+        clickWidget: clickWidget,
+        titleWidget: titleWidget,
       );
     } else {
       return Column(
