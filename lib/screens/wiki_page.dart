@@ -62,13 +62,11 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
       if (settings[index] == "alphabetical") {
         ss = (el) => el["name"];
       } else if (settings[index] == "primary") {
-        print("primary");
-        if (SettingsService.getSetting("abilitySubSort") is List) {
+        if (SettingsService.getSetting("primarySubSort") is List) {
           ss = (el) {
             final source = el["Basics"]["Primary"][0];
-            print(source);
             final List<String> sourceList = SettingsService.getSetting(
-              "abilitySubSort",
+              "primarySubSort",
             );
             return sourceList.indexOf(source);
           };
@@ -88,11 +86,11 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           ss = (el) => el["Basics"]["source"];
         }
       } else if (settings[index] == "featType") {
-        if (SettingsService.getSetting("featSubSort") is List) {
+        if (SettingsService.getSetting("featTypeSubSort") is List) {
           ss = (el) {
             final source = el["Basics"]["type"];
             final List<String> typeOrder = SettingsService.getSetting(
-              "featSubSort",
+              "featTypeSubSort",
             );
             return typeOrder.indexOf(source);
           };
@@ -100,7 +98,9 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           ss = (el) => el["Basics"]["type"];
         }
       } else if (settings[index] == "speed") {
-        ss = (el) => el["Basics"]["speed"];
+        ss = (el) {
+          return el["Basics"]["Speed"];
+        };
       } else {
         ss = (el) => el["name"];
       }
@@ -151,6 +151,116 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     });
   }
 
+  String get currentCategory {
+    return currentState;
+  }
+
+  int get currentCategoryIndex {
+    return categories.indexOf(currentCategory);
+  }
+
+  List<String> get availableSorts {
+    final index = currentCategoryIndex;
+
+    if (index == -1) return [];
+
+    final sorting = categoryData[categories[index]]["sorting"];
+
+    if (sorting is List) {
+      return List<String>.from(sorting);
+    }
+
+    return [];
+  }
+
+  List<String>? get secondarySort {
+    final settings = SettingsService.getSetting("wikiSorting");
+    final index = currentCategoryIndex;
+
+    if (index == -1 || index >= settings.length) {
+      return null;
+    }
+
+    switch (settings[index]) {
+      case "primary":
+        final value = SettingsService.getSetting("primarySubSort");
+        return value is List ? List<String>.from(value) : null;
+
+      case "source":
+        final value = SettingsService.getSetting("sourceSubSort");
+        return value is List ? List<String>.from(value) : null;
+
+      case "featType":
+        final value = SettingsService.getSetting("featTypeSubSort");
+        return value is List ? List<String>.from(value) : null;
+
+      default:
+        return null;
+    }
+  }
+
+  Future<void> changeSorting(String value) async {
+    final settings = List<String>.from(
+      SettingsService.getSetting("wikiSorting"),
+    );
+
+    final index = currentCategoryIndex;
+
+    settings[index] = value;
+
+    await SettingsService.setSetting("wikiSorting", settings);
+
+    getSelector(currentCategory);
+    sortData();
+
+    setState(() {});
+  }
+
+  Future<void> changeGrouping(bool value) async {
+    List<String> grouping = SettingsService.getSetting("wikiGrouping");
+    grouping[currentCategoryIndex] = value.toString();
+    await SettingsService.setSetting("wikiGrouping", grouping);
+
+    setState(() {});
+  }
+
+  Future<void> changeSecondarySorting(bool standard) async {
+    final sortingSettings = List<String>.from(
+      SettingsService.getSetting("wikiSorting"),
+    );
+
+    final index = currentCategoryIndex;
+    final sorting = sortingSettings[index];
+
+    if (standard) {
+      final standardSort = SettingsService.getSetting(
+        "${sorting}SubSortStandard",
+      );
+
+      if (standardSort is! List) {
+        debugPrint(
+          "ERROR: ${sorting}SubSortStandard is not a List: $standardSort",
+        );
+        return;
+      }
+
+      await SettingsService.setSetting(
+        "${sorting}SubSort",
+        List<String>.from(standardSort),
+      );
+    } else {
+      await SettingsService.setSetting("${sorting}SubSort", "alphabetical");
+    }
+
+    getSelector(currentCategory);
+
+    sortData();
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     headerHeight = SettingsService.getSetting("headerHeight") / 2;
@@ -168,7 +278,161 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             backgroundColor: ColorService.getColor(0),
             foregroundColor: ColorService.getColor(4),
             centerTitle: true,
-            actions: [],
+            actions: [
+              PopupMenuButton<String>(
+                icon: const Icon(Icons.tune),
+                onSelected: (value) async {
+                  if (value == "group_yes") {
+                    await changeGrouping(true);
+                  } else if (value == "group_no") {
+                    await changeGrouping(false);
+                  } else if (value == "subsortAlphabetical") {
+                    await changeSecondarySorting(false);
+                  } else if (value == "subsortStandard") {
+                    await changeSecondarySorting(true);
+                  } else {
+                    await changeSorting(value);
+                  }
+                },
+                itemBuilder: (context) {
+                  final currentSorting = SettingsService.getSetting(
+                    "wikiSorting",
+                  )[currentCategoryIndex];
+
+                  final grouping = SettingsService.getSetting("groupItemsWiki");
+
+                  return [
+                    const PopupMenuItem<String>(
+                      enabled: false,
+                      child: Text("Grouping"),
+                    ),
+
+                    PopupMenuItem<String>(
+                      value: "group_yes",
+                      child: Row(
+                        children: [
+                          Icon(
+                            SettingsService.getSetting(
+                                      "wikiGrouping",
+                                    )[currentCategoryIndex] ==
+                                    "true"
+                                ? Icons.radio_button_checked
+                                : Icons.radio_button_unchecked,
+                          ),
+                          const SizedBox(width: 8),
+                          const Text("Yes"),
+                        ],
+                      ),
+                    ),
+
+                    PopupMenuItem<String>(
+                      value: "group_no",
+                      child: Row(
+                        children: [
+                          Icon(
+                            SettingsService.getSetting(
+                                      "wikiGrouping",
+                                    )[currentCategoryIndex] ==
+                                    "false"
+                                ? Icons.radio_button_checked
+                                : Icons.radio_button_unchecked,
+                          ),
+                          const SizedBox(width: 8),
+                          const Text("No"),
+                        ],
+                      ),
+                    ),
+
+                    const PopupMenuDivider(),
+
+                    const PopupMenuItem<String>(
+                      enabled: false,
+                      child: Text("Sort by"),
+                    ),
+
+                    ...availableSorts.map(
+                      (sort) => PopupMenuItem<String>(
+                        value: sort,
+                        child: Row(
+                          children: [
+                            Icon(
+                              currentSorting == sort
+                                  ? Icons.radio_button_checked
+                                  : Icons.radio_button_unchecked,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(sort),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    if (currentSorting == "primary" ||
+                        currentSorting == "featType" ||
+                        currentSorting == "source") ...[
+                      const PopupMenuDivider(),
+
+                      const PopupMenuItem<String>(
+                        enabled: false,
+                        child: Text("Secondary sorting"),
+                      ),
+
+                      PopupMenuItem<String>(
+                        value: "subsortAlphabetical",
+                        child: Row(
+                          children: [
+                            Icon(
+                              (SettingsService.getSetting(
+                                        currentSorting + "SubSort",
+                                      )
+                                      is List)
+                                  ? Icons.radio_button_unchecked
+                                  : Icons.radio_button_checked,
+                            ),
+                            const SizedBox(width: 8),
+                            Text("Alphabetical"),
+                          ],
+                        ),
+                      ),
+
+                      PopupMenuItem<String>(
+                        value: "subsortStandard",
+                        child: Row(
+                          children: [
+                            Icon(
+                              (SettingsService.getSetting(
+                                        currentSorting + "SubSort",
+                                      )
+                                      is List)
+                                  ? Icons.radio_button_checked
+                                  : Icons.radio_button_unchecked,
+                            ),
+                            const SizedBox(width: 8),
+                            Text("Standard"),
+                          ],
+                        ),
+                      ),
+                    ],
+
+                    if (secondarySort != null) ...[
+                      const PopupMenuDivider(),
+
+                      const PopupMenuItem<String>(
+                        enabled: false,
+                        child: Text("Secondary sorting"),
+                      ),
+
+                      ...secondarySort!.map(
+                        (value) => PopupMenuItem<String>(
+                          value: "secondary_$value",
+                          child: Text(value),
+                        ),
+                      ),
+                    ],
+                  ];
+                },
+              ),
+            ],
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(headerHeight),
               child: CategorySelectorWdget(
@@ -205,73 +469,89 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             itemBuilder: (context, index) {
               final category = categories[index];
 
-              // only show data if this is the currently loaded category
               if (category != currentState.toLowerCase()) {
                 return const Center(child: CircularProgressIndicator());
               }
 
               final items = data.keys.toList();
 
+              bool showSeparator = false;
+              String title = "";
+
+              int catIndex = categories.indexOf(category);
+              List<String> settings = SettingsService.getSetting("wikiSorting");
+
               return ListView.builder(
                 itemCount: items.length,
                 itemBuilder: (context, itemIndex) {
-                  dynamic name = selector(data[items[itemIndex]]);
-                  String firstLetter = "";
                   bool showSeparator = false;
                   String title = "";
-                  if (name is String) {
-                    firstLetter = name[0].toUpperCase();
-                    showSeparator =
-                        itemIndex == 0 ||
-                        firstLetter !=
-                            selector(
-                              data[items[itemIndex - 1]],
-                            )[0].toUpperCase();
-                    if (categoryData[category]["sorting"].contains("primary") &&
-                        name ==
-                            data[items[itemIndex]]["Basics"]["Primary"][0]) {
-                      switch (name) {
-                        case "Str":
-                          title = "Strength";
-                          break;
-                        case "Dex":
-                          title = "Dexterity";
-                          break;
-                        case "Con":
-                          title = "Constitution";
-                          break;
-                        case "Int":
-                          title = "Inteligence";
-                          break;
-                        case "Wis":
-                          title = "Wisdom";
-                          break;
-                        case "Cha":
-                          title = "Charisma";
-                          break;
-                        default:
-                          title = "";
-                          break;
+
+                  if (SettingsService.getSetting(
+                        "wikiGrouping",
+                      )[currentCategoryIndex] ==
+                      "true") {
+                    if (settings[catIndex] != "alphabetical" &&
+                        SettingsService.getSetting("groupItemsWiki")) {
+                      final currentItem = data[items[itemIndex]];
+
+                      // Get the group title for this item.
+                      if (settings[catIndex] == "featType" &&
+                          SettingsService.getSetting("featTypeSubSort")
+                              is List) {
+                        title = currentItem["Basics"]["type"].toString();
+                      } else if (settings[catIndex] == "source" &&
+                          SettingsService.getSetting("sourceSubSort") is List) {
+                        title = currentItem["Basics"]["source"].toString();
+                      } else if (settings[catIndex] == "primary" &&
+                          SettingsService.getSetting("primarySubSort")
+                              is List) {
+                        title = currentItem["Basics"]["Primary"][0].toString();
+                      } else {
+                        title = selector(currentItem).toString();
                       }
-                    } else {
-                      title = firstLetter;
+
+                      if (itemIndex == 0) {
+                        showSeparator = true;
+                      } else {
+                        final previousItem = data[items[itemIndex - 1]];
+
+                        String previousTitle;
+
+                        if (settings[catIndex] == "featType" &&
+                            SettingsService.getSetting("featTypeSubSort")
+                                is List) {
+                          previousTitle = previousItem["Basics"]["type"]
+                              .toString();
+                        } else if (settings[catIndex] == "source" &&
+                            SettingsService.getSetting("sourceSubSort")
+                                is List) {
+                          previousTitle = previousItem["Basics"]["source"]
+                              .toString();
+                        } else if (settings[catIndex] == "primary" &&
+                            SettingsService.getSetting("primarySubSort")
+                                is List) {
+                          previousTitle = previousItem["Basics"]["Primary"][0]
+                              .toString();
+                        } else {
+                          previousTitle = selector(previousItem).toString();
+                        }
+
+                        showSeparator = title != previousTitle;
+                      }
                     }
                   }
 
-                  if (!SettingsService.getSetting("groupItemsWiki")) {
-                    showSeparator = false;
-                  }
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (showSeparator)
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsGeometry.directional(
+                              padding: const EdgeInsetsDirectional.only(
                                 start: 15,
                               ),
                               child: Text(
@@ -301,66 +581,4 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
       },
     );
   }
-
-  /*
-    MenuAnchor menu= MenuAnchor(
-      builder: (context, controller, child) {
-        return IconButton(
-          icon: const Icon(Icons.tune),
-          onPressed: () {
-            controller.isOpen ? controller.close() : controller.open();
-          },
-        );
-      },
-      menuChildren: [
-        Padding(
-          padding: EdgeInsetsGeometry.all(20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10,
-            children: [
-              DropdownMenu(
-                label: Text("Sorting type"),
-                initialSelection: "alphabetical",
-                requestFocusOnTap: true,
-                dropdownMenuEntries: [
-                  DropdownMenuEntry(value: "alphabetical", label: "Alphabetical"),
-                ],
-                onSelected: (value){
-
-                },
-              ),
-              DropdownMenu(
-                label: Text("Sort by"),
-                requestFocusOnTap: true,
-                dropdownMenuEntries:[
-                  DropdownMenuEntry(value: (el)=>el["name"], label: "Name"),
-                  DropdownMenuEntry(value: (el)=>el["Basics"]["Primary"], label: "Primary Ability")
-                ],
-              ),
-              RadioGroup<bool?>(
-                groupValue: goruping,
-                onChanged: (bool? value) async{
-                  await SettingsService.setSetting("groupItemsWiki", value);
-                },
-                child: Row(
-                  children: [
-                    RadioListTile(
-                      title: Text("yes"),
-                      value: true,
-                    ),
-                    RadioListTile(
-                      title: Text("no"),
-                      value: false,
-                    )
-                  ],
-                )
-              )
-            ],
-          ),
-        )
-      ],
-    );
-    */
 }

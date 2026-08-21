@@ -1,1938 +1,1938 @@
 {
-  "f0": {
-    "name": "Alert",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/alert.json"
-  },
-  "f1": {
-    "name": "Crafter",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/crafter.json"
-  },
-  "f2": {
-    "name": "Healer",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/healer.json"
-  },
-  "f3": {
-    "name": "Lucky",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/lucky.json"
-  },
-  "f4": {
-    "name": "Magic Initiate",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/magic-initiate.json"
-  },
-  "f5": {
-    "name": "Musician",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/musician.json"
-  },
-  "f6": {
-    "name": "Savage Attacker",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/savage-attacker.json"
-  },
-  "f7": {
-    "name": "Sharp Eye",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/sharp-eye.json"
-  },
-  "f8": {
-    "name": "Skilled",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/skilled.json"
-  },
-  "f9": {
-    "name": "Survivor",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/survivor.json"
-  },
-  "f10": {
-    "name": "Tavern Brawler",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/tavern-brawler.json"
-  },
-  "f11": {
-    "name": "Tough",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/tough.json"
-  },
-  "f12": {
-    "name": "Cult Of The Dragon Initiate",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/cult-of-the-dragon-initiate.json"
-  },
-  "f13": {
-    "name": "Emerald Enclave Fledgling",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/emerald-enclave-fledgling.json"
-  },
-  "f14": {
-    "name": "Harper Agent",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/harper-agent.json"
-  },
-  "f15": {
-    "name": "Lords Alliance Agent",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/lords-alliance-agent.json"
-  },
-  "f16": {
-    "name": "Purple Dragon Rook",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/purple-dragon-rook.json"
-  },
-  "f17": {
-    "name": "Spellfire Spark",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/spellfire-spark.json"
-  },
-  "f18": {
-    "name": "Tyro Of The Gauntlet",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/tyro-of-the-gauntlet.json"
-  },
-  "f19": {
-    "name": "Zhentarim Ruffian",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/zhentarim-ruffian.json"
-  },
-  "f20": {
-    "name": "Child Of The Sun",
-    "Basics": {
-      "source": "Lorwyn - First Light",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/child-of-the-sun.json"
-  },
-  "f21": {
-    "name": "Shadowmoor Hexer",
-    "Basics": {
-      "source": "Lorwyn - First Light",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/shadowmoor-hexer.json"
-  },
-  "f22": {
-    "name": "Tireless Reveler",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/tireless-reveler.json"
-  },
-  "f23": {
-    "name": "Vampire Hunter",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/vampire-hunter.json"
-  },
-  "f24": {
-    "name": "Vampire S Plaything",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "Origin Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/vampire-s-plaything.json"
-  },
-  "f25": {
-    "name": "Ability Score Improvement",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/ability-score-improvement.json"
-  },
-  "f26": {
-    "name": "Actor",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/actor.json"
-  },
-  "f27": {
-    "name": "Athlete",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/athlete.json"
-  },
-  "f28": {
-    "name": "Charger",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/charger.json"
-  },
-  "f29": {
-    "name": "Chef",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/chef.json"
-  },
-  "f30": {
-    "name": "Crossbow Expert",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/crossbow-expert.json"
-  },
-  "f31": {
-    "name": "Crusher",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/crusher.json"
-  },
-  "f32": {
-    "name": "Defensive Duelist",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/defensive-duelist.json"
-  },
-  "f33": {
-    "name": "Dual Wielder",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/dual-wielder.json"
-  },
-  "f34": {
-    "name": "Durable",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/durable.json"
-  },
-  "f35": {
-    "name": "Elemental Adept",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/elemental-adept.json"
-  },
-  "f36": {
-    "name": "Fey Touched",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/fey-touched.json"
-  },
-  "f37": {
-    "name": "Grappler",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/grappler.json"
-  },
-  "f38": {
-    "name": "Great Weapon Master",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/great-weapon-master.json"
-  },
-  "f39": {
-    "name": "Heavily Armored",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/heavily-armored.json"
-  },
-  "f40": {
-    "name": "Heavy Armor Master",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/heavy-armor-master.json"
-  },
-  "f41": {
-    "name": "Inspiring Leader",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/inspiring-leader.json"
-  },
-  "f42": {
-    "name": "Keen Mind",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/keen-mind.json"
-  },
-  "f43": {
-    "name": "Lightly Armored",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/lightly-armored.json"
-  },
-  "f44": {
-    "name": "Mage Slayer",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mage-slayer.json"
-  },
-  "f45": {
-    "name": "Martial Weapon Training",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/martial-weapon-training.json"
-  },
-  "f46": {
-    "name": "Medium Armor Master",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/medium-armor-master.json"
-  },
-  "f47": {
-    "name": "Moderately Armored",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/moderately-armored.json"
-  },
-  "f48": {
-    "name": "Mounted Combatant",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mounted-combatant.json"
-  },
-  "f49": {
-    "name": "Observant",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/observant.json"
-  },
-  "f50": {
-    "name": "Piercer",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/piercer.json"
-  },
-  "f51": {
-    "name": "Poisoner",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/poisoner.json"
-  },
-  "f52": {
-    "name": "Polearm Master",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/polearm-master.json"
-  },
-  "f53": {
-    "name": "Resilient",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/resilient.json"
-  },
-  "f54": {
-    "name": "Ritual Caster",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/ritual-caster.json"
-  },
-  "f55": {
-    "name": "Sentinel",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/sentinel.json"
-  },
-  "f56": {
-    "name": "Shadow Touched",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/shadow-touched.json"
-  },
-  "f57": {
-    "name": "Sharpshooter",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/sharpshooter.json"
-  },
-  "f58": {
-    "name": "Shield Master",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/shield-master.json"
-  },
-  "f59": {
-    "name": "Shifting Combatant",
-    "Basics": {
-      "source": "DND Beyond Drops - July 2026",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/shifting-combatant.json"
-  },
-  "f60": {
-    "name": "Skill Expert",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/skill-expert.json"
-  },
-  "f61": {
-    "name": "Skulker",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/skulker.json"
-  },
-  "f62": {
-    "name": "Slasher",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/slasher.json"
-  },
-  "f63": {
-    "name": "Speedy",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/speedy.json"
-  },
-  "f64": {
-    "name": "Spell Sniper",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/spell-sniper.json"
-  },
-  "f65": {
-    "name": "Tactical Combatant",
-    "Basics": {
-      "source": "DND Beyond Drops - July 2026",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/tactical-combatant.json"
-  },
-  "f66": {
-    "name": "Telekinetic",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/telekinetic.json"
-  },
-  "f67": {
-    "name": "Telepathic",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/telepathic.json"
-  },
-  "f68": {
-    "name": "War Caster",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/war-caster.json"
-  },
-  "f69": {
-    "name": "Weapon Master",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/weapon-master.json"
-  },
-  "f70": {
-    "name": "Cold Caster",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/cold-caster.json"
-  },
-  "f71": {
-    "name": "Dragonscarred",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/dragonscarred.json"
-  },
-  "f72": {
-    "name": "Enclave Magic",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/enclave-magic.json"
-  },
-  "f73": {
-    "name": "Fairy Trickster",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/fairy-trickster.json"
-  },
-  "f74": {
-    "name": "Genie Magic",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/genie-magic.json"
-  },
-  "f75": {
-    "name": "Harper Teamwork",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/harper-teamwork.json"
-  },
-  "f76": {
-    "name": "Lordly Resolve",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/lordly-resolve.json"
-  },
-  "f77": {
-    "name": "Mythal Touched",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mythal-touched.json"
-  },
-  "f78": {
-    "name": "Order S Resilience",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/order-s-resilience.json"
-  },
-  "f79": {
-    "name": "Purple Dragon Commandant",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/purple-dragon-commandant.json"
-  },
-  "f80": {
-    "name": "Spellfire Adept",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/spellfire-adept.json"
-  },
-  "f81": {
-    "name": "Street Justice",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/street-justice.json"
-  },
-  "f82": {
-    "name": "Zhentarim Tactics",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/zhentarim-tactics.json"
-  },
-  "f83": {
-    "name": "Bloodlust",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/bloodlust.json"
-  },
-  "f84": {
-    "name": "Bomber",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/bomber.json"
-  },
-  "f85": {
-    "name": "Cloying Mists",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/cloying-mists.json"
-  },
-  "f86": {
-    "name": "Delicious Pain",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/delicious-pain.json"
-  },
-  "f87": {
-    "name": "Light Bringer",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/light-bringer.json"
-  },
-  "f88": {
-    "name": "Love Bites",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/love-bites.json"
-  },
-  "f89": {
-    "name": "Putrefy",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/putrefy.json"
-  },
-  "f90": {
-    "name": "Rebuke",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/rebuke.json"
-  },
-  "f91": {
-    "name": "Treacherous Allure",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/treacherous-allure.json"
-  },
-  "f92": {
-    "name": "Vampire Touched",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "General Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/vampire-touched.json"
-  },
-  "f93": {
-    "name": "Archery",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/archery.json"
-  },
-  "f94": {
-    "name": "Blind Fighting",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/blind-fighting.json"
-  },
-  "f95": {
-    "name": "Defense",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/defense.json"
-  },
-  "f96": {
-    "name": "Dueling",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/dueling.json"
-  },
-  "f97": {
-    "name": "Great Weapon Fighting",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/great-weapon-fighting.json"
-  },
-  "f98": {
-    "name": "Interception",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/interception.json"
-  },
-  "f99": {
-    "name": "Pack Fighting",
-    "Basics": {
-      "source": "D&D Beyond Drops - July 2026",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/pack-fighting.json"
-  },
-  "f100": {
-    "name": "Prone Fighting",
-    "Basics": {
-      "source": "D&D Beyond Drops - July 2026",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/prone-fighting.json"
-  },
-  "f101": {
-    "name": "Protection",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/protection.json"
-  },
-  "f102": {
-    "name": "Thrown Weapon Fighting",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/thrown-weapon-fighting.json"
-  },
-  "f103": {
-    "name": "Two Weapon Fighting",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/two-weapon-fighting.json"
-  },
-  "f104": {
-    "name": "Unarmed Fighting",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Fighting Style Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/unarmed-fighting.json"
-  },
-  "f105": {
-    "name": "Boon Of Combat Prowess",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-combat-prowess.json"
-  },
-  "f106": {
-    "name": "Boon Of Dimensional Travel",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-dimensional-travel.json"
-  },
-  "f107": {
-    "name": "Boon Of Energy Resistance",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-energy-resistance.json"
-  },
-  "f108": {
-    "name": "Boon Of Fate",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-fate.json"
-  },
-  "f109": {
-    "name": "Boon Of Fortitude",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-fortitude.json"
-  },
-  "f110": {
-    "name": "Boon Of Irresistible Offense",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-irresistible-offense.json"
-  },
-  "f111": {
-    "name": "Boon Of Recovery",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-recovery.json"
-  },
-  "f112": {
-    "name": "Boon Of Skill",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-skill.json"
-  },
-  "f113": {
-    "name": "Boon Of Speed",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-speed.json"
-  },
-  "f114": {
-    "name": "Boon Of Spell Recall",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-spell-recall.json"
-  },
-  "f115": {
-    "name": "Boon Of The Night Spirit",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-the-night-spirit.json"
-  },
-  "f116": {
-    "name": "Boon Of Truesight",
-    "Basics": {
-      "source": "Player's Handbook",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-truesight.json"
-  },
-  "f117": {
-    "name": "Boon Of Siberys",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-siberys.json"
-  },
-  "f118": {
-    "name": "Boon Of Bloodshed",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-bloodshed.json"
-  },
-  "f119": {
-    "name": "Boon Of Bountiful Health",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-bountiful-health.json"
-  },
-  "f120": {
-    "name": "Boon Of Communication",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-communication.json"
-  },
-  "f121": {
-    "name": "Boon Of Desperate Resilience",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-desperate-resilience.json"
-  },
-  "f122": {
-    "name": "Boon Of Exquisite Radiance",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-exquisite-radiance.json"
-  },
-  "f123": {
-    "name": "Boon Of Fluid Forms",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-fluid-forms.json"
-  },
-  "f124": {
-    "name": "Boon Of Fortune S Favor",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-fortune-s-favor.json"
-  },
-  "f125": {
-    "name": "Boon Of Poison Mastery",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-poison-mastery.json"
-  },
-  "f126": {
-    "name": "Boon Of Revelry",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-revelry.json"
-  },
-  "f127": {
-    "name": "Boon Of Terror",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-terror.json"
-  },
-  "f128": {
-    "name": "Boon Of The Bright Sun",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-the-bright-sun.json"
-  },
-  "f129": {
-    "name": "Boon Of The Furious Storm",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-the-furious-storm.json"
-  },
-  "f130": {
-    "name": "Boon Of The Soul Drinker",
-    "Basics": {
-      "source": "Forgotten Realms - Heroes of Faerun",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-the-soul-drinker.json"
-  },
-  "f131": {
-    "name": "Boon Of Blazing Dawn",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-blazing-dawn.json"
-  },
-  "f132": {
-    "name": "Boon Of Looming Shadows",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-looming-shadows.json"
-  },
-  "f133": {
-    "name": "Boon Of Misty Escape",
-    "Basics": {
-      "source": "Astarion's Book of Hungers",
-      "type": "Epic Boon Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/boon-of-misty-escape.json"
-  },
-  "f134": {
-    "name": "Aberrant Dragonmark",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/aberrant-dragonmark.json"
-  },
-  "f135": {
-    "name": "Mark Of Detection",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-detection.json"
-  },
-  "f136": {
-    "name": "Mark Of Finding",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-finding.json"
-  },
-  "f137": {
-    "name": "Mark Of Handling",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-handling.json"
-  },
-  "f138": {
-    "name": "Mark Of Healing",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-healing.json"
-  },
-  "f139": {
-    "name": "Mark Of Hospitality",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-hospitality.json"
-  },
-  "f140": {
-    "name": "Mark Of Making",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-making.json"
-  },
-  "f141": {
-    "name": "Mark Of Passage",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-passage.json"
-  },
-  "f142": {
-    "name": "Mark Of Scribing",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-scribing.json"
-  },
-  "f143": {
-    "name": "Mark Of Sentinel",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-sentinel.json"
-  },
-  "f144": {
-    "name": "Mark Of Shadow",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-shadow.json"
-  },
-  "f145": {
-    "name": "Mark Of Storm",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-storm.json"
-  },
-  "f146": {
-    "name": "Mark Of Warding",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mark-of-warding.json"
-  },
-  "f147": {
-    "name": "Greater Aberrant Mark",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-aberrant-mark.json"
-  },
-  "f148": {
-    "name": "Greater Mark Of Detection",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-detection.json"
-  },
-  "f149": {
-    "name": "Greater Mark Of Finding",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-finding.json"
-  },
-  "f150": {
-    "name": "Greater Mark Of Handling",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-handling.json"
-  },
-  "f151": {
-    "name": "Greater Mark Of Healing",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-healing.json"
-  },
-  "f152": {
-    "name": "Greater Mark Of Hospitality",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-hospitality.json"
-  },
-  "f153": {
-    "name": "Greater Mark Of Making",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-making.json"
-  },
-  "f154": {
-    "name": "Greater Mark Of Passage",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-passage.json"
-  },
-  "f155": {
-    "name": "Greater Mark Of Scribing",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-scribing.json"
-  },
-  "f156": {
-    "name": "Greater Mark Of Sentinel",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-sentinel.json"
-  },
-  "f157": {
-    "name": "Greater Mark Of Shadow",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-shadow.json"
-  },
-  "f158": {
-    "name": "Greater Mark Of Storm",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-storm.json"
-  },
-  "f159": {
-    "name": "Greater Mark Of Warding",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/greater-mark-of-warding.json"
-  },
-  "f160": {
-    "name": "Potent Dragonmark",
-    "Basics": {
-      "source": "Eberron - Forge of the Artificer",
-      "type": "Dragonmark Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/potent-dragonmark.json"
-  },
-  "f161": {
-    "name": "Fey Pact",
-    "Basics": {
-      "source": "D&D Beyond Drops - May 2026",
-      "type": "Planar Pact Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/fey-pact.json"
-  },
-  "f162": {
-    "name": "Infernal Pact",
-    "Basics": {
-      "source": "D&D Beyond Drops - May 2026",
-      "type": "Planar Pact Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/infernal-pact.json"
-  },
-  "f163": {
-    "name": "Fey Sentinel",
-    "Basics": {
-      "source": "D&D Beyond Drops - May 2026",
-      "type": "Planar Pact Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/fey-sentinel.json"
-  },
-  "f164": {
-    "name": "Fey Tormentor",
-    "Basics": {
-      "source": "D&D Beyond Drops - August 2026",
-      "type": "Planar Pact Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/fey-tormentor.json"
-  },
-  "f165": {
-    "name": "Infernal Bulwark",
-    "Basics": {
-      "source": "D&D Beyond Drops - May 2026",
-      "type": "Planar Pact Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/infernal-bulwark.json"
-  },
-  "f166": {
-    "name": "Infernal Dragoon",
-    "Basics": {
-      "source": "D&D Beyond Drops - May 2026",
-      "type": "Planar Pact Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/infernal-dragoon.json"
-  },
-  "f167": {
-    "name": "Aberrant Anatomy",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/aberrant-anatomy.json"
-  },
-  "f168": {
-    "name": "Echoing Soul",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/echoing-soul.json"
-  },
-  "f169": {
-    "name": "Gathered Whispers",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/gathered-whispers.json"
-  },
-  "f170": {
-    "name": "Living Shadow",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/living-shadow.json"
-  },
-  "f171": {
-    "name": "Mist Walker",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/mist-walker.json"
-  },
-  "f172": {
-    "name": "Second Skin",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/second-skin.json"
-  },
-  "f173": {
-    "name": "Symbiotic Being",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/symbiotic-being.json"
-  },
-  "f174": {
-    "name": "Touch Of Death",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/touch-of-death.json"
-  },
-  "f175": {
-    "name": "Watchers",
-    "Basics": {
-      "source": "Ravenloft - The Horrors Within",
-      "type": "Dark Gift Feat"
-    },
-    "Icon": {
-      "base": "none"
-    },
-    "json": "assets/json/feats/watchers.json"
-  }
+    "f0": {
+        "name": "Alert",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/alert.json"
+    },
+    "f1": {
+        "name": "Crafter",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/crafter.json"
+    },
+    "f2": {
+        "name": "Healer",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/healer.json"
+    },
+    "f3": {
+        "name": "Lucky",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/lucky.json"
+    },
+    "f4": {
+        "name": "Magic Initiate",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/magic-initiate.json"
+    },
+    "f5": {
+        "name": "Musician",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/musician.json"
+    },
+    "f6": {
+        "name": "Savage Attacker",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/savage-attacker.json"
+    },
+    "f7": {
+        "name": "Sharp Eye",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/sharp-eye.json"
+    },
+    "f8": {
+        "name": "Skilled",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/skilled.json"
+    },
+    "f9": {
+        "name": "Survivor",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/survivor.json"
+    },
+    "f10": {
+        "name": "Tavern Brawler",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/tavern-brawler.json"
+    },
+    "f11": {
+        "name": "Tough",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/tough.json"
+    },
+    "f12": {
+        "name": "Cult Of The Dragon Initiate",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/cult-of-the-dragon-initiate.json"
+    },
+    "f13": {
+        "name": "Emerald Enclave Fledgling",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/emerald-enclave-fledgling.json"
+    },
+    "f14": {
+        "name": "Harper Agent",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/harper-agent.json"
+    },
+    "f15": {
+        "name": "Lords Alliance Agent",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/lords-alliance-agent.json"
+    },
+    "f16": {
+        "name": "Purple Dragon Rook",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/purple-dragon-rook.json"
+    },
+    "f17": {
+        "name": "Spellfire Spark",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/spellfire-spark.json"
+    },
+    "f18": {
+        "name": "Tyro Of The Gauntlet",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/tyro-of-the-gauntlet.json"
+    },
+    "f19": {
+        "name": "Zhentarim Ruffian",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/zhentarim-ruffian.json"
+    },
+    "f20": {
+        "name": "Child Of The Sun",
+        "Basics": {
+            "source": "Lorwyn - First Light",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/child-of-the-sun.json"
+    },
+    "f21": {
+        "name": "Shadowmoor Hexer",
+        "Basics": {
+            "source": "Lorwyn - First Light",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/shadowmoor-hexer.json"
+    },
+    "f22": {
+        "name": "Tireless Reveler",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/tireless-reveler.json"
+    },
+    "f23": {
+        "name": "Vampire Hunter",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/vampire-hunter.json"
+    },
+    "f24": {
+        "name": "Vampire S Plaything",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "Origin Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/vampire-s-plaything.json"
+    },
+    "f25": {
+        "name": "Ability Score Improvement",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/ability-score-improvement.json"
+    },
+    "f26": {
+        "name": "Actor",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/actor.json"
+    },
+    "f27": {
+        "name": "Athlete",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/athlete.json"
+    },
+    "f28": {
+        "name": "Charger",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/charger.json"
+    },
+    "f29": {
+        "name": "Chef",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/chef.json"
+    },
+    "f30": {
+        "name": "Crossbow Expert",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/crossbow-expert.json"
+    },
+    "f31": {
+        "name": "Crusher",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/crusher.json"
+    },
+    "f32": {
+        "name": "Defensive Duelist",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/defensive-duelist.json"
+    },
+    "f33": {
+        "name": "Dual Wielder",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/dual-wielder.json"
+    },
+    "f34": {
+        "name": "Durable",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/durable.json"
+    },
+    "f35": {
+        "name": "Elemental Adept",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/elemental-adept.json"
+    },
+    "f36": {
+        "name": "Fey Touched",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/fey-touched.json"
+    },
+    "f37": {
+        "name": "Grappler",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/grappler.json"
+    },
+    "f38": {
+        "name": "Great Weapon Master",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/great-weapon-master.json"
+    },
+    "f39": {
+        "name": "Heavily Armored",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/heavily-armored.json"
+    },
+    "f40": {
+        "name": "Heavy Armor Master",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/heavy-armor-master.json"
+    },
+    "f41": {
+        "name": "Inspiring Leader",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/inspiring-leader.json"
+    },
+    "f42": {
+        "name": "Keen Mind",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/keen-mind.json"
+    },
+    "f43": {
+        "name": "Lightly Armored",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/lightly-armored.json"
+    },
+    "f44": {
+        "name": "Mage Slayer",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mage-slayer.json"
+    },
+    "f45": {
+        "name": "Martial Weapon Training",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/martial-weapon-training.json"
+    },
+    "f46": {
+        "name": "Medium Armor Master",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/medium-armor-master.json"
+    },
+    "f47": {
+        "name": "Moderately Armored",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/moderately-armored.json"
+    },
+    "f48": {
+        "name": "Mounted Combatant",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mounted-combatant.json"
+    },
+    "f49": {
+        "name": "Observant",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/observant.json"
+    },
+    "f50": {
+        "name": "Piercer",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/piercer.json"
+    },
+    "f51": {
+        "name": "Poisoner",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/poisoner.json"
+    },
+    "f52": {
+        "name": "Polearm Master",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/polearm-master.json"
+    },
+    "f53": {
+        "name": "Resilient",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/resilient.json"
+    },
+    "f54": {
+        "name": "Ritual Caster",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/ritual-caster.json"
+    },
+    "f55": {
+        "name": "Sentinel",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/sentinel.json"
+    },
+    "f56": {
+        "name": "Shadow Touched",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/shadow-touched.json"
+    },
+    "f57": {
+        "name": "Sharpshooter",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/sharpshooter.json"
+    },
+    "f58": {
+        "name": "Shield Master",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/shield-master.json"
+    },
+    "f59": {
+        "name": "Shifting Combatant",
+        "Basics": {
+            "source": "D&D Beyond Drops - July 2026",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/shifting-combatant.json"
+    },
+    "f60": {
+        "name": "Skill Expert",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/skill-expert.json"
+    },
+    "f61": {
+        "name": "Skulker",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/skulker.json"
+    },
+    "f62": {
+        "name": "Slasher",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/slasher.json"
+    },
+    "f63": {
+        "name": "Speedy",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/speedy.json"
+    },
+    "f64": {
+        "name": "Spell Sniper",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/spell-sniper.json"
+    },
+    "f65": {
+        "name": "Tactical Combatant",
+        "Basics": {
+            "source": "D&D Beyond Drops - July 2026",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/tactical-combatant.json"
+    },
+    "f66": {
+        "name": "Telekinetic",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/telekinetic.json"
+    },
+    "f67": {
+        "name": "Telepathic",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/telepathic.json"
+    },
+    "f68": {
+        "name": "War Caster",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/war-caster.json"
+    },
+    "f69": {
+        "name": "Weapon Master",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/weapon-master.json"
+    },
+    "f70": {
+        "name": "Cold Caster",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/cold-caster.json"
+    },
+    "f71": {
+        "name": "Dragonscarred",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/dragonscarred.json"
+    },
+    "f72": {
+        "name": "Enclave Magic",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/enclave-magic.json"
+    },
+    "f73": {
+        "name": "Fairy Trickster",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/fairy-trickster.json"
+    },
+    "f74": {
+        "name": "Genie Magic",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/genie-magic.json"
+    },
+    "f75": {
+        "name": "Harper Teamwork",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/harper-teamwork.json"
+    },
+    "f76": {
+        "name": "Lordly Resolve",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/lordly-resolve.json"
+    },
+    "f77": {
+        "name": "Mythal Touched",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mythal-touched.json"
+    },
+    "f78": {
+        "name": "Order S Resilience",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/order-s-resilience.json"
+    },
+    "f79": {
+        "name": "Purple Dragon Commandant",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/purple-dragon-commandant.json"
+    },
+    "f80": {
+        "name": "Spellfire Adept",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/spellfire-adept.json"
+    },
+    "f81": {
+        "name": "Street Justice",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/street-justice.json"
+    },
+    "f82": {
+        "name": "Zhentarim Tactics",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/zhentarim-tactics.json"
+    },
+    "f83": {
+        "name": "Bloodlust",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/bloodlust.json"
+    },
+    "f84": {
+        "name": "Bomber",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/bomber.json"
+    },
+    "f85": {
+        "name": "Cloying Mists",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/cloying-mists.json"
+    },
+    "f86": {
+        "name": "Delicious Pain",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/delicious-pain.json"
+    },
+    "f87": {
+        "name": "Light Bringer",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/light-bringer.json"
+    },
+    "f88": {
+        "name": "Love Bites",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/love-bites.json"
+    },
+    "f89": {
+        "name": "Putrefy",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/putrefy.json"
+    },
+    "f90": {
+        "name": "Rebuke",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/rebuke.json"
+    },
+    "f91": {
+        "name": "Treacherous Allure",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/treacherous-allure.json"
+    },
+    "f92": {
+        "name": "Vampire Touched",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "General Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/vampire-touched.json"
+    },
+    "f93": {
+        "name": "Archery",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/archery.json"
+    },
+    "f94": {
+        "name": "Blind Fighting",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/blind-fighting.json"
+    },
+    "f95": {
+        "name": "Defense",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/defense.json"
+    },
+    "f96": {
+        "name": "Dueling",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/dueling.json"
+    },
+    "f97": {
+        "name": "Great Weapon Fighting",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/great-weapon-fighting.json"
+    },
+    "f98": {
+        "name": "Interception",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/interception.json"
+    },
+    "f99": {
+        "name": "Pack Fighting",
+        "Basics": {
+            "source": "D&D Beyond Drops - July 2026",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/pack-fighting.json"
+    },
+    "f100": {
+        "name": "Prone Fighting",
+        "Basics": {
+            "source": "D&D Beyond Drops - July 2026",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/prone-fighting.json"
+    },
+    "f101": {
+        "name": "Protection",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/protection.json"
+    },
+    "f102": {
+        "name": "Thrown Weapon Fighting",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/thrown-weapon-fighting.json"
+    },
+    "f103": {
+        "name": "Two Weapon Fighting",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/two-weapon-fighting.json"
+    },
+    "f104": {
+        "name": "Unarmed Fighting",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Fighting Style Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/unarmed-fighting.json"
+    },
+    "f105": {
+        "name": "Boon Of Combat Prowess",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-combat-prowess.json"
+    },
+    "f106": {
+        "name": "Boon Of Dimensional Travel",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-dimensional-travel.json"
+    },
+    "f107": {
+        "name": "Boon Of Energy Resistance",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-energy-resistance.json"
+    },
+    "f108": {
+        "name": "Boon Of Fate",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-fate.json"
+    },
+    "f109": {
+        "name": "Boon Of Fortitude",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-fortitude.json"
+    },
+    "f110": {
+        "name": "Boon Of Irresistible Offense",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-irresistible-offense.json"
+    },
+    "f111": {
+        "name": "Boon Of Recovery",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-recovery.json"
+    },
+    "f112": {
+        "name": "Boon Of Skill",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-skill.json"
+    },
+    "f113": {
+        "name": "Boon Of Speed",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-speed.json"
+    },
+    "f114": {
+        "name": "Boon Of Spell Recall",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-spell-recall.json"
+    },
+    "f115": {
+        "name": "Boon Of The Night Spirit",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-the-night-spirit.json"
+    },
+    "f116": {
+        "name": "Boon Of Truesight",
+        "Basics": {
+            "source": "Player's Handbook",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-truesight.json"
+    },
+    "f117": {
+        "name": "Boon Of Siberys",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-siberys.json"
+    },
+    "f118": {
+        "name": "Boon Of Bloodshed",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-bloodshed.json"
+    },
+    "f119": {
+        "name": "Boon Of Bountiful Health",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-bountiful-health.json"
+    },
+    "f120": {
+        "name": "Boon Of Communication",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-communication.json"
+    },
+    "f121": {
+        "name": "Boon Of Desperate Resilience",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-desperate-resilience.json"
+    },
+    "f122": {
+        "name": "Boon Of Exquisite Radiance",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-exquisite-radiance.json"
+    },
+    "f123": {
+        "name": "Boon Of Fluid Forms",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-fluid-forms.json"
+    },
+    "f124": {
+        "name": "Boon Of Fortune S Favor",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-fortune-s-favor.json"
+    },
+    "f125": {
+        "name": "Boon Of Poison Mastery",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-poison-mastery.json"
+    },
+    "f126": {
+        "name": "Boon Of Revelry",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-revelry.json"
+    },
+    "f127": {
+        "name": "Boon Of Terror",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-terror.json"
+    },
+    "f128": {
+        "name": "Boon Of The Bright Sun",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-the-bright-sun.json"
+    },
+    "f129": {
+        "name": "Boon Of The Furious Storm",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-the-furious-storm.json"
+    },
+    "f130": {
+        "name": "Boon Of The Soul Drinker",
+        "Basics": {
+            "source": "Forgotten Realms - Heroes of Faerun",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-the-soul-drinker.json"
+    },
+    "f131": {
+        "name": "Boon Of Blazing Dawn",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-blazing-dawn.json"
+    },
+    "f132": {
+        "name": "Boon Of Looming Shadows",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-looming-shadows.json"
+    },
+    "f133": {
+        "name": "Boon Of Misty Escape",
+        "Basics": {
+            "source": "Astarion's Book of Hungers",
+            "type": "Epic Boon Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/boon-of-misty-escape.json"
+    },
+    "f134": {
+        "name": "Aberrant Dragonmark",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/aberrant-dragonmark.json"
+    },
+    "f135": {
+        "name": "Mark Of Detection",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-detection.json"
+    },
+    "f136": {
+        "name": "Mark Of Finding",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-finding.json"
+    },
+    "f137": {
+        "name": "Mark Of Handling",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-handling.json"
+    },
+    "f138": {
+        "name": "Mark Of Healing",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-healing.json"
+    },
+    "f139": {
+        "name": "Mark Of Hospitality",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-hospitality.json"
+    },
+    "f140": {
+        "name": "Mark Of Making",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-making.json"
+    },
+    "f141": {
+        "name": "Mark Of Passage",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-passage.json"
+    },
+    "f142": {
+        "name": "Mark Of Scribing",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-scribing.json"
+    },
+    "f143": {
+        "name": "Mark Of Sentinel",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-sentinel.json"
+    },
+    "f144": {
+        "name": "Mark Of Shadow",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-shadow.json"
+    },
+    "f145": {
+        "name": "Mark Of Storm",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-storm.json"
+    },
+    "f146": {
+        "name": "Mark Of Warding",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mark-of-warding.json"
+    },
+    "f147": {
+        "name": "Greater Aberrant Mark",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-aberrant-mark.json"
+    },
+    "f148": {
+        "name": "Greater Mark Of Detection",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-detection.json"
+    },
+    "f149": {
+        "name": "Greater Mark Of Finding",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-finding.json"
+    },
+    "f150": {
+        "name": "Greater Mark Of Handling",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-handling.json"
+    },
+    "f151": {
+        "name": "Greater Mark Of Healing",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-healing.json"
+    },
+    "f152": {
+        "name": "Greater Mark Of Hospitality",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-hospitality.json"
+    },
+    "f153": {
+        "name": "Greater Mark Of Making",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-making.json"
+    },
+    "f154": {
+        "name": "Greater Mark Of Passage",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-passage.json"
+    },
+    "f155": {
+        "name": "Greater Mark Of Scribing",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-scribing.json"
+    },
+    "f156": {
+        "name": "Greater Mark Of Sentinel",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-sentinel.json"
+    },
+    "f157": {
+        "name": "Greater Mark Of Shadow",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-shadow.json"
+    },
+    "f158": {
+        "name": "Greater Mark Of Storm",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-storm.json"
+    },
+    "f159": {
+        "name": "Greater Mark Of Warding",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/greater-mark-of-warding.json"
+    },
+    "f160": {
+        "name": "Potent Dragonmark",
+        "Basics": {
+            "source": "Eberron - Forge of the Artificer",
+            "type": "Dragonmark Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/potent-dragonmark.json"
+    },
+    "f161": {
+        "name": "Fey Pact",
+        "Basics": {
+            "source": "D&D Beyond Drops - May 2026",
+            "type": "Planar Pact Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/fey-pact.json"
+    },
+    "f162": {
+        "name": "Infernal Pact",
+        "Basics": {
+            "source": "D&D Beyond Drops - May 2026",
+            "type": "Planar Pact Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/infernal-pact.json"
+    },
+    "f163": {
+        "name": "Fey Sentinel",
+        "Basics": {
+            "source": "D&D Beyond Drops - May 2026",
+            "type": "Planar Pact Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/fey-sentinel.json"
+    },
+    "f164": {
+        "name": "Fey Tormentor",
+        "Basics": {
+            "source": "D&D Beyond Drops - August 2026",
+            "type": "Planar Pact Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/fey-tormentor.json"
+    },
+    "f165": {
+        "name": "Infernal Bulwark",
+        "Basics": {
+            "source": "D&D Beyond Drops - May 2026",
+            "type": "Planar Pact Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/infernal-bulwark.json"
+    },
+    "f166": {
+        "name": "Infernal Dragoon",
+        "Basics": {
+            "source": "D&D Beyond Drops - May 2026",
+            "type": "Planar Pact Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/infernal-dragoon.json"
+    },
+    "f167": {
+        "name": "Aberrant Anatomy",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/aberrant-anatomy.json"
+    },
+    "f168": {
+        "name": "Echoing Soul",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/echoing-soul.json"
+    },
+    "f169": {
+        "name": "Gathered Whispers",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/gathered-whispers.json"
+    },
+    "f170": {
+        "name": "Living Shadow",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/living-shadow.json"
+    },
+    "f171": {
+        "name": "Mist Walker",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/mist-walker.json"
+    },
+    "f172": {
+        "name": "Second Skin",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/second-skin.json"
+    },
+    "f173": {
+        "name": "Symbiotic Being",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/symbiotic-being.json"
+    },
+    "f174": {
+        "name": "Touch Of Death",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/touch-of-death.json"
+    },
+    "f175": {
+        "name": "Watchers",
+        "Basics": {
+            "source": "Ravenloft - The Horrors Within",
+            "type": "Dark Gift Feat"
+        },
+        "Icon": {
+            "base": "none"
+        },
+        "json": "assets/json/feats/watchers.json"
+    }
 }

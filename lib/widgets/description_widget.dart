@@ -8,11 +8,12 @@ class DescriptionWidget extends StatelessWidget {
   String title;
   Widget descrption;
   String descriptionType;
-  String? subtitle;
+  String subtitle;
   int titleLevel;
   int subtitleLevel;
   int clickLevel;
   String clickTitle;
+  Widget? clickWidget;
 
   DescriptionWidget(
     this.title,
@@ -24,7 +25,16 @@ class DescriptionWidget extends StatelessWidget {
     this.subtitleLevel = 3,
     this.clickLevel = 2,
     this.clickTitle = "",
+    this.clickWidget,
   });
+
+  Widget getClickWidget() {
+    return clickWidget ??
+        Text(
+          clickTitle == "" ? title : clickTitle,
+          style: TextStyleService.getTextStyle(clickLevel, 4),
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +94,43 @@ class DescriptionWidget extends StatelessWidget {
             ),
           ),
         },
-        child: Text(
-          (clickTitle == "") ? title : clickTitle,
-          style: TextStyleService.getTextStyle(clickLevel, 1),
-        ),
+        child: getClickWidget(),
+      );
+    } else if (setting == "page") {
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Scaffold(
+                appBar: AppBar(
+                  title: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyleService.getTextStyle(titleLevel, 4),
+                      ),
+                      (subtitle != null && subtitle != "")
+                          ? Text(
+                              subtitle,
+                              style: TextStyleService.getTextStyle(
+                                subtitleLevel,
+                                4,
+                              ),
+                            )
+                          : SizedBox.shrink(),
+                    ],
+                  ),
+                  backgroundColor: ColorService.getBasicColor(1),
+                ),
+                backgroundColor: ColorService.getBasicColor(2),
+                body: SafeArea(child: descrption),
+              ),
+            ),
+          );
+        },
+        child: getClickWidget(),
       );
     } else if (setting == "expand") {
       return Material(

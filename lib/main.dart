@@ -61,7 +61,15 @@ class _MyApp extends State<MyApp> {
         "source",
       ]);
 
-      await SettingsService.setSetting("abilitySubSort", [
+      await SettingsService.setSetting("wikiGrouping", [
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+      ]);
+
+      await SettingsService.setSetting("primarySubSort", [
         "Str",
         "Dex",
         "Con",
@@ -70,7 +78,7 @@ class _MyApp extends State<MyApp> {
         "Cha",
       ]);
 
-      await SettingsService.setSetting("featSubSort", [
+      await SettingsService.setSetting("featTypeSubSort", [
         "Origin Feat",
         "General Feat",
         "Fighting Style Feat",
@@ -86,12 +94,41 @@ class _MyApp extends State<MyApp> {
         "Lorwyn - First Light",
         "Eberron - Forge of the Artificer",
         "D&D Beyond Drops - May 2026",
-        "DND Beyond Drops - July 2026",
+        "D&D Beyond Drops - July 2026",
         "Ravenloft - The Horrors Within",
         "D&D Beyond Drops - August 2026",
       ]);
 
-      await SettingsService.setSetting("groupItemsWiki", true);
+      await SettingsService.setSetting("primarySubSortStandard", [
+        "Str",
+        "Dex",
+        "Con",
+        "Int",
+        "Wis",
+        "Cha",
+      ]);
+
+      await SettingsService.setSetting("featTypeSubSortStandard", [
+        "Origin Feat",
+        "General Feat",
+        "Fighting Style Feat",
+        "Epic Boon Feat",
+        "Dragonmark Feat",
+        "Planar Pact Feat",
+        "Dark Gift Feat",
+      ]);
+      await SettingsService.setSetting("sourceSubSortStandard", [
+        "Player's Handbook",
+        "Forgotten Realms - Heroes of Faerun",
+        "Astarion's Book of Hungers",
+        "Lorwyn - First Light",
+        "Eberron - Forge of the Artificer",
+        "D&D Beyond Drops - May 2026",
+        "D&D Beyond Drops - July 2026",
+        "Ravenloft - The Horrors Within",
+        "D&D Beyond Drops - August 2026",
+      ]);
+
       await SettingsService.setSetting("headerHeight", height * 0.14);
       await SettingsService.setSetting("listItemHeight", height * 0.10);
     });
