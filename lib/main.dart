@@ -47,7 +47,8 @@ class _MyApp extends State<MyApp> {
       await SettingsService.setSetting("skillDescriptionType", "expand");
       await SettingsService.setSetting("equipmentDescriptionStyle", "expand");
       await SettingsService.setSetting("toolDescriptionStyle", "expand");
-
+      await SettingsService.setSetting("featTypeDescriptionStyle", "expand");
+      await SettingsService.setSetting("sourceDescriptionStyle", "expand");
       await SettingsService.setSetting("itemDescriptionStyle", "page");
 
       await SettingsService.setSetting(

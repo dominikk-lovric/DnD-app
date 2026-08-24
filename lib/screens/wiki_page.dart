@@ -3,6 +3,7 @@ import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/background_info_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
+import 'package:dnd_app/widgets/feat_info_widget.dart';
 import 'package:dnd_app/widgets/optional_image_widget.dart';
 import 'package:dnd_app/widgets/species_info_widget.dart';
 import 'package:flutter/material.dart';
@@ -658,6 +659,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           return SpeciesInfoWidget(infoData);
         } else if (category == "backgrounds") {
           return BackgroundInfoWidget(infoData);
+        } else if (category == "feats") {
+          return FeatInfoWidget(infoData);
         }
 
         return const SizedBox.shrink();
