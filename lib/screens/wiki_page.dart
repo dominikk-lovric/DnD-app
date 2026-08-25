@@ -6,6 +6,7 @@ import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feat_info_widget.dart';
 import 'package:dnd_app/widgets/optional_image_widget.dart';
 import 'package:dnd_app/widgets/species_info_widget.dart';
+import 'package:dnd_app/widgets/spell_info_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/json_service.dart';
@@ -104,6 +105,14 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
       } else if (settings[index] == "speed") {
         ss = (el) {
           return el["Basics"]["Speed"];
+        };
+      } else if (settings[index] == "level") {
+        ss = (el) {
+          return el["level"];
+        };
+      } else if (settings[index] == "school") {
+        ss = (el) {
+          return el["Basics"]["School"];
         };
       } else {
         ss = (el) => el["name"];
@@ -257,7 +266,9 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   }
 
   String getTitle(String category, Map<String, dynamic> currentItem) {
-    if (category == "featType" &&
+    if (category == "level") {
+      return currentItem["Basics"]["Level"];
+    } else if (category == "featType" &&
         SettingsService.getSetting("featTypeSubSort") is List) {
       return currentItem["Basics"]["type"].toString();
     } else if (category == "source" &&
@@ -661,6 +672,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           return BackgroundInfoWidget(infoData);
         } else if (category == "feats") {
           return FeatInfoWidget(infoData);
+        } else if (category == "spells") {
+          return SpellInfoWidget(infoData);
         }
 
         return const SizedBox.shrink();

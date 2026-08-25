@@ -1,0 +1,24 @@
+{
+  "name": "Shield of Faith",
+  "level": 1,
+  "school": "Abjuration",
+  "spellList": [
+    "Cleric",
+    "Paladin"
+  ],
+  "castingTime": [
+    "Bonus Action"
+  ],
+  "range": "60 feet",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a prayer scroll",
+  "duration": [
+    "up to 10 minutes"
+  ],
+  "concentration": true,
+  "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration.\\n"
+}

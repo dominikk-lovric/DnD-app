@@ -25,4 +25,16 @@ class StringService {
     }
     return res;
   }
+
+  static String titleFromKey(String key) {
+    int last = 0;
+    String res = "";
+    for (int i = 0; i < key.length; i++) {
+      if (key[i].toUpperCase() == key[i]) {
+        res += CapitalizeWord(key.substring(last, i)) + " ";
+      }
+    }
+    res += CapitalizeWord(key.substring(last, key.length));
+    return res;
+  }
 }

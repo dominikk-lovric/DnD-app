@@ -1,0 +1,26 @@
+{
+  "name": "Death Armor",
+  "level": 2,
+  "school": "Necromancy",
+  "spellList": [
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Touch",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "an onyx worth 50+ GP, which the spell consumes",
+  "duration": [
+    "1 hour"
+  ],
+  "concentration": false,
+  "description": "",
+  "needsMaterials": true,
+  "usesMaterials": true
+}

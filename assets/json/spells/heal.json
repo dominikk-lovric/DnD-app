@@ -1,0 +1,23 @@
+{
+  "name": "Heal",
+  "level": 6,
+  "school": "Abjuration",
+  "spellList": [
+    "Cleric",
+    "Druid"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "60 feet",
+  "components": [
+    "V",
+    "S"
+  ],
+  "materials": "",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "Choose a creature that you can see within range. Positive energy washes through the target, restoring 70 Hit Points. This spell also ends the Blinded, Deafened, and Poisoned conditions on the target.\\nUsing a Higher-Level Spell Slot. The healing increases by 10 for each spell slot level above 6.\\n"
+}

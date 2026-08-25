@@ -1,0 +1,23 @@
+{
+  "name": "Telepathy",
+  "level": 8,
+  "school": "Divination",
+  "spellList": [
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Unlimited",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a pair of linked silver rings",
+  "duration": [
+    "24 hours"
+  ],
+  "concentration": false,
+  "description": "You create a telepathic link between yourself and a willing creature with which you are familiar. The creature can be anywhere on the same plane of existence as you. The spell ends if you or the target are no longer on the same plane.\\nUntil the spell ends, you and the target can instantly share words, images, sounds, and other sensory messages with each other through the link, and the target recognizes you as the creature it is communicating with. The spell enables a creature to understand the meaning of your words and any sensory messages you send to it.\\n"
+}

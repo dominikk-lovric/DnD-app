@@ -1,0 +1,27 @@
+{
+  "name": "Longstrider",
+  "level": 1,
+  "school": "Transmutation",
+  "spellList": [
+    "Artificer",
+    "Bard",
+    "Druid",
+    "Ranger",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Touch",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a pinch of dirt",
+  "duration": [
+    "1 hour"
+  ],
+  "concentration": false,
+  "description": "You touch a creature. The target’s Speed increases by 10 feet until the spell ends.\\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1.\\n"
+}

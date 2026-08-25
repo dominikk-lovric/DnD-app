@@ -1,0 +1,23 @@
+{
+  "name": "Conjure Constructs",
+  "level": 3,
+  "school": "Conjuration",
+  "spellList": [
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "60 feet",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a brass cog",
+  "duration": [
+    "up to 10 minutes"
+  ],
+  "concentration": true,
+  "description": "When you cast this spell and as a Magic action on subsequent turns, you can command the spirits to target one creature or object you can see within 5 feet of the spirits and create one of the following effects:\\nClockwork Force. The target makes a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.\\nOrderly Ward. The target gains Temporary Hit Points equal to 1d6 plus your spellcasting ability modifier.\\nWhen you move on your turn, you can also move the spirits up to 30 feet to an unoccupied space you can see.\\nUsing a Higher-Level Spell Slot. The damage and Temporary Hit Points both increase by 1d6 for each spell slot level above 3.\\n"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Void Star",
+  "level": 7,
+  "school": "Necromancy",
+  "spellList": [
+    "Warlock",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "120 feet",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a fragment of a meteor",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "You conjure forth a fragment of a dark star and launch it at one creature that you can see within range. Make a ranged spell attack against the target. On a hit, the target takes 6d12 Necrotic damage. Hit or miss, the target takes 3d12 Necrotic damage at the end of its next turn, and you regain Hit Points equal to that damage.\\nUsing a Higher-Level Spell Slot. The damage (both initial and later) increases by 1d12 for each spell slot level above 7.\\n"
+}

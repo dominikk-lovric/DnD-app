@@ -1,0 +1,27 @@
+{
+  "name": "Alustriel's Mooncloak",
+  "level": 5,
+  "school": "Abjuration",
+  "spellList": [
+    "Bard",
+    "Druid",
+    "Ranger",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Self",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a moonstone worth 50+ GP",
+  "duration": [
+    "up to 1 minute"
+  ],
+  "concentration": true,
+  "description": "While the spell lasts, you can use one of the following options, ending the spell immediately:\\nLiberation. When you fail a saving throw to avoid or end the Frightened, Grappled, or Restrained condition, you can take a Reaction to succeed on the save instead.\\nRespite. As a Magic action, you or an ally within the area regains Hit Points equal to 4d10 plus your spellcasting ability modifier.\\n",
+  "needsMaterials": true
+}

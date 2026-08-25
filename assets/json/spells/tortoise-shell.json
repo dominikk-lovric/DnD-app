@@ -1,0 +1,24 @@
+{
+  "name": "Tortoise Shell",
+  "level": 2,
+  "school": "Abjuration",
+  "spellList": [
+    "Artificer",
+    "Druid",
+    "Ranger"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Touch",
+  "components": [
+    "V",
+    "S"
+  ],
+  "materials": "",
+  "duration": [
+    "up to 1 minute"
+  ],
+  "concentration": true,
+  "description": "You touch a willing creature. Until the spell ends, the target’s skin hardens into a tortoise shell while it remains in place, and the target gains a +3 bonus to AC. If the target moves using its action, Bonus Action, Reaction, or movement, the bonus becomes +1 instead until the start of its next turn.\\n"
+}

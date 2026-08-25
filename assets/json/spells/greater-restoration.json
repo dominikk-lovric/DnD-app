@@ -1,0 +1,30 @@
+{
+  "name": "Greater Restoration",
+  "level": 5,
+  "school": "Abjuration",
+  "spellList": [
+    "Artificer",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Paladin",
+    "Ranger"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Touch",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "diamond dust worth 100+ GP, which the spell consumes",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "You touch a creature and magically remove one of the following effects from it:\\n",
+  "needsMaterials": true,
+  "usesMaterials": true
+}

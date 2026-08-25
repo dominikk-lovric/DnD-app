@@ -1,0 +1,26 @@
+{
+  "name": "Laeral's Silver Lance",
+  "level": 3,
+  "school": "Evocation",
+  "spellList": [
+    "Cleric",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Self",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a silver pin worth 250+ GP",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "Using a Higher-Level Spell Slot. The damage increases by 1d10 for every spell slot level above 3.\\n",
+  "needsMaterials": true
+}

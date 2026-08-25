@@ -9,7 +9,7 @@
     },
     "spells": {
         "path": "assets/json/spells.json",
-        "sorting": ["alphabetical"]
+        "sorting": ["alphabetical", "level", "school"]
     },
     "feats": {
         "path": "assets/json/feats.json",

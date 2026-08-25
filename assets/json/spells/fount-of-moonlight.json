@@ -1,0 +1,23 @@
+{
+  "name": "Fount of Moonlight",
+  "level": 4,
+  "school": "Evocation",
+  "spellList": [
+    "Bard",
+    "Druid"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Self",
+  "components": [
+    "V",
+    "S"
+  ],
+  "materials": "",
+  "duration": [
+    "up to 10 minutes"
+  ],
+  "concentration": true,
+  "description": "A cool light wreathes your body for the duration, emitting Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.\\nUntil the spell ends, you have Resistance to Radiant damage, and your melee attacks deal an extra 2d6 Radiant damage on a hit.\\nIn addition, immediately after you take damage from a creature you can see within 60 feet of yourself, you can take a Reaction to force the creature to make a Constitution saving throw. On a failed save, the creature has the Blinded condition until the end of your next turn.\\n"
+}

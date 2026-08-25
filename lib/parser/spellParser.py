@@ -5,6 +5,8 @@ import json
 import re
 import sys
 import time
+from encodings import utf_8
+from operator import truediv
 from textwrap import indent
 from typing import Optional
 
@@ -116,19 +118,142 @@ def splitOrList(text: str) -> list[str]:
     parts = re.split(r",\s*or\s+|,\s*|\s+or\s+", text)
     return [p.strip() for p in parts if p.strip()]
 
+def parseRow(row,level):
+    cells=row.find_all(["td", "th"])
+    values = [clean_text(c) for c in cells]
+    link=cells[0].find("a").get("href")
+    name=values[0]
+    school=values[1]
+    spellList=[c.strip() for c in values[2].split(",")]
+    castingTime=["Ritual" if el=="R" else el for el in [el.strip() for el in values[3].split("or")]]
+    range=values[4]
+    components=[el.strip() for el in values[5].split(",")]
+    usesMaterials=False
+    needsMaterials=False
+    if components[-1]=="M(C)":
+        components[-1]="M"
+        needsMaterials=True
+    elif components[-1]=="M(C*)":
+        components[-1]="M"
+        needsMaterials=True
+        usesMaterials=True
+    durationValue=values[6].split(",")
+    duration=[]
+    concentration=False
+    for d in durationValue:
+        if d.strip()=="C":
+            concentration=True
+        elif d.strip()[0].isalpha() and d[0].strip().isupper():
+            duration.append(d.strip()[0].upper()+d.strip()[1:])
+        else:
+            duration.append(d.strip())
+    if level==0:
+        levelWord="cantrip"
+    elif level==1:
+        levelWord="1st"
+    elif level==2:
+        levelWord="2nd"
+    elif level==3:
+        levelWord="3rd"
+    else:
+        levelWord=str(level)+"th"
+    dict={
+        "name": name,
+        "Basics":{
+            "Level":levelWord,
+            "School":school,
+            "Spell List":spellList,
+            "Casting Time":castingTime,
+            "Range":range,
+            "Components":components,
+            "Duration":duration,
+            "Concentration":concentration
+        },
+        "level":level,
+        "json":"assets/json/spells/"+slugify(name)+".json",
+        "Icon":{
+            "base":"none"
+           }
+    }
+    return link, dict, needsMaterials, usesMaterials
+
+def getSpellDict(link, dict,needsMaterials, usesMaterials):
+    soup = fetchSoup(BASE_URL + link)
+    name=dict["name"]
+    school=dict["Basics"]["School"]
+    spellList=dict["Basics"]["Spell List"]
+    castingTime=dict["Basics"]["Casting Time"]
+    range=dict["Basics"]["Range"]
+    components=dict["Basics"]["Components"]
+    duration=dict["Basics"]["Duration"]
+    concentration=dict["Basics"]["Concentration"]
+    content = getPageContent(soup)
+    content=[clean_text(el) for el in content.find_all("p")]
+    source=re.findall(r'^Source:\s*(.*?)$', content[0])[0]
+    level=re.findall(r'\d+', content[1])
+    if(len(level)>0):
+        level=int(level[0])
+    else:
+        level=0
+    materials=""
+    start=2
+    if(components[-1]=="M"):
+        print(content)
+        materials=re.findall(r'.*?Components:\s*.*?M\s*\((.*?)\)', content[1])
+        if(materials==[]):
+            materials=re.findall(r'.*?Components:\s*.*?M\s*\((.*?)\)', content[2])[0]
+            start=3
+        else:
+            materials=materials[0]
+    description=""
+    for el in content[3:]:
+        description+=el+"\\n"
+    finalDict={
+        "name":name,
+        "level":level,
+        "school":school,
+        "spellList":spellList,
+        "castingTime":castingTime,
+        "range":range,
+        "components":components,
+        "materials":materials,
+        "duration":duration,
+        "concentration":concentration,
+        "description":description,
+    }
+    if needsMaterials:
+        finalDict["needsMaterials"]=needsMaterials
+    if usesMaterials:
+        finalDict["usesMaterials"]=usesMaterials
+    return finalDict
+
+
+
 def parseTable(table):
-    rows=table.find_all("tr")
+
+
+    i=0
+    level=0
+    mainDict={}
+    for row in table:
+        if clean_text(row)!="Name School Spell lists Casting Time Range Components Duration":
+            link, dict, needsMaterials, usesMaterials=parseRow(row, level-1)
+            mainDict["s"+str(i)]=dict
+            i+=1
+            print("- assets/json/spells/"+slugify(dict["name"])+".json")
+        else:
+            level+=1
+    with open("../dnd_app/assets/json/spells.json", "w", encoding="utf_8") as f:
+        json.dump(mainDict, f, indent=2, ensure_ascii=False)
+        i+=1
+
 
 
 def main():
     soup=fetchSoup(BASE_URL+"spell:all")
     content= getPageContent(soup)
-    elements=[]
-    for el in content:
-        elements.append(el)
-    table=elements[9]
-
-    strRows=str(table).split("</tr>")
+    table=content.find_all("tr")
+    parseTable(table)
 
 
 if __name__ == "__main__":

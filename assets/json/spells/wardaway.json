@@ -1,0 +1,26 @@
+{
+  "name": "Wardaway",
+  "level": 1,
+  "school": "Abjuration",
+  "spellList": [
+    "Bard",
+    "Cleric",
+    "Paladin",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "60 feet",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a miniature clay hand",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "On a failed save, the target takes 2d4 Force damage, its Speed is halved until the start of your next turn, and on its next turn, it can take only an action or a Bonus Action (but not both). On a successful save, the target takes half as much damage only.\\nUsing a Higher-Level Spell Slot. The damage increases by 2d4 for every spell slot level above 1.\\n"
+}

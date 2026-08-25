@@ -1,0 +1,27 @@
+{
+  "name": "Deryan's Helpful Homunculi",
+  "level": 2,
+  "school": "Conjuration",
+  "spellList": [
+    "Cleric",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action",
+    "Ritual"
+  ],
+  "range": "Self",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "powdered gemstones worth 100+ GP, which the spell consumes, and one set of Artisan’s Tools with which you have proficiency",
+  "duration": [
+    "8 hours"
+  ],
+  "concentration": false,
+  "description": "If you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.\\n",
+  "needsMaterials": true,
+  "usesMaterials": true
+}

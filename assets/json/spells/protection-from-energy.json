@@ -1,0 +1,27 @@
+{
+  "name": "Protection from Energy",
+  "level": 3,
+  "school": "Abjuration",
+  "spellList": [
+    "Artificer",
+    "Cleric",
+    "Druid",
+    "Ranger",
+    "Sorcerer",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Touch",
+  "components": [
+    "V",
+    "S"
+  ],
+  "materials": "",
+  "duration": [
+    "up to 1 hour"
+  ],
+  "concentration": true,
+  "description": "For the duration, the willing creature you touch has Resistance to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.\\n"
+}

@@ -22,21 +22,25 @@ class ItemWidget extends StatelessWidget {
     final String icon = classData["Icon"][SettingsService.getSetting("theme")];
     final height = SettingsService.getSetting("headerHeight");
 
-    String subtitle = "";
+    List<Widget> subtitle = [];
     for (var i = 0; i < items.length; i++) {
-      subtitle = "$subtitle   • " + names[i] + ": ";
-      if (items[i] is List) {
-        if (names[i].toLowerCase() == "primary") {
-          subtitle = subtitle + (items[i] as List).join(" or ");
-        } else {
-          subtitle = subtitle + (items[i] as List).join(", ");
+      String text = "• " + names[i];
+      if (items[i].toString() != "false") {
+        if (items[i].toString() != "true") {
+          text += ": ";
+          if (items[i] is List) {
+            if (names[i].toLowerCase() == "primary") {
+              text = text + (items[i] as List).join(" or ");
+            } else {
+              text = text + (items[i] as List).join(", ");
+            }
+          } else {
+            text = text + items[i].toString();
+          }
         }
-      } else {
-        subtitle = subtitle + items[i].toString();
+        subtitle.add(Text(text, style: TextStyleService.getTextStyle(5, 6)));
       }
     }
-
-    subtitle = subtitle.trimLeft();
 
     return Container(
       child: Card(
@@ -75,15 +79,7 @@ class ItemWidget extends StatelessWidget {
                       ),
                       maxLines: 1,
                     ),
-                    Text(
-                      subtitle,
-                      style: TextStyleService.getTextStyle(
-                        5,
-                        6,
-                        Overflow: TextOverflow.clip,
-                      ),
-                      maxLines: 1,
-                    ),
+                    Wrap(spacing: 10, children: subtitle),
                   ],
                 ),
               ),

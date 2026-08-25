@@ -51,6 +51,19 @@ class _MyApp extends State<MyApp> {
       await SettingsService.setSetting("sourceDescriptionStyle", "expand");
       await SettingsService.setSetting("itemDescriptionStyle", "page");
 
+      await SettingsService.setSetting("levelDescriptionStyle", "expand");
+      await SettingsService.setSetting("schoolDescriptionStyle", "expand");
+      await SettingsService.setSetting("spellListDescriptionStyle", "expand");
+      await SettingsService.setSetting("castingTimeDescriptionStyle", "expand");
+      await SettingsService.setSetting("rangeDescriptionStyle", "expand");
+      await SettingsService.setSetting("componentsDescriptionStyle", "expand");
+      await SettingsService.setSetting("materialsDescriptionStyle", "expand");
+      await SettingsService.setSetting("durationDescriptionStyle", "expand");
+      await SettingsService.setSetting(
+        "concentrationDescriptionStyle",
+        "expand",
+      );
+
       await SettingsService.setSetting(
         "abilityScoresDescriptionStyle",
         "expand",
@@ -59,7 +72,7 @@ class _MyApp extends State<MyApp> {
       await SettingsService.setSetting("wikiSorting", [
         "primary",
         "speed",
-        "alphabetical",
+        "level",
         "featType",
         "source",
       ]);

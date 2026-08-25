@@ -1,0 +1,27 @@
+{
+  "name": "Astral Flood",
+  "level": 3,
+  "school": "Evocation",
+  "spellList": [
+    "Bard",
+    "Cleric",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "Self",
+  "components": [
+    "V",
+    "S",
+    "M"
+  ],
+  "materials": "a mixture of water and powdered silver",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "You channel energy from the Astral Sea to unleash a torrent of magic from yourself. Choose Cold or Radiant for the type of energy channeled. Each creature in a 30-foot Cone originating from you makes a Dexterity saving throw. On a failed save, the target takes 4d10 damage of the chosen type and suffers an additional effect determined by the damage type:\\nCold Damage. The target has Disadvantage on the next D20 Test it makes before the end of your next turn.\\nRadiant Damage. The target has the Blinded condition until the end of your next turn.\\nOn a successful save, the target takes half as much damage only.\\nUsing a Higher-Level Spell Slot: The damage increases by 1d10 for each spell slot above 3.\\n"
+}

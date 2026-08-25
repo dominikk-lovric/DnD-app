@@ -1,0 +1,24 @@
+{
+  "name": "Power Word Kill",
+  "level": 9,
+  "school": "Enchantment",
+  "spellList": [
+    "Bard",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ],
+  "castingTime": [
+    "Action"
+  ],
+  "range": "60 feet",
+  "components": [
+    "V"
+  ],
+  "materials": "",
+  "duration": [
+    "Instantaneous"
+  ],
+  "concentration": false,
+  "description": "You compel one creature you can see within range to die. If the target has 100 Hit Points or fewer, it dies. Otherwise, it takes 12d12 Psychic damage.\\n"
+}
