@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Protection from Energy",
   "level": 3,
   "school": "Abjuration",
@@ -23,5 +24,5 @@
     "up to 1 hour"
   ],
   "concentration": true,
-  "description": "For the duration, the willing creature you touch has Resistance to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.\\n"
+  "description": "For the duration, the willing creature you touch has Resistance to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.\n"
 }

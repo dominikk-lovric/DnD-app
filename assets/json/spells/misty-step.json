@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Misty Step",
   "level": 2,
   "school": "Conjuration",
@@ -19,5 +20,5 @@
     "Instantaneous"
   ],
   "concentration": false,
-  "description": "Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.\\n"
+  "description": "Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.\n"
 }

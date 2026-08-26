@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Deryan's Helpful Homunculi",
   "level": 2,
   "school": "Conjuration",
@@ -21,7 +22,7 @@
     "8 hours"
   ],
   "concentration": false,
-  "description": "If you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.\\n",
+  "description": "If you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.\n",
   "needsMaterials": true,
   "usesMaterials": true
 }

@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Calm Emotions",
   "level": 2,
   "school": "Enchantment",
@@ -19,5 +20,5 @@
     "up to 1 minute"
   ],
   "concentration": true,
-  "description": "Each Humanoid in a 20-foot-radius Sphere centered on a point you choose within range must succeed on a Charisma saving throw or be affected by one of the following effects (choose for each creature):\\n"
+  "description": "Each Humanoid in a 20-foot-radius Sphere centered on a point you choose within range must succeed on a Charisma saving throw or be affected by one of the following effects (choose for each creature):\n"
 }

@@ -4,11 +4,11 @@ import 'package:dnd_app/services/text_style_service.dart';
 
 import 'package:flutter/material.dart';
 
-class SavingThrowWidget extends StatelessWidget {
-  final List<String> allStats = ["Str", "Dex", "Con", "Int", "Wis", "Cha"];
+class CheckListWidget extends StatelessWidget {
+  final List<String> options;
   final List<dynamic> stats;
 
-  SavingThrowWidget(this.stats, {super.key});
+  CheckListWidget(this.options, this.stats, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,9 @@ class SavingThrowWidget extends StatelessWidget {
         Column(
           mainAxisSize: .min,
           children: [
-            Text(allStats[i], style: TextStyleService.getTextStyle(2, 4)),
+            Text(options[i], style: TextStyleService.getTextStyle(2, 4)),
             Checkbox(
-              value: stats.contains(allStats[i]),
+              value: stats.contains(options[i]),
               onChanged: (_) {},
               activeColor: ColorService.getColor(0),
               checkColor: ColorService.getColor(4),

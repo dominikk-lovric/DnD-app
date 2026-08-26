@@ -3,7 +3,10 @@
     "catId": "species",
     "name": "Aasimar",
     "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -44,5 +47,6 @@
                 ]
             }
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

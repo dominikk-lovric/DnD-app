@@ -1,4 +1,5 @@
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/description_column_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feature_description_widget.dart';
 import 'package:flutter/material.dart';
@@ -23,43 +24,6 @@ class FeatInfoWidget extends StatefulWidget {
 class FeatInfoWidgetState extends State<FeatInfoWidget> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DescriptionWidget(
-          "Feat Type",
-          Text(
-            widget.info["type"],
-            style: TextStyleService.getTextStyle(widget.descriptionLevel, 4),
-          ),
-          "sectionDescriptionStyle",
-        ),
-        DescriptionWidget(
-          "Source",
-          Text(
-            widget.info["source"],
-            style: TextStyleService.getTextStyle(widget.descriptionLevel, 4),
-          ),
-          "sectionDescriptionStyle",
-        ),
-        Text(
-          widget.info["description"],
-          style: TextStyleService.getTextStyle(widget.descriptionLevel, 4),
-        ),
-        DescriptionWidget(
-          "Features",
-          Column(
-            children: [
-              ...widget.info["features"].map((item) {
-                return FeatureDescriptionWidget(
-                  item,
-                  "featureDescriptionStyle",
-                );
-              }),
-            ],
-          ),
-          "sectionDescriptionStyle",
-        ),
-      ],
-    );
+    return DescriptionColumnWidget(widget.info);
   }
 }

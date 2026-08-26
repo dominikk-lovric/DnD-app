@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Boggart",
     "creatureType": "Humanoid",
-    "size": ["Small"],
+    "size": [
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -22,5 +24,6 @@
             "name": "Nimble Escape",
             "description": "You can take the Disengage or Hide action as a bonus action on each of your turns."
         }
-    ]
+    ],
+    "source": "Lorwyn - First Light"
 }

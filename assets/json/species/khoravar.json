@@ -3,12 +3,17 @@
     "catId": "species",
     "name": "Khoravar",
     "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "spells": {
         "addedSpells": {
             "Level": "Spells",
-            "1": ["Friends"]
+            "1": [
+                "Friends"
+            ]
         }
     },
     "features": [
@@ -32,5 +37,6 @@
             "name": "Skill Versatility",
             "description": "You gain proficiency in one skill or with one tool of your choice. Whenever you finish a Long Rest, you can replace it with another skill or tool proficiency."
         }
-    ]
+    ],
+    "source": "Eberron - Forge of the Artificer"
 }

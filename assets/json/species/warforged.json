@@ -3,7 +3,10 @@
     "catId": "species",
     "name": "Warforged",
     "creatureType": "Construct",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -26,5 +29,6 @@
             "name": "Tireless",
             "description": "You don’t gain Exhaustion levels from dehydration, malnutrition, or suffocation."
         }
-    ]
+    ],
+    "source": "Eberron - Forge of the Artificer"
 }

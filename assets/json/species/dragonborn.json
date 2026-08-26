@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Dragonborn",
     "creatureType": "Humanoid",
-    "size": ["Medium"],
+    "size": [
+        "Medium"
+    ],
     "speed": 30,
     "features": [
         {
@@ -114,5 +116,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

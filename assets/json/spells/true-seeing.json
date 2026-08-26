@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "True Seeing",
   "level": 6,
   "school": "Divination",
@@ -23,7 +24,7 @@
     "1 hour"
   ],
   "concentration": false,
-  "description": "For the duration, the willing creature you touch has Truesight with a range of 120 feet.\\n",
+  "description": "For the duration, the willing creature you touch has Truesight with a range of 120 feet.\n",
   "needsMaterials": true,
   "usesMaterials": true
 }

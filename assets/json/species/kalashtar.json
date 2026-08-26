@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Kalashtar",
     "creatureType": "Abberation",
-    "size": ["Medium"],
+    "size": [
+        "Medium"
+    ],
     "speed": 30,
     "features": [
         {
@@ -22,5 +24,6 @@
             "name": "Severed from Dreams",
             "description": "You can’t be the target of the Dream spell. In addition, when you finish a Long Rest, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another Long Rest."
         }
-    ]
+    ],
+    "source": "Eberron - Forge of the Artificer"
 }

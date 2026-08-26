@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Blade Ward",
   "level": 0,
   "school": "Abjuration",
@@ -21,5 +22,5 @@
     "up to 1 minute"
   ],
   "concentration": true,
-  "description": "Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.\\n"
+  "description": "Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.\n"
 }

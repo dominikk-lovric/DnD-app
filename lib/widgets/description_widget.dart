@@ -22,13 +22,15 @@ class DescriptionWidget extends StatelessWidget {
     this.descriptionType, {
     super.key,
     this.subtitle = "",
-    this.titleLevel = 3,
-    this.subtitleLevel = 3,
-    this.clickLevel = 2,
+    this.titleLevel = 2,
+    this.subtitleLevel = 2,
+    this.clickLevel = 1,
     this.clickTitle = "",
     this.clickWidget,
     this.titleWidget,
   });
+
+  List<String> types = ["popUp", "expand", "text", "sheet", "page"];
 
   Widget getClickWidget() {
     return clickWidget ??
@@ -48,7 +50,17 @@ class DescriptionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String setting = SettingsService.getSetting(descriptionType);
+    String setting;
+    if (types.contains(descriptionType)) {
+      setting = descriptionType;
+    } else {
+      String? sett = SettingsService.getSetting(descriptionType);
+      if (sett == null) {
+        setting = SettingsService.getSetting("globalDescriptionStyle");
+      } else {
+        setting = sett;
+      }
+    }
     if (setting == "popUp") {
       return GestureDetector(
         onTap: () => {
@@ -102,6 +114,19 @@ class DescriptionWidget extends StatelessWidget {
           ),
         },
         child: getClickWidget(),
+      );
+    } else if (setting == "text") {
+      return Row(
+        spacing: 10,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            title + ":",
+            style: TextStyleService.getTextStyle(subtitleLevel, 4),
+          ),
+          descrption,
+        ],
       );
     } else if (setting == "page") {
       return GestureDetector(

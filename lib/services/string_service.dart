@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 
 class StringService {
   static String CapitalizeWord(String word) {
-    return word[0].toUpperCase() + word.substring(1);
+    return word[0].trim().toUpperCase() + word.substring(1);
   }
 
   static String capitalizeWords(String text, [String split = " "]) {
@@ -30,8 +30,11 @@ class StringService {
     int last = 0;
     String res = "";
     for (int i = 0; i < key.length; i++) {
-      if (key[i].toUpperCase() == key[i]) {
+      if (key[i].toUpperCase() == key[i] &&
+          key[i].toLowerCase() != key[i] &&
+          i != 0) {
         res += CapitalizeWord(key.substring(last, i)) + " ";
+        last = i;
       }
     }
     res += CapitalizeWord(key.substring(last, key.length));

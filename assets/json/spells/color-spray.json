@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Color Spray",
   "level": 1,
   "school": "Illusion",
@@ -21,5 +22,5 @@
     "Instantaneous"
   ],
   "concentration": false,
-  "description": "You launch a dazzling array of flashing, colorful light. Each creature in a 15-foot Cone originating from you must succeed on a Constitution saving throw or have the Blinded condition until the end of your next turn.\\n"
+  "description": "You launch a dazzling array of flashing, colorful light. Each creature in a 15-foot Cone originating from you must succeed on a Constitution saving throw or have the Blinded condition until the end of your next turn.\n"
 }

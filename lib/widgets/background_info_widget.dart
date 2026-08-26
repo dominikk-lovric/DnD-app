@@ -42,7 +42,14 @@ class BackgroundInfoWidgetState extends State<BackgroundInfoWidget> {
         ),
         DescriptionWidget(
           "Ability Scores",
-          SavingThrowWidget(widget.info["abilities"]),
+          CheckListWidget([
+            "Str",
+            "Dex",
+            "Con",
+            "Int",
+            "Wis",
+            "Cha",
+          ], widget.info["abilities"]),
           "abilityScoresDescriptionStyle",
         ),
         DescriptionWidget(

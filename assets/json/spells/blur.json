@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Blur",
   "level": 2,
   "school": "Illusion",
@@ -19,5 +20,5 @@
     "up to 1 minute"
   ],
   "concentration": true,
-  "description": "Your body becomes blurred. For the duration, any creature has Disadvantage on attack rolls against you. An attacker is immune to this effect if it perceives you with Blindsight or Truesight.\\n"
+  "description": "Your body becomes blurred. For the duration, any creature has Disadvantage on attack rolls against you. An attacker is immune to this effect if it perceives you with Blindsight or Truesight.\n"
 }

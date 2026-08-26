@@ -3,14 +3,23 @@
     "catId": "species",
     "name": "Flamekin",
     "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "spells": {
         "addedSpells": {
             "Level": "Spells",
-            "1": ["Produce Flame"],
-            "3": ["Burning Hands"],
-            "5": ["Flame Blade"]
+            "1": [
+                "Produce Flame"
+            ],
+            "3": [
+                "Burning Hands"
+            ],
+            "5": [
+                "Flame Blade"
+            ]
         }
     },
     "features": [
@@ -26,5 +35,6 @@
             "name": "Reach to the Blaze",
             "description": "You know the Produce Flame cantrip. Starting at 3rd level, you can cast the Burning Hands spell with this trait. Starting at 5th level, you can also cast the Flame Blade spell with this trait, without requiring a material component. Once you cast Burning Hands or Flame Blade with this trait, you can’t cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.\n\nIntelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
         }
-    ]
+    ],
+    "source": "Lorwyn - First Light"
 }

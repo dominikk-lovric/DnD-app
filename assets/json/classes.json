@@ -1,131 +1,141 @@
 {
-
-    "c2":{
-        "name":"Bard",
-        "Basics":{
+    "c2": {
+        "name": "Bard",
+        "Basics": {
             "Primary": ["Cha"],
-            "Hit die": "d8",
-            "Saves": ["Dex", "Cha"]
+            "hitDie": "d8",
+            "Saves": ["Dex", "Cha"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/bard.jpg"
         },
         "json": "assets/json/classes/bard.json"
     },
-    "c3":{
-        "name":"Cleric",
-        "Basics":{
+    "c3": {
+        "name": "Cleric",
+        "Basics": {
             "Primary": ["Wis"],
-            "Hit die": "d8",
-            "Saves": ["Wis", "Cha"]
+            "hitDie": "d8",
+            "Saves": ["Wis", "Cha"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/cleric.jpg"
         },
         "json": "assets/json/classes/cleric.json"
     },
-    "c4":{
-        "name":"Druid",
-        "Basics":{
+    "c4": {
+        "name": "Druid",
+        "Basics": {
             "Primary": ["Wis"],
-            "Hit die": "d8",
-            "Saves": ["Int", "Wis"]
+            "hitDie": "d8",
+            "Saves": ["Int", "Wis"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/druid.jpg"
         },
         "json": "assets/json/classes/druid.json"
     },
-    "c5":{
-        "name":"Fighter",
-        "Basics":{
+    "c5": {
+        "name": "Fighter",
+        "Basics": {
             "Primary": ["Str", "Dex"],
-            "Hit die": "d10",
-            "Saves": ["Str", "Con"]
+            "hitDie": "d10",
+            "Saves": ["Str", "Con"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/fighter.jpg"
         },
         "json": "assets/json/classes/fighter.json"
     },
-    "c6":{
-        "name":"Monk",
-        "Basics":{
-            "Primary": ["Dex","Wis"],
-            "Hit die": "d8",
-            "Saves": ["Str", "Dex"]
+    "c6": {
+        "name": "Monk",
+        "Basics": {
+            "Primary": ["Dex", "Wis"],
+            "hitDie": "d8",
+            "Saves": ["Str", "Dex"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/monk.jpg"
         },
         "json": "assets/json/classes/monk.json"
     },
-    "c7":{
-        "name":"Paladin",
-        "Basics":{
-            "Primary": ["Str","Cha"],
-            "Hit die": "d10",
-            "Saves": ["Wis", "Cha"]
+    "c7": {
+        "name": "Paladin",
+        "Basics": {
+            "Primary": ["Str", "Cha"],
+            "hitDie": "d10",
+            "Saves": ["Wis", "Cha"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/paladin.jpg"
         },
         "json": "assets/json/classes/paladin.json"
     },
-    "c8":{
-        "name":"Ranger",
-        "Basics":{
-            "Primary": ["Dex","Wis"],
-            "Hit die": "d10",
-            "Saves": ["Str", "Dex"]
+    "c8": {
+        "name": "Ranger",
+        "Basics": {
+            "Primary": ["Dex", "Wis"],
+            "hitDie": "d10",
+            "Saves": ["Str", "Dex"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/ranger.jpg"
         },
         "json": "assets/json/classes/ranger.json"
     },
-    "c9":{
-        "name":"Rogue",
-        "Basics":{
+    "c9": {
+        "name": "Rogue",
+        "Basics": {
             "Primary": ["Dex"],
-            "Hit die": "d8",
-            "Saves": ["Dex", "Int"]
+            "hitDie": "d8",
+            "Saves": ["Dex", "Int"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/rogue.jpg"
         },
         "json": "assets/json/classes/rogue.json"
     },
-    "c10":{
-        "name":"Sorcerer",
-        "Basics":{
+    "c10": {
+        "name": "Sorcerer",
+        "Basics": {
             "Primary": ["Cha"],
-            "Hit die": "d6",
-            "Saves": ["Con", "Cha"]
+            "hitDie": "d6",
+            "Saves": ["Con", "Cha"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/sorcerer.jpg"
         },
         "json": "assets/json/classes/sorcerer.json"
     },
-    "c11":{
-        "name":"Warlock",
-        "Basics":{
+    "c11": {
+        "name": "Warlock",
+        "Basics": {
             "Primary": ["Cha"],
-            "Hit die": "d8",
-            "Saves": ["Wis", "Cha"]
+            "hitDie": "d8",
+            "Saves": ["Wis", "Cha"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/warlock.jpg"
         },
         "json": "assets/json/classes/warlock.json"
     },
-    "c12":{
-        "name":"Wizard",
-        "Basics":{
+    "c12": {
+        "name": "Wizard",
+        "Basics": {
             "Primary": ["Int"],
-            "Hit die": "d6",
-            "Saves": ["Int", "Wis"]
+            "hitDie": "d6",
+            "Saves": ["Int", "Wis"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/wizard.jpg"
@@ -133,16 +143,16 @@
         "json": "assets/json/classes/wizard.json"
     },
     "c1": {
-        "name":"Barbarian",
-        "Basics":{
+        "name": "Barbarian",
+        "Basics": {
             "Primary": ["Str"],
-            "Hit die": "d12",
-            "Saves": ["Str", "Con"]
+            "hitDie": "d12",
+            "Saves": ["Str", "Con"],
+            "source": "Player's Handbook"
         },
         "Icon": {
             "base": "assets/icons/base/classes/barbarian.jpg"
         },
         "json": "assets/json/classes/barbarian.json"
-        
     }
 }

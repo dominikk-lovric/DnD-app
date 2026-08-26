@@ -1,22 +1,63 @@
 {
     "classes": {
         "path": "assets/json/classes.json",
-        "sorting": ["alphabetical", "primary"]
+        "sorting": ["alphabetical", "primary", "source"],
+        "filters": [
+            {
+                "id": "hitDie",
+                "label": "Hit Die",
+                "type": "multi",
+                "field": "Basics.hitDie",
+                "options": ["d6", "d8", "d10", "d12"]
+            },
+            {
+                "id": "",
+                "label": "",
+                "type": "",
+                "field": "",
+                "options": []
+            },
+            {
+                "id": "",
+                "label": "",
+                "type": "",
+                "field": "",
+                "options": []
+            },
+            {
+                "id": "",
+                "label": "",
+                "type": "",
+                "field": "",
+                "options": []
+            },
+            {
+                "id": "",
+                "label": "",
+                "type": "",
+                "field": "",
+                "options": []
+            }
+        ]
     },
     "species": {
         "path": "assets/json/species.json",
-        "sorting": ["alphabetical", "speed"]
+        "sorting": ["alphabetical", "speed", "source"],
+        "filters": []
     },
     "spells": {
         "path": "assets/json/spells.json",
-        "sorting": ["alphabetical", "level", "school"]
+        "sorting": ["alphabetical", "level", "school"],
+        "filters": []
     },
     "feats": {
         "path": "assets/json/feats.json",
-        "sorting": ["alphabetical", "featType", "source"]
+        "sorting": ["alphabetical", "featType", "source"],
+        "filters": []
     },
     "backgrounds": {
         "path": "assets/json/backgrounds.json",
-        "sorting": ["alphabetical", "source"]
+        "sorting": ["alphabetical", "source"],
+        "filters": []
     }
 }

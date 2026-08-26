@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Cacophonic Shield",
   "level": 3,
   "school": "Evocation",
@@ -20,5 +21,5 @@
     "up to 10 minutes"
   ],
   "concentration": true,
-  "description": "In addition, you have Resistance to Thunder damage, and ranged attack rolls against you are made with Disadvantage.\\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 3.\\n"
+  "description": "In addition, you have Resistance to Thunder damage, and ranged attack rolls against you are made with Disadvantage.\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 3.\n"
 }

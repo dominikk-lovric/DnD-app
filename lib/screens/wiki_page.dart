@@ -5,6 +5,7 @@ import 'package:dnd_app/widgets/class_info_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feat_info_widget.dart';
 import 'package:dnd_app/widgets/optional_image_widget.dart';
+import 'package:dnd_app/widgets/sorting_menu_widget.dart';
 import 'package:dnd_app/widgets/species_info_widget.dart';
 import 'package:dnd_app/widgets/spell_info_widget.dart';
 import 'package:flutter/material.dart';
@@ -298,194 +299,15 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             foregroundColor: ColorService.getColor(4),
             centerTitle: true,
             actions: [
-              PopupMenuButton<String>(
-                color: ColorService.getColor(2),
-                iconColor: ColorService.getColor(4),
-                icon: const Icon(Icons.tune),
-                onSelected: (value) async {
-                  if (value == "group_yes") {
-                    await changeGrouping(true);
-                  } else if (value == "group_no") {
-                    await changeGrouping(false);
-                  } else if (value == "subsortAlphabetical") {
-                    await changeSecondarySorting(false);
-                  } else if (value == "subsortStandard") {
-                    await changeSecondarySorting(true);
-                  } else {
-                    await changeSorting(value);
-                  }
-                },
-                itemBuilder: (context) {
-                  final currentSorting = SettingsService.getSetting(
-                    "wikiSorting",
-                  )[currentCategoryIndex];
-
-                  return [
-                    PopupMenuItem<String>(
-                      enabled: false,
-                      child: Text(
-                        "Grouping",
-                        style: TextStyleService.getTextStyle(3, 4),
-                      ),
-                    ),
-
-                    PopupMenuItem<String>(
-                      value: "group_yes",
-                      child: Row(
-                        children: [
-                          Icon(
-                            SettingsService.getSetting(
-                                      "wikiGrouping",
-                                    )[currentCategoryIndex] ==
-                                    "true"
-                                ? Icons.radio_button_checked
-                                : Icons.radio_button_unchecked,
-                            color: ColorService.getColor(4),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            "Yes",
-                            style: TextStyleService.getTextStyle(4, 4),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    PopupMenuItem<String>(
-                      value: "group_no",
-                      child: Row(
-                        children: [
-                          Icon(
-                            SettingsService.getSetting(
-                                      "wikiGrouping",
-                                    )[currentCategoryIndex] ==
-                                    "false"
-                                ? Icons.radio_button_checked
-                                : Icons.radio_button_unchecked,
-                            color: ColorService.getColor(4),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            "No",
-                            style: TextStyleService.getTextStyle(4, 4),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    const PopupMenuDivider(),
-
-                    PopupMenuItem<String>(
-                      enabled: false,
-                      child: Text(
-                        "Sort by",
-                        style: TextStyleService.getTextStyle(3, 4),
-                      ),
-                    ),
-
-                    ...availableSorts.map(
-                      (sort) => PopupMenuItem<String>(
-                        value: sort,
-                        child: Row(
-                          children: [
-                            Icon(
-                              currentSorting == sort
-                                  ? Icons.radio_button_checked
-                                  : Icons.radio_button_unchecked,
-                              color: ColorService.getColor(4),
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              sort,
-                              style: TextStyleService.getTextStyle(4, 4),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    if (currentSorting == "primary" ||
-                        currentSorting == "featType" ||
-                        currentSorting == "source") ...[
-                      const PopupMenuDivider(),
-
-                      PopupMenuItem<String>(
-                        enabled: false,
-                        child: Text(
-                          "Secondary sorting",
-                          style: TextStyleService.getTextStyle(3, 4),
-                        ),
-                      ),
-
-                      PopupMenuItem<String>(
-                        value: "subsortAlphabetical",
-                        child: Row(
-                          children: [
-                            Icon(
-                              (SettingsService.getSetting(
-                                        currentSorting + "SubSort",
-                                      )
-                                      is List)
-                                  ? Icons.radio_button_unchecked
-                                  : Icons.radio_button_checked,
-                              color: ColorService.getColor(4),
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              "Alphabetical",
-                              style: TextStyleService.getTextStyle(4, 4),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      PopupMenuItem<String>(
-                        value: "subsortStandard",
-                        child: Row(
-                          children: [
-                            Icon(
-                              (SettingsService.getSetting(
-                                        currentSorting + "SubSort",
-                                      )
-                                      is List)
-                                  ? Icons.radio_button_checked
-                                  : Icons.radio_button_unchecked,
-                              color: ColorService.getColor(4),
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              "Standard",
-                              style: TextStyleService.getTextStyle(4, 4),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-
-                    if (secondarySort != null) ...[
-                      const PopupMenuDivider(),
-
-                      PopupMenuItem<String>(
-                        enabled: false,
-                        child: Text(
-                          "Secondary sorting order",
-                          style: TextStyleService.getTextStyle(3, 4),
-                        ),
-                      ),
-
-                      ...secondarySort!.map(
-                        (value) => PopupMenuItem<String>(
-                          enabled: false,
-                          value: "secondary_$value",
-                          child: Text(
-                            value,
-                            style: TextStyleService.getTextStyle(4, 4),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ];
-                },
+              SortingMenuWidget(
+                (value) => changeGrouping(value),
+                (value) => changeGrouping(value),
+                (value) => changeSecondarySorting(value),
+                (value) => changeSecondarySorting(value),
+                (value) => changeSorting(value),
+                currentCategoryIndex,
+                availableSorts,
+                subsort: secondarySort,
               ),
             ],
             bottom: PreferredSize(
@@ -605,34 +427,39 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                           data[items[itemIndex]],
                           category,
                         ),
-                        titleWidget: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: (icon != "none") ? 10 : 0.0,
-                          children: [
-                            (icon != "none")
-                                ? OptionalImageWidget(
-                                    SettingsService.getSetting("headerHeight") *
-                                        (8 / 10),
-                                    icon,
-                                    key: ValueKey(
-                                      data[items[itemIndex]]["name"],
-                                    ),
-                                  )
-                                : SizedBox.shrink(),
-                            Expanded(
-                              child: Text(
-                                data[items[itemIndex]]["name"],
-                                style: TextStyleService.getTextStyle(
-                                  0,
-                                  4,
-                                  Overflow: TextOverflow.fade,
+                        titleWidget: Padding(
+                          padding: EdgeInsetsGeometry.directional(start: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: (icon != "none") ? 10 : 0.0,
+                            children: [
+                              (icon != "none")
+                                  ? OptionalImageWidget(
+                                      SettingsService.getSetting(
+                                            "headerHeight",
+                                          ) *
+                                          (8 / 10),
+                                      icon,
+                                      key: ValueKey(
+                                        data[items[itemIndex]]["name"],
+                                      ),
+                                    )
+                                  : SizedBox.shrink(),
+                              Expanded(
+                                child: Text(
+                                  data[items[itemIndex]]["name"],
+                                  style: TextStyleService.getTextStyle(
+                                    0,
+                                    4,
+                                    Overflow: TextOverflow.fade,
+                                  ),
+                                  maxLines: 1,
+                                  softWrap: false,
                                 ),
-                                maxLines: 1,
-                                softWrap: false,
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],

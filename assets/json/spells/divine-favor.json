@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Divine Favor",
   "level": 1,
   "school": "Transmutation",
@@ -18,5 +19,5 @@
     "1 minute"
   ],
   "concentration": false,
-  "description": "Until the spell ends, your attacks with weapons deal an extra 1d4 Radiant damage on a hit.\\n"
+  "description": "Until the spell ends, your attacks with weapons deal an extra 1d4 Radiant damage on a hit.\n"
 }

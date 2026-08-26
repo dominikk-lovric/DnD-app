@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Elf",
     "creatureType": "Humanoid",
-    "size": ["Medium"],
+    "size": [
+        "Medium"
+    ],
     "speed": 30,
     "features": [
         {
@@ -33,9 +35,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Dancing Lights"],
-                    "3": ["Faerie Fire"],
-                    "5": ["Darkness"]
+                    "1": [
+                        "Dancing Lights"
+                    ],
+                    "3": [
+                        "Faerie Fire"
+                    ],
+                    "5": [
+                        "Darkness"
+                    ]
                 }
             },
             "features": [
@@ -51,9 +59,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Prestidigitation"],
-                    "3": ["Detect Magic"],
-                    "5": ["Misty Step"]
+                    "1": [
+                        "Prestidigitation"
+                    ],
+                    "3": [
+                        "Detect Magic"
+                    ],
+                    "5": [
+                        "Misty Step"
+                    ]
                 }
             },
             "features": [
@@ -70,9 +84,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Druidcrafe"],
-                    "3": ["Longstrider"],
-                    "5": ["Pass without trace"]
+                    "1": [
+                        "Druidcrafe"
+                    ],
+                    "3": [
+                        "Longstrider"
+                    ],
+                    "5": [
+                        "Pass without trace"
+                    ]
                 }
             },
             "features": [
@@ -88,9 +108,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Thorn Whip"],
-                    "3": ["Command"],
-                    "5": ["Silence"]
+                    "1": [
+                        "Thorn Whip"
+                    ],
+                    "3": [
+                        "Command"
+                    ],
+                    "5": [
+                        "Silence"
+                    ]
                 }
             },
             "features": [
@@ -105,9 +131,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Starry wisp"],
-                    "3": ["Heroism"],
-                    "5": ["Gentle Repose"]
+                    "1": [
+                        "Starry wisp"
+                    ],
+                    "3": [
+                        "Heroism"
+                    ],
+                    "5": [
+                        "Gentle Repose"
+                    ]
                 }
             },
             "features": [
@@ -117,5 +149,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Halfling",
     "creatureType": "Humanoid",
-    "size": ["Small"],
+    "size": [
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -22,5 +24,6 @@
             "name": "Naturally Stealthy",
             "description": "You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you."
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class ItemWidget extends StatelessWidget {
 
     List<Widget> subtitle = [];
     for (var i = 0; i < items.length; i++) {
-      String text = "• " + names[i];
+      String text = "• " + StringService.titleFromKey(names[i]);
       if (items[i].toString() != "false") {
         if (items[i].toString() != "true") {
           text += ": ";

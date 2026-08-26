@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Scorching Ray",
   "level": 2,
   "school": "Evocation",
@@ -19,5 +20,5 @@
     "Instantaneous"
   ],
   "concentration": false,
-  "description": "You hurl three fiery rays. You can hurl them at one target within range or at several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 Fire damage.\\nUsing a Higher-Level Spell Slot. You create one additional ray for each spell slot level above 2.\\n"
+  "description": "You hurl three fiery rays. You can hurl them at one target within range or at several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 Fire damage.\nUsing a Higher-Level Spell Slot. You create one additional ray for each spell slot level above 2.\n"
 }

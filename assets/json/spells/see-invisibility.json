@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "See Invisibility",
   "level": 2,
   "school": "Divination",
@@ -22,5 +23,5 @@
     "1 hour"
   ],
   "concentration": false,
-  "description": "For the duration, you see creatures and objects that have the Invisible condition as if they were visible, and you can see into the Ethereal Plane. Creatures and objects there appear ghostly.\\n"
+  "description": "For the duration, you see creatures and objects that have the Invisible condition as if they were visible, and you can see into the Ethereal Plane. Creatures and objects there appear ghostly.\n"
 }

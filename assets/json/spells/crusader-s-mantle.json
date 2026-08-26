@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Crusader's Mantle",
   "level": 3,
   "school": "Evocation",
@@ -17,5 +18,5 @@
     "up to 1 minute"
   ],
   "concentration": true,
-  "description": "You radiate a magical aura in a 30-foot Emanation. While in the aura, you and your allies each deal an extra 1d4 Radiant damage when hitting with a weapon or an Unarmed Strike.\\n"
+  "description": "You radiate a magical aura in a 30-foot Emanation. While in the aura, you and your allies each deal an extra 1d4 Radiant damage when hitting with a weapon or an Unarmed Strike.\n"
 }

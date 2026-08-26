@@ -2,6 +2,7 @@
     "id": "c1",
     "catId": "class",
     "name": "Barbarian",
+    "source": "Player's Handbook",
     "icon": {
         "base": "assets/icons/base/classes/barbarian.jpg"
     },

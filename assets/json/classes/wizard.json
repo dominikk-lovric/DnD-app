@@ -2,6 +2,7 @@
 	"id": "c12",
 	"catId": "class",
 	"name": "Wizard",
+    "source":"Player's Handbook",
 	"icon": {
 		"base": "assets/icons/base/classes/wizard.jpg"
 	},

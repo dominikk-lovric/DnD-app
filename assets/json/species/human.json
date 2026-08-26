@@ -3,7 +3,10 @@
     "catId": "species",
     "name": "Human",
     "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -18,5 +21,6 @@
             "name": "Versatile",
             "description": "You gain an Origin feat of your choice. Skilled is recommended."
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

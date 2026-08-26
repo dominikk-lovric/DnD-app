@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Stoneskin",
   "level": 4,
   "school": "Transmutation",
@@ -23,7 +24,7 @@
     "up to 1 hour"
   ],
   "concentration": true,
-  "description": "Until the spell ends, one willing creature you touch has Resistance to Bludgeoning, Piercing, and Slashing damage.\\n",
+  "description": "Until the spell ends, one willing creature you touch has Resistance to Bludgeoning, Piercing, and Slashing damage.\n",
   "needsMaterials": true,
   "usesMaterials": true
 }

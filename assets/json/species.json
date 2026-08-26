@@ -1,270 +1,318 @@
 {
-    "s1":{
-        "name":"Aasimar",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s1": {
+        "name": "Aasimar",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/aasimar.json"
+        "json": "assets/json/species/aasimar.json"
     },
-    "s2":{
-        "name":"Dragonborn",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30,
-            "Subspicies":["Black Dragon", "Blue Dragon", "Brass Dragon", "Bronze Dragon", "Copper Dragon", "Gold Dragon", "Green Dragon", "Red Dragon", "Silver Dragon", "White Dragon"]
+    "s2": {
+        "name": "Dragonborn",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "Subspicies": [
+                "Black Dragon",
+                "Blue Dragon",
+                "Brass Dragon",
+                "Bronze Dragon",
+                "Copper Dragon",
+                "Gold Dragon",
+                "Green Dragon",
+                "Red Dragon",
+                "Silver Dragon",
+                "White Dragon"
+            ],
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/dragonborn.json"
+        "json": "assets/json/species/dragonborn.json"
     },
-    "s3":{
-        "name":"Dwarf",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s3": {
+        "name": "Dwarf",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/dwarf.json"
+        "json": "assets/json/species/dwarf.json"
     },
-    "s4":{
-        "name":"Elf",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30,
-            "Subspicies":["Drow", "High Elf", "Wood Elf", "Lorwyn Elf", "Shadowmoor Elf"]
+    "s4": {
+        "name": "Elf",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "Subspicies": [
+                "Drow",
+                "High Elf",
+                "Wood Elf",
+                "Lorwyn Elf",
+                "Shadowmoor Elf"
+            ],
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/elf.json"
+        "json": "assets/json/species/elf.json"
     },
-    "s5":{
-        "name":"Gnome",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30,
-            "Subspicies":["Forest Gnome", "Rock Gnome"]
+    "s5": {
+        "name": "Gnome",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "Subspicies": [
+                "Forest Gnome",
+                "Rock Gnome"
+            ],
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/gnome.json"
+        "json": "assets/json/species/gnome.json"
     },
-    "s6":{
-        "name":"Goliath",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":35
+    "s6": {
+        "name": "Goliath",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 35,
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/goliath.json"
+        "json": "assets/json/species/goliath.json"
     },
-    "s7":{
-        "name":"Halfling",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s7": {
+        "name": "Halfling",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/halfling.json"
+        "json": "assets/json/species/halfling.json"
     },
-    "s8":{
-        "name":"Human",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s8": {
+        "name": "Human",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/human.json"
+        "json": "assets/json/species/human.json"
     },
-    "s9":{
-        "name":"Orc",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s9": {
+        "name": "Orc",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/orc.json"
+        "json": "assets/json/species/orc.json"
     },
-    "s10":{
-        "name":"Tiefling",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30,
-            "Subspicies":["Abyssal", "Chthonic", "Infernal"]
+    "s10": {
+        "name": "Tiefling",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "Subspicies": [
+                "Abyssal",
+                "Chthonic",
+                "Infernal"
+            ],
+            "source": "Player's Handbook"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/tiefling.json"
+        "json": "assets/json/species/tiefling.json"
     },
-    "s11":{
-        "name":"Changeling",
-        "Basics":{
-            "Creature Type":"Fey",
-            "Speed":30
+    "s11": {
+        "name": "Changeling",
+        "Basics": {
+            "Creature Type": "Fey",
+            "Speed": 30,
+            "source": "Eberron - Forge of the Artificer"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/changeling.json"
+        "json": "assets/json/species/changeling.json"
     },
-    "s12":{
-        "name":"Kalashtar",
-        "Basics":{
-            "Creature Type":"Abberation",
-            "Speed":30
+    "s12": {
+        "name": "Kalashtar",
+        "Basics": {
+            "Creature Type": "Abberation",
+            "Speed": 30,
+            "source": "Eberron - Forge of the Artificer"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/kalashtar.json"
+        "json": "assets/json/species/kalashtar.json"
     },
-    "s13":{
-        "name":"Khoravar",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s13": {
+        "name": "Khoravar",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Eberron - Forge of the Artificer"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/khoravar.json"
+        "json": "assets/json/species/khoravar.json"
     },
-    "s14":{
-        "name":"Shifter",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s14": {
+        "name": "Shifter",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Eberron - Forge of the Artificer"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/shifter.json"
+        "json": "assets/json/species/shifter.json"
     },
-    "s15":{
-        "name":"Warforger",
-        "Basics":{
-            "Creature Type":"Construct",
-            "Speed":30
+    "s15": {
+        "name": "Warforger",
+        "Basics": {
+            "Creature Type": "Construct",
+            "Speed": 30,
+            "source": "Eberron - Forge of the Artificer"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/warforged.json"
+        "json": "assets/json/species/warforged.json"
     },
-    "s16":{
-        "name":"Boggart",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s16": {
+        "name": "Boggart",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Lorwyn - First Light"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/boggart.json"
+        "json": "assets/json/species/boggart.json"
     },
-    "s17":{
-        "name":"Faerie",
-        "Basics":{
-            "Creature Type":"Fey",
-            "Speed":30
+    "s17": {
+        "name": "Faerie",
+        "Basics": {
+            "Creature Type": "Fey",
+            "Speed": 30,
+            "source": "Lorwyn - First Light"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/faerie.json"
+        "json": "assets/json/species/faerie.json"
     },
-    "s18":{
-        "name":"Flamekin",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s18": {
+        "name": "Flamekin",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Lorwyn - First Light"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/flamekin.json"
+        "json": "assets/json/species/flamekin.json"
     },
-    "s19":{
-        "name":"Lorwyn Changeling",
-        "Basics":{
-            "Creature Type":"Fey",
-            "Speed":30
+    "s19": {
+        "name": "Lorwyn Changeling",
+        "Basics": {
+            "Creature Type": "Fey",
+            "Speed": 30,
+            "source": "Lorwyn - First Light"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/lorwyn.json"
+        "json": "assets/json/species/lorwyn.json"
     },
-    "s20":{
-        "name":"Rimekin",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s20": {
+        "name": "Rimekin",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Lorwyn - First Light"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/Rimekin.json"
+        "json": "assets/json/species/Rimekin.json"
     },
-    "s21":{
-        "name":"Dhampir",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s21": {
+        "name": "Dhampir",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Ravenloft - The Horrors Within"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/Dhampir.json"
+        "json": "assets/json/species/Dhampir.json"
     },
-    "s22":{
-        "name":"Reborn",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s22": {
+        "name": "Reborn",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Ravenloft - The Horrors Within"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/reborn.json"
+        "json": "assets/json/species/reborn.json"
     },
-    "s23":{
-        "name":"Hexblood",
-        "Basics":{
-            "Creature Type":"Fey",
-            "Speed":30
+    "s23": {
+        "name": "Hexblood",
+        "Basics": {
+            "Creature Type": "Fey",
+            "Speed": 30,
+            "source": "Ravenloft - The Horrors Within"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/hexblood.json"
+        "json": "assets/json/species/hexblood.json"
     },
-    "s24":{
-        "name":"Lupin",
-        "Basics":{
-            "Creature Type":"Humanoid",
-            "Speed":30
+    "s24": {
+        "name": "Lupin",
+        "Basics": {
+            "Creature Type": "Humanoid",
+            "Speed": 30,
+            "source": "Ravenloft - The Horrors Within"
         },
-        "Icon":{
-            "base":"none"
+        "Icon": {
+            "base": "none"
         },
-        "json":"assets/json/species/lupin.json"
+        "json": "assets/json/species/lupin.json"
     }
 }

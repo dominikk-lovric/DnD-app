@@ -30,124 +30,96 @@ class _MyApp extends State<MyApp> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final height = MediaQuery.sizeOf(context).height;
-
-      await SettingsService.setSetting("theme", "base");
-
-      await SettingsService.setSetting("tableDescriptionStyle", "expand");
-
-      await SettingsService.setSetting("proficiencyDescriptionStyle", "sheet");
-      await SettingsService.setSetting("featureDescriptionStyle", "sheet");
-      await SettingsService.setSetting("proficiencyDescriptionStyle", "expand");
-      await SettingsService.setSetting("archetypeDescriptionStyle", "sheet");
-      await SettingsService.setSetting("sectionDescriptionStyle", "expand");
-
-      await SettingsService.setSetting("sizeDescriptionStyle", "expand");
-      await SettingsService.setSetting("subspeciesDescriptionType", "sheet");
-      await SettingsService.setSetting("skillDescriptionType", "expand");
-      await SettingsService.setSetting("equipmentDescriptionStyle", "expand");
-      await SettingsService.setSetting("toolDescriptionStyle", "expand");
-      await SettingsService.setSetting("featTypeDescriptionStyle", "expand");
-      await SettingsService.setSetting("sourceDescriptionStyle", "expand");
-      await SettingsService.setSetting("itemDescriptionStyle", "page");
-
-      await SettingsService.setSetting("levelDescriptionStyle", "expand");
-      await SettingsService.setSetting("schoolDescriptionStyle", "expand");
-      await SettingsService.setSetting("spellListDescriptionStyle", "expand");
-      await SettingsService.setSetting("castingTimeDescriptionStyle", "expand");
-      await SettingsService.setSetting("rangeDescriptionStyle", "expand");
-      await SettingsService.setSetting("componentsDescriptionStyle", "expand");
-      await SettingsService.setSetting("materialsDescriptionStyle", "expand");
-      await SettingsService.setSetting("durationDescriptionStyle", "expand");
-      await SettingsService.setSetting(
-        "concentrationDescriptionStyle",
-        "expand",
-      );
-
-      await SettingsService.setSetting(
-        "abilityScoresDescriptionStyle",
-        "expand",
-      );
-
-      await SettingsService.setSetting("wikiSorting", [
-        "primary",
-        "speed",
-        "level",
-        "featType",
-        "source",
-      ]);
-
-      await SettingsService.setSetting("wikiGrouping", [
-        "true",
-        "true",
-        "true",
-        "true",
-        "true",
-      ]);
-
-      await SettingsService.setSetting("primarySubSort", [
-        "Str",
-        "Dex",
-        "Con",
-        "Int",
-        "Wis",
-        "Cha",
-      ]);
-
-      await SettingsService.setSetting("featTypeSubSort", [
-        "Origin Feat",
-        "General Feat",
-        "Fighting Style Feat",
-        "Epic Boon Feat",
-        "Dragonmark Feat",
-        "Planar Pact Feat",
-        "Dark Gift Feat",
-      ]);
-      await SettingsService.setSetting("sourceSubSort", [
-        "Player's Handbook",
-        "Forgotten Realms - Heroes of Faerun",
-        "Astarion's Book of Hungers",
-        "Lorwyn - First Light",
-        "Eberron - Forge of the Artificer",
-        "D&D Beyond Drops - May 2026",
-        "D&D Beyond Drops - July 2026",
-        "Ravenloft - The Horrors Within",
-        "D&D Beyond Drops - August 2026",
-      ]);
-
-      await SettingsService.setSetting("primarySubSortStandard", [
-        "Str",
-        "Dex",
-        "Con",
-        "Int",
-        "Wis",
-        "Cha",
-      ]);
-
-      await SettingsService.setSetting("featTypeSubSortStandard", [
-        "Origin Feat",
-        "General Feat",
-        "Fighting Style Feat",
-        "Epic Boon Feat",
-        "Dragonmark Feat",
-        "Planar Pact Feat",
-        "Dark Gift Feat",
-      ]);
-      await SettingsService.setSetting("sourceSubSortStandard", [
-        "Player's Handbook",
-        "Forgotten Realms - Heroes of Faerun",
-        "Astarion's Book of Hungers",
-        "Lorwyn - First Light",
-        "Eberron - Forge of the Artificer",
-        "D&D Beyond Drops - May 2026",
-        "D&D Beyond Drops - July 2026",
-        "Ravenloft - The Horrors Within",
-        "D&D Beyond Drops - August 2026",
-      ]);
-
-      await SettingsService.setSetting("headerHeight", height * 0.14);
-      await SettingsService.setSetting("listItemHeight", height * 0.10);
+      await initSettings();
     });
+  }
+
+  Future<void> initSettings() async {
+    final height = MediaQuery.sizeOf(context).height;
+    await SettingsService.setSetting("theme", "base");
+    await SettingsService.setSetting("headerHeight", height * 0.14);
+    await SettingsService.setSetting("listItemHeight", height * 0.10);
+    await SettingsService.setSetting("globalDescriptionStyle", "sheet");
+    await SettingsService.setSetting("groupItemsWiki", true);
+    await initWikiSettings();
+  }
+
+  Future<void> initWikiSettings() async {
+    await SettingsService.setSetting("wikiSorting", [
+      "primary",
+      "speed",
+      "level",
+      "featType",
+      "source",
+    ]);
+
+    await SettingsService.setSetting("wikiGrouping", [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+    ]);
+
+    await SettingsService.setSetting("primarySubSort", [
+      "Str",
+      "Dex",
+      "Con",
+      "Int",
+      "Wis",
+      "Cha",
+    ]);
+
+    await SettingsService.setSetting("featTypeSubSort", [
+      "Origin Feat",
+      "General Feat",
+      "Fighting Style Feat",
+      "Epic Boon Feat",
+      "Dragonmark Feat",
+      "Planar Pact Feat",
+      "Dark Gift Feat",
+    ]);
+    await SettingsService.setSetting("sourceSubSort", [
+      "Player's Handbook",
+      "Forgotten Realms - Heroes of Faerun",
+      "Astarion's Book of Hungers",
+      "Lorwyn - First Light",
+      "Eberron - Forge of the Artificer",
+      "D&D Beyond Drops - May 2026",
+      "D&D Beyond Drops - July 2026",
+      "Ravenloft - The Horrors Within",
+      "D&D Beyond Drops - August 2026",
+    ]);
+
+    await SettingsService.setSetting("primarySubSortStandard", [
+      "Str",
+      "Dex",
+      "Con",
+      "Int",
+      "Wis",
+      "Cha",
+    ]);
+
+    await SettingsService.setSetting("featTypeSubSortStandard", [
+      "Origin Feat",
+      "General Feat",
+      "Fighting Style Feat",
+      "Epic Boon Feat",
+      "Dragonmark Feat",
+      "Planar Pact Feat",
+      "Dark Gift Feat",
+    ]);
+    await SettingsService.setSetting("sourceSubSortStandard", [
+      "Player's Handbook",
+      "Forgotten Realms - Heroes of Faerun",
+      "Astarion's Book of Hungers",
+      "Lorwyn - First Light",
+      "Eberron - Forge of the Artificer",
+      "D&D Beyond Drops - May 2026",
+      "D&D Beyond Drops - July 2026",
+      "Ravenloft - The Horrors Within",
+      "D&D Beyond Drops - August 2026",
+    ]);
   }
 
   @override

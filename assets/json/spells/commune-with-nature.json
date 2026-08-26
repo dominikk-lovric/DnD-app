@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Commune With Nature",
   "level": 5,
   "school": "Divination",
@@ -20,5 +21,5 @@
     "Instantaneous"
   ],
   "concentration": false,
-  "description": "You commune with nature spirits and gain knowledge of the surrounding area. In the outdoors, the spell gives you knowledge of the area within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in castles and settlements.\\nChoose three of the following facts; you learn those facts as they pertain to the spell's area:\\nFor example, you could determine the location of a powerful monster in the area, the locations of bodies of water, and the locations of any towns.\\n"
+  "description": "You commune with nature spirits and gain knowledge of the surrounding area. In the outdoors, the spell gives you knowledge of the area within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in castles and settlements.\nChoose three of the following facts; you learn those facts as they pertain to the spell's area:\nFor example, you could determine the location of a powerful monster in the area, the locations of bodies of water, and the locations of any towns.\n"
 }

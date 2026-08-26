@@ -116,7 +116,14 @@ class ClassInfoWidgetState extends State<ClassInfoWidget> {
             ),
           ],
         ),
-        SavingThrowWidget(info["savingThrows"]),
+        CheckListWidget([
+          "Str",
+          "Dex",
+          "Con",
+          "Int",
+          "Wis",
+          "Cha",
+        ], info["savingThrows"]),
 
         if (info["spells"]["casterLevel"] != 0)
           DescriptionWidget(

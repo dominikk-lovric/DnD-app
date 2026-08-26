@@ -3,12 +3,17 @@
     "catId": "species",
     "name": "Tiefling",
     "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "spells": {
         "addedSpells": {
             "Level": "Spells",
-            "1": ["Thaumaturgy"]
+            "1": [
+                "Thaumaturgy"
+            ]
         }
     },
     "features": [
@@ -31,9 +36,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Poison Spray"],
-                    "3": ["Ray of Sickness"],
-                    "5": ["Hold Person"]
+                    "1": [
+                        "Poison Spray"
+                    ],
+                    "3": [
+                        "Ray of Sickness"
+                    ],
+                    "5": [
+                        "Hold Person"
+                    ]
                 }
             },
             "features": [
@@ -48,9 +59,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Chill Touch"],
-                    "3": ["False Life"],
-                    "5": ["Ray of Enfeeblement"]
+                    "1": [
+                        "Chill Touch"
+                    ],
+                    "3": [
+                        "False Life"
+                    ],
+                    "5": [
+                        "Ray of Enfeeblement"
+                    ]
                 }
             },
             "features": [
@@ -65,9 +82,15 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Fire Bolt"],
-                    "3": ["Hellish Rebuke"],
-                    "5": ["Darkness"]
+                    "1": [
+                        "Fire Bolt"
+                    ],
+                    "3": [
+                        "Hellish Rebuke"
+                    ],
+                    "5": [
+                        "Darkness"
+                    ]
                 }
             },
             "features": [
@@ -77,5 +100,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Blade Of Disaster",
   "level": 9,
   "school": "Conjuration",
@@ -20,5 +21,5 @@
     "up to 1 minute"
   ],
   "concentration": true,
-  "description": "As a Bonus Action on your later turns, you can move the rift up to 60 feet and repeat the two attacks against a creature or an object within 5 feet of it. You can direct the attacks at the same target or at different ones.\\nThe blade can harmlessly pass through any barrier, including ones created by spells like Wall of Force.\\n"
+  "description": "As a Bonus Action on your later turns, you can move the rift up to 60 feet and repeat the two attacks against a creature or an object within 5 feet of it. You can direct the attacks at the same target or at different ones.\nThe blade can harmlessly pass through any barrier, including ones created by spells like Wall of Force.\n"
 }

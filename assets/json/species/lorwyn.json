@@ -3,7 +3,10 @@
     "catId": "species",
     "name": "Lorwyn Changeling",
     "creatureType": "Fey",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -22,5 +25,6 @@
             "name": "Unpredictable Movement",
             "description": "When you roll Initiative and don’t have Disadvantage on that roll, you can take the Dash action as a Reaction."
         }
-    ]
+    ],
+    "source": "Lorwyn - First Light"
 }

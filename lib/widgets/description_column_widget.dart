@@ -41,13 +41,23 @@ class DescriptionColumnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> widgets = [];
     List<String> keys = info.keys.toList();
-    List<String> notShown = ["name", "catId", "id", "icon", "description"];
+    List<String> notShown = ["name", "catId", "id", "icon"];
     for (final key in keys) {
       if (!notShown.contains(key)) {
-        String setting = key + "DescriptionStyle";
+        String setting =
+            key +
+            StringService.CapitalizeWord(info["catId"]) +
+            "DescriptionStyle";
         String title = StringService.titleFromKey(key);
         Widget? content = null;
-        if (key == "features") {
+        if (key == "description") {
+          widgets.add(
+            Text(
+              info["description"],
+              style: TextStyleService.getTextStyle(descriptionLevel, 4),
+            ),
+          );
+        } else if (key == "features") {
           content = Column(
             children: [
               ...info["features"].map((item) {
@@ -58,38 +68,51 @@ class DescriptionColumnWidget extends StatelessWidget {
               }),
             ],
           );
+          widgets.add(DescriptionWidget(title, content, setting));
         } else if (info["catId"] == "spell" && key == "level") {
-          print("LEVEL");
           content = Text(
             getLevel(info["level"]),
-            style: TextStyleService.getTextStyle(descriptionLevel, 4),
+            style: TextStyleService.getTextStyle(subtitleLevel, 4),
           );
+          widgets.add(DescriptionWidget(title, content, setting));
         } else {
           final item = info[key];
           if (item is List) {
-            content = ListWidget(item, size: descriptionLevel);
+            if (item.length > 1) {
+              content = ListWidget(item, size: descriptionLevel);
+            } else {
+              content = Text(
+                item[0].toString(),
+                style: TextStyleService.getTextStyle(subtitleLevel, 4),
+              );
+              setting = "text";
+            }
+            widgets.add(DescriptionWidget(title, content, setting));
           } else if (item is Map<String, dynamic>) {
             content = TableWidget(item, descriptionLevel);
-          } else if (item.toString() == "true" ||
-              (item.toString() == "false" && showFalse == true)) {
-            content = Checkbox(
-              value: item,
-              onChanged: (_) {},
-              activeColor: ColorService.getColor(0),
-              checkColor: ColorService.getColor(4),
-              side: BorderSide(color: ColorService.getColor(4)),
-            );
+            widgets.add(DescriptionWidget(title, content, setting));
+          } else if (item.toString() == "true" || item.toString() == "false") {
+            if (item.toString() == "true" ||
+                (item.toString() == "false" && showFalse == true)) {
+              content = Checkbox(
+                value: item,
+                onChanged: (_) {},
+                activeColor: ColorService.getColor(0),
+                checkColor: ColorService.getColor(4),
+                side: BorderSide(color: ColorService.getColor(4)),
+              );
+              widgets.add(DescriptionWidget(title, content, setting));
+            }
+            continue;
           } else {
             if (item != "") {
               content = Text(
                 item.toString(),
-                style: TextStyleService.getTextStyle(descriptionLevel, 4),
+                style: TextStyleService.getTextStyle(subtitleLevel, 4),
               );
+              widgets.add(DescriptionWidget(title, content, setting));
             }
           }
-        }
-        if (content != null) {
-          widgets.add(DescriptionWidget(title, content, setting));
         }
       }
     }

@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Gnome",
     "creatureType": "Humanoid",
-    "size": ["Small"],
+    "size": [
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -21,7 +23,10 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Minor Illusion", "Speak with Animals"]
+                    "1": [
+                        "Minor Illusion",
+                        "Speak with Animals"
+                    ]
                 }
             },
             "features": [
@@ -36,7 +41,10 @@
             "spells": {
                 "addedSpells": {
                     "Level": "Spells",
-                    "1": ["Mending", "Prestidigitation"]
+                    "1": [
+                        "Mending",
+                        "Prestidigitation"
+                    ]
                 }
             },
             "features": [
@@ -46,5 +54,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

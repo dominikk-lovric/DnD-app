@@ -3,12 +3,18 @@
     "catId": "species",
     "name": "Hexblood",
     "creatureType": "Fey",
-    "size": ["Mediun", "Small"],
+    "size": [
+        "Mediun",
+        "Small"
+    ],
     "speed": 30,
     "spells": {
         "addedSpells": {
             "Level": "Spells",
-            "1": ["Disguise Self", "Hex"]
+            "1": [
+                "Disguise Self",
+                "Hex"
+            ]
         }
     },
     "features": [
@@ -32,5 +38,6 @@
             "name": "Hex Magic",
             "description": "You always have the Disguise Self and Hex spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select this species)."
         }
-    ]
+    ],
+    "source": "Ravenloft - The Horrors Within"
 }

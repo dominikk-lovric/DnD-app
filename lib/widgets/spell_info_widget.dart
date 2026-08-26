@@ -27,14 +27,6 @@ class SpellInfoWidgetState extends State<SpellInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DescriptionColumnWidget(widget.info),
-        Text(
-          widget.info["description"],
-          style: TextStyleService.getTextStyle(widget.descriptionLevel, 4),
-        ),
-      ],
-    );
+    return DescriptionColumnWidget(widget.info, showFalse: false);
   }
 }

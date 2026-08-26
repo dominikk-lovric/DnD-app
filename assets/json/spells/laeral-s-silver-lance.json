@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Laeral's Silver Lance",
   "level": 3,
   "school": "Evocation",
@@ -21,6 +22,6 @@
     "Instantaneous"
   ],
   "concentration": false,
-  "description": "Using a Higher-Level Spell Slot. The damage increases by 1d10 for every spell slot level above 3.\\n",
+  "description": "Using a Higher-Level Spell Slot. The damage increases by 1d10 for every spell slot level above 3.\n",
   "needsMaterials": true
 }

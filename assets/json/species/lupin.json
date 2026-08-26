@@ -3,7 +3,10 @@
     "catId": "species",
     "name": "Lupin",
     "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
+    "size": [
+        "Medium",
+        "Small"
+    ],
     "speed": 30,
     "features": [
         {
@@ -22,5 +25,6 @@
             "name": "Werewolf Instincts",
             "description": "You have proficiency in the Perception, Stealth, or Survival skill."
         }
-    ]
+    ],
+    "source": "Ravenloft - The Horrors Within"
 }

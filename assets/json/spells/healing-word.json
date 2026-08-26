@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Healing Word",
   "level": 1,
   "school": "Abjuration",
@@ -19,5 +20,5 @@
     "Instantaneous"
   ],
   "concentration": false,
-  "description": "A creature of your choice that you can see within range regains Hit Points equal to 2d4 plus your spellcasting ability modifier.\\nUsing a Higher-Level Spell Slot. The healing increases by 2d4 for each spell slot level above 1.\\n"
+  "description": "A creature of your choice that you can see within range regains Hit Points equal to 2d4 plus your spellcasting ability modifier.\nUsing a Higher-Level Spell Slot. The healing increases by 2d4 for each spell slot level above 1.\n"
 }

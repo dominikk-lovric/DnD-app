@@ -3,7 +3,9 @@
     "catId": "species",
     "name": "Orc",
     "creatureType": "Humanoid",
-    "size": ["Medium"],
+    "size": [
+        "Medium"
+    ],
     "speed": 30,
     "features": [
         {
@@ -18,5 +20,6 @@
             "name": "Relentless Endurance",
             "description": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest."
         }
-    ]
+    ],
+    "source": "Player's Handbook"
 }

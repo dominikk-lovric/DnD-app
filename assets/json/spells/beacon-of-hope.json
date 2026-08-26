@@ -1,4 +1,5 @@
 {
+  "catId": "spell",
   "name": "Beacon Of Hope",
   "level": 3,
   "school": "Abjuration",
@@ -18,5 +19,5 @@
     "up to 1 minute"
   ],
   "concentration": true,
-  "description": "Choose any number of creatures within range. For the duration, each target has Advantage on Wisdom saving throws and Death Saving Throws and regains the maximum number of Hit Points possible from any healing.\\n"
+  "description": "Choose any number of creatures within range. For the duration, each target has Advantage on Wisdom saving throws and Death Saving Throws and regains the maximum number of Hit Points possible from any healing.\n"
 }
