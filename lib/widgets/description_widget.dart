@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class DescriptionWidget extends StatelessWidget {
   String title;
   Widget descrption;
-  String descriptionType;
+  String? descriptionType;
   String subtitle;
   int titleLevel;
   int subtitleLevel;
@@ -52,15 +52,22 @@ class DescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     String setting;
     if (types.contains(descriptionType)) {
-      setting = descriptionType;
+      setting =
+          descriptionType ??
+          SettingsService.getSetting(
+            descriptionType ?? "globalDescriptionStyle",
+          );
     } else {
-      String? sett = SettingsService.getSetting(descriptionType);
+      String? sett = SettingsService.getSetting(
+        descriptionType ?? "globalDescriptionStyle",
+      );
       if (sett == null) {
         setting = SettingsService.getSetting("globalDescriptionStyle");
       } else {
         setting = sett;
       }
     }
+
     if (setting == "popUp") {
       return GestureDetector(
         onTap: () => {
@@ -77,35 +84,37 @@ class DescriptionWidget extends StatelessWidget {
                   horizontal: 40,
                   vertical: 24,
                 ),
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 800),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        getTitleWidget(),
-                        const Divider(indent: 10, endIndent: 10),
-                        if (subtitle != null && subtitle != "")
-                          Text(
-                            subtitle.toString(),
-                            style: TextStyleService.getTextStyle(
-                              subtitleLevel,
-                              4,
+                child: SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 800),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          getTitleWidget(),
+                          const Divider(indent: 10, endIndent: 10),
+                          if (subtitle != "")
+                            Text(
+                              subtitle.toString(),
+                              style: TextStyleService.getTextStyle(
+                                subtitleLevel,
+                                4,
+                              ),
+                            ),
+                          Flexible(
+                            child: SingleChildScrollView(child: descrption),
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text("Close"),
                             ),
                           ),
-                        Flexible(
-                          child: SingleChildScrollView(child: descrption),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: const Text("Close"),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -122,7 +131,7 @@ class DescriptionWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            title + ":",
+            "$title:",
             style: TextStyleService.getTextStyle(subtitleLevel, 4),
           ),
           descrption,
@@ -143,7 +152,7 @@ class DescriptionWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       getTitleWidget(),
-                      (subtitle != null && subtitle != "")
+                      (subtitle != "")
                           ? Text(
                               subtitle,
                               style: TextStyleService.getTextStyle(
@@ -195,7 +204,7 @@ class DescriptionWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (subtitle != null && subtitle != "")
+                    if (subtitle != "")
                       Text(
                         subtitle.toString(),
                         style: TextStyleService.getTextStyle(subtitleLevel, 4),

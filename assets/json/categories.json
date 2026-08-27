@@ -5,59 +5,213 @@
         "filters": [
             {
                 "id": "hitDie",
-                "label": "Hit Die",
                 "type": "multi",
                 "field": "Basics.hitDie",
                 "options": ["d6", "d8", "d10", "d12"]
             },
             {
-                "id": "",
-                "label": "",
-                "type": "",
-                "field": "",
-                "options": []
+                "id": "source",
+                "type": "multi",
+                "field": "Basics.source",
+                "options": [
+                    "Player's Handbook",
+                    "Forgotten Realms - Heroes of Faerun",
+                    "Astarion's Book of Hungers",
+                    "Lorwyn - First Light",
+                    "Eberron - Forge of the Artificer",
+                    "D&D Beyond Drops - May 2026",
+                    "D&D Beyond Drops - July 2026",
+                    "Ravenloft - The Horrors Within",
+                    "D&D Beyond Drops - August 2026"
+                ]
             },
             {
-                "id": "",
-                "label": "",
-                "type": "",
-                "field": "",
-                "options": []
+                "id": "savingThrows",
+                "type": "multi",
+                "field": "Basics.Saves",
+                "options": ["Str", "Dex", "Con", "Int", "Wis", "Cha"]
             },
             {
-                "id": "",
-                "label": "",
-                "type": "",
-                "field": "",
-                "options": []
+                "id": "spellcastingLevel",
+                "type": "multi",
+                "field": "spellcastingLevel",
+                "options": [0, 0.5, 1]
             },
             {
-                "id": "",
-                "label": "",
-                "type": "",
-                "field": "",
-                "options": []
+                "id": "numberOfAttacks",
+                "type": "multi",
+                "field": "numberOfAttacks",
+                "options": [1, 2, 3, 4]
             }
         ]
     },
     "species": {
         "path": "assets/json/species.json",
         "sorting": ["alphabetical", "speed", "source"],
-        "filters": []
+        "filters": [
+            {
+                "id": "source",
+                "type": "multi",
+                "field": "Basics.source",
+                "options": [
+                    "Player's Handbook",
+                    "Forgotten Realms - Heroes of Faerun",
+                    "Astarion's Book of Hungers",
+                    "Lorwyn - First Light",
+                    "Eberron - Forge of the Artificer",
+                    "D&D Beyond Drops - May 2026",
+                    "D&D Beyond Drops - July 2026",
+                    "Ravenloft - The Horrors Within",
+                    "D&D Beyond Drops - August 2026"
+                ]
+            },
+            {
+                "id": "size",
+                "type": "multi",
+                "field": "Basics.size",
+                "options": ["Small", "Medium", "Large"]
+            },
+            {
+                "id": "speed",
+                "type": "multi",
+                "field": "Basics.Speed",
+                "options": [25, 30, 35]
+            },
+            {
+                "id": "creatureType",
+                "type": "multi",
+                "field": "Basics.creatureType",
+                "options": ["Humanoid", "Construct", "Fey", "Abberation"]
+            }
+        ]
     },
     "spells": {
         "path": "assets/json/spells.json",
         "sorting": ["alphabetical", "level", "school"],
-        "filters": []
+        "filters": [
+            {
+                "id": "spellLevel",
+                "type": "multi",
+                "field": "Basics.Level",
+                "options": [
+                    "cantrip",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th",
+                    "6th",
+                    "7th",
+                    "8th",
+                    "9th"
+                ]
+            },
+            {
+                "id": "school",
+                "type": "multi",
+                "field": "Basics.School",
+                "options": [
+                    "Conjuration",
+                    "Necromancy",
+                    "Evocation",
+                    "Abjuration",
+                    "Transmutation",
+                    "Divination",
+                    "Enchantment",
+                    "Illusion"
+                ]
+            },
+            {
+                "id": "spellList",
+                "type": "multi",
+                "field": "Basics.Spell List",
+                "options": [
+                    "Bard",
+                    "Cleric",
+                    "Druid",
+                    "Paladin",
+                    "Ranger",
+                    "Sorcerer",
+                    "Wizard",
+                    "Warlock"
+                ]
+            },
+            {
+                "id": "Components",
+                "type": "multi",
+                "field": "Basics.Components",
+                "options": ["V", "S", "M"]
+            },
+            {
+                "id": "Concentration",
+                "type": "multi",
+                "field": "Basics.Concentration",
+                "options": [true, false]
+            }
+        ]
     },
     "feats": {
         "path": "assets/json/feats.json",
         "sorting": ["alphabetical", "featType", "source"],
-        "filters": []
+        "filters": [
+            {
+                "id": "source",
+                "type": "multi",
+                "field": "Basics.source",
+                "options": [
+                    "Player's Handbook",
+                    "Forgotten Realms - Heroes of Faerun",
+                    "Astarion's Book of Hungers",
+                    "Lorwyn - First Light",
+                    "Eberron - Forge of the Artificer",
+                    "D&D Beyond Drops - May 2026",
+                    "D&D Beyond Drops - July 2026",
+                    "Ravenloft - The Horrors Within",
+                    "D&D Beyond Drops - August 2026"
+                ]
+            },
+            {
+                "id": "type",
+                "type": "multi",
+                "field": "Basics.type",
+                "options": [
+                    "Origin Feat",
+                    "General Feat",
+                    "Fighting Style Feat",
+                    "Epic Boon Feat",
+                    "Dragonmark Feat",
+                    "Planar Pact Feat",
+                    "Dark Gift Feat"
+                ]
+            }
+        ]
     },
     "backgrounds": {
         "path": "assets/json/backgrounds.json",
         "sorting": ["alphabetical", "source"],
-        "filters": []
+        "filters": [
+            {
+                "id": "source",
+                "type": "multi",
+                "field": "Basics.source",
+                "options": [
+                    "Player's Handbook",
+                    "Forgotten Realms - Heroes of Faerun",
+                    "Astarion's Book of Hungers",
+                    "Lorwyn - First Light",
+                    "Eberron - Forge of the Artificer",
+                    "D&D Beyond Drops - May 2026",
+                    "D&D Beyond Drops - July 2026",
+                    "Ravenloft - The Horrors Within",
+                    "D&D Beyond Drops - August 2026"
+                ]
+            },
+            {
+                "id": "abilites",
+                "type": "multi",
+                "field": "Basics.abilities",
+                "options": ["Str", "Dex", "Con", "Int", "Wis", "Cha"]
+            }
+        ]
     }
 }

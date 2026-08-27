@@ -20,7 +20,7 @@ class StringService {
       if (i != list.length - 1 || i != list.length - 2) {
         res += ", ";
       } else if (i != list.length - 2) {
-        res += " " + end + " ";
+        res += " $end ";
       }
     }
     return res;
@@ -33,7 +33,7 @@ class StringService {
       if (key[i].toUpperCase() == key[i] &&
           key[i].toLowerCase() != key[i] &&
           i != 0) {
-        res += CapitalizeWord(key.substring(last, i)) + " ";
+        res += "${CapitalizeWord(key.substring(last, i))} ";
         last = i;
       }
     }

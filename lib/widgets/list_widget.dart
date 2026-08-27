@@ -10,7 +10,6 @@ class ListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String descriptionSetting = SettingsService.getSetting("descriptionStyle");
     return SingleChildScrollView(
       child: Column(
         spacing: 10,

@@ -10,7 +10,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/bard.jpg"
         },
-        "json": "assets/json/classes/bard.json"
+        "json": "assets/json/classes/bard.json",
+        "spellcastingLevel": 1,
+        "numberOfAttacks": 1
     },
     "c3": {
         "name": "Cleric",
@@ -23,7 +25,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/cleric.jpg"
         },
-        "json": "assets/json/classes/cleric.json"
+        "json": "assets/json/classes/cleric.json",
+        "spellcastingLevel": 1,
+        "numberOfAttacks": 1
     },
     "c4": {
         "name": "Druid",
@@ -36,7 +40,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/druid.jpg"
         },
-        "json": "assets/json/classes/druid.json"
+        "json": "assets/json/classes/druid.json",
+        "spellcastingLevel": 1,
+        "numberOfAttacks": 1
     },
     "c5": {
         "name": "Fighter",
@@ -49,7 +55,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/fighter.jpg"
         },
-        "json": "assets/json/classes/fighter.json"
+        "json": "assets/json/classes/fighter.json",
+        "spellcastingLevel": 0,
+        "numberOfAttacks": 4
     },
     "c6": {
         "name": "Monk",
@@ -62,7 +70,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/monk.jpg"
         },
-        "json": "assets/json/classes/monk.json"
+        "json": "assets/json/classes/monk.json",
+        "spellcastingLevel": 0,
+        "numberOfAttacks": 2
     },
     "c7": {
         "name": "Paladin",
@@ -75,7 +85,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/paladin.jpg"
         },
-        "json": "assets/json/classes/paladin.json"
+        "json": "assets/json/classes/paladin.json",
+        "spellcastingLevel": 0.5,
+        "numberOfAttacks": 2
     },
     "c8": {
         "name": "Ranger",
@@ -88,7 +100,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/ranger.jpg"
         },
-        "json": "assets/json/classes/ranger.json"
+        "json": "assets/json/classes/ranger.json",
+        "spellcastingLevel": 0.5,
+        "numberOfAttacks": 2
     },
     "c9": {
         "name": "Rogue",
@@ -101,7 +115,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/rogue.jpg"
         },
-        "json": "assets/json/classes/rogue.json"
+        "json": "assets/json/classes/rogue.json",
+        "spellcastingLevel": 0,
+        "numberOfAttacks": 1
     },
     "c10": {
         "name": "Sorcerer",
@@ -114,7 +130,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/sorcerer.jpg"
         },
-        "json": "assets/json/classes/sorcerer.json"
+        "json": "assets/json/classes/sorcerer.json",
+        "spellcastingLevel": 1,
+        "numberOfAttacks": 1
     },
     "c11": {
         "name": "Warlock",
@@ -127,7 +145,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/warlock.jpg"
         },
-        "json": "assets/json/classes/warlock.json"
+        "json": "assets/json/classes/warlock.json",
+        "spellcastingLevel": 1,
+        "numberOfAttacks": 1
     },
     "c12": {
         "name": "Wizard",
@@ -140,7 +160,9 @@
         "Icon": {
             "base": "assets/icons/base/classes/wizard.jpg"
         },
-        "json": "assets/json/classes/wizard.json"
+        "json": "assets/json/classes/wizard.json",
+        "spellcastingLevel": 1,
+        "numberOfAttacks": 1
     },
     "c1": {
         "name": "Barbarian",
@@ -153,6 +175,8 @@
         "Icon": {
             "base": "assets/icons/base/classes/barbarian.jpg"
         },
-        "json": "assets/json/classes/barbarian.json"
+        "json": "assets/json/classes/barbarian.json",
+        "spellcastingLevel": 0,
+        "numberOfAttacks": 2
     }
 }

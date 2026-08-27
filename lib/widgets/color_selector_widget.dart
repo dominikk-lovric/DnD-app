@@ -1,24 +1,18 @@
-
-
-import 'dart:io';
-
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:flutter/material.dart';
 
-class ColorSelectorWidget extends StatefulWidget{
-
+class ColorSelectorWidget extends StatefulWidget {
   int setting;
   final VoidCallback? onSaved;
 
-  ColorSelectorWidget(this.setting,{super.key, this.onSaved});
+  ColorSelectorWidget(this.setting, {super.key, this.onSaved});
 
   @override
   State<ColorSelectorWidget> createState() => _ColorSelectorWidget();
 }
 
-class _ColorSelectorWidget extends State<ColorSelectorWidget>{
-
+class _ColorSelectorWidget extends State<ColorSelectorWidget> {
   _ColorSelectorWidget();
 
   late final TextEditingController rController;
@@ -32,7 +26,7 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
   void initState() {
     super.initState();
     INT32 = ColorService.getColor(widget.setting).toARGB32();
-    ARGB=ColorService.fromARGB32(INT32);
+    ARGB = ColorService.fromARGB32(INT32);
 
     rController = TextEditingController(text: ARGB[1].toString());
     gController = TextEditingController(text: ARGB[2].toString());
@@ -49,26 +43,23 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
 
   @override
   Widget build(BuildContext context) {
-    final double height =(SettingsService.getSetting("listItemHeight") ?? 50.0) * 2;
+    final double height =
+        (SettingsService.getSetting("listItemHeight") ?? 50.0) * 2;
 
     return AnimatedBuilder(
       animation: ColorService.themeNotifier,
       builder: (context, child) {
-        return Align( 
+        return Align(
           alignment: Alignment.center,
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: 350,
-            ), 
+            constraints: BoxConstraints(maxWidth: 350),
             child: Container(
               child: InputDecorator(
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: ColorService.getColor(3),
                   labelText: ColorService.getColorNames()[widget.setting],
-                  labelStyle: TextStyle(
-                    color: ColorService.getColor(4),
-                  ),
+                  labelStyle: TextStyle(color: ColorService.getColor(4)),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorService.getColor(6),
@@ -79,13 +70,13 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(12),
-                  child:  Wrap(
-                    spacing:5,
+                  child: Wrap(
+                    spacing: 5,
                     runSpacing: 10,
                     alignment: WrapAlignment.center,
                     //mainAxisSize: MainAxisSize.min,
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children:[
+                    children: [
                       Container(
                         height: 60,
                         width: 60,
@@ -96,10 +87,7 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
                             ARGB[2],
                             ARGB[3],
                           ),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 2,
-                          ),
+                          border: Border.all(color: Colors.white, width: 2),
                           borderRadius: BorderRadius.circular(4), // optional
                         ),
                       ),
@@ -130,64 +118,46 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
                           return Column(
                             mainAxisSize: MainAxisSize.min,
                             spacing: 10,
-                            children: [
-                              ResetButtonWIdget(),
-                              SaveButtonWidget(),
-                            ],
+                            children: [ResetButtonWIdget(), SaveButtonWidget()],
                           );
                         },
                       ),
-                    ] 
-                  ),  
+                    ],
+                  ),
                 ),
               ),
-            )
-          )
+            ),
+          ),
         );
-      }
+      },
     );
-
-    
   }
 
-  Widget colorInput(
-    TextEditingController controller,
-    String label,
-    int index,
-    ) {
+  Widget colorInput(TextEditingController controller, String label, int index) {
     return SizedBox(
       width: 60,
       child: TextField(
         controller: controller,
         keyboardType: TextInputType.number,
-        style: TextStyle(
-          color: ColorService.getColor(4),
-        ),
+        style: TextStyle(color: ColorService.getColor(4)),
         decoration: InputDecoration(
           filled: true,
           fillColor: ColorService.getColor(2),
           labelText: label,
-          labelStyle: TextStyle(
-            color: ColorService.getColor(4),
-          ),
+          labelStyle: TextStyle(color: ColorService.getColor(4)),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorService.getColor(6),
-            ),
+            borderSide: BorderSide(color: ColorService.getColor(6)),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: ColorService.getColor(4),
-              width: 2,
-            ),
+            borderSide: BorderSide(color: ColorService.getColor(4), width: 2),
           ),
         ),
         onChanged: (value) {
           final n = int.tryParse(value);
           if (n == null) {
-            controller.text="0";
+            controller.text = "0";
             setState(() {
-              ARGB[index]=0;
+              ARGB[index] = 0;
             });
             return;
           }
@@ -199,20 +169,16 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
     );
   }
 
-  Widget ResetButtonWIdget(){
+  Widget ResetButtonWIdget() {
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.resolveWith<Color>(
-          (states) {
-            if (states.contains(WidgetState.hovered)) {
-              return ColorService.getColor(1);
-            }
-            return ColorService.getColor(0);
-          },
-        ),
-        foregroundColor: WidgetStateProperty.all(
-          ColorService.getColor(4),
-        ),
+        backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+          if (states.contains(WidgetState.hovered)) {
+            return ColorService.getColor(1);
+          }
+          return ColorService.getColor(0);
+        }),
+        foregroundColor: WidgetStateProperty.all(ColorService.getColor(4)),
       ),
       onPressed: () async {
         final color = ColorService.getBasicColor(widget.setting);
@@ -220,45 +186,32 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget>{
         setState(() {
           ARGB = ColorService.fromARGB32(color.toARGB32());
 
-            rController.text = ARGB[1].toString();
-            gController.text = ARGB[2].toString();
-            bController.text = ARGB[3].toString();
-          });
-        }, 
-      child: 
-        Text("reset")
+          rController.text = ARGB[1].toString();
+          gController.text = ARGB[2].toString();
+          bController.text = ARGB[3].toString();
+        });
+      },
+      child: Text("reset"),
     );
   }
 
-  Widget SaveButtonWidget(){
+  Widget SaveButtonWidget() {
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.resolveWith<Color>(
-          (states) {
+        backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.hovered)) {
             return ColorService.getColor(1);
           }
-            return ColorService.getColor(0);
-          },
-        ),
-        foregroundColor: WidgetStateProperty.all(
-          ColorService.getColor(4),
-        ),
+          return ColorService.getColor(0);
+        }),
+        foregroundColor: WidgetStateProperty.all(ColorService.getColor(4)),
       ),
       onPressed: () async {
-        final color = Color.fromARGB(
-          ARGB[0],
-          ARGB[1],
-          ARGB[2],
-          ARGB[3],
-        );
+        final color = Color.fromARGB(ARGB[0], ARGB[1], ARGB[2], ARGB[3]);
 
-      ColorService.setColor(widget.setting, color);
-    },
-    child: const Text("Save"),
+        ColorService.setColor(widget.setting, color);
+      },
+      child: const Text("Save"),
     );
   }
-
 }
-
-

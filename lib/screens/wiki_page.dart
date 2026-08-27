@@ -1,15 +1,17 @@
 import 'package:dnd_app/services/map_service.dart';
+import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/background_info_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feat_info_widget.dart';
+import 'package:dnd_app/widgets/filter_menu_widget.dart';
 import 'package:dnd_app/widgets/optional_image_widget.dart';
 import 'package:dnd_app/widgets/sorting_menu_widget.dart';
 import 'package:dnd_app/widgets/species_info_widget.dart';
 import 'package:dnd_app/widgets/spell_info_widget.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:convert';
 import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
@@ -33,6 +35,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   late List<dynamic> categories = [];
   late Map<String, dynamic> categoryData = {};
   late String currentState = "classes";
+  List<dynamic> filters = [];
 
   Map<String, dynamic> data = {};
 
@@ -50,9 +53,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
   Future<void> init() async {
     await loadCategories();
-    getSelector(categories[0]);
-    await loadOptions(categories[0]);
-    sortData();
+    await loadItems(categories[0]);
   }
 
   void getSelector(String category) {
@@ -146,9 +147,31 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     Map<String, dynamic> items = await json.loadData();
 
     setState(() {
-      data = items;
       currentState = file;
+      data = filterData(items);
     });
+  }
+
+  void loadFilters(String file) {
+    setState(() {
+      filters = jsonDecode(jsonEncode(categoryData[file]["filters"]));
+    });
+  }
+
+  Future<void> loadItems(String file) async {
+    getSelector(file);
+    loadFilters(file);
+    await loadOptions(file);
+    sortData();
+  }
+
+  Map<String, dynamic> filterData(final items) {
+    Map<String, dynamic> result = jsonDecode(jsonEncode(items));
+    for (final filter in filters) {
+      result = MapService.filterMap(result, filter["field"], filter["options"]);
+    }
+
+    return result;
   }
 
   void sortData() {
@@ -258,7 +281,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     }
 
     getSelector(currentCategory);
-
     sortData();
 
     if (mounted) {
@@ -283,6 +305,31 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     }
   }
 
+  Future<void> applyFilters() async {
+    final json = JsonService(currentCategory);
+    final items = await json.loadData();
+
+    setState(() {
+      data = filterData(items);
+    });
+    sortData();
+  }
+
+  Future<void> resetFilters() async {
+    filters = jsonDecode(jsonEncode(categoryData[currentCategory]["filters"]));
+
+    final json = JsonService(currentCategory);
+    final items = await json.loadData();
+
+    if (!mounted) return;
+
+    setState(() {
+      data = filterData(items);
+    });
+
+    sortData();
+  }
+
   @override
   Widget build(BuildContext context) {
     headerHeight = SettingsService.getSetting("headerHeight") / 2;
@@ -298,6 +345,42 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             backgroundColor: ColorService.getColor(0),
             foregroundColor: ColorService.getColor(4),
             centerTitle: true,
+            title: SizedBox(
+              width: 1000,
+              height: 40,
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  prefixIconColor: ColorService.getColor(4),
+                  labelText: 'Search',
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: BorderSide(color: Colors.transparent, width: 2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: BorderSide(color: Colors.transparent, width: 2),
+                  ),
+                  labelStyle: TextStyleService.getTextStyle(4, 4),
+                  filled: true,
+                  fillColor: ColorService.getColor(1),
+                  contentPadding: EdgeInsets.zero,
+                ),
+                cursorHeight: 22,
+                textAlignVertical: TextAlignVertical.center,
+                cursorColor: ColorService.getColor(4),
+                style: TextStyleService.getTextStyle(4, 4),
+                onChanged: (value) async {
+                  await loadItems(currentCategory);
+                  if (value != "") {
+                    data = MapService.filterMap(data, "name", [
+                      value.toString().toLowerCase(),
+                    ], byStart: true);
+                  }
+                },
+              ),
+            ),
             actions: [
               SortingMenuWidget(
                 (value) => changeGrouping(value),
@@ -308,6 +391,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                 currentCategoryIndex,
                 availableSorts,
                 subsort: secondarySort,
+              ),
+              FilterMenuWidget(
+                categoryData,
+                currentCategory,
+                filters,
+                () => applyFilters(),
+                () => resetFilters(),
               ),
             ],
             bottom: PreferredSize(
@@ -337,9 +427,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             itemCount: categories.length,
 
             onPageChanged: (index) async {
-              await loadOptions(categories[index]);
-              getSelector(categories[index]);
-              sortData();
+              await loadItems(categories[index]);
               categoryKey.currentState?.focusCategory(categories[index]);
             },
 
@@ -376,7 +464,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                         SettingsService.getSetting("groupItemsWiki")) {
                       final currentItem = data[items[itemIndex]];
 
-                      // Get the group title for this item.
                       title = getTitle(settings[catIndex], currentItem);
 
                       if (itemIndex == 0) {

@@ -1,6 +1,4 @@
 import 'package:dnd_app/services/color_service.dart';
-import 'package:dnd_app/services/icon_service.dart';
-import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/list_widget.dart';
 import 'package:flutter/material.dart';

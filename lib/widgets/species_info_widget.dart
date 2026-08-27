@@ -65,7 +65,7 @@ class SpeciesInfoWidgetStatie extends State<SpeciesInfoWidget> {
                 ),
               ),
               Text(
-                widget.info["speed"].toString() + "ft",
+                "${widget.info["speed"]}ft",
                 style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
               ),
             ],

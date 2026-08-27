@@ -34,12 +34,12 @@ class FeatureDescriptionWidget extends StatefulWidget {
       FeatureDescriptionWidgetState(
         info,
         settingName,
-        this.titleLevel,
-        this.subtitleLevel,
-        this.descriptionLevel,
-        this.clickLevel,
-        this.clickTitle,
-        this.levelTitle,
+        titleLevel,
+        subtitleLevel,
+        descriptionLevel,
+        clickLevel,
+        clickTitle,
+        levelTitle,
       );
 }
 
@@ -88,7 +88,7 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String setting = SettingsService.getSetting(settingName);
+    String? setting = SettingsService.getSetting(settingName);
     List<Widget> items = [];
     items.add(
       Text(
@@ -139,7 +139,7 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
       if (info["options"].containsKey("change")) {
         items.add(
           Text(
-            "Change " + info["options"]["change"]["amount"].toString(),
+            "Change ${info["options"]["change"]["amount"]}",
             style: TextStyleService.getTextStyle(descriptionLevel, 4),
           ),
         );
@@ -156,19 +156,17 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
         children: items,
       ),
       settingName,
-      subtitle: (info["level"] == null)
-          ? ""
-          : "Level: " + info["level"].toString(),
+      subtitle: (info["level"] == null) ? "" : "Level: ${info["level"]}",
       titleLevel: titleLevel,
       subtitleLevel: subtitleLevel,
       clickLevel: clickLevel,
       clickTitle: (clickTitle != "")
           ? ((levelTitle && info["level"] != null)
-                    ? "[" + info["level"].toString() + "] "
+                    ? "[${info["level"]}] "
                     : "") +
                 clickTitle
           : ((levelTitle && info["level"] != null)
-                    ? "[" + info["level"].toString() + "] "
+                    ? "[${info["level"]}] "
                     : "") +
                 info["name"],
     );
@@ -177,12 +175,12 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
   Widget getCondition(item, int description) {
     String text = "";
     if (item is String) {
-      text = ("On " + ParserService.getCondition(item + ": "));
+      text = ("On ${ParserService.getCondition(item + ": ")}");
     } else if (item is List) {
       String base = "On ";
       for (int i = 0; i < item.length; i++) {
         if (i != 0) {
-          base = base + "or ";
+          base = "${base}or ";
         }
         base = base + ParserService.getCondition(item[i]);
       }

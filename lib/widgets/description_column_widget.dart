@@ -33,7 +33,7 @@ class DescriptionColumnWidget extends StatelessWidget {
       case 3:
         return "3rd";
       default:
-        return level.toString() + "th";
+        return "${level}th";
     }
   }
 
@@ -45,11 +45,9 @@ class DescriptionColumnWidget extends StatelessWidget {
     for (final key in keys) {
       if (!notShown.contains(key)) {
         String setting =
-            key +
-            StringService.CapitalizeWord(info["catId"]) +
-            "DescriptionStyle";
+            "$key${StringService.CapitalizeWord(info["catId"])}DescriptionStyle";
         String title = StringService.titleFromKey(key);
-        Widget? content = null;
+        Widget? content;
         if (key == "description") {
           widgets.add(
             Text(

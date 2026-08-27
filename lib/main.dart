@@ -37,9 +37,9 @@ class _MyApp extends State<MyApp> {
   Future<void> initSettings() async {
     final height = MediaQuery.sizeOf(context).height;
     await SettingsService.setSetting("theme", "base");
-    await SettingsService.setSetting("headerHeight", height * 0.14);
+    await SettingsService.setSetting("headerHeight", height * 0.18);
     await SettingsService.setSetting("listItemHeight", height * 0.10);
-    await SettingsService.setSetting("globalDescriptionStyle", "sheet");
+    await SettingsService.setSetting("globalDescriptionStyle", "popUp");
     await SettingsService.setSetting("groupItemsWiki", true);
     await initWikiSettings();
   }
@@ -131,3 +131,22 @@ class _MyApp extends State<MyApp> {
     );
   }
 }
+
+
+
+/*
+           |\
+___________| \
+              \
+________       \
+   o    |      |
+________|      |
+               |__
+    _____         |
+   |__|__|      __|
+   |__|__|      |
+              /
+__________   /
+          | /
+--O       |/
+*/

@@ -25,7 +25,7 @@ class ItemWidget extends StatelessWidget {
 
     List<Widget> subtitle = [];
     for (var i = 0; i < items.length; i++) {
-      String text = "• " + StringService.titleFromKey(names[i]);
+      String text = "• ${StringService.titleFromKey(names[i])}";
       if (items[i].toString() != "false") {
         if (items[i].toString() != "true") {
           text += ": ";

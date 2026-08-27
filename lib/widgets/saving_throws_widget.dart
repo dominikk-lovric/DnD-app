@@ -8,7 +8,7 @@ class CheckListWidget extends StatelessWidget {
   final List<String> options;
   final List<dynamic> stats;
 
-  CheckListWidget(this.options, this.stats, {super.key});
+  const CheckListWidget(this.options, this.stats, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,5 @@
 import 'package:dnd_app/services/color_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
 

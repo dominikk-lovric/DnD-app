@@ -2,9 +2,10 @@
     "s1": {
         "name": "Aasimar",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -14,7 +15,7 @@
     "s2": {
         "name": "Dragonborn",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
             "Subspicies": [
                 "Black Dragon",
@@ -28,7 +29,8 @@
                 "Silver Dragon",
                 "White Dragon"
             ],
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium"]
         },
         "Icon": {
             "base": "none"
@@ -38,9 +40,10 @@
     "s3": {
         "name": "Dwarf",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium"]
         },
         "Icon": {
             "base": "none"
@@ -50,7 +53,7 @@
     "s4": {
         "name": "Elf",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
             "Subspicies": [
                 "Drow",
@@ -59,7 +62,8 @@
                 "Lorwyn Elf",
                 "Shadowmoor Elf"
             ],
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium"]
         },
         "Icon": {
             "base": "none"
@@ -69,13 +73,11 @@
     "s5": {
         "name": "Gnome",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "Subspicies": [
-                "Forest Gnome",
-                "Rock Gnome"
-            ],
-            "source": "Player's Handbook"
+            "Subspicies": ["Forest Gnome", "Rock Gnome"],
+            "source": "Player's Handbook",
+            "size": ["Small"]
         },
         "Icon": {
             "base": "none"
@@ -85,9 +87,10 @@
     "s6": {
         "name": "Goliath",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 35,
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium"]
         },
         "Icon": {
             "base": "none"
@@ -97,9 +100,10 @@
     "s7": {
         "name": "Halfling",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Small"]
         },
         "Icon": {
             "base": "none"
@@ -109,9 +113,10 @@
     "s8": {
         "name": "Human",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -121,9 +126,10 @@
     "s9": {
         "name": "Orc",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Player's Handbook"
+            "source": "Player's Handbook",
+            "size": ["Medium"]
         },
         "Icon": {
             "base": "none"
@@ -133,14 +139,11 @@
     "s10": {
         "name": "Tiefling",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "Subspicies": [
-                "Abyssal",
-                "Chthonic",
-                "Infernal"
-            ],
-            "source": "Player's Handbook"
+            "Subspicies": ["Abyssal", "Chthonic", "Infernal"],
+            "source": "Player's Handbook",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -150,9 +153,10 @@
     "s11": {
         "name": "Changeling",
         "Basics": {
-            "Creature Type": "Fey",
+            "creatureType": "Fey",
             "Speed": 30,
-            "source": "Eberron - Forge of the Artificer"
+            "source": "Eberron - Forge of the Artificer",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -162,9 +166,10 @@
     "s12": {
         "name": "Kalashtar",
         "Basics": {
-            "Creature Type": "Abberation",
+            "creatureType": "Abberation",
             "Speed": 30,
-            "source": "Eberron - Forge of the Artificer"
+            "source": "Eberron - Forge of the Artificer",
+            "size": ["Medium"]
         },
         "Icon": {
             "base": "none"
@@ -174,9 +179,10 @@
     "s13": {
         "name": "Khoravar",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Eberron - Forge of the Artificer"
+            "source": "Eberron - Forge of the Artificer",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -186,9 +192,10 @@
     "s14": {
         "name": "Shifter",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Eberron - Forge of the Artificer"
+            "source": "Eberron - Forge of the Artificer",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -198,9 +205,10 @@
     "s15": {
         "name": "Warforger",
         "Basics": {
-            "Creature Type": "Construct",
+            "creatureType": "Construct",
             "Speed": 30,
-            "source": "Eberron - Forge of the Artificer"
+            "source": "Eberron - Forge of the Artificer",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -210,9 +218,10 @@
     "s16": {
         "name": "Boggart",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Lorwyn - First Light"
+            "source": "Lorwyn - First Light",
+            "size": ["Small"]
         },
         "Icon": {
             "base": "none"
@@ -222,9 +231,10 @@
     "s17": {
         "name": "Faerie",
         "Basics": {
-            "Creature Type": "Fey",
+            "creatureType": "Fey",
             "Speed": 30,
-            "source": "Lorwyn - First Light"
+            "source": "Lorwyn - First Light",
+            "size": ["Small"]
         },
         "Icon": {
             "base": "none"
@@ -234,9 +244,10 @@
     "s18": {
         "name": "Flamekin",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Lorwyn - First Light"
+            "source": "Lorwyn - First Light",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -246,9 +257,10 @@
     "s19": {
         "name": "Lorwyn Changeling",
         "Basics": {
-            "Creature Type": "Fey",
+            "creatureType": "Fey",
             "Speed": 30,
-            "source": "Lorwyn - First Light"
+            "source": "Lorwyn - First Light",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -258,9 +270,10 @@
     "s20": {
         "name": "Rimekin",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Lorwyn - First Light"
+            "source": "Lorwyn - First Light",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -270,9 +283,10 @@
     "s21": {
         "name": "Dhampir",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Ravenloft - The Horrors Within"
+            "source": "Ravenloft - The Horrors Within",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -282,9 +296,10 @@
     "s22": {
         "name": "Reborn",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Ravenloft - The Horrors Within"
+            "source": "Ravenloft - The Horrors Within",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -294,9 +309,10 @@
     "s23": {
         "name": "Hexblood",
         "Basics": {
-            "Creature Type": "Fey",
+            "creatureType": "Fey",
             "Speed": 30,
-            "source": "Ravenloft - The Horrors Within"
+            "source": "Ravenloft - The Horrors Within",
+            "size": ["Mediun", "Small"]
         },
         "Icon": {
             "base": "none"
@@ -306,9 +322,10 @@
     "s24": {
         "name": "Lupin",
         "Basics": {
-            "Creature Type": "Humanoid",
+            "creatureType": "Humanoid",
             "Speed": 30,
-            "source": "Ravenloft - The Horrors Within"
+            "source": "Ravenloft - The Horrors Within",
+            "size": ["Medium", "Small"]
         },
         "Icon": {
             "base": "none"
