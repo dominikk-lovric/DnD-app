@@ -10,10 +10,28 @@ import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/widgets/optional_image_widget.dart';
 
 class ItemWidget extends StatelessWidget {
-  const ItemWidget(this.id, this.classData, this.category, {super.key});
+  Map<String, String> shorthands = {
+    "Player's Handbook": "PHB",
+    "Forgotten Realms - Heroes of Faerun": "FRHF",
+    "Astarion's Book of Hungers": "ABH",
+    "Lorwyn - First Light": "LFL",
+    "Eberron - Forge of the Artificer": "EFA",
+    "D&D Beyond Drops - May 2026": "DBD-MAY26",
+    "D&D Beyond Drops - July 2026": "DBD-JUL26",
+    "Ravenloft - The Horrors Within": "RTHW",
+    "D&D Beyond Drops - August 2026": "DBD-AUG26",
+  };
+  ItemWidget(
+    this.id,
+    this.classData,
+    this.category, {
+    super.key,
+    this.subtitle = null,
+  });
   final String id;
   final String category;
   final Map<String, dynamic> classData;
+  Widget? subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +41,51 @@ class ItemWidget extends StatelessWidget {
     final String icon = classData["Icon"][SettingsService.getSetting("theme")];
     final height = SettingsService.getSetting("headerHeight");
 
-    List<Widget> subtitle = [];
-    for (var i = 0; i < items.length; i++) {
-      String text = "• ${StringService.titleFromKey(names[i])}";
-      if (items[i].toString() != "false") {
-        if (items[i].toString() != "true") {
-          text += ": ";
-          if (items[i] is List) {
-            if (names[i].toLowerCase() == "primary") {
-              text = text + (items[i] as List).join(" or ");
+    List<Widget> subtitleList = [];
+    if (subtitle != null) {
+      subtitleList.add(subtitle ?? SizedBox.shrink());
+    } else {
+      if (names.contains("source") || names.contains("source")) {
+        subtitleList.add(
+          Container(
+            decoration: BoxDecoration(
+              color: ColorService.getColor(5),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: EdgeInsetsGeometry.symmetric(
+                vertical: 0,
+                horizontal: 10,
+              ),
+              child: Text(
+                shorthands[basics["source"]] ?? "",
+                style: TextStyleService.getTextStyle(5, 3),
+              ),
+            ),
+          ),
+        );
+      }
+      for (var i = 0; i < items.length; i++) {
+        String text = "• ${StringService.titleFromKey(names[i])}";
+        if (items[i].toString() != "false" && names[i].toString() != "source") {
+          if (items[i].toString() != "true") {
+            text += ": ";
+            if (items[i] is List) {
+              if (names[i].toLowerCase() == "primary") {
+                text = text + (items[i] as List).join(" or ");
+              } else {
+                text = text + (items[i] as List).join(", ");
+              }
             } else {
-              text = text + (items[i] as List).join(", ");
+              text = text + items[i].toString();
             }
-          } else {
-            text = text + items[i].toString();
           }
+          subtitleList.add(
+            Text(text, style: TextStyleService.getTextStyle(5, 6)),
+          );
         }
-        subtitle.add(Text(text, style: TextStyleService.getTextStyle(5, 6)));
       }
     }
-
     return Container(
       child: Card(
         color: ColorService.getColor(3),
@@ -80,7 +123,7 @@ class ItemWidget extends StatelessWidget {
                       ),
                       maxLines: 1,
                     ),
-                    Wrap(spacing: 10, children: subtitle),
+                    Wrap(spacing: 10, children: subtitleList),
                   ],
                 ),
               ),

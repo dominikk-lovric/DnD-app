@@ -7,9 +7,6 @@ class SortingMenuWidget extends StatefulWidget {
   final Future<void> Function(dynamic) function1;
   final Future<void> Function(dynamic) function2;
   final Future<void> Function(dynamic) function3;
-  final Future<void> Function(dynamic) function4;
-  final Future<void> Function(dynamic) function5;
-
   final int index;
   final List<String> sorts;
   final List<String>? subsort;
@@ -18,8 +15,6 @@ class SortingMenuWidget extends StatefulWidget {
     this.function1,
     this.function2,
     this.function3,
-    this.function4,
-    this.function5,
     this.index,
     this.sorts, {
     this.subsort,
@@ -31,206 +26,162 @@ class SortingMenuWidget extends StatefulWidget {
 }
 
 class _SortingMenuWidgetState extends State<SortingMenuWidget> {
-  final GlobalKey _buttonKey = GlobalKey();
+  final OverlayPortalController _controller = OverlayPortalController();
+  final LayerLink _layerLink = LayerLink();
 
-  OverlayEntry? _menuEntry;
+  final Object _groupId = Object();
 
-  bool get isMenuOpen => _menuEntry != null;
+  static const double _menuWidth = 240;
+
+  Future<void> _handleTap(String value) async {
+    if (value == "group_yes") {
+      await widget.function1(true);
+    } else if (value == "group_no") {
+      await widget.function1(false);
+    } else if (value == "subsortAlphabetical") {
+      await widget.function2(false);
+    } else if (value == "subsortStandard") {
+      await widget.function2(true);
+    } else {
+      await widget.function3(value);
+    }
+    setState(() {});
+  }
 
   @override
-  void dispose() {
-    _closeMenu();
-    super.dispose();
-  }
-
-  void _toggleMenu() {
-    if (isMenuOpen) {
-      _closeMenu();
-    } else {
-      _openMenu();
-    }
-  }
-
-  void _openMenu() {
-    final buttonContext = _buttonKey.currentContext;
-
-    if (buttonContext == null) return;
-
-    final RenderBox button = buttonContext.findRenderObject() as RenderBox;
-
-    final RenderBox overlay =
-        Overlay.of(context).context.findRenderObject() as RenderBox;
-
-    final Offset position = button.localToGlobal(
-      Offset.zero,
-      ancestor: overlay,
-    );
-
-    _menuEntry = OverlayEntry(
-      builder: (overlayContext) {
-        return Stack(
-          children: [
-            Positioned.fill(
-              child: GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: _closeMenu,
-                child: const SizedBox.expand(),
-              ),
-            ),
-
-            Positioned(
-              top: position.dy + button.size.height,
-              right: overlay.size.width - position.dx - button.size.width,
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () {},
-                child: Material(
-                  elevation: 8,
-                  color: ColorService.getColor(3),
-                  child: _buildMenu(),
-                ),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-
-    Overlay.of(context).insert(_menuEntry!);
-  }
-
-  void _closeMenu() {
-    _menuEntry?.remove();
-    _menuEntry = null;
-  }
-
-  void _refreshMenu() {
-    _menuEntry?.markNeedsBuild();
-  }
-
-  Widget _buildMenu() {
-    final currentSorting = SettingsService.getSetting(
-      "wikiSorting",
-    )[widget.index];
-
-    final grouping = SettingsService.getSetting("wikiGrouping")[widget.index];
-
-    return SizedBox(
-      width: 280,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxHeight: 600),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+  Widget build(BuildContext context) {
+    return CompositedTransformTarget(
+      link: _layerLink,
+      child: OverlayPortal(
+        controller: _controller,
+        overlayChildBuilder: (context) {
+          return Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                child: Text(
-                  "Sorting",
-                  style: TextStyleService.getTextStyle(1, 4),
-                ),
-              ),
-              const Divider(),
-              _sectionTitle("Grouping"),
-              _radioItem("Yes", grouping == "true", () async {
-                await widget.function1(true);
-
-                _refreshMenu();
-              }),
-
-              _radioItem("No", grouping == "false", () async {
-                await widget.function2(false);
-
-                _refreshMenu();
-              }),
-
-              const Divider(),
-
-              _sectionTitle("Sort by"),
-
-              ...widget.sorts.map(
-                (sort) => _radioItem(sort, currentSorting == sort, () async {
-                  await widget.function5(sort);
-
-                  _refreshMenu();
-                }),
-              ),
-
-              if (currentSorting == "primary" ||
-                  currentSorting == "featType" ||
-                  currentSorting == "source") ...[
-                const Divider(),
-
-                _sectionTitle("Secondary sorting"),
-
-                _radioItem(
-                  "Alphabetical",
-                  SettingsService.getSetting(currentSorting + "SubSort")
-                      is! List,
-                  () async {
-                    await widget.function3(false);
-
-                    _refreshMenu();
-                  },
-                ),
-
-                _radioItem(
-                  "Standard",
-                  SettingsService.getSetting(currentSorting + "SubSort")
-                      is List,
-                  () async {
-                    await widget.function4(true);
-
-                    _refreshMenu();
-                  },
-                ),
-              ],
-
-              if (widget.subsort != null) ...[
-                const Divider(),
-
-                _sectionTitle("Secondary sorting order"),
-
-                ...widget.subsort!.map((value) {
-                  return InkWell(
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
-                      child: Text(
-                        value,
-                        style: TextStyleService.getTextStyle(4, 4),
-                      ),
+              CompositedTransformFollower(
+                link: _layerLink,
+                showWhenUnlinked: false,
+                targetAnchor: Alignment.bottomRight,
+                followerAnchor: Alignment.topRight,
+                child: TapRegion(
+                  groupId: _groupId,
+                  onTapOutside: (_) => _controller.hide(),
+                  child: Material(
+                    elevation: 8,
+                    color: ColorService.getColor(2),
+                    borderRadius: BorderRadius.circular(8),
+                    clipBehavior: Clip.antiAlias,
+                    child: SizedBox(
+                      width: _menuWidth,
+                      child: _buildMenuContent(),
                     ),
-                  );
-                }),
-              ],
+                  ),
+                ),
+              ),
             ],
+          );
+        },
+        child: TapRegion(
+          groupId: _groupId,
+          child: IconButton(
+            icon: Icon(Icons.tune, color: ColorService.getColor(4)),
+            onPressed: _controller.toggle,
           ),
         ),
       ),
     );
   }
 
-  Widget _sectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-      child: Text(title, style: TextStyleService.getTextStyle(3, 4)),
+  Widget _buildMenuContent() {
+    final currentSorting = SettingsService.getSetting(
+      "wikiSorting",
+    )[widget.index];
+
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            width: double.infinity,
+            color: ColorService.getColor(1),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text("Sorting", style: TextStyleService.getTextStyle(1, 4)),
+          ),
+          Text(style: TextStyleService.getTextStyle(3, 4), "Grouping"),
+          _radioTile(
+            label: "Yes",
+            selected:
+                SettingsService.getSetting("wikiGrouping")[widget.index] ==
+                "true",
+            onTap: () => _handleTap("group_yes"),
+          ),
+          _radioTile(
+            label: "No",
+            selected:
+                SettingsService.getSetting("wikiGrouping")[widget.index] ==
+                "false",
+            onTap: () => _handleTap("group_no"),
+          ),
+          const Divider(height: 1),
+          Text(style: TextStyleService.getTextStyle(3, 4), "Sort by"),
+          ...widget.sorts.map(
+            (sort) => _radioTile(
+              label: sort,
+              selected: currentSorting == sort,
+              onTap: () => _handleTap(sort),
+            ),
+          ),
+          if (currentSorting == "primary" ||
+              currentSorting == "featType" ||
+              currentSorting == "source") ...[
+            const Divider(height: 1),
+            Text(
+              style: TextStyleService.getTextStyle(3, 4),
+              "Secondary sorting",
+            ),
+            _radioTile(
+              label: "Alphabetical",
+              selected:
+                  SettingsService.getSetting(currentSorting + "SubSort")
+                      is! List,
+              onTap: () => _handleTap("subsortAlphabetical"),
+            ),
+            _radioTile(
+              label: "Standard",
+              selected:
+                  SettingsService.getSetting(currentSorting + "SubSort")
+                      is List,
+              onTap: () => _handleTap("subsortStandard"),
+            ),
+          ],
+          if (widget.subsort != null) ...[
+            const Divider(height: 1),
+            Text(
+              style: TextStyleService.getTextStyle(3, 4),
+              "Secondary sorting order",
+            ),
+            ...widget.subsort!.map(
+              (value) => Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                child: Text(value, style: TextStyleService.getTextStyle(4, 4)),
+              ),
+            ),
+          ],
+        ],
+      ),
     );
   }
 
-  Widget _radioItem(
-    String title,
-    bool selected,
-    Future<void> Function() onTap,
-  ) {
+  Widget _radioTile({
+    required String label,
+    required bool selected,
+    required VoidCallback onTap,
+  }) {
     return InkWell(
-      onTap: () async {
-        await onTap();
-      },
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Row(
@@ -239,29 +190,13 @@ class _SortingMenuWidgetState extends State<SortingMenuWidget> {
               selected
                   ? Icons.radio_button_checked
                   : Icons.radio_button_unchecked,
-              color: selected
-                  ? ColorService.getColor(1)
-                  : ColorService.getColor(4),
+              color: ColorService.getColor(4),
             ),
-
             const SizedBox(width: 8),
-
-            Expanded(
-              child: Text(title, style: TextStyleService.getTextStyle(4, 4)),
-            ),
+            Text(label, style: TextStyleService.getTextStyle(4, 4)),
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      key: _buttonKey,
-      icon: const Icon(Icons.tune),
-      color: ColorService.getColor(4),
-      onPressed: _toggleMenu,
     );
   }
 }

@@ -37,6 +37,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   late String currentState = "classes";
   List<dynamic> filters = [];
 
+  String searchWord = "";
+
   Map<String, dynamic> data = {};
 
   late double headerHeight;
@@ -163,6 +165,11 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     loadFilters(file);
     await loadOptions(file);
     sortData();
+    if (searchWord != "") {
+      data = MapService.filterMap(data, "name", [
+        searchWord.toString().toLowerCase(),
+      ], byStart: true);
+    }
   }
 
   Map<String, dynamic> filterData(final items) {
@@ -265,13 +272,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
         "${sorting}SubSortStandard",
       );
 
-      if (standardSort is! List) {
-        debugPrint(
-          "ERROR: ${sorting}SubSortStandard is not a List: $standardSort",
-        );
-        return;
-      }
-
       await SettingsService.setSetting(
         "${sorting}SubSort",
         List<String>.from(standardSort),
@@ -307,7 +307,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
   Future<void> applyFilters() async {
     final json = JsonService(currentCategory);
-    final items = await json.loadData();
+    Map<String, dynamic> items = await json.loadData();
+
+    if (searchWord != "") {
+      items = MapService.filterMap(items, "name", [
+        searchWord.toString().toLowerCase(),
+      ], byStart: true);
+    }
 
     setState(() {
       data = filterData(items);
@@ -349,6 +355,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
               width: 1000,
               height: 40,
               child: TextField(
+                autofocus: true,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
                   prefixIconColor: ColorService.getColor(4),
@@ -372,7 +379,10 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                 cursorColor: ColorService.getColor(4),
                 style: TextStyleService.getTextStyle(4, 4),
                 onChanged: (value) async {
-                  await loadItems(currentCategory);
+                  getSelector(currentCategory);
+                  await loadOptions(currentCategory);
+                  sortData();
+                  searchWord = value;
                   if (value != "") {
                     data = MapService.filterMap(data, "name", [
                       value.toString().toLowerCase(),
@@ -384,8 +394,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             actions: [
               SortingMenuWidget(
                 (value) => changeGrouping(value),
-                (value) => changeGrouping(value),
-                (value) => changeSecondarySorting(value),
                 (value) => changeSecondarySorting(value),
                 (value) => changeSorting(value),
                 currentCategoryIndex,
@@ -439,6 +447,15 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
               }
 
               final items = data.keys.toList();
+
+              if (items.length < 1) {
+                return Center(
+                  child: Text(
+                    "Nothing here :(",
+                    style: TextStyleService.getTextStyle(1, 4),
+                  ),
+                );
+              }
 
               int catIndex = categories.indexOf(category);
               List<String> settings = SettingsService.getSetting("wikiSorting");
