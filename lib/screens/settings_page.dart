@@ -88,7 +88,7 @@ class SettingsPageState extends State<SettingsPage> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               ...data["items"].map((e) {
-                                return DescriptionStyleSelectorWidget(e);
+                                return DescriptionStyleSelectorWidget(e, el);
                               }),
                             ],
                           ),

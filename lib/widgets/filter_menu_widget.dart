@@ -20,24 +20,41 @@ class FilterMenuWidget extends StatefulWidget {
   });
 
   @override
-  State<FilterMenuWidget> createState() => _FilterMenuWidgetState();
+  State<FilterMenuWidget> createState() => FilterMenuWidgetState();
 }
 
-class _FilterMenuWidgetState extends State<FilterMenuWidget> {
+class FilterMenuWidgetState extends State<FilterMenuWidget> {
   final OverlayPortalController _mainController = OverlayPortalController();
   final LayerLink _mainLink = LayerLink();
 
   final Map<int, OverlayPortalController> _subControllers = {};
   final Map<int, LayerLink> _subLinks = {};
 
-  // Shared identity across the button, the main panel, and every submenu
-  // panel. Without this, TapRegion treats the button (and the submenus,
-  // which live in a separate spot in the overlay) as "outside" the main
-  // panel, so pressing the button or tapping a checkbox would close the
-  // whole menu right out from under itself.
   final Object _groupId = Object();
 
   static const double _menuWidth = 280;
+
+  bool get submenuOpen {
+    bool flag = false;
+    for (int i = 0; i < _subControllers.keys.toList().length; i++) {
+      if (_subControllers[i]?.isShowing ?? false) {
+        flag = true;
+      }
+    }
+    return flag;
+  }
+
+  bool get menuOpen => _mainController.isShowing;
+
+  void closeSubmenu() {
+    for (int i = 0; i < _subControllers.keys.toList().length; i++) {
+      _subControllers[i]?.hide();
+    }
+  }
+
+  void closeMenu() {
+    _mainController.hide();
+  }
 
   OverlayPortalController _subControllerFor(int i) =>
       _subControllers.putIfAbsent(i, () => OverlayPortalController());

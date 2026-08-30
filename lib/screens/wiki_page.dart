@@ -15,7 +15,7 @@ import 'dart:convert';
 import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
-
+import 'package:flutter/services.dart';
 import 'package:dnd_app/widgets/item_widget.dart';
 import 'package:dnd_app/widgets/category_selector_widget.dart';
 
@@ -30,6 +30,9 @@ class WikiPage extends StatefulWidget {
 
 class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   late dynamic Function(Map<String, dynamic>) selector;
+
+  final sortingKey = GlobalKey<SortingMenuWidgetState>();
+  final filterKey = GlobalKey<FilterMenuWidgetState>();
 
   final PageController _pageController = PageController();
   late List<dynamic> categories = [];
@@ -51,6 +54,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     init();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+
+    super.dispose();
   }
 
   Future<void> init() async {
@@ -128,12 +138,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     setState(() {
       selector = ss;
     });
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
   }
 
   Future<void> loadCategories() async {
@@ -341,258 +345,291 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    headerHeight = SettingsService.getSetting("headerHeight");
+    headerHeight = SettingsService.getSetting("headerHeight") / 2;
     categoryNum = widget.categoryNum;
-    return AnimatedBuilder(
-      animation: ColorService.themeNotifier,
-      builder: (context, child) {
-        return Scaffold(
-          backgroundColor: ColorService.getColor(2),
+    return Focus(
+      autofocus: true,
+      onKeyEvent: (node, event) {
+        if (event is KeyDownEvent &&
+            event.logicalKey == LogicalKeyboardKey.escape) {
+          if (sortingKey.currentState?.isOpen == true) {
+            sortingKey.currentState?.close();
+            return KeyEventResult.handled;
+          }
+          if (filterKey.currentState?.submenuOpen == true) {
+            filterKey.currentState?.closeSubmenu();
+            return KeyEventResult.handled;
+          }
+          if (filterKey.currentState?.menuOpen == true) {
+            filterKey.currentState?.closeMenu();
+            return KeyEventResult.handled;
+          }
+          Navigator.pop(context);
+          return KeyEventResult.handled;
+        }
+        return KeyEventResult.ignored;
+      },
+      child: AnimatedBuilder(
+        animation: ColorService.themeNotifier,
+        builder: (context, child) {
+          return Scaffold(
+            backgroundColor: ColorService.getColor(2),
 
-          appBar: AppBar(
-            toolbarHeight: headerHeight,
-            backgroundColor: ColorService.getColor(0),
-            foregroundColor: ColorService.getColor(4),
-            centerTitle: true,
-            title: SizedBox(
-              width: 1000,
-              height: 40,
-              child: TextField(
-                autofocus: true,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  prefixIconColor: ColorService.getColor(4),
-                  labelText: 'Search',
-                  floatingLabelBehavior: FloatingLabelBehavior.never,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide(color: Colors.transparent, width: 2),
+            appBar: AppBar(
+              toolbarHeight: headerHeight,
+              backgroundColor: ColorService.getColor(0),
+              foregroundColor: ColorService.getColor(4),
+              centerTitle: true,
+              title: SizedBox(
+                width: 1000,
+                height: 40,
+                child: TextField(
+                  autofocus: true,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    prefixIconColor: ColorService.getColor(4),
+                    labelText: 'Search',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 2,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 2,
+                      ),
+                    ),
+                    labelStyle: TextStyleService.getTextStyle(4, 4),
+                    filled: true,
+                    fillColor: ColorService.getColor(1),
+                    contentPadding: EdgeInsets.zero,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide(color: Colors.transparent, width: 2),
-                  ),
-                  labelStyle: TextStyleService.getTextStyle(4, 4),
-                  filled: true,
-                  fillColor: ColorService.getColor(1),
-                  contentPadding: EdgeInsets.zero,
-                ),
-                cursorHeight: 22,
-                textAlignVertical: TextAlignVertical.center,
-                cursorColor: ColorService.getColor(4),
-                style: TextStyleService.getTextStyle(4, 4),
-                onChanged: (value) {
-                  searchWord = value.toLowerCase();
+                  cursorHeight: 22,
+                  textAlignVertical: TextAlignVertical.center,
+                  cursorColor: ColorService.getColor(4),
+                  style: TextStyleService.getTextStyle(4, 4),
+                  onChanged: (value) {
+                    searchWord = value.toLowerCase();
 
-                  final json = JsonService(currentCategory);
+                    final json = JsonService(currentCategory);
 
-                  json.loadData().then((items) {
-                    if (!mounted || searchWord != value.toLowerCase()) return;
+                    json.loadData().then((items) {
+                      if (!mounted || searchWord != value.toLowerCase()) return;
 
-                    var filtered = filterData(items);
+                      var filtered = filterData(items);
 
-                    if (searchWord.isNotEmpty) {
-                      filtered = MapService.filterMap(filtered, "name", [
-                        searchWord,
-                      ], byStart: true);
-                    }
+                      if (searchWord.isNotEmpty) {
+                        filtered = MapService.filterMap(filtered, "name", [
+                          searchWord,
+                        ], byStart: true);
+                      }
 
-                    final sorted = MapService.sortMap(
-                      filtered,
-                      selector,
-                      secondarySelector: (el) => el["name"],
-                    );
+                      final sorted = MapService.sortMap(
+                        filtered,
+                        selector,
+                        secondarySelector: (el) => el["name"],
+                      );
 
-                    setState(() {
-                      data = sorted;
+                      setState(() {
+                        data = sorted;
+                      });
                     });
-                  });
-                },
+                  },
+                ),
+              ),
+              actions: [
+                SortingMenuWidget(
+                  (value) => changeGrouping(value),
+                  (value) => changeSecondarySorting(value),
+                  (value) => changeSorting(value),
+                  currentCategoryIndex,
+                  availableSorts,
+                  key: sortingKey,
+                  subsort: secondarySort,
+                ),
+                FilterMenuWidget(
+                  categoryData,
+                  currentCategory,
+                  filters,
+                  () => applyFilters(),
+                  () => resetFilters(),
+                  key: filterKey,
+                ),
+              ],
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(headerHeight),
+                child: CategorySelectorWdget(
+                  height: headerHeight,
+                  categoryNumber: categoryNum,
+                  categories: categoryData.keys.toList(),
+                  currentState: currentState,
+                  onCategorySelected: (category) {
+                    final index = categories.indexOf(category);
+
+                    if (index != -1) {
+                      _pageController.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                  },
+                  key: categoryKey,
+                ),
               ),
             ),
-            actions: [
-              SortingMenuWidget(
-                (value) => changeGrouping(value),
-                (value) => changeSecondarySorting(value),
-                (value) => changeSorting(value),
-                currentCategoryIndex,
-                availableSorts,
-                subsort: secondarySort,
-              ),
-              FilterMenuWidget(
-                categoryData,
-                currentCategory,
-                filters,
-                () => applyFilters(),
-                () => resetFilters(),
-              ),
-            ],
-            bottom: PreferredSize(
-              preferredSize: Size.fromHeight(headerHeight),
-              child: CategorySelectorWdget(
-                height: headerHeight,
-                categoryNumber: categoryNum,
-                categories: categoryData.keys.toList(),
-                currentState: currentState,
-                onCategorySelected: (category) {
-                  final index = categories.indexOf(category);
+            body: PageView.builder(
+              controller: _pageController,
+              itemCount: categories.length,
 
-                  if (index != -1) {
-                    _pageController.animateToPage(
-                      index,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOut,
-                    );
-                  }
-                },
-                key: categoryKey,
-              ),
-            ),
-          ),
-          body: PageView.builder(
-            controller: _pageController,
-            itemCount: categories.length,
+              onPageChanged: (index) async {
+                await loadItems(categories[index]);
+                categoryKey.currentState?.focusCategory(categories[index]);
+              },
 
-            onPageChanged: (index) async {
-              await loadItems(categories[index]);
-              categoryKey.currentState?.focusCategory(categories[index]);
-            },
+              itemBuilder: (context, index) {
+                final category = categories[index];
 
-            itemBuilder: (context, index) {
-              final category = categories[index];
+                if (category != currentState.toLowerCase()) {
+                  return const Center(child: CircularProgressIndicator());
+                }
 
-              if (category != currentState.toLowerCase()) {
-                return const Center(child: CircularProgressIndicator());
-              }
+                final items = data.keys.toList();
 
-              final items = data.keys.toList();
+                if (items.length < 1) {
+                  return Center(
+                    child: Text(
+                      "Nothing here :(",
+                      style: TextStyleService.getTextStyle(1, 4),
+                    ),
+                  );
+                }
 
-              if (items.length < 1) {
-                return Center(
-                  child: Text(
-                    "Nothing here :(",
-                    style: TextStyleService.getTextStyle(1, 4),
-                  ),
+                int catIndex = categories.indexOf(category);
+                List<String> settings = SettingsService.getSetting(
+                  "wikiSorting",
                 );
-              }
 
-              int catIndex = categories.indexOf(category);
-              List<String> settings = SettingsService.getSetting("wikiSorting");
+                return ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, itemIndex) {
+                    final String icon =
+                        data[items[itemIndex]]["Icon"][SettingsService.getSetting(
+                          "theme",
+                        )];
+                    final item = data[items[itemIndex]];
+                    Widget infoWidget = buildInfoWidget(category, item["json"]);
 
-              return ListView.builder(
-                itemCount: items.length,
-                itemBuilder: (context, itemIndex) {
-                  final String icon =
-                      data[items[itemIndex]]["Icon"][SettingsService.getSetting(
-                        "theme",
-                      )];
-                  final item = data[items[itemIndex]];
-                  Widget infoWidget = buildInfoWidget(category, item["json"]);
+                    bool showSeparator = false;
+                    String title = "";
 
-                  bool showSeparator = false;
-                  String title = "";
+                    if (SettingsService.getSetting(
+                          "wikiGrouping",
+                        )[currentCategoryIndex] ==
+                        "true") {
+                      if (settings[catIndex] != "alphabetical" &&
+                          SettingsService.getSetting("groupItemsWiki")) {
+                        final currentItem = data[items[itemIndex]];
 
-                  if (SettingsService.getSetting(
-                        "wikiGrouping",
-                      )[currentCategoryIndex] ==
-                      "true") {
-                    if (settings[catIndex] != "alphabetical" &&
-                        SettingsService.getSetting("groupItemsWiki")) {
-                      final currentItem = data[items[itemIndex]];
+                        title = getTitle(settings[catIndex], currentItem);
 
-                      title = getTitle(settings[catIndex], currentItem);
+                        if (itemIndex == 0) {
+                          showSeparator = true;
+                        } else {
+                          final previousItem = data[items[itemIndex - 1]];
 
-                      if (itemIndex == 0) {
-                        showSeparator = true;
-                      } else {
-                        final previousItem = data[items[itemIndex - 1]];
+                          String previousTitle = getTitle(
+                            settings[catIndex],
+                            previousItem,
+                          );
 
-                        String previousTitle = getTitle(
-                          settings[catIndex],
-                          previousItem,
-                        );
-
-                        showSeparator = title != previousTitle;
+                          showSeparator = title != previousTitle;
+                        }
                       }
                     }
-                  }
 
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (showSeparator)
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.only(
-                                start: 15,
-                              ),
-                              child: Text(
-                                title,
-                                style: TextStyleService.getTextStyle(2, 4),
-                              ),
-                            ),
-                            Divider(
-                              indent: 5,
-                              endIndent: 5,
-                              color: ColorService.getColor(4),
-                            ),
-                          ],
-                        ),
-                      DescriptionWidget(
-                        data[items[itemIndex]]["name"],
-                        infoWidget,
-                        "itemDescriptionStyle",
-                        clickWidget: ItemWidget(
-                          items[itemIndex],
-                          data[items[itemIndex]],
-                          category,
-                        ),
-                        titleWidget: Padding(
-                          padding: EdgeInsetsGeometry.directional(start: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            spacing: (icon != "none") ? 10 : 0.0,
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (showSeparator)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              (icon != "none")
-                                  ? OptionalImageWidget(
-                                      SettingsService.getSetting(
-                                            "headerHeight",
-                                          ) *
-                                          (8 / 10),
-                                      icon,
-                                      key: ValueKey(
-                                        data[items[itemIndex]]["name"],
-                                      ),
-                                    )
-                                  : SizedBox.shrink(),
-                              Expanded(
-                                child: Text(
-                                  data[items[itemIndex]]["name"],
-                                  style: TextStyleService.getTextStyle(
-                                    0,
-                                    4,
-                                    Overflow: TextOverflow.fade,
-                                  ),
-                                  maxLines: 1,
-                                  softWrap: false,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.only(
+                                  start: 15,
                                 ),
+                                child: Text(
+                                  title,
+                                  style: TextStyleService.getTextStyle(2, 4),
+                                ),
+                              ),
+                              Divider(
+                                indent: 5,
+                                endIndent: 5,
+                                color: ColorService.getColor(4),
                               ),
                             ],
                           ),
+                        DescriptionWidget(
+                          data[items[itemIndex]]["name"],
+                          infoWidget,
+                          "itemDescriptionStyle",
+                          clickWidget: ItemWidget(
+                            items[itemIndex],
+                            data[items[itemIndex]],
+                            category,
+                          ),
+                          titleWidget: Padding(
+                            padding: EdgeInsetsGeometry.directional(start: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              spacing: (icon != "none") ? 10 : 0.0,
+                              children: [
+                                (icon != "none")
+                                    ? OptionalImageWidget(
+                                        SettingsService.getSetting(
+                                              "headerHeight",
+                                            ) *
+                                            (8 / 10),
+                                        icon,
+                                        key: ValueKey(
+                                          data[items[itemIndex]]["name"],
+                                        ),
+                                      )
+                                    : SizedBox.shrink(),
+                                Expanded(
+                                  child: Text(
+                                    data[items[itemIndex]]["name"],
+                                    style: TextStyleService.getTextStyle(
+                                      0,
+                                      4,
+                                      Overflow: TextOverflow.fade,
+                                    ),
+                                    maxLines: 1,
+                                    softWrap: false,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
-        );
-      },
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 

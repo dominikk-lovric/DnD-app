@@ -90,25 +90,25 @@ class ItemWidget extends StatelessWidget {
       child: Card(
         color: ColorService.getColor(3),
         child: Padding(
-          padding: EdgeInsetsGeometry.directional(start: 10),
+          padding: EdgeInsetsGeometry.directional(
+            start: height * 0.1,
+            top: height * 0.1,
+            bottom: height * 0.1,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               (icon != "none")
                   ? Padding(
-                      padding: EdgeInsetsGeometry.directional(
-                        top: 10,
-                        bottom: 10,
-                        end: 10,
-                      ),
+                      padding: EdgeInsetsGeometry.directional(end: 10),
                       child: OptionalImageWidget(
-                        height * (8 / 10),
+                        height * 1,
                         icon,
                         key: ValueKey(classData["name"]),
                       ),
                     )
-                  : SizedBox(height: 100),
+                  : SizedBox(height: height),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -20,6 +20,7 @@ class IconService {
     return Image.asset(
       path,
       cacheWidth: 100,
+      cacheHeight: 100,
       fit: BoxFit.cover,
       errorBuilder: (context, error, stackTrace) {
         return Image.asset(

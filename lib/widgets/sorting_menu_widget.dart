@@ -22,10 +22,10 @@ class SortingMenuWidget extends StatefulWidget {
   });
 
   @override
-  State<SortingMenuWidget> createState() => _SortingMenuWidgetState();
+  State<SortingMenuWidget> createState() => SortingMenuWidgetState();
 }
 
-class _SortingMenuWidgetState extends State<SortingMenuWidget> {
+class SortingMenuWidgetState extends State<SortingMenuWidget> {
   final OverlayPortalController _controller = OverlayPortalController();
   final LayerLink _layerLink = LayerLink();
 
@@ -46,6 +46,12 @@ class _SortingMenuWidgetState extends State<SortingMenuWidget> {
       await widget.function3(value);
     }
     setState(() {});
+  }
+
+  bool get isOpen => _controller.isShowing;
+
+  void close() {
+    _controller.hide();
   }
 
   @override

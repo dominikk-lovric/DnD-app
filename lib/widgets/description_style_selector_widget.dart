@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 
 class DescriptionStyleSelectorWidget extends StatefulWidget {
   String name;
-  DescriptionStyleSelectorWidget(this.name, {super.key});
+  String category;
+  DescriptionStyleSelectorWidget(this.name, this.category, {super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -27,7 +28,9 @@ class DescriptionStyleSelectorWidgetState
 
   Future<void> handleTap(String name, setting) async {
     await SettingsService.setSetting(
-      StringService.slugify(widget.name) + "descriptionStyle",
+      StringService.slugify(widget.name) +
+          StringService.CapitalizeWord(widget.category) +
+          "descriptionStyle".toString(),
       setting,
     );
     print(SettingsService.getSetting(StringService.slugify(name)));
@@ -50,8 +53,8 @@ class DescriptionStyleSelectorWidgetState
               CompositedTransformFollower(
                 link: _layerLink,
                 showWhenUnlinked: false,
-                targetAnchor: Alignment.bottomLeft,
-                followerAnchor: Alignment.topRight,
+                targetAnchor: Alignment.bottomCenter,
+                followerAnchor: Alignment.topCenter,
                 child: TapRegion(
                   groupId: _groupId,
                   onTapOutside: (_) => _controller.hide(),
@@ -79,20 +82,14 @@ class DescriptionStyleSelectorWidgetState
   }
 
   Widget _buildMenuContent() {
-    if (SettingsService.getSetting(
-          StringService.slugify(widget.name) + "descriptionStyle",
-        ) ==
-        null) {
-      print("NULL");
-    }
     String selected =
         SettingsService.getSetting(
-          StringService.slugify(widget.name) + "descriptionStyle",
+          StringService.slugify(widget.name).toString() +
+              StringService.CapitalizeWord(widget.category).toString() +
+              "descriptionStyle".toString(),
         ) ??
         SettingsService.getSetting("globalDescriptionStyle");
-    print(
-      StringService.slugify(widget.name) + "descriptionStyle" + " " + selected,
-    );
+
     return IntrinsicWidth(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -101,14 +98,10 @@ class DescriptionStyleSelectorWidgetState
           ...options.map((el) {
             return GestureDetector(
               onTap: () async {
-                print(
-                  StringService.slugify(widget.name) +
-                      "descriptionStyle" +
-                      " " +
-                      el.toString(),
-                );
                 await handleTap(
-                  StringService.slugify(widget.name) + "descriptionStyle",
+                  StringService.slugify(widget.name) +
+                      StringService.CapitalizeWord(widget.category) +
+                      "descriptionStyle".toString(),
                   el.toString(),
                 );
                 _controller.hide();
