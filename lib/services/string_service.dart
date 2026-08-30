@@ -40,4 +40,10 @@ class StringService {
     res += CapitalizeWord(key.substring(last, key.length));
     return res;
   }
+
+  static String slugify(String name) {
+    name = name.toLowerCase();
+    name = name.replaceAll(" ", "-");
+    return name;
+  }
 }

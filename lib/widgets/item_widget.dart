@@ -39,7 +39,7 @@ class ItemWidget extends StatelessWidget {
     final names = basics.keys.toList() as List<dynamic>;
     final items = basics.values.toList();
     final String icon = classData["Icon"][SettingsService.getSetting("theme")];
-    final height = SettingsService.getSetting("headerHeight");
+    final height = SettingsService.getSetting("listItemHeight");
 
     List<Widget> subtitleList = [];
     if (subtitle != null) {

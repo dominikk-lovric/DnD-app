@@ -49,81 +49,71 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget> {
     return AnimatedBuilder(
       animation: ColorService.themeNotifier,
       builder: (context, child) {
-        return Align(
-          alignment: Alignment.center,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 350),
-            child: Container(
-              child: InputDecorator(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: ColorService.getColor(3),
-                  labelText: ColorService.getColorNames()[widget.setting],
-                  labelStyle: TextStyle(color: ColorService.getColor(4)),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorService.getColor(6),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
+        return ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 350),
+          child: Container(
+            child: InputDecorator(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: ColorService.getColor(3),
+                labelText: ColorService.getColorNames()[widget.setting],
+                labelStyle: TextStyle(color: ColorService.getColor(4)),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: ColorService.getColor(6),
+                    width: 2,
                   ),
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Wrap(
-                    spacing: 5,
-                    runSpacing: 10,
-                    alignment: WrapAlignment.center,
-                    //mainAxisSize: MainAxisSize.min,
-                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(
-                            ARGB[0],
-                            ARGB[1],
-                            ARGB[2],
-                            ARGB[3],
-                          ),
-                          border: Border.all(color: Colors.white, width: 2),
-                          borderRadius: BorderRadius.circular(4), // optional
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(12),
+                child: Wrap(
+                  spacing: 5,
+                  runSpacing: 10,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(
+                          ARGB[0],
+                          ARGB[1],
+                          ARGB[2],
+                          ARGB[3],
                         ),
+                        border: Border.all(color: Colors.white, width: 2),
+                        borderRadius: BorderRadius.circular(4),
                       ),
-                      Wrap(
-                        spacing: 10,
-                        runSpacing: 10,
-                        children: [
-                          colorInput(rController, "R", 1),
-                          colorInput(gController, "G", 2),
-                          colorInput(bController, "B", 3),
-                        ],
-                      ),
-                      LayoutBuilder(
-                        builder: (context, constraints) {
-                          if (constraints.maxWidth < 350) {
-                            // Not enough space -> buttons side by side
-                            return Wrap(
-                              spacing: 5,
-                              runSpacing: 10,
-                              children: [
-                                ResetButtonWIdget(),
-                                SaveButtonWidget(),
-                              ],
-                            );
-                          }
-
-                          // Enough space -> buttons stacked
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            spacing: 10,
+                    ),
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: [
+                        colorInput(rController, "R", 1),
+                        colorInput(gController, "G", 2),
+                        colorInput(bController, "B", 3),
+                      ],
+                    ),
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        if (constraints.maxWidth < 350) {
+                          return Wrap(
+                            spacing: 5,
+                            runSpacing: 10,
                             children: [ResetButtonWIdget(), SaveButtonWidget()],
                           );
-                        },
-                      ),
-                    ],
-                  ),
+                        }
+
+                        return Column(
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 10,
+                          children: [ResetButtonWIdget(), SaveButtonWidget()],
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -182,7 +172,7 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget> {
       ),
       onPressed: () async {
         final color = ColorService.getBasicColor(widget.setting);
-
+        ColorService.setColor(widget.setting, color);
         setState(() {
           ARGB = ColorService.fromARGB32(color.toARGB32());
 

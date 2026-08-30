@@ -2,6 +2,17 @@
     "classes": {
         "path": "assets/json/classes.json",
         "sorting": ["alphabetical", "primary", "source"],
+        "items": [
+            "source",
+            "hitDie",
+            "savingThrows",
+            "spells",
+            "attacksPerLevel",
+            "proficiencies",
+            "startingEquipment",
+            "features",
+            "archetypes"
+        ],
         "filters": [
             {
                 "id": "hitDie",
@@ -47,6 +58,15 @@
     },
     "species": {
         "path": "assets/json/species.json",
+        "items": [
+            "creatureType",
+            "size",
+            "speed",
+            "spells",
+            "features",
+            "subspicies",
+            "source"
+        ],
         "sorting": ["alphabetical", "speed", "source"],
         "filters": [
             {
@@ -87,6 +107,18 @@
     },
     "spells": {
         "path": "assets/json/spells.json",
+        "items": [
+            "level",
+            "school",
+            "spellList",
+            "castingTime",
+            "range",
+            "components",
+            "materials",
+            "duration",
+            "concentration",
+            "description"
+        ],
         "sorting": ["alphabetical", "level", "school"],
         "filters": [
             {
@@ -152,6 +184,7 @@
     },
     "feats": {
         "path": "assets/json/feats.json",
+        "items": ["type", "source", "features"],
         "sorting": ["alphabetical", "featType", "source"],
         "filters": [
             {
@@ -188,6 +221,7 @@
     },
     "backgrounds": {
         "path": "assets/json/backgrounds.json",
+        "items": ["abilities", "feat", "skills", "tools", "eqiupment"],
         "sorting": ["alphabetical", "source"],
         "filters": [
             {

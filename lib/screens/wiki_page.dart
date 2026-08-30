@@ -54,6 +54,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   }
 
   Future<void> init() async {
+    searchWord = "";
     await loadCategories();
     await loadItems(categories[0]);
   }
@@ -74,8 +75,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
         if (SettingsService.getSetting("primarySubSort") is List) {
           ss = (el) {
             final source = el["Basics"]["Primary"][0];
-            final List<String> sourceList = SettingsService.getSetting(
-              "primarySubSort",
+            final List<String> sourceList = List<String>.from(
+              SettingsService.getSetting("primarySubSort"),
             );
             return sourceList.indexOf(source);
           };
@@ -86,8 +87,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
         if (SettingsService.getSetting("sourceSubSort") is List) {
           ss = (el) {
             final source = el["Basics"]["source"];
-            final List<String> sourceList = SettingsService.getSetting(
-              "sourceSubSort",
+            final List<String> sourceList = List<String>.from(
+              SettingsService.getSetting("sourceSubSort"),
             );
             return sourceList.indexOf(source);
           };
@@ -252,7 +253,9 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   }
 
   Future<void> changeGrouping(bool value) async {
-    List<String> grouping = SettingsService.getSetting("wikiGrouping");
+    List<String> grouping = List<String>.from(
+      SettingsService.getSetting("wikiGrouping"),
+    );
     grouping[currentCategoryIndex] = value.toString();
     await SettingsService.setSetting("wikiGrouping", grouping);
 
@@ -338,7 +341,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    headerHeight = SettingsService.getSetting("headerHeight") / 2;
+    headerHeight = SettingsService.getSetting("headerHeight");
     categoryNum = widget.categoryNum;
     return AnimatedBuilder(
       animation: ColorService.themeNotifier,
@@ -378,16 +381,32 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                 textAlignVertical: TextAlignVertical.center,
                 cursorColor: ColorService.getColor(4),
                 style: TextStyleService.getTextStyle(4, 4),
-                onChanged: (value) async {
-                  getSelector(currentCategory);
-                  await loadOptions(currentCategory);
-                  sortData();
-                  searchWord = value;
-                  if (value != "") {
-                    data = MapService.filterMap(data, "name", [
-                      value.toString().toLowerCase(),
-                    ], byStart: true);
-                  }
+                onChanged: (value) {
+                  searchWord = value.toLowerCase();
+
+                  final json = JsonService(currentCategory);
+
+                  json.loadData().then((items) {
+                    if (!mounted || searchWord != value.toLowerCase()) return;
+
+                    var filtered = filterData(items);
+
+                    if (searchWord.isNotEmpty) {
+                      filtered = MapService.filterMap(filtered, "name", [
+                        searchWord,
+                      ], byStart: true);
+                    }
+
+                    final sorted = MapService.sortMap(
+                      filtered,
+                      selector,
+                      secondarySelector: (el) => el["name"],
+                    );
+
+                    setState(() {
+                      data = sorted;
+                    });
+                  });
                 },
               ),
             ),
