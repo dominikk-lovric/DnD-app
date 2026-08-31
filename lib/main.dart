@@ -35,7 +35,6 @@ class _MyApp extends State<MyApp> {
   }
 
   Future<void> initSettings() async {
-    SettingsService.clearSettings();
     final height = MediaQuery.sizeOf(context).height;
     await SettingsService.setSetting("theme", "base");
     await SettingsService.setSetting("headerHeight", height * 0.14);

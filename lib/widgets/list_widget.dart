@@ -1,6 +1,7 @@
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListWidget extends StatelessWidget {
@@ -28,16 +29,22 @@ class ListWidget extends StatelessWidget {
                     spacing: 10,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ...items.map(
-                        (item) => Text(
-                          item.toString(),
-                          style: TextStyleService.getTextStyle(
-                            size,
-                            4,
-                            Overflow: TextOverflow.clip,
-                          ),
-                        ),
-                      ),
+                      ...items.map((item) {
+                        if (item is List) {
+                          return ListWidget(item, size: size);
+                        } else if (item is Map<String, dynamic>) {
+                          return TableWidget(item, size);
+                        } else {
+                          return Text(
+                            item.toString(),
+                            style: TextStyleService.getTextStyle(
+                              size,
+                              4,
+                              Overflow: TextOverflow.clip,
+                            ),
+                          );
+                        }
+                      }),
                     ],
                   ),
                 ),

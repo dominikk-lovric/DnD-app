@@ -1,10 +1,13 @@
+import 'dart:async';
+
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/draggable_sheet_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class DescriptionWidget extends StatelessWidget {
+class DescriptionWidget extends StatefulWidget {
   String title;
   Widget descrption;
   String? descriptionType;
@@ -15,12 +18,14 @@ class DescriptionWidget extends StatelessWidget {
   String clickTitle;
   Widget? clickWidget;
   Widget? titleWidget;
+  bool initiallyExpanded;
 
   DescriptionWidget(
     this.title,
     this.descrption,
     this.descriptionType, {
     super.key,
+    this.initiallyExpanded = true,
     this.subtitle = "",
     this.titleLevel = 2,
     this.subtitleLevel = 2,
@@ -30,36 +35,107 @@ class DescriptionWidget extends StatelessWidget {
     this.titleWidget,
   });
 
+  @override
+  State<StatefulWidget> createState() => DescriptionWidgetState();
+}
+
+class DescriptionWidgetState extends State<DescriptionWidget> {
+  final ExpansibleController _expansibleController = ExpansibleController();
+
+  @override
+  initState() {
+    super.initState();
+  }
+
+  @override
+  dispose() {
+    _expansibleController.dispose();
+    super.dispose();
+  }
+
+  String getSetting() {
+    if (types.contains(widget.descriptionType)) {
+      return widget.descriptionType!;
+    }
+
+    return SettingsService.getSetting(
+          widget.descriptionType ?? "globalDescriptionStyle",
+        ) ??
+        SettingsService.getSetting("globalDescriptionStyle");
+  }
+
+  Future<void> close() async {
+    switch (getSetting()) {
+      case "popUp":
+      case "page":
+        if (mounted) {
+          Navigator.of(context).pop();
+        }
+        break;
+
+      case "expand":
+        if (!_expansibleController.isExpanded) {
+          return;
+        }
+
+        final completer = Completer<void>();
+
+        void listener() {
+          if (!_expansibleController.isExpanded) {
+            _expansibleController.removeListener(listener);
+
+            if (!completer.isCompleted) {
+              completer.complete();
+            }
+          }
+        }
+
+        _expansibleController.addListener(listener);
+        _expansibleController.collapse();
+
+        await completer.future;
+        break;
+
+      case "sheet":
+        // TODO
+        break;
+
+      case "text":
+      default:
+        break;
+    }
+  }
+
   List<String> types = ["popUp", "expand", "text", "sheet", "page"];
 
   Widget getClickWidget() {
-    return clickWidget ??
+    return widget.clickWidget ??
         Text(
-          clickTitle == "" ? title : clickTitle,
-          style: TextStyleService.getTextStyle(clickLevel, 4),
+          widget.clickTitle == "" ? widget.title : widget.clickTitle,
+          style: TextStyleService.getTextStyle(widget.clickLevel, 4),
         );
   }
 
   Widget getTitleWidget() {
-    return titleWidget ??
+    return widget.titleWidget ??
         Text(
-          clickTitle == "" ? title : clickTitle,
-          style: TextStyleService.getTextStyle(titleLevel, 4),
+          widget.clickTitle == "" ? widget.title : widget.clickTitle,
+          style: TextStyleService.getTextStyle(widget.titleLevel, 4),
         );
   }
 
   @override
   Widget build(BuildContext context) {
     String setting;
-    if (types.contains(descriptionType)) {
+    if (types.contains(widget.descriptionType)) {
       setting =
-          descriptionType ??
+          widget.descriptionType ??
           SettingsService.getSetting(
-            descriptionType ?? "globalDescriptionStyle",
+            widget.descriptionType ?? "globalDescriptionStyle",
           );
     } else {
       String? sett = SettingsService.getSetting(
-        descriptionType ?? "globalDescriptionStyle",
+        widget.descriptionType ?? "globalDescriptionStyle",
       );
       if (sett == null) {
         setting = SettingsService.getSetting("globalDescriptionStyle");
@@ -95,16 +171,18 @@ class DescriptionWidget extends StatelessWidget {
                         children: [
                           getTitleWidget(),
                           const Divider(indent: 10, endIndent: 10),
-                          if (subtitle != "")
+                          if (widget.subtitle != "")
                             Text(
-                              subtitle.toString(),
+                              widget.subtitle.toString(),
                               style: TextStyleService.getTextStyle(
-                                subtitleLevel,
+                                widget.subtitleLevel,
                                 4,
                               ),
                             ),
                           Flexible(
-                            child: SingleChildScrollView(child: descrption),
+                            child: SingleChildScrollView(
+                              child: widget.descrption,
+                            ),
                           ),
                           Align(
                             alignment: Alignment.centerRight,
@@ -131,10 +209,10 @@ class DescriptionWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "$title:",
-            style: TextStyleService.getTextStyle(subtitleLevel, 4),
+            widget.title + ":",
+            style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
           ),
-          descrption,
+          widget.descrption,
         ],
       );
     } else if (setting == "page") {
@@ -143,33 +221,45 @@ class DescriptionWidget extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Scaffold(
-                appBar: AppBar(
-                  backgroundColor: ColorService.getColor(0),
-                  foregroundColor: ColorService.getColor(4),
-                  toolbarHeight: SettingsService.getSetting("headerHeight"),
-                  title: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      getTitleWidget(),
-                      (subtitle != "")
-                          ? Text(
-                              subtitle,
-                              style: TextStyleService.getTextStyle(
-                                subtitleLevel,
-                                4,
-                              ),
-                            )
-                          : SizedBox.shrink(),
-                    ],
+              builder: (context) => Focus(
+                autofocus: true,
+                onKeyEvent: (node, event) {
+                  if (event is KeyDownEvent &&
+                      event.logicalKey == LogicalKeyboardKey.escape) {
+                    Navigator.of(context).pop();
+                    return KeyEventResult.handled;
+                  }
+
+                  return KeyEventResult.ignored;
+                },
+                child: Scaffold(
+                  appBar: AppBar(
+                    backgroundColor: ColorService.getColor(0),
+                    foregroundColor: ColorService.getColor(4),
+                    toolbarHeight: SettingsService.getSetting("headerHeight"),
+                    title: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        getTitleWidget(),
+                        (widget.subtitle != "")
+                            ? Text(
+                                widget.subtitle,
+                                style: TextStyleService.getTextStyle(
+                                  widget.subtitleLevel,
+                                  4,
+                                ),
+                              )
+                            : SizedBox.shrink(),
+                      ],
+                    ),
                   ),
-                ),
-                backgroundColor: ColorService.getBasicColor(2),
-                body: SafeArea(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsetsGeometry.all(20),
-                      child: descrption,
+                  backgroundColor: ColorService.getBasicColor(2),
+                  body: SafeArea(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsetsGeometry.all(20),
+                        child: widget.descrption,
+                      ),
                     ),
                   ),
                 ),
@@ -185,10 +275,15 @@ class DescriptionWidget extends StatelessWidget {
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
-            initiallyExpanded: true,
+            controller: _expansibleController,
+            initiallyExpanded: widget.initiallyExpanded,
             showTrailingIcon: false,
             tilePadding: EdgeInsets.zero,
             title: getTitleWidget(),
+            expansionAnimationStyle: AnimationStyle(
+              duration: const Duration(milliseconds: 300),
+              reverseDuration: const Duration(milliseconds: 300),
+            ),
             children: [
               Divider(
                 indent: 15,
@@ -204,12 +299,15 @@ class DescriptionWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (subtitle != "")
+                    if (widget.subtitle != "")
                       Text(
-                        subtitle.toString(),
-                        style: TextStyleService.getTextStyle(subtitleLevel, 4),
+                        widget.subtitle.toString(),
+                        style: TextStyleService.getTextStyle(
+                          widget.subtitleLevel,
+                          4,
+                        ),
                       ),
-                    descrption,
+                    widget.descrption,
                   ],
                 ),
               ),
@@ -219,25 +317,27 @@ class DescriptionWidget extends StatelessWidget {
       );
     } else if (setting == "sheet") {
       return DraggableSheetWidget(
-        title,
-        subtitle,
-        descrption,
-        titleLevel: titleLevel,
-        subtitleLevel: subtitleLevel,
-        clickLevel: clickLevel,
-        clickTitle: (clickTitle == "") ? title : clickTitle,
-        clickWidget: clickWidget,
-        titleWidget: titleWidget,
+        widget.title,
+        widget.subtitle,
+        widget.descrption,
+        titleLevel: widget.titleLevel,
+        subtitleLevel: widget.subtitleLevel,
+        clickLevel: widget.clickLevel,
+        clickTitle: (widget.clickTitle == "")
+            ? widget.title
+            : widget.clickTitle,
+        clickWidget: widget.clickWidget,
+        titleWidget: widget.titleWidget,
       );
     } else {
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            (clickTitle == "") ? title : clickTitle,
-            style: TextStyleService.getTextStyle(titleLevel, 4),
+            (widget.clickTitle == "") ? widget.title : widget.clickTitle,
+            style: TextStyleService.getTextStyle(widget.titleLevel, 4),
           ),
-          descrption,
+          widget.descrption,
         ],
       );
     }

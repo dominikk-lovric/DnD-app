@@ -1,9 +1,11 @@
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feature_description_widget.dart';
 import 'package:dnd_app/widgets/list_widget.dart';
+import 'package:dnd_app/widgets/saving_throws_widget.dart';
 import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -40,14 +42,18 @@ class DescriptionColumnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = [];
-    List<String> keys = info.keys.toList();
-    List<String> notShown = ["name", "catId", "id", "icon"];
+    List<dynamic> keys = info.keys.toList();
+    List<String> notShown = ["name", "catId", "id", "icon", "source"];
     for (final key in keys) {
-      if (!notShown.contains(key)) {
+      if (!notShown.contains(key) &&
+          !notShown.contains(StringService.slugify(key))) {
         String setting =
-            "$key${StringService.CapitalizeWord(info["catId"])}DescriptionStyle";
+            StringService.slugify(key) +
+            StringService.slugify(info["catId"]) +
+            "sDescriptionStyle".toString();
         String title = StringService.titleFromKey(key);
         Widget? content;
+
         if (key == "description") {
           widgets.add(
             Text(
@@ -55,6 +61,30 @@ class DescriptionColumnWidget extends StatelessWidget {
               style: TextStyleService.getTextStyle(descriptionLevel, 4),
             ),
           );
+        } else if (key == "savingThrows" || key == "abilities") {
+          print(info[key]);
+          print(info[key] is List);
+          content = CheckListWidget(
+            info[key],
+            ["Str", "Dex", "Con", "Int", "Wis", "Cha"].toList(),
+          );
+          widgets.add(DescriptionWidget(title, content, setting));
+        } else if (key == "hitDie") {
+          content = Stack(
+            alignment: AlignmentGeometry.center,
+            children: [
+              Container(
+                child: Icon(Icons.favorite, color: Colors.red, size: 80),
+              ),
+              Container(
+                child: Text(
+                  info["hitDie"],
+                  style: TextStyleService.getTextStyle(3, 4),
+                ),
+              ),
+            ],
+          );
+          widgets.add(DescriptionWidget("Hit die", content, setting));
         } else if (key == "features") {
           content = Column(
             children: [
@@ -67,25 +97,21 @@ class DescriptionColumnWidget extends StatelessWidget {
             ],
           );
           widgets.add(DescriptionWidget(title, content, setting));
-        } else if (info["catId"] == "spell" && key == "level") {
-          content = Text(
-            getLevel(info["level"]),
-            style: TextStyleService.getTextStyle(subtitleLevel, 4),
-          );
-          widgets.add(DescriptionWidget(title, content, setting));
         } else {
           final item = info[key];
           if (item is List) {
+            print(item);
             if (item.length > 1) {
               content = ListWidget(item, size: descriptionLevel);
-            } else {
+              widgets.add(DescriptionWidget(title, content, setting));
+            } else if (item.isNotEmpty) {
+              print(item[0]);
               content = Text(
                 item[0].toString(),
                 style: TextStyleService.getTextStyle(subtitleLevel, 4),
               );
-              setting = "text";
+              widgets.add(DescriptionWidget(title, content, setting));
             }
-            widgets.add(DescriptionWidget(title, content, setting));
           } else if (item is Map<String, dynamic>) {
             content = TableWidget(item, descriptionLevel);
             widgets.add(DescriptionWidget(title, content, setting));

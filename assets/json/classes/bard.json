@@ -8,9 +8,9 @@
     },
     "hitDie": "d8",
     "savingThrows": ["Dex", "Cha"],
+    "casterLevel": 1,
+    "spellcastingAbility": "Cha",
     "spells": {
-        "casterLevel": 1,
-        "spellcastingAbility": "Cha",
         "Cantrips": [
             2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
         ],

@@ -5,23 +5,28 @@ import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
 class CheckListWidget extends StatelessWidget {
-  final List<String> options;
+  final List<dynamic> options;
   final List<dynamic> stats;
 
   const CheckListWidget(this.options, this.stats, {super.key});
 
   @override
   Widget build(BuildContext context) {
+    print(options);
+    print(stats);
     double width = MediaQuery.of(context).size.width;
     List<Widget> items = [];
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < stats.length; i++) {
       items.add(
         Column(
           mainAxisSize: .min,
           children: [
-            Text(options[i], style: TextStyleService.getTextStyle(2, 4)),
+            Text(
+              stats[i].toString(),
+              style: TextStyleService.getTextStyle(2, 4),
+            ),
             Checkbox(
-              value: stats.contains(options[i]),
+              value: options.contains(stats[i]),
               onChanged: (_) {},
               activeColor: ColorService.getColor(0),
               checkColor: ColorService.getColor(4),

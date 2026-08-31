@@ -1,4 +1,6 @@
 import 'package:dnd_app/services/json_service.dart';
+import 'package:dnd_app/services/string_service.dart';
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/color_selector_widget.dart';
 import 'package:dnd_app/widgets/description_style_selector_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
@@ -20,6 +22,7 @@ class SettingsPage extends StatefulWidget {
 class SettingsPageState extends State<SettingsPage> {
   Map<String, dynamic>? categoryData;
   List<String>? categories;
+  List<String> options = ["popUp", "expand", "page", "text", "sheet", "static"];
 
   @override
   initState() {
@@ -80,19 +83,9 @@ class SettingsPageState extends State<SettingsPage> {
                   Column(
                     children: [
                       ...(categories ?? []).map((el) {
-                        Map<String, dynamic> data =
-                            (categoryData ?? {"el": ""})[el];
-                        return DescriptionWidget(
+                        return DescriptionStyleSelectorWidget(
                           el,
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ...data["items"].map((e) {
-                                return DescriptionStyleSelectorWidget(e, el);
-                              }),
-                            ],
-                          ),
-                          "expand",
+                          (categoryData ?? {})[el ?? ""] ?? {},
                         );
                       }),
                     ],

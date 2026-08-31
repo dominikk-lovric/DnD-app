@@ -3,6 +3,7 @@ import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/background_info_widget.dart';
 import 'package:dnd_app/widgets/class_info_widget.dart';
+import 'package:dnd_app/widgets/description_column_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/feat_info_widget.dart';
 import 'package:dnd_app/widgets/filter_menu_widget.dart';
@@ -367,6 +368,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           Navigator.pop(context);
           return KeyEventResult.handled;
         }
+
         return KeyEventResult.ignored;
       },
       child: AnimatedBuilder(
@@ -580,7 +582,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                         DescriptionWidget(
                           data[items[itemIndex]]["name"],
                           infoWidget,
-                          "itemDescriptionStyle",
+                          currentCategory + "DescriptionStyle",
                           clickWidget: ItemWidget(
                             items[itemIndex],
                             data[items[itemIndex]],
@@ -650,20 +652,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
         }
 
         final infoData = snapshot.data!;
-
-        if (category == "classes") {
-          return ClassInfoWidget(infoData);
-        } else if (category == "species") {
-          return SpeciesInfoWidget(infoData);
-        } else if (category == "backgrounds") {
-          return BackgroundInfoWidget(infoData);
-        } else if (category == "feats") {
-          return FeatInfoWidget(infoData);
-        } else if (category == "spells") {
-          return SpellInfoWidget(infoData);
-        }
-
-        return const SizedBox.shrink();
+        return DescriptionColumnWidget(infoData);
       },
     );
   }

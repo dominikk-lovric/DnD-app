@@ -8,9 +8,9 @@
     },
     "hitDie": "d8",
     "savingThrows": ["Int", "Wis"],
+    "casterLevel": 1,
+    "spellcastingAbility": "Wis",
     "spells": {
-        "casterLevel": 1,
-        "spellcastingAbility": "Wis",
         "Cantrips": [
             2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
         ],

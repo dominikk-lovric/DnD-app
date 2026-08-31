@@ -8,10 +8,7 @@
     },
     "hitDie": "d8",
     "savingThrows": ["Str", "Dex"],
-    "spells": {
-        "casterLevel": 0,
-        "spellcastingAbility": "Int"
-    },
+
     "attacksPerLevel": [
         1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
     ],
