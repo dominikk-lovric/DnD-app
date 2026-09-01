@@ -1,21 +1,21 @@
 {
-  "name": "Mist Walker",
-  "catId": "feat",
-  "type": "Dark Gift Feat",
-  "source": "Ravenloft - The Horrors Within",
-  "description": "Dark Gift Feat (Prerequisite: Ravenloft Campaign) You know how to slip through the Mists’ grasp, but this freedom comes at a price: If you remain in one area for too long, the Mists find you and drain your life force. You gain the following features.",
-  "features": [
-    {
-      "name": "Domain Traveler",
-      "description": "When you enter the Mists intent on reaching a specific domain, you are treated as if you possess a Mist talisman keyed to that domain. To use this feature, you must know the name of the domain you have chosen as your destination, but you don’t need to have previously visited that land. This trait doesn’t allow you to bypass domain borders closed by a Darklord’s will."
-    },
-    {
-      "name": "Mist Walk",
-      "description": "When you take damage or fail a saving throw to avoid or end the Grappled or Restrained condition, you can take a Reaction and teleport up to 15 feet to an unoccupied space you can see. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
-    },
-    {
-      "name": "Poisoned Roots",
-      "description": "When you finish a Long Rest, the world around you in a 10-mile radius becomes a siphon that leeches away at your vitality. Whenever you finish a Short Rest in that area, make a Constitution saving throw (DC 13 plus your Proficiency Bonus). On a failed save, you get no benefits from finishing that rest."
-    }
-  ]
+    "name": "Mist Walker",
+    "catId": "feats",
+    "type": "Dark Gift Feat",
+    "source": "Ravenloft - The Horrors Within",
+    "description": "Dark Gift Feat (Prerequisite: Ravenloft Campaign) You know how to slip through the Mists’ grasp, but this freedom comes at a price: If you remain in one area for too long, the Mists find you and drain your life force. You gain the following features.",
+    "features": [
+        {
+            "name": "Domain Traveler",
+            "description": "When you enter the Mists intent on reaching a specific domain, you are treated as if you possess a Mist talisman keyed to that domain. To use this feature, you must know the name of the domain you have chosen as your destination, but you don’t need to have previously visited that land. This trait doesn’t allow you to bypass domain borders closed by a Darklord’s will."
+        },
+        {
+            "name": "Mist Walk",
+            "description": "When you take damage or fail a saving throw to avoid or end the Grappled or Restrained condition, you can take a Reaction and teleport up to 15 feet to an unoccupied space you can see. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+        },
+        {
+            "name": "Poisoned Roots",
+            "description": "When you finish a Long Rest, the world around you in a 10-mile radius becomes a siphon that leeches away at your vitality. Whenever you finish a Short Rest in that area, make a Constitution saving throw (DC 13 plus your Proficiency Bonus). On a failed save, you get no benefits from finishing that rest."
+        }
+    ]
 }

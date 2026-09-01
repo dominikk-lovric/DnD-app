@@ -1,21 +1,21 @@
 {
-  "name": "Greater Mark Of Sentinel",
-  "catId": "feat",
-  "type": "Dragonmark Feat",
-  "source": "Eberron - Forge of the Artificer",
-  "description": "General Feat (Prerequisite: Level 4+, Mark of Sentinel Feat) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Improved Intuition",
-      "description": "When you use the Sentinel’s Intuition benefit of your Mark of Sentinel feat, you can roll 1d6 instead of 1d4."
-    },
-    {
-      "name": "Improved Sentinel",
-      "description": "When you use the Vigilant Guardian benefit of your Mark of Sentinel feat, you can also make one attack with a weapon or an Unarmed Strike as part of that same Reaction."
-    }
-  ]
+    "name": "Greater Mark Of Sentinel",
+    "catId": "feats",
+    "type": "Dragonmark Feat",
+    "source": "Eberron - Forge of the Artificer",
+    "description": "General Feat (Prerequisite: Level 4+, Mark of Sentinel Feat) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Improved Intuition",
+            "description": "When you use the Sentinel’s Intuition benefit of your Mark of Sentinel feat, you can roll 1d6 instead of 1d4."
+        },
+        {
+            "name": "Improved Sentinel",
+            "description": "When you use the Vigilant Guardian benefit of your Mark of Sentinel feat, you can also make one attack with a weapon or an Unarmed Strike as part of that same Reaction."
+        }
+    ]
 }

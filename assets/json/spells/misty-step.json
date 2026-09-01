@@ -1,24 +1,24 @@
 {
-  "catId": "spell",
-  "name": "Misty Step",
-  "level": 2,
-  "school": "Conjuration",
-  "spellList": [
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Bonus Action"
-  ],
-  "range": "Self",
-  "components": [
-    "V"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.\n"
+    "catId": "spells",
+    "name": "Misty Step",
+    "level": 2,
+    "school": "Conjuration",
+    "spellList": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Bonus Action"
+    ],
+    "range": "Self",
+    "components": [
+        "V"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.\n"
 }

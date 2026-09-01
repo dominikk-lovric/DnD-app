@@ -1,15 +1,37 @@
 {
-	"name": "Emerald Enclave Caretaker",
-	"catId": "background",
-	"description": "Choose A or B: (A) Shortbow, 20 Arrows, Herbalism Kit, Bedroll, Blanket, Pouch, Tent, Traveler’s Clothes, 13 GP; or (B) 50 GP",
-	"abilities": ["Con", "Int", "Wis"],
-	"feat": [
-		{
-			"name": "Emerald Enclave Fledgling",
-			"path": "assets/json/feats/emerald-enclave-fledgling"
-		}
-	],
-	"skills": ["Nature", "Survival"],
-	"tools": "Herbalism Kit",
-	"equipment": [["Shortbow", "20 Arrows", "Herbalism Kit", "Bedroll", "Blanket", "Pouch", "Tent", "Traveler’s Clothes", "13 GP"], ["50 GP"]]
+    "name": "Emerald Enclave Caretaker",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Shortbow, 20 Arrows, Herbalism Kit, Bedroll, Blanket, Pouch, Tent, Traveler’s Clothes, 13 GP; or (B) 50 GP",
+    "abilities": [
+        "Con",
+        "Int",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Emerald Enclave Fledgling",
+            "path": "assets/json/feats/emerald-enclave-fledgling"
+        }
+    ],
+    "skills": [
+        "Nature",
+        "Survival"
+    ],
+    "tools": "Herbalism Kit",
+    "equipment": [
+        [
+            "Shortbow",
+            "20 Arrows",
+            "Herbalism Kit",
+            "Bedroll",
+            "Blanket",
+            "Pouch",
+            "Tent",
+            "Traveler’s Clothes",
+            "13 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

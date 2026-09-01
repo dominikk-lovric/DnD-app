@@ -1,29 +1,109 @@
 {
     "id": "c11",
-    "catId": "class",
+    "catId": "classes",
     "name": "Warlock",
     "source": "Player's Handbook",
     "icon": {
         "base": "assets/icons/base/classes/warlock.jpg"
     },
     "hitDie": "d8",
-    "savingThrows": ["Wis", "Cha"],
-    "casterLevel": 1,
-    "spellcastingAbility": "Cha",
-    "spells": {
-        "Cantrips": [
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15,
-            15
-        ],
-        "Prepared Spells": [
-            1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4
-        ],
-        "Spell Slots": [
-            1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
-        ]
+    "savingThrows": [
+        "Wis",
+        "Cha"
+    ],
+    "spellcasting": {
+        "casterLevel": 1,
+        "spellcastingAbility": "Cha",
+        "spellcastingTable": {
+            "Cantrips": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                10,
+                11,
+                11,
+                12,
+                12,
+                13,
+                13,
+                14,
+                14,
+                15,
+                15
+            ],
+            "Prepared Spells": [
+                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                4,
+                4,
+                4,
+                4
+            ],
+            "Spell Slots": [
+                1,
+                1,
+                2,
+                2,
+                3,
+                3,
+                4,
+                4,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+            ]
+        }
     },
     "attacksPerLevel": [
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
     ],
     "proficiencies": [
         {
@@ -41,11 +121,15 @@
         },
         {
             "name": "Armor",
-            "proficiencies": ["Light"]
+            "proficiencies": [
+                "Light"
+            ]
         },
         {
             "name": "Weapon",
-            "proficiencies": ["Simple"]
+            "proficiencies": [
+                "Simple"
+            ]
         }
     ],
     "startingEquipment": [
@@ -57,7 +141,9 @@
             "Book (occult lore)",
             "Scholar's Pack and 15 GP"
         ],
-        ["100 GP"]
+        [
+            "100 GP"
+        ]
     ],
     "progression": [],
     "features": [
@@ -66,7 +152,26 @@
             "level": 1,
             "description": "You have unearthed Eldritch Invocations , pieces of forbidden knowledge that imbue you with an abiding magical ability or other lessons. You gain one invocation of your choice, such as Pact of the Tome. Invocations are described in the “Eldritch Invocation Options” section later in this class’s description. Prerequisites. If an invocation has a prerequisite, you must meet it to learn that invocation. For example, if an invocation requires you to be a level 5+ Warlock, you can select the invocation once you reach Warlock level 5. Replacing and Gaining Invocations. Whenever you gain a Warlock level, you can replace one of your invocations with another one for which you qualify. You can’t replace an invocation if it’s a prerequisite for another invocation that you have. When you gain certain Warlock levels, you gain more invocations of your choice, as shown in the Invocations column of the Warlock Features table. You can’t pick the same invocation more than once unless its description says otherwise.",
             "value": [
-                2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
+                2,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
             ]
         },
         {
@@ -127,7 +232,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -173,7 +297,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -219,7 +362,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -265,7 +427,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -321,7 +502,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {

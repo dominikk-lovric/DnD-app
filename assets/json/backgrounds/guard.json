@@ -1,15 +1,37 @@
 {
-	"name": "Guard",
-	"catId": "background",
-	"description": "Your feet ache when you remember the countless hours you spent at your post in the tower. You were trained to keep one eye looking outside the wall, watching for marauders sweeping from the nearby forest, and your other eye looking inside the wall, searching for cutpurses and troublemakers.",
-	"abilities": ["Str", "Int", "Wis"],
-	"feat": [
-		{
-			"name": "Alert",
-			"path": "assets/json/feats/alert"
-		}
-	],
-	"skills": ["Athletics", "Perception"],
-	"tools": "Gaming Set",
-	"equipment": [["Spear", "Light Crossbow", "20 Bolts", "Gaming Set (same as above)", "Hooded Lantern", "Manacles", "Quiver", "Traveler’s Clothes", "12 GP"], ["50 GP"]]
+    "name": "Guard",
+    "catId": "backgrounds",
+    "description": "Your feet ache when you remember the countless hours you spent at your post in the tower. You were trained to keep one eye looking outside the wall, watching for marauders sweeping from the nearby forest, and your other eye looking inside the wall, searching for cutpurses and troublemakers.",
+    "abilities": [
+        "Str",
+        "Int",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Alert",
+            "path": "assets/json/feats/alert"
+        }
+    ],
+    "skills": [
+        "Athletics",
+        "Perception"
+    ],
+    "tools": "Gaming Set",
+    "equipment": [
+        [
+            "Spear",
+            "Light Crossbow",
+            "20 Bolts",
+            "Gaming Set (same as above)",
+            "Hooded Lantern",
+            "Manacles",
+            "Quiver",
+            "Traveler’s Clothes",
+            "12 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

@@ -1,22 +1,22 @@
 {
-  "catId": "spell",
-  "name": "Word of Recall",
-  "level": 6,
-  "school": "Conjuration",
-  "spellList": [
-    "Cleric"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "5 feet",
-  "components": [
-    "V"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "You and up to five willing creatures within 5 feet of you instantly teleport to a previously designated sanctuary. You and any creatures that teleport with you appear in the nearest unoccupied space to the spot you designated when you prepared your sanctuary (see below). If you cast this spell without first preparing a sanctuary, the spell has no effect.\nYou must designate a location, such as a temple, as a sanctuary by casting this spell there.\n"
+    "catId": "spells",
+    "name": "Word of Recall",
+    "level": 6,
+    "school": "Conjuration",
+    "spellList": [
+        "Cleric"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "5 feet",
+    "components": [
+        "V"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "You and up to five willing creatures within 5 feet of you instantly teleport to a previously designated sanctuary. You and any creatures that teleport with you appear in the nearest unoccupied space to the spot you designated when you prepared your sanctuary (see below). If you cast this spell without first preparing a sanctuary, the spell has no effect.\nYou must designate a location, such as a temple, as a sanctuary by casting this spell there.\n"
 }

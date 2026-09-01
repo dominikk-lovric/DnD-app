@@ -1,31 +1,31 @@
 {
-  "name": "Crafter",
-  "catId": "feat",
-  "type": "Origin Feat",
-  "source": "Player's Handbook",
-  "description": "You gain the following benefits.",
-  "features": [
-    {
-      "name": "Tool Proficiency",
-      "description": "You gain proficiency with three different Artisan's Tools of your choice from the Fast Crafting table."
-    },
-    {
-      "name": "Discount",
-      "description": "Whenever you buy a nonmagical item, you receive a 20 percent discount on it."
-    },
-    {
-      "name": "Fast Crafting",
-      "description": "When you finish a Long Rest, you can craft one piece of gear from the Fast Crafting table, provided you have the Artisan's Tools associated with that item and have proficiency with those tools. The item lasts until you finish another Long Rest, at which point the item falls apart.",
-      "table": {
-        "Carpenter's Tools": "Ladder, Torch",
-        "Leatherworker's Tools": "Case, Pouch",
-        "Mason's Tools": "Block and Tackle",
-        "Potter's Tools": "Jug, Lamp",
-        "Smith's Tools": "Ball Bearings, Bucket, Caltrops, Grappling Hook, Iron Pot",
-        "Tinker's Tools": "Bell, Shovel, Tinder Box",
-        "Weaver's Tools": "Basket, Rope, Net, Tent",
-        "Woodcarver's Tools": "Club, Greatclub, Quarterstaff"
-      }
-    }
-  ]
+    "name": "Crafter",
+    "catId": "feats",
+    "type": "Origin Feat",
+    "source": "Player's Handbook",
+    "description": "You gain the following benefits.",
+    "features": [
+        {
+            "name": "Tool Proficiency",
+            "description": "You gain proficiency with three different Artisan's Tools of your choice from the Fast Crafting table."
+        },
+        {
+            "name": "Discount",
+            "description": "Whenever you buy a nonmagical item, you receive a 20 percent discount on it."
+        },
+        {
+            "name": "Fast Crafting",
+            "description": "When you finish a Long Rest, you can craft one piece of gear from the Fast Crafting table, provided you have the Artisan's Tools associated with that item and have proficiency with those tools. The item lasts until you finish another Long Rest, at which point the item falls apart.",
+            "table": {
+                "Carpenter's Tools": "Ladder, Torch",
+                "Leatherworker's Tools": "Case, Pouch",
+                "Mason's Tools": "Block and Tackle",
+                "Potter's Tools": "Jug, Lamp",
+                "Smith's Tools": "Ball Bearings, Bucket, Caltrops, Grappling Hook, Iron Pot",
+                "Tinker's Tools": "Bell, Shovel, Tinder Box",
+                "Weaver's Tools": "Basket, Rope, Net, Tent",
+                "Woodcarver's Tools": "Club, Greatclub, Quarterstaff"
+            }
+        }
+    ]
 }

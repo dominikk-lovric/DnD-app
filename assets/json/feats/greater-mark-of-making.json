@@ -1,21 +1,21 @@
 {
-  "name": "Greater Mark Of Making",
-  "catId": "feat",
-  "type": "Dragonmark Feat",
-  "source": "Eberron - Forge of the Artificer",
-  "description": "General Feat (Prerequisite: Level 4+, Mark of Making Feat) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Improved Intuition",
-      "description": "When you use the Artisan’s Intuition benefit of your Mark of Making feat, you can roll 1d6 instead of 1d4."
-    },
-    {
-      "name": "Improved Making",
-      "description": "When you use the Spellsmith benefit of your Mark of Making feat to cast Magic Weapon without a spell slot, you cast the spell as its level 3 version."
-    }
-  ]
+    "name": "Greater Mark Of Making",
+    "catId": "feats",
+    "type": "Dragonmark Feat",
+    "source": "Eberron - Forge of the Artificer",
+    "description": "General Feat (Prerequisite: Level 4+, Mark of Making Feat) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Improved Intuition",
+            "description": "When you use the Artisan’s Intuition benefit of your Mark of Making feat, you can roll 1d6 instead of 1d4."
+        },
+        {
+            "name": "Improved Making",
+            "description": "When you use the Spellsmith benefit of your Mark of Making feat to cast Magic Weapon without a spell slot, you cast the spell as its level 3 version."
+        }
+    ]
 }

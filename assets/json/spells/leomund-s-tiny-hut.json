@@ -1,26 +1,26 @@
 {
-  "catId": "spell",
-  "name": "Leomund's Tiny Hut",
-  "level": 3,
-  "school": "Evocation",
-  "spellList": [
-    "Bard",
-    "Wizard"
-  ],
-  "castingTime": [
-    "1 minute",
-    "Ritual"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a crystal bead",
-  "duration": [
-    "8 hours"
-  ],
-  "concentration": false,
-  "description": "A 10-foot Emanation springs into existence around you and remains stationary for the duration. The spell fails when you cast it if the Emanation isn’t big enough to fully encapsulate all creatures in its area.\nCreatures and objects within the Emanation when you cast the spell can move through it freely. All other creatures and objects are barred from passing through it. Spells of level 3 or lower can’t be cast through it, and the effects of such spells can’t extend into it.\nThe atmosphere inside the Emanation is comfortable and dry, regardless of the weather outside. Until the spell ends, you can command the interior to have Dim Light or Darkness (no action required). The Emanation is opaque from the outside and of any color you choose, but it’s transparent from the inside.\nThe spell ends early if you leave the Emanation or if you cast it again.\n"
+    "catId": "spells",
+    "name": "Leomund's Tiny Hut",
+    "level": 3,
+    "school": "Evocation",
+    "spellList": [
+        "Bard",
+        "Wizard"
+    ],
+    "castingTime": [
+        "1 minute",
+        "Ritual"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a crystal bead",
+    "duration": [
+        "8 hours"
+    ],
+    "concentration": false,
+    "description": "A 10-foot Emanation springs into existence around you and remains stationary for the duration. The spell fails when you cast it if the Emanation isn’t big enough to fully encapsulate all creatures in its area.\nCreatures and objects within the Emanation when you cast the spell can move through it freely. All other creatures and objects are barred from passing through it. Spells of level 3 or lower can’t be cast through it, and the effects of such spells can’t extend into it.\nThe atmosphere inside the Emanation is comfortable and dry, regardless of the weather outside. Until the spell ends, you can command the interior to have Dim Light or Darkness (no action required). The Emanation is opaque from the outside and of any color you choose, but it’s transparent from the inside.\nThe spell ends early if you leave the Emanation or if you cast it again.\n"
 }

@@ -1,21 +1,21 @@
 {
-  "name": "Actor",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Player's Handbook",
-  "description": "Prerequisite: Level 4+, Charisma 13+ You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Charisma score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Impersonation",
-      "description": "While you're disguised as a real or fictional person, you have Advantage on Charisma (Deception or Performance) checks to convince others that you are that person."
-    },
-    {
-      "name": "Mimicry",
-      "description": "You can mimic the sounds of other creatures, including speech. A creature that hears the mimicry must succeed on a Wisdom (Insight) check to determine the effect is faked (DC 8 plus your Charisma modifier and Proficiency Bonus)."
-    }
-  ]
+    "name": "Actor",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Player's Handbook",
+    "description": "Prerequisite: Level 4+, Charisma 13+ You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Charisma score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Impersonation",
+            "description": "While you're disguised as a real or fictional person, you have Advantage on Charisma (Deception or Performance) checks to convince others that you are that person."
+        },
+        {
+            "name": "Mimicry",
+            "description": "You can mimic the sounds of other creatures, including speech. A creature that hears the mimicry must succeed on a Wisdom (Insight) check to determine the effect is faked (DC 8 plus your Charisma modifier and Proficiency Bonus)."
+        }
+    ]
 }

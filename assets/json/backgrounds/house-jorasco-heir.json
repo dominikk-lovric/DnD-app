@@ -1,15 +1,32 @@
 {
-	"name": "House Jorasco Heir",
-	"catId": "background",
-	"description": "House Jorasco teaches that illness and injury stalk the living like ghosts, robbing people of health and longevity. You’ve been taught ways to combat these scourges, both magically and medically. You’re trained to use those skills in the service of others—and to ascertain that you are always appropriately compensated for this service, ensuring the health and longevity of House Jorasco. You might be a kindly healer with no stomach for combat or a dispassionate specialist who knows exactly how to incapacitate or kill an enemy with precise strikes.",
-	"abilities": ["Dex", "Con", "Wis"],
-	"feat": [
-		{
-			"name": "Mark of Healing",
-			"path": "assets/json/feats/mark-of-healing"
-		}
-	],
-	"skills": ["Medicine", "Stealth"],
-	"tools": "Herbalism Kit",
-	"equipment": [["Herbalism Kit", "Fine Clothes", "Healer’s Kit", "25 GP"], ["50 GP"]]
+    "name": "House Jorasco Heir",
+    "catId": "backgrounds",
+    "description": "House Jorasco teaches that illness and injury stalk the living like ghosts, robbing people of health and longevity. You’ve been taught ways to combat these scourges, both magically and medically. You’re trained to use those skills in the service of others—and to ascertain that you are always appropriately compensated for this service, ensuring the health and longevity of House Jorasco. You might be a kindly healer with no stomach for combat or a dispassionate specialist who knows exactly how to incapacitate or kill an enemy with precise strikes.",
+    "abilities": [
+        "Dex",
+        "Con",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Healing",
+            "path": "assets/json/feats/mark-of-healing"
+        }
+    ],
+    "skills": [
+        "Medicine",
+        "Stealth"
+    ],
+    "tools": "Herbalism Kit",
+    "equipment": [
+        [
+            "Herbalism Kit",
+            "Fine Clothes",
+            "Healer’s Kit",
+            "25 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

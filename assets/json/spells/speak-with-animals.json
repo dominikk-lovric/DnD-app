@@ -1,27 +1,27 @@
 {
-  "catId": "spell",
-  "name": "Speak with Animals",
-  "level": 1,
-  "school": "Divination",
-  "spellList": [
-    "Bard",
-    "Druid",
-    "Ranger",
-    "Warlock"
-  ],
-  "castingTime": [
-    "Action",
-    "Ritual"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "10 minutes"
-  ],
-  "concentration": false,
-  "description": "For the duration, you can comprehend and verbally communicate with Beasts, and you can use any of the Influence action’s skill options with them.\nMost Beasts have little to say about topics that don’t pertain to survival or companionship, but at minimum, a Beast can give you information about nearby locations and monsters, including whatever it has perceived within the past day.\n"
+    "catId": "spells",
+    "name": "Speak with Animals",
+    "level": 1,
+    "school": "Divination",
+    "spellList": [
+        "Bard",
+        "Druid",
+        "Ranger",
+        "Warlock"
+    ],
+    "castingTime": [
+        "Action",
+        "Ritual"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "10 minutes"
+    ],
+    "concentration": false,
+    "description": "For the duration, you can comprehend and verbally communicate with Beasts, and you can use any of the Influence action’s skill options with them.\nMost Beasts have little to say about topics that don’t pertain to survival or companionship, but at minimum, a Beast can give you information about nearby locations and monsters, including whatever it has perceived within the past day.\n"
 }

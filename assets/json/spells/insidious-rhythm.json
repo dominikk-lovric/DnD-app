@@ -1,23 +1,23 @@
 {
-  "catId": "spell",
-  "name": "Insidious Rhythm",
-  "level": 1,
-  "school": "Enchantment",
-  "spellList": [
-    "Bard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "120 feet.",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "up to 1 minute"
-  ],
-  "concentration": true,
-  "description": "One creature of your choice that you can see within range hears a haunting yet catchy tune that continuously repeats in its mind. The target must succeed on a Wisdom saving throw, or it has Disadvantage on Intelligence checks and on Constitution saving throws made to maintain Concentration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1.\n"
+    "catId": "spells",
+    "name": "Insidious Rhythm",
+    "level": 1,
+    "school": "Enchantment",
+    "spellList": [
+        "Bard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "120 feet.",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "up to 1 minute"
+    ],
+    "concentration": true,
+    "description": "One creature of your choice that you can see within range hears a haunting yet catchy tune that continuously repeats in its mind. The target must succeed on a Wisdom saving throw, or it has Disadvantage on Intelligence checks and on Constitution saving throws made to maintain Concentration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1.\n"
 }

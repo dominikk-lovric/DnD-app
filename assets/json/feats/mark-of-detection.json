@@ -1,32 +1,32 @@
 {
-  "name": "Mark Of Detection",
-  "catId": "feat",
-  "type": "Dragonmark Feat",
-  "source": "Eberron - Forge of the Artificer",
-  "description": "Dragonmark Feat (Prerequisite: Eberron Campaign, Can’t have another Dragonmark Feat) You gain the following benefits. When you reach character level 3, you also always have the See Invisibility spell prepared and can cast it the same way.",
-  "features": [
-    {
-      "name": "Deductive Intuition",
-      "description": "When you make an Intelligence (Investigation) or Wisdom (Insight) check, you can roll 1d4 and add the number rolled to the ability check."
-    },
-    {
-      "name": "Magical Detection",
-      "description": "You always have the Detect Magic and Detect Poison and Disease spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
-    },
-    {
-      "name": "Spells of the Mark",
-      "description": "If you have the Spellcasting or Pact Magic feature, the spells on the Mark of Detection Spells table are added to that feature’s spell list."
-    },
-    {
-      "name": "Mark of Detection Spells",
-      "description": "",
-      "table": {
-        "1": "Detect Evil and Good, Identify",
-        "2": "Detect Thoughts, Find Traps",
-        "3": "Clairvoyance, Nondetection",
-        "4": "Arcane Eye, Divination",
-        "5": "Legend Lore"
-      }
-    }
-  ]
+    "name": "Mark Of Detection",
+    "catId": "feats",
+    "type": "Dragonmark Feat",
+    "source": "Eberron - Forge of the Artificer",
+    "description": "Dragonmark Feat (Prerequisite: Eberron Campaign, Can’t have another Dragonmark Feat) You gain the following benefits. When you reach character level 3, you also always have the See Invisibility spell prepared and can cast it the same way.",
+    "features": [
+        {
+            "name": "Deductive Intuition",
+            "description": "When you make an Intelligence (Investigation) or Wisdom (Insight) check, you can roll 1d4 and add the number rolled to the ability check."
+        },
+        {
+            "name": "Magical Detection",
+            "description": "You always have the Detect Magic and Detect Poison and Disease spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+        },
+        {
+            "name": "Spells of the Mark",
+            "description": "If you have the Spellcasting or Pact Magic feature, the spells on the Mark of Detection Spells table are added to that feature’s spell list."
+        },
+        {
+            "name": "Mark of Detection Spells",
+            "description": "",
+            "table": {
+                "1": "Detect Evil and Good, Identify",
+                "2": "Detect Thoughts, Find Traps",
+                "3": "Clairvoyance, Nondetection",
+                "4": "Arcane Eye, Divination",
+                "5": "Legend Lore"
+            }
+        }
+    ]
 }

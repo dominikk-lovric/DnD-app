@@ -1,8 +1,8 @@
 {
-  "name": "Sharp Eye",
-  "catId": "feat",
-  "type": "Origin Feat",
-  "source": "Ravenloft - The Horrors Within",
-  "description": "Origin Feat When you take the Search or Study action, you can give yourself Advantage on any ability check made as part of that action. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. If the check fails, the use of this feature isn't expended.",
-  "features": []
+    "name": "Sharp Eye",
+    "catId": "feats",
+    "type": "Origin Feat",
+    "source": "Ravenloft - The Horrors Within",
+    "description": "Origin Feat When you take the Search or Study action, you can give yourself Advantage on any ability check made as part of that action. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. If the check fails, the use of this feature isn't expended.",
+    "features": []
 }

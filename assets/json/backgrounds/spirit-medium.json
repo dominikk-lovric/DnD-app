@@ -1,14 +1,21 @@
 {
     "name": "Spirit Medium",
-    "catId": "background",
+    "catId": "backgrounds",
     "description": "Through strange rituals and fateful encounters, you’ve discovered that you bear a unique connection to the spirits of the dead and damned. Your body is a conduit for such spirits, granting you prescient insight from beyond. But these spirits’ intentions aren’t always innocent, and their gifts come at a haunting cost.",
-    "abilities": ["Con", "Int", "Wis"],
+    "abilities": [
+        "Con",
+        "Int",
+        "Wis"
+    ],
     "feat": [
         {
             "options": "assets/json/feats/darkGift"
         }
     ],
-    "skills": ["Insight", "Religion"],
+    "skills": [
+        "Insight",
+        "Religion"
+    ],
     "tools": "One kind of Gaming Set",
     "equipment": [
         [
@@ -24,6 +31,8 @@
             "Traveler’s Clothes",
             "32 GP"
         ],
-        ["50 GP"]
+        [
+            "50 GP"
+        ]
     ]
 }

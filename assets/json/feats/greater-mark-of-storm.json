@@ -1,21 +1,21 @@
 {
-  "name": "Greater Mark Of Storm",
-  "catId": "feat",
-  "type": "Dragonmark Feat",
-  "source": "Eberron - Forge of the Artificer",
-  "description": "General Feat (Prerequisite: Level 4+, Mark of Storm Feat) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Improved Intuition",
-      "description": "When you use the Windwright’s Intuition benefit of your Mark of Storm feat, you can roll 1d6 instead of 1d4."
-    },
-    {
-      "name": "Improved Storm",
-      "description": "When you use the Storm Magic benefit of your Mark of Storm feat to cast Gust of Wind without a spell slot, you also gain a Fly Speed of 60 feet for the duration of the spell."
-    }
-  ]
+    "name": "Greater Mark Of Storm",
+    "catId": "feats",
+    "type": "Dragonmark Feat",
+    "source": "Eberron - Forge of the Artificer",
+    "description": "General Feat (Prerequisite: Level 4+, Mark of Storm Feat) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Improved Intuition",
+            "description": "When you use the Windwright’s Intuition benefit of your Mark of Storm feat, you can roll 1d6 instead of 1d4."
+        },
+        {
+            "name": "Improved Storm",
+            "description": "When you use the Storm Magic benefit of your Mark of Storm feat to cast Gust of Wind without a spell slot, you also gain a Fly Speed of 60 feet for the duration of the spell."
+        }
+    ]
 }

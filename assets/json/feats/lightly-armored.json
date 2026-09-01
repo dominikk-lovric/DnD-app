@@ -1,17 +1,17 @@
 {
-  "name": "Lightly Armored",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Player's Handbook",
-  "description": "Prerequisite: Level 4+ You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Armor Training",
-      "description": "You gain training with Light armor and Shields."
-    }
-  ]
+    "name": "Lightly Armored",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Player's Handbook",
+    "description": "Prerequisite: Level 4+ You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Armor Training",
+            "description": "You gain training with Light armor and Shields."
+        }
+    ]
 }

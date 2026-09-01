@@ -1,27 +1,175 @@
 {
     "id": "c8",
-    "catId": "class",
+    "catId": "classes",
     "name": "Ranger",
     "source": "Player's Handbook",
     "icon": {
         "base": "assets/icons/base/classes/ranger.jpg"
     },
     "hitDie": "d10",
-    "savingThrows": ["Str", "Dex"],
-    "casterLevel": 0.5,
-    "spellcastingAbility": "Wis",
-    "spells": {
-        "Prepared Spells": [
-            2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15
-        ],
-        "1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-        "2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
+    "savingThrows": [
+        "Str",
+        "Dex"
+    ],
+    "spellcasting": {
+        "casterLevel": 0.5,
+        "spellcastingAbility": "Wis",
+        "spellcastingTable": {
+            "Prepared Spells": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                6,
+                7,
+                7,
+                9,
+                9,
+                10,
+                10,
+                11,
+                11,
+                12,
+                12,
+                14,
+                14,
+                15,
+                15
+            ],
+            "1st": [
+                2,
+                2,
+                3,
+                3,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+            ],
+            "2nd": [
+                0,
+                0,
+                0,
+                0,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "3rd": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "4th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3
+            ],
+            "5th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                2
+            ]
+        }
     },
     "attacksPerLevel": [
-        1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
     ],
     "proficiencies": [
         {
@@ -40,11 +188,18 @@
         },
         {
             "name": "Armor",
-            "proficiencies": ["Light", "Medium", "Shields"]
+            "proficiencies": [
+                "Light",
+                "Medium",
+                "Shields"
+            ]
         },
         {
             "name": "Weapon",
-            "proficiencies": ["Simple", "Martial"]
+            "proficiencies": [
+                "Simple",
+                "Martial"
+            ]
         }
     ],
     "startingEquipment": [
@@ -58,7 +213,9 @@
             "Druidic Focus (sprig of mistletoe)",
             "Explorer's Pack and 7 GP"
         ],
-        ["150 GP"]
+        [
+            "150 GP"
+        ]
     ],
     "progression": [],
     "features": [
@@ -72,7 +229,26 @@
             "level": 1,
             "description": "You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest. The number of times you can cast the spell without a spell slot increases when you reach certain Ranger Levels, as shown in the Favored Enemy column of the Ranger Features table.",
             "value": [
-                2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6
+                2,
+                2,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                4,
+                4,
+                4,
+                4,
+                5,
+                5,
+                5,
+                5,
+                6,
+                6,
+                6,
+                6
             ]
         },
         {
@@ -162,7 +338,26 @@
             "spells": {},
             "progression": [],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -211,7 +406,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -263,7 +477,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -315,7 +548,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -351,7 +603,26 @@
             "spells": {},
             "progression": [],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -398,7 +669,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {

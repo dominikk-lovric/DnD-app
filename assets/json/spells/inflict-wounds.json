@@ -1,23 +1,23 @@
 {
-  "catId": "spell",
-  "name": "Inflict Wounds",
-  "level": 1,
-  "school": "Necromancy",
-  "spellList": [
-    "Cleric"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Touch",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "A creature you touch makes a Constitution saving throw, taking 2d10 Necrotic damage on a failed save or half as much damage on a successful one.\nUsing a Higher-Level Spell Slot. The damage increases by 1d10 for each spell slot level above 1.\n"
+    "catId": "spells",
+    "name": "Inflict Wounds",
+    "level": 1,
+    "school": "Necromancy",
+    "spellList": [
+        "Cleric"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Touch",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "A creature you touch makes a Constitution saving throw, taking 2d10 Necrotic damage on a failed save or half as much damage on a successful one.\nUsing a Higher-Level Spell Slot. The damage increases by 1d10 for each spell slot level above 1.\n"
 }

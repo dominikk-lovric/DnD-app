@@ -1,27 +1,27 @@
 {
-  "catId": "spell",
-  "name": "Cloud Of Daggers",
-  "level": 2,
-  "school": "Conjuration",
-  "spellList": [
-    "Bard",
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "60 feet",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a sliver of glass",
-  "duration": [
-    "up to 1 minute"
-  ],
-  "concentration": true,
-  "description": "You conjure spinning daggers in a 5-foot Cube centered on a point within range. Each creature in that area takes 4d4 Slashing damage. A creature also takes this damage if it enters the Cube or ends its turn there or if the Cube moves into its space. A creature takes this damage only once per turn.\nOn your later turns, you can take a Magic action to teleport the Cube up to 30 feet.\nUsing a Higher-Level Spell Slot. The damage increases by 2d4 for each spell slot level above 2.\n"
+    "catId": "spells",
+    "name": "Cloud Of Daggers",
+    "level": 2,
+    "school": "Conjuration",
+    "spellList": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "60 feet",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a sliver of glass",
+    "duration": [
+        "up to 1 minute"
+    ],
+    "concentration": true,
+    "description": "You conjure spinning daggers in a 5-foot Cube centered on a point within range. Each creature in that area takes 4d4 Slashing damage. A creature also takes this damage if it enters the Cube or ends its turn there or if the Cube moves into its space. A creature takes this damage only once per turn.\nOn your later turns, you can take a Magic action to teleport the Cube up to 30 feet.\nUsing a Higher-Level Spell Slot. The damage increases by 2d4 for each spell slot level above 2.\n"
 }

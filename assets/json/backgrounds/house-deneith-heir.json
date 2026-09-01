@@ -1,15 +1,36 @@
 {
-	"name": "House Deneith Heir",
-	"catId": "background",
-	"description": "As an heir of House Deneith, you’ve been trained for combat—not to seek it out, but not to shy from it either. You’ve learned the importance of duty, honor, and the laws used to govern society when duty and honor fail. As you established your name in the house, you might have worked as a bodyguard for some minor dignitary, as a mercenary, or as a marshal hunting fugitives. Now you’re prepared to claim your rightful standing in the mightiest of the dragonmarked houses.",
-	"abilities": ["Str", "Con", "Wis"],
-	"feat": [
-		{
-			"name": "Mark of Sentinel",
-			"path": "assets/json/feats/mark-of-sentinel"
-		}
-	],
-	"skills": ["Insight", "Perception"],
-	"tools": "Choose one kind of Gaming Set",
-	"equipment": [["Spear", "Shortbow", "20 Arrows", "Gaming Set (same as above)", "Fine Clothes", "Healer’s Kit", "Quiver", "1 GP"], ["50 GP"]]
+    "name": "House Deneith Heir",
+    "catId": "backgrounds",
+    "description": "As an heir of House Deneith, you’ve been trained for combat—not to seek it out, but not to shy from it either. You’ve learned the importance of duty, honor, and the laws used to govern society when duty and honor fail. As you established your name in the house, you might have worked as a bodyguard for some minor dignitary, as a mercenary, or as a marshal hunting fugitives. Now you’re prepared to claim your rightful standing in the mightiest of the dragonmarked houses.",
+    "abilities": [
+        "Str",
+        "Con",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Sentinel",
+            "path": "assets/json/feats/mark-of-sentinel"
+        }
+    ],
+    "skills": [
+        "Insight",
+        "Perception"
+    ],
+    "tools": "Choose one kind of Gaming Set",
+    "equipment": [
+        [
+            "Spear",
+            "Shortbow",
+            "20 Arrows",
+            "Gaming Set (same as above)",
+            "Fine Clothes",
+            "Healer’s Kit",
+            "Quiver",
+            "1 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

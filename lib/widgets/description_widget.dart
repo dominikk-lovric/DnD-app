@@ -126,6 +126,9 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.title == "") {
+      return widget.descrption;
+    }
     String setting;
     if (types.contains(widget.descriptionType)) {
       setting =

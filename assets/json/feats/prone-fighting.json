@@ -1,8 +1,8 @@
 {
-  "name": "Prone Fighting",
-  "catId": "feat",
-  "type": "Fighting Style Feat",
-  "source": "D&D Beyond Drops - July 2026",
-  "description": "Fighting Style Feat (Prerequisite: Fighting Style Feature) While you have the Prone condition, you don’t have Disadvantage due to the Prone condition on attack rolls, and the Prone condition doesn’t grant Advantage on attack rolls made against you.",
-  "features": []
+    "name": "Prone Fighting",
+    "catId": "feats",
+    "type": "Fighting Style Feat",
+    "source": "D&D Beyond Drops - July 2026",
+    "description": "Fighting Style Feat (Prerequisite: Fighting Style Feature) While you have the Prone condition, you don’t have Disadvantage due to the Prone condition on attack rolls, and the Prone condition doesn’t grant Advantage on attack rolls made against you.",
+    "features": []
 }

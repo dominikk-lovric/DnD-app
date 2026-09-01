@@ -2,17 +2,70 @@
     "classes": {
         "path": "assets/json/classes.json",
         "sorting": ["alphabetical", "primary", "source"],
-        "items": [
-            "source",
-            "hitDie",
-            "savingThrows",
-            "spells",
-            "attacksPerLevel",
-            "proficiencies",
-            "startingEquipment",
-            "features",
-            "archetypes"
-        ],
+        "schema": {
+            "hitDie": {
+                "type": "icon",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                },
+                "icon": "heart"
+            },
+            "savingThrows": {
+                "type": "checkList",
+                "list": ["Str", "Dex", "Con", "Int", "Wis", "Cha"]
+            },
+            "spellcasting": {
+                "type": "map",
+                "item": {
+                    "casterLevel": {
+                        "type": "text"
+                    },
+                    "spellcastingAblility": {
+                        "type": "text"
+                    },
+                    "spellcastingTable": {
+                        "type": "table"
+                    }
+                }
+            },
+            "attacksPerLevel": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "proficiencies": {
+                "type": "map",
+                "item": {
+                    "options": {
+                        "type": "text"
+                    },
+                    "proficiency": {
+                        "type": "list",
+                        "item": { "type": "text", "noTitle": true },
+                        "noTitle": true
+                    }
+                }
+            },
+            "startingEquipment": {
+                "type": "list",
+                "item": {
+                    "type": "list",
+                    "item": { "type": "text", "noTitle": true },
+                    "noTitle": true
+                }
+            },
+            "features": {
+                "type": "list",
+                "item": { "type": "feature", "noTitle": true }
+            },
+            "archetypes": {
+                "type": "list",
+                "item": { "type": "classes", "noTitle": true }
+            }
+        },
         "filters": [
             {
                 "id": "hitDie",
@@ -58,16 +111,44 @@
     },
     "species": {
         "path": "assets/json/species.json",
-        "items": [
-            "creatureType",
-            "size",
-            "speed",
-            "spells",
-            "features",
-            "subspicies",
-            "source"
-        ],
         "sorting": ["alphabetical", "speed", "source"],
+        "schema": {
+            "creatureType": {
+                "type": "text"
+            },
+            "size": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "speed": {
+                "type": "text"
+            },
+            "spells": {
+                "type": "map",
+                "item": {
+                    "addedSpells": {
+                        "type": "table"
+                    }
+                }
+            },
+            "features": {
+                "type": "list",
+                "item": {
+                    "type": "feature",
+                    "noTitle": true
+                }
+            },
+            "subspicies": {
+                "type": "list",
+                "item": {
+                    "type": "species",
+                    "noTitle": true
+                }
+            }
+        },
         "filters": [
             {
                 "id": "source",
@@ -107,19 +188,56 @@
     },
     "spells": {
         "path": "assets/json/spells.json",
-        "items": [
-            "level",
-            "school",
-            "spellList",
-            "castingTime",
-            "range",
-            "components",
-            "materials",
-            "duration",
-            "concentration",
-            "description"
-        ],
         "sorting": ["alphabetical", "level", "school"],
+        "schema": {
+            "level": {
+                "type": "text"
+            },
+            "school": {
+                "type": "text"
+            },
+            "spellList": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "castingTime": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "range": {
+                "type": "text"
+            },
+            "components": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "materials": {
+                "type": "text"
+            },
+            "duration": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "concentration": {
+                "type": "bool"
+            },
+            "description": {
+                "type": "text",
+                "noTitle": true
+            }
+        },
         "filters": [
             {
                 "id": "spellLevel",
@@ -184,8 +302,23 @@
     },
     "feats": {
         "path": "assets/json/feats.json",
-        "items": ["type", "source", "features"],
         "sorting": ["alphabetical", "featType", "source"],
+        "schema": {
+            "type": {
+                "type": "text"
+            },
+            "description": {
+                "type": "text",
+                "noTitle": true
+            },
+            "features": {
+                "type": "list",
+                "item": {
+                    "type": "feature",
+                    "noTitle": true
+                }
+            }
+        },
         "filters": [
             {
                 "id": "source",
@@ -221,8 +354,48 @@
     },
     "backgrounds": {
         "path": "assets/json/backgrounds.json",
-        "items": ["abilities", "feat", "skills", "tools", "eqiupment"],
         "sorting": ["alphabetical", "source"],
+        "schema": {
+            "description": {
+                "type": "text",
+                "noTitle": true
+            },
+            "abilities": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "feat": {
+                "type": "list",
+                "item": {
+                    "type": "feats",
+                    "noTitle": true
+                }
+            },
+            "skills": {
+                "type": "list",
+                "item": {
+                    "type": "text",
+                    "noTitle": true
+                }
+            },
+            "tools": {
+                "type": "text"
+            },
+            "equipment": {
+                "type": "list",
+                "item": {
+                    "type": "list",
+                    "item": {
+                        "type": "text",
+                        "noTitle": true
+                    },
+                    "noTitle": true
+                }
+            }
+        },
         "filters": [
             {
                 "id": "source",

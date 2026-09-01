@@ -1,27 +1,27 @@
 {
-  "catId": "spell",
-  "name": "Sunburst",
-  "level": 8,
-  "school": "Evocation",
-  "spellList": [
-    "Cleric",
-    "Druid",
-    "Sorcerer",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "150 feet",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a piece of sunstone",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "Brilliant sunlight flashes in a 60-foot-radius Sphere centered on a point you choose within range. Each creature in the Sphere makes a Constitution saving throw. On a failed save, a creature takes 12d6 Radiant damage and has the Blinded condition for 1 minute. On a successful save, it takes half as much damage only.\nA creature Blinded by this spell makes another Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.\nThis spell dispels Darkness in its area that was created by any spell.\n"
+    "catId": "spells",
+    "name": "Sunburst",
+    "level": 8,
+    "school": "Evocation",
+    "spellList": [
+        "Cleric",
+        "Druid",
+        "Sorcerer",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "150 feet",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a piece of sunstone",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "Brilliant sunlight flashes in a 60-foot-radius Sphere centered on a point you choose within range. Each creature in the Sphere makes a Constitution saving throw. On a failed save, a creature takes 12d6 Radiant damage and has the Blinded condition for 1 minute. On a successful save, it takes half as much damage only.\nA creature Blinded by this spell makes another Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.\nThis spell dispels Darkness in its area that was created by any spell.\n"
 }

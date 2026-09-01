@@ -1,27 +1,27 @@
 {
-  "catId": "spell",
-  "name": "Spider Climb",
-  "level": 2,
-  "school": "Transmutation",
-  "spellList": [
-    "Artificer",
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Touch",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a drop of bitumen and a spider",
-  "duration": [
-    "up to 1 hour"
-  ],
-  "concentration": true,
-  "description": "Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and along ceilings, while leaving its hands free. The target also gains a Climb Speed equal to its Speed.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 2.\n"
+    "catId": "spells",
+    "name": "Spider Climb",
+    "level": 2,
+    "school": "Transmutation",
+    "spellList": [
+        "Artificer",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Touch",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a drop of bitumen and a spider",
+    "duration": [
+        "up to 1 hour"
+    ],
+    "concentration": true,
+    "description": "Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and along ceilings, while leaving its hands free. The target also gains a Climb Speed equal to its Speed.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 2.\n"
 }

@@ -1,26 +1,26 @@
 {
-  "catId": "spell",
-  "name": "Doomtide",
-  "level": 4,
-  "school": "Conjuration",
-  "spellList": [
-    "Bard",
-    "Cleric",
-    "Warlock"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "120 feet",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "soot and a dried eel",
-  "duration": [
-    "up to 1 minute"
-  ],
-  "concentration": true,
-  "description": "Each creature in the Sphere when it appears makes a Wisdom saving throw. On a failed save, a creature takes 5d6 Psychic damage and subtracts 1d6 from its saving throws until the end of its next turn. On a successful save, a creature takes half as much damage only. A creature also makes this save when the Sphere moves into its space, when it enters the Sphere, or when it ends its turn inside the Sphere. A creature makes this save only once per turn.\nThe Sphere moves 10 feet away from you at the start of each of your turns.\nCasting as a Circle Spell. Casting this as a Circle spell requires a minimum of five secondary casters. In addition to the spell’s usual components, you must provide a special component (a string of three black pearls from Pandemonium), which the spell consumes. The spell’s range increases to 1 mile, and its duration increases to until dispelled (no Concentration required). The spell ends early if any caster who participated in this casting contributes to another casting of Doomtide as a Circle spell.\nWhen the spell is cast, each secondary caster must expend a level 3+ spell slot; otherwise, the spell fails.\n"
+    "catId": "spells",
+    "name": "Doomtide",
+    "level": 4,
+    "school": "Conjuration",
+    "spellList": [
+        "Bard",
+        "Cleric",
+        "Warlock"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "120 feet",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "soot and a dried eel",
+    "duration": [
+        "up to 1 minute"
+    ],
+    "concentration": true,
+    "description": "Each creature in the Sphere when it appears makes a Wisdom saving throw. On a failed save, a creature takes 5d6 Psychic damage and subtracts 1d6 from its saving throws until the end of its next turn. On a successful save, a creature takes half as much damage only. A creature also makes this save when the Sphere moves into its space, when it enters the Sphere, or when it ends its turn inside the Sphere. A creature makes this save only once per turn.\nThe Sphere moves 10 feet away from you at the start of each of your turns.\nCasting as a Circle Spell. Casting this as a Circle spell requires a minimum of five secondary casters. In addition to the spell’s usual components, you must provide a special component (a string of three black pearls from Pandemonium), which the spell consumes. The spell’s range increases to 1 mile, and its duration increases to until dispelled (no Concentration required). The spell ends early if any caster who participated in this casting contributes to another casting of Doomtide as a Circle spell.\nWhen the spell is cast, each secondary caster must expend a level 3+ spell slot; otherwise, the spell fails.\n"
 }

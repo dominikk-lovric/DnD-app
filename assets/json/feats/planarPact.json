@@ -1,10 +1,11 @@
 {
-  "options": [
-    "assets/json/feats/fey-pact.json",
-    "assets/json/feats/infernal-pact.json",
-    "assets/json/feats/fey-sentinel.json",
-    "assets/json/feats/fey-tormentor.json",
-    "assets/json/feats/infernal-bulwark.json",
-    "assets/json/feats/infernal-dragoon.json"
-  ]
+    "options": [
+        "assets/json/feats/fey-pact.json",
+        "assets/json/feats/infernal-pact.json",
+        "assets/json/feats/fey-sentinel.json",
+        "assets/json/feats/fey-tormentor.json",
+        "assets/json/feats/infernal-bulwark.json",
+        "assets/json/feats/infernal-dragoon.json"
+    ],
+    "catId": "feats"
 }

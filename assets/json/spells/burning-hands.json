@@ -1,24 +1,24 @@
 {
-  "catId": "spell",
-  "name": "Burning Hands",
-  "level": 1,
-  "school": "Evocation",
-  "spellList": [
-    "Sorcerer",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "A thin sheet of flames shoots forth from you. Each creature in a 15-foot Cone makes a Dexterity saving throw, taking 3d6 Fire damage on a failed save or half as much damage on a successful one.\nFlammable objects in the Cone that aren’t being worn or carried start burning.\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 1.\n"
+    "catId": "spells",
+    "name": "Burning Hands",
+    "level": 1,
+    "school": "Evocation",
+    "spellList": [
+        "Sorcerer",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "A thin sheet of flames shoots forth from you. Each creature in a 15-foot Cone makes a Dexterity saving throw, taking 3d6 Fire damage on a failed save or half as much damage on a successful one.\nFlammable objects in the Cone that aren’t being worn or carried start burning.\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 1.\n"
 }

@@ -1,6 +1,6 @@
 {
     "id": "c1",
-    "catId": "class",
+    "catId": "classes",
     "name": "Barbarian",
     "source": "Player's Handbook",
     "icon": {
@@ -8,13 +8,11 @@
     },
     "hitDie": "d12",
     "savingThrows": ["Str", "Con"],
-
     "attacksPerLevel": [
         1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
     ],
-    "proficiencies": [
-        {
-            "name": "Skill",
+    "proficiencies": {
+        "Skill": {
             "options": 2,
             "proficiencies": [
                 "Animal Handling",
@@ -25,15 +23,13 @@
                 "Survival"
             ]
         },
-        {
-            "name": "Armor",
+        "Armor": {
             "proficiencies": ["Light", "Medium", "Shields"]
         },
-        {
-            "name": "Weapon",
+        "Weapon": {
             "proficiencies": ["Simple", "Martial"]
         }
-    ],
+    },
     "startingEquipment": [
         ["Greataxe", "4 Handaxes", "Explorer’s Pack", "and 15 GP"],
         ["75 GP"]
@@ -763,19 +759,19 @@
     "archetypes": [
         {
             "name": "Path of the Berserker",
-            "features": "assets/json/classes/barbarian/berserker.json"
+            "path": "assets/json/classes/barbarian/berserker.json"
         },
         {
             "name": "Path of the Wild Heart",
-            "features": "assets/json/classes/barbarian/wild_heart.json"
+            "path": "assets/json/classes/barbarian/wild_heart.json"
         },
         {
             "name": "Path of the World Tree",
-            "features": "assets/json/classes/barbarian/world_tree.json"
+            "path": "assets/json/classes/barbarian/world_tree.json"
         },
         {
             "name": "Path of the Zealot",
-            "features": "assets/json/classes/barbarian/zealot.json"
+            "path": "assets/json/classes/barbarian/zealot.json"
         }
     ]
 }

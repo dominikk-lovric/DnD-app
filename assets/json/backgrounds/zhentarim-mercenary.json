@@ -1,15 +1,38 @@
 {
-	"name": "Zhentarim Mercenary",
-	"catId": "background",
-	"description": "Choose A or B: (A) Club, Dagger, Forgery Kit, Fine Clothes, Hooded Lantern, Oil (3 flasks), 2 Pouches, String, Tinderbox, 11 GP; or (B) 50 GP",
-	"abilities": ["Str", "Dex", "Cha"],
-	"feat": [
-		{
-			"name": "Zhentarim Ruffian",
-			"path": "assets/json/feats/zhentarim-ruffian"
-		}
-	],
-	"skills": ["Intimidation", "Perception"],
-	"tools": "Forgery Kit",
-	"equipment": [["Club", "Dagger", "Forgery Kit", "Fine Clothes", "Hooded Lantern", "Oil (3 flasks)", "2 Pouches", "String", "Tinderbox", "11 GP"], ["50 GP"]]
+    "name": "Zhentarim Mercenary",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Club, Dagger, Forgery Kit, Fine Clothes, Hooded Lantern, Oil (3 flasks), 2 Pouches, String, Tinderbox, 11 GP; or (B) 50 GP",
+    "abilities": [
+        "Str",
+        "Dex",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Zhentarim Ruffian",
+            "path": "assets/json/feats/zhentarim-ruffian"
+        }
+    ],
+    "skills": [
+        "Intimidation",
+        "Perception"
+    ],
+    "tools": "Forgery Kit",
+    "equipment": [
+        [
+            "Club",
+            "Dagger",
+            "Forgery Kit",
+            "Fine Clothes",
+            "Hooded Lantern",
+            "Oil (3 flasks)",
+            "2 Pouches",
+            "String",
+            "Tinderbox",
+            "11 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

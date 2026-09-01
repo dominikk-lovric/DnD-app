@@ -1,25 +1,25 @@
 {
-  "catId": "spell",
-  "name": "Spare the Dying",
-  "level": 0,
-  "school": "Necromancy",
-  "spellList": [
-    "Artificer",
-    "Cleric",
-    "Druid"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "15 feet",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "Choose a creature within range that has 0 Hit Points and isn’t dead. The creature becomes Stable.\nCantrip Upgrade. The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120 feet).\n"
+    "catId": "spells",
+    "name": "Spare the Dying",
+    "level": 0,
+    "school": "Necromancy",
+    "spellList": [
+        "Artificer",
+        "Cleric",
+        "Druid"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "15 feet",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "Choose a creature within range that has 0 Hit Points and isn’t dead. The creature becomes Stable.\nCantrip Upgrade. The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120 feet).\n"
 }

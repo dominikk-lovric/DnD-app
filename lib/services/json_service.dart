@@ -8,9 +8,10 @@ class JsonService {
   JsonService(this.jsonFile);
 
   Future<Map<String, dynamic>> loadData() async {
-    final path = jsonFile.endsWith('.json')
-        ? 'assets/json/$jsonFile'
-        : 'assets/json/$jsonFile.json';
+    String path = jsonFile.startsWith("assets/json/")
+        ? '$jsonFile'
+        : 'assets/json/$jsonFile';
+    path = jsonFile.endsWith('.json') ? '$path' : '$path.json';
     try {
       final jsonString = await rootBundle.loadString(path);
       return json.decode(jsonString) as Map<String, dynamic>;
@@ -42,7 +43,11 @@ class JsonService {
     return null;
   }
 
-  static Future<Map<String, dynamic>> loadFromPath(String path) async {
+  static Future<Map<String, dynamic>> loadFromPath(String file) async {
+    String path = file.startsWith("assets/json/")
+        ? '$file'
+        : 'assets/json/$file';
+    path = file.endsWith('.json') ? '$path' : '$path.json';
     try {
       final jsonString = await rootBundle.loadString(path);
       return json.decode(jsonString) as Map<String, dynamic>;

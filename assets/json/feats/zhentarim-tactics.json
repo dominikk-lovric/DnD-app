@@ -1,21 +1,21 @@
 {
-  "name": "Zhentarim Tactics",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Forgotten Realms - Heroes of Faerun",
-  "description": "General Feat (Prerequisite: Level 4+, Zhentarim Ruffian Feat) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Dexterity or Charisma score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Retaliate",
-      "description": "Immediately after a creature within 5 feet of you hits you with a melee attack, you can make an Opportunity Attack against that creature."
-    },
-    {
-      "name": "Versatile Merc",
-      "description": "When you finish a Long Rest, choose a skill in which you have proficiency. You have Expertise in that skill until you finish your next Long Rest."
-    }
-  ]
+    "name": "Zhentarim Tactics",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Forgotten Realms - Heroes of Faerun",
+    "description": "General Feat (Prerequisite: Level 4+, Zhentarim Ruffian Feat) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Dexterity or Charisma score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Retaliate",
+            "description": "Immediately after a creature within 5 feet of you hits you with a melee attack, you can make an Opportunity Attack against that creature."
+        },
+        {
+            "name": "Versatile Merc",
+            "description": "When you finish a Long Rest, choose a skill in which you have proficiency. You have Expertise in that skill until you finish your next Long Rest."
+        }
+    ]
 }

@@ -1,15 +1,34 @@
 {
-	"name": "House Tharashk Heir",
-	"catId": "background",
-	"description": "Heirs of other houses lead lives of luxury, but in House Tharashk you learned self-reliance from an early age. What your young house lacks in resources, it makes up for in spirit and determination. Tharashk has a destiny to fulfill, and you have a part in it. Whether in combat or in social interaction, you have learned to play the role of the hunter: study your enemies, exploit their weaknesses, and do whatever it takes to achieve victory.",
-	"abilities": ["Con", "Int", "Wis"],
-	"feat": [
-		{
-			"name": "Mark of Finding",
-			"path": "assets/json/feats/mark-of-finding"
-		}
-	],
-	"skills": ["Perception", "Survival"],
-	"tools": "Choose one kind of Gaming Set",
-	"equipment": [["Gaming Set (same as above)", "Climber’s Kit", "Fine Clothes", "Hunting Trap", "Manacles", "2 GP"], ["50 GP"]]
+    "name": "House Tharashk Heir",
+    "catId": "backgrounds",
+    "description": "Heirs of other houses lead lives of luxury, but in House Tharashk you learned self-reliance from an early age. What your young house lacks in resources, it makes up for in spirit and determination. Tharashk has a destiny to fulfill, and you have a part in it. Whether in combat or in social interaction, you have learned to play the role of the hunter: study your enemies, exploit their weaknesses, and do whatever it takes to achieve victory.",
+    "abilities": [
+        "Con",
+        "Int",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Finding",
+            "path": "assets/json/feats/mark-of-finding"
+        }
+    ],
+    "skills": [
+        "Perception",
+        "Survival"
+    ],
+    "tools": "Choose one kind of Gaming Set",
+    "equipment": [
+        [
+            "Gaming Set (same as above)",
+            "Climber’s Kit",
+            "Fine Clothes",
+            "Hunting Trap",
+            "Manacles",
+            "2 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

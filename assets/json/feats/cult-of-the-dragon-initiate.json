@@ -1,21 +1,21 @@
 {
-  "name": "Cult Of The Dragon Initiate",
-  "catId": "feat",
-  "type": "Origin Feat",
-  "source": "Forgotten Realms - Heroes of Faerun",
-  "description": "Origin Feat You gain the following benefits.",
-  "features": [
-    {
-      "name": "Dragon’s Tongue",
-      "description": "You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player’s Handbook or chapter 2 of this book."
-    },
-    {
-      "name": "Dragon’s Terror",
-      "description": "You can take a Magic action to instill terror in a creature you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and Proficiency Bonus) or have the Frightened condition until the end of your next turn. If the target succeeds on the save or when the effect ends for a target, the target is immune to this effect for 24 hours."
-    },
-    {
-      "name": "Inspired by Fear",
-      "description": "When you cause a creature to have the Frightened condition and you are the source of its fear, you can gain Heroic Inspiration if you lack it. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-    }
-  ]
+    "name": "Cult Of The Dragon Initiate",
+    "catId": "feats",
+    "type": "Origin Feat",
+    "source": "Forgotten Realms - Heroes of Faerun",
+    "description": "Origin Feat You gain the following benefits.",
+    "features": [
+        {
+            "name": "Dragon’s Tongue",
+            "description": "You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player’s Handbook or chapter 2 of this book."
+        },
+        {
+            "name": "Dragon’s Terror",
+            "description": "You can take a Magic action to instill terror in a creature you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and Proficiency Bonus) or have the Frightened condition until the end of your next turn. If the target succeeds on the save or when the effect ends for a target, the target is immune to this effect for 24 hours."
+        },
+        {
+            "name": "Inspired by Fear",
+            "description": "When you cause a creature to have the Frightened condition and you are the source of its fear, you can gain Heroic Inspiration if you lack it. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+        }
+    ]
 }

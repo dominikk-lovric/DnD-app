@@ -1,17 +1,17 @@
 {
-  "name": "Lords Alliance Agent",
-  "catId": "feat",
-  "type": "Origin Feat",
-  "source": "Forgotten Realms - Heroes of Faerun",
-  "description": "Origin Feat You gain the following benefits.",
-  "features": [
-    {
-      "name": "Inspiring Strike",
-      "description": "Once per turn when you score a Critical Hit against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks Heroic Inspiration. That ally gains Heroic Inspiration."
-    },
-    {
-      "name": "Reassert Honor",
-      "description": "When an enemy you can see deals damage to an ally of yours that is within 5 feet of you, you have Advantage on your next attack roll against that enemy before the end of your next turn."
-    }
-  ]
+    "name": "Lords Alliance Agent",
+    "catId": "feats",
+    "type": "Origin Feat",
+    "source": "Forgotten Realms - Heroes of Faerun",
+    "description": "Origin Feat You gain the following benefits.",
+    "features": [
+        {
+            "name": "Inspiring Strike",
+            "description": "Once per turn when you score a Critical Hit against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks Heroic Inspiration. That ally gains Heroic Inspiration."
+        },
+        {
+            "name": "Reassert Honor",
+            "description": "When an enemy you can see deals damage to an ally of yours that is within 5 feet of you, you have Advantage on your next attack roll against that enemy before the end of your next turn."
+        }
+    ]
 }

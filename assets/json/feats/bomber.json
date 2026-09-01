@@ -1,21 +1,21 @@
 {
-  "name": "Bomber",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Astarion's Book of Hungers",
-  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Dexterity score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Far Lobber",
-      "description": "When you use the Attack action to throw a vial or flask, you can target an object or creature you can see within 40 feet of yourself."
-    },
-    {
-      "name": "Long Shots",
-      "description": "Attacking at long range doesn’t impose Disadvantage on your attack rolls with Thrown weapons."
-    }
-  ]
+    "name": "Bomber",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Astarion's Book of Hungers",
+    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Dexterity score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Far Lobber",
+            "description": "When you use the Attack action to throw a vial or flask, you can target an object or creature you can see within 40 feet of yourself."
+        },
+        {
+            "name": "Long Shots",
+            "description": "Attacking at long range doesn’t impose Disadvantage on your attack rolls with Thrown weapons."
+        }
+    ]
 }

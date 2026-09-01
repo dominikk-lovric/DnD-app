@@ -1,25 +1,25 @@
 {
-  "name": "Greater Mark Of Handling",
-  "catId": "feat",
-  "type": "Dragonmark Feat",
-  "source": "Eberron - Forge of the Artificer",
-  "description": "General Feat (Prerequisite: Level 4+, Mark of Handling Feat) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Improved Intuition",
-      "description": "When you use the Wild Intuition benefit of your Mark of Handling feat, you can roll 1d6 instead of 1d4."
-    },
-    {
-      "name": "Improved Handling",
-      "description": "While you are mounted, immediately after you hit a target within 5 feet of your mount with a melee attack roll, your mount can take a Reaction to move up to its Speed or take the Attack action to make one attack only (your choice)."
-    },
-    {
-      "name": "Subdue Animal",
-      "description": "As a Magic action, you exert command over one Beast or Monstrosity you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and Proficiency Bonus) or have the Frightened condition until the start of your next turn. You can use this benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
-    }
-  ]
+    "name": "Greater Mark Of Handling",
+    "catId": "feats",
+    "type": "Dragonmark Feat",
+    "source": "Eberron - Forge of the Artificer",
+    "description": "General Feat (Prerequisite: Level 4+, Mark of Handling Feat) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Improved Intuition",
+            "description": "When you use the Wild Intuition benefit of your Mark of Handling feat, you can roll 1d6 instead of 1d4."
+        },
+        {
+            "name": "Improved Handling",
+            "description": "While you are mounted, immediately after you hit a target within 5 feet of your mount with a melee attack roll, your mount can take a Reaction to move up to its Speed or take the Attack action to make one attack only (your choice)."
+        },
+        {
+            "name": "Subdue Animal",
+            "description": "As a Magic action, you exert command over one Beast or Monstrosity you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and Proficiency Bonus) or have the Frightened condition until the start of your next turn. You can use this benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+        }
+    ]
 }

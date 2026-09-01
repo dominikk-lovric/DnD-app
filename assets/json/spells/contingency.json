@@ -1,25 +1,25 @@
 {
-  "catId": "spell",
-  "name": "Contingency",
-  "level": 6,
-  "school": "Abjuration",
-  "spellList": [
-    "Wizard"
-  ],
-  "castingTime": [
-    "10 minutes"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a gem-encrusted statuette of yourself worth 1,500+ GP",
-  "duration": [
-    "10 days"
-  ],
-  "concentration": false,
-  "description": "Choose a spell of level 5 or lower that you can cast, that has a casting time of an action, and that can target you. You cast that spell—called the contingent spell—as part of casting Contingency, expending spell slots for both, but the contingent spell doesn’t come into effect. Instead, it takes effect when a certain trigger occurs. You describe that trigger when you cast the two spells. For example, a Contingency cast with Water Breathing might stipulate that Water Breathing comes into effect when you are engulfed in water or a similar liquid.\nThe contingent spell takes effect immediately after the trigger occurs for the first time, whether or not you want it to, and then Contingency ends.\nThe contingent spell takes effect only on you, even if it can normally target others. You can use only one Contingency spell at a time. If you cast this spell again, the effect of another Contingency spell on you ends. Also, Contingency ends on you if its material component is ever not on your person.\n",
-  "needsMaterials": true
+    "catId": "spells",
+    "name": "Contingency",
+    "level": 6,
+    "school": "Abjuration",
+    "spellList": [
+        "Wizard"
+    ],
+    "castingTime": [
+        "10 minutes"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a gem-encrusted statuette of yourself worth 1,500+ GP",
+    "duration": [
+        "10 days"
+    ],
+    "concentration": false,
+    "description": "Choose a spell of level 5 or lower that you can cast, that has a casting time of an action, and that can target you. You cast that spell—called the contingent spell—as part of casting Contingency, expending spell slots for both, but the contingent spell doesn’t come into effect. Instead, it takes effect when a certain trigger occurs. You describe that trigger when you cast the two spells. For example, a Contingency cast with Water Breathing might stipulate that Water Breathing comes into effect when you are engulfed in water or a similar liquid.\nThe contingent spell takes effect immediately after the trigger occurs for the first time, whether or not you want it to, and then Contingency ends.\nThe contingent spell takes effect only on you, even if it can normally target others. You can use only one Contingency spell at a time. If you cast this spell again, the effect of another Contingency spell on you ends. Also, Contingency ends on you if its material component is ever not on your person.\n",
+    "needsMaterials": true
 }

@@ -1,24 +1,24 @@
 {
-  "catId": "spell",
-  "name": "Beast Sense",
-  "level": 2,
-  "school": "Divination",
-  "spellList": [
-    "Druid",
-    "Ranger"
-  ],
-  "castingTime": [
-    "Action",
-    "Ritual"
-  ],
-  "range": "Touch",
-  "components": [
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "up to 1 hour"
-  ],
-  "concentration": true,
-  "description": "You touch a willing Beast. For the duration, you can perceive through the Beast’s senses as well as your own. When perceiving through the Beast’s senses, you benefit from any special senses it has.\n"
+    "catId": "spells",
+    "name": "Beast Sense",
+    "level": 2,
+    "school": "Divination",
+    "spellList": [
+        "Druid",
+        "Ranger"
+    ],
+    "castingTime": [
+        "Action",
+        "Ritual"
+    ],
+    "range": "Touch",
+    "components": [
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "up to 1 hour"
+    ],
+    "concentration": true,
+    "description": "You touch a willing Beast. For the duration, you can perceive through the Beast’s senses as well as your own. When perceiving through the Beast’s senses, you benefit from any special senses it has.\n"
 }

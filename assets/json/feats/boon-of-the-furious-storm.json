@@ -1,21 +1,21 @@
 {
-  "name": "Boon Of The Furious Storm",
-  "catId": "feat",
-  "type": "Epic Boon Feat",
-  "source": "Forgotten Realms - Heroes of Faerun",
-  "description": "Epic Boon Feat (Prerequisite: Level 19+, Spellcasting or Pact Magic Feature) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30."
-    },
-    {
-      "name": "Eye of the Storm",
-      "description": "You have Resistance to Lightning and Thunder damage. While you are Bloodied, you have Immunity to Lightning and Thunder damage."
-    },
-    {
-      "name": "Storm’s Strength",
-      "description": "Creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage."
-    }
-  ]
+    "name": "Boon Of The Furious Storm",
+    "catId": "feats",
+    "type": "Epic Boon Feat",
+    "source": "Forgotten Realms - Heroes of Faerun",
+    "description": "Epic Boon Feat (Prerequisite: Level 19+, Spellcasting or Pact Magic Feature) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30."
+        },
+        {
+            "name": "Eye of the Storm",
+            "description": "You have Resistance to Lightning and Thunder damage. While you are Bloodied, you have Immunity to Lightning and Thunder damage."
+        },
+        {
+            "name": "Storm’s Strength",
+            "description": "Creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage."
+        }
+    ]
 }

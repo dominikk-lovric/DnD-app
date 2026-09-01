@@ -1,28 +1,28 @@
 {
-  "catId": "spell",
-  "name": "Invisibility",
-  "level": 2,
-  "school": "Illusion",
-  "spellList": [
-    "Artificer",
-    "Bard",
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Touch",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "an eyelash in gum arabic",
-  "duration": [
-    "up to 1 hour"
-  ],
-  "concentration": true,
-  "description": "A creature you touch has the Invisible condition until the spell ends. The spell ends early immediately after the target makes an attack roll, deals damage, or casts a spell.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 2.\n"
+    "catId": "spells",
+    "name": "Invisibility",
+    "level": 2,
+    "school": "Illusion",
+    "spellList": [
+        "Artificer",
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Touch",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "an eyelash in gum arabic",
+    "duration": [
+        "up to 1 hour"
+    ],
+    "concentration": true,
+    "description": "A creature you touch has the Invisible condition until the spell ends. The spell ends early immediately after the target makes an attack roll, deals damage, or casts a spell.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 2.\n"
 }

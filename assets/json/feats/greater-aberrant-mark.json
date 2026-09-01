@@ -1,21 +1,21 @@
 {
-  "name": "Greater Aberrant Mark",
-  "catId": "feat",
-  "type": "Dragonmark Feat",
-  "source": "Eberron - Forge of the Artificer",
-  "description": "General Feat (Prerequisite: Level 4+, Aberrant Dragonmark Feat) You gain the following benefits. You can use this benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Constitution score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Improved Fortitude",
-      "description": "When you use the Aberrant Fortitude benefit of your Aberrant Dragonmark feat, you can roll 1d6 instead of 1d4. You also now regain your use of Aberrant Fortitude whenever you finish a Short or Long Rest."
-    },
-    {
-      "name": "Mark of Inspiration",
-      "description": "When you cast a cantrip, you can roll one or two of your unexpended Hit Point Dice. You gain a number of Temporary Hit Points equal to the number rolled plus your Constitution modifier, and one creature of your choice within 30 feet of you (not including you) takes Force damage equal to the number rolled. Those dice are then expended."
-    }
-  ]
+    "name": "Greater Aberrant Mark",
+    "catId": "feats",
+    "type": "Dragonmark Feat",
+    "source": "Eberron - Forge of the Artificer",
+    "description": "General Feat (Prerequisite: Level 4+, Aberrant Dragonmark Feat) You gain the following benefits. You can use this benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Constitution score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Improved Fortitude",
+            "description": "When you use the Aberrant Fortitude benefit of your Aberrant Dragonmark feat, you can roll 1d6 instead of 1d4. You also now regain your use of Aberrant Fortitude whenever you finish a Short or Long Rest."
+        },
+        {
+            "name": "Mark of Inspiration",
+            "description": "When you cast a cantrip, you can roll one or two of your unexpended Hit Point Dice. You gain a number of Temporary Hit Points equal to the number rolled plus your Constitution modifier, and one creature of your choice within 30 feet of you (not including you) takes Force damage equal to the number rolled. Those dice are then expended."
+        }
+    ]
 }

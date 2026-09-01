@@ -1,21 +1,21 @@
 {
-  "name": "Durable",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Player's Handbook",
-  "description": "Prerequisite: Level 4+ You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Constitution score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Defy Death",
-      "description": "You have Advantage on Death Saving Throws."
-    },
-    {
-      "name": "Speedy Recovery",
-      "description": "As a Bonus Action, you can expend one of your Hit Point Dice, roll the die, and regain a number of Hit Points equal to the roll."
-    }
-  ]
+    "name": "Durable",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Player's Handbook",
+    "description": "Prerequisite: Level 4+ You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Constitution score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Defy Death",
+            "description": "You have Advantage on Death Saving Throws."
+        },
+        {
+            "name": "Speedy Recovery",
+            "description": "As a Bonus Action, you can expend one of your Hit Point Dice, roll the die, and regain a number of Hit Points equal to the roll."
+        }
+    ]
 }

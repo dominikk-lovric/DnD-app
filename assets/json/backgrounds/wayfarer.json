@@ -1,15 +1,35 @@
 {
-	"name": "Wayfarer",
-	"catId": "background",
-	"description": "You grew up on the streets surrounded by similarly ill-fated castoffs, a few of them friends and a few of them rivals. You slept where you could and did odd jobs for food. At times, when the hunger became unbearable, you resorted to theft. Still, you never lost your pride and never abandoned hope. Fate is not yet finished with you.",
-	"abilities": ["Dex", "Wis", "Cha"],
-	"feat": [
-		{
-			"name": "Lucky",
-			"path": "assets/json/feats/lucky"
-		}
-	],
-	"skills": ["Insight", "Stealth"],
-	"tools": "Thieves' Tools",
-	"equipment": [["2 Daggers", "Thieves' Tools", "Gaming Set (any)", "Bedroll", "2 Pouches", "Traveler's Clothes", "16 GP"], ["50 GP"]]
+    "name": "Wayfarer",
+    "catId": "backgrounds",
+    "description": "You grew up on the streets surrounded by similarly ill-fated castoffs, a few of them friends and a few of them rivals. You slept where you could and did odd jobs for food. At times, when the hunger became unbearable, you resorted to theft. Still, you never lost your pride and never abandoned hope. Fate is not yet finished with you.",
+    "abilities": [
+        "Dex",
+        "Wis",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Lucky",
+            "path": "assets/json/feats/lucky"
+        }
+    ],
+    "skills": [
+        "Insight",
+        "Stealth"
+    ],
+    "tools": "Thieves' Tools",
+    "equipment": [
+        [
+            "2 Daggers",
+            "Thieves' Tools",
+            "Gaming Set (any)",
+            "Bedroll",
+            "2 Pouches",
+            "Traveler's Clothes",
+            "16 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

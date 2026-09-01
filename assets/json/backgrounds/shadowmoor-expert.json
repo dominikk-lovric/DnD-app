@@ -1,15 +1,37 @@
 {
-	"name": "Shadowmoor Expert",
-	"catId": "background",
-	"description": "Choose A or B: (A) Dagger, Glassblower’s Tools, Backpack, Hunting Trap, Lamp, Oil (3 flasks), Traveler’s Clothes, Waterskin, 8 GP; or (B) 50 GP",
-	"abilities": ["Dex", "Int", "Cha"],
-	"feat": [
-		{
-			"name": "Shadowmoor Hexer",
-			"path": "assets/json/feats/shadowmoor-hexer"
-		}
-	],
-	"skills": ["Acrobatics", "Deception"],
-	"tools": "Glassblower’s Tools",
-	"equipment": [["Dagger", "Glassblower’s Tools", "Backpack", "Hunting Trap", "Lamp", "Oil (3 flasks)", "Traveler’s Clothes", "Waterskin", "8 GP"], ["50 GP"]]
+    "name": "Shadowmoor Expert",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Dagger, Glassblower’s Tools, Backpack, Hunting Trap, Lamp, Oil (3 flasks), Traveler’s Clothes, Waterskin, 8 GP; or (B) 50 GP",
+    "abilities": [
+        "Dex",
+        "Int",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Shadowmoor Hexer",
+            "path": "assets/json/feats/shadowmoor-hexer"
+        }
+    ],
+    "skills": [
+        "Acrobatics",
+        "Deception"
+    ],
+    "tools": "Glassblower’s Tools",
+    "equipment": [
+        [
+            "Dagger",
+            "Glassblower’s Tools",
+            "Backpack",
+            "Hunting Trap",
+            "Lamp",
+            "Oil (3 flasks)",
+            "Traveler’s Clothes",
+            "Waterskin",
+            "8 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

@@ -1,15 +1,34 @@
 {
-	"name": "Criminal",
-	"catId": "background",
-	"description": "You eked out a living in dark alleyways, cutting purses or burgling shops. Perhaps you were part of a small gang of like-minded wrongdoers who looked out for each other. Or maybe you were a lone wolf, fending for yourself against the local thieves' guild and more fearsome lawbreakers.",
-	"abilities": ["Dex", "Con", "Int"],
-	"feat": [
-		{
-			"name": "Alert",
-			"path": "assets/json/feats/alert"
-		}
-	],
-	"skills": ["Sleight of Hand", "Stealth"],
-	"tools": "Thieves' Tools",
-	"equipment": [["2 Daggers", "Thieves' Tools", "Crowbar", "2 Pouches", "Traveler's Clothes", "16 GP"], ["50 GP"]]
+    "name": "Criminal",
+    "catId": "backgrounds",
+    "description": "You eked out a living in dark alleyways, cutting purses or burgling shops. Perhaps you were part of a small gang of like-minded wrongdoers who looked out for each other. Or maybe you were a lone wolf, fending for yourself against the local thieves' guild and more fearsome lawbreakers.",
+    "abilities": [
+        "Dex",
+        "Con",
+        "Int"
+    ],
+    "feat": [
+        {
+            "name": "Alert",
+            "path": "assets/json/feats/alert"
+        }
+    ],
+    "skills": [
+        "Sleight of Hand",
+        "Stealth"
+    ],
+    "tools": "Thieves' Tools",
+    "equipment": [
+        [
+            "2 Daggers",
+            "Thieves' Tools",
+            "Crowbar",
+            "2 Pouches",
+            "Traveler's Clothes",
+            "16 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

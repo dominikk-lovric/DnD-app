@@ -1,15 +1,37 @@
 {
-	"name": "Vampire Devotee",
-	"catId": "background",
-	"description": "Choose A or B: (A) Cook’s Utensils, Fine Clothes, 2 Glass Bottles, Healer’s Kit, Perfume, Lamp, Oil (3 flasks), Waterskin, 19 GP; or (B) 50 GP",
-	"abilities": ["Str", "Con", "Cha"],
-	"feat": [
-		{
-			"name": "Vampire’s Plaything",
-			"path": "assets/json/feats/vampire-s-plaything"
-		}
-	],
-	"skills": ["Persuasion", "Stealth"],
-	"tools": "Cook’s Utensils",
-	"equipment": [["Cook’s Utensils", "Fine Clothes", "2 Glass Bottles", "Healer’s Kit", "Perfume", "Lamp", "Oil (3 flasks)", "Waterskin", "19 GP"], ["50 GP"]]
+    "name": "Vampire Devotee",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Cook’s Utensils, Fine Clothes, 2 Glass Bottles, Healer’s Kit, Perfume, Lamp, Oil (3 flasks), Waterskin, 19 GP; or (B) 50 GP",
+    "abilities": [
+        "Str",
+        "Con",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Vampire’s Plaything",
+            "path": "assets/json/feats/vampire-s-plaything"
+        }
+    ],
+    "skills": [
+        "Persuasion",
+        "Stealth"
+    ],
+    "tools": "Cook’s Utensils",
+    "equipment": [
+        [
+            "Cook’s Utensils",
+            "Fine Clothes",
+            "2 Glass Bottles",
+            "Healer’s Kit",
+            "Perfume",
+            "Lamp",
+            "Oil (3 flasks)",
+            "Waterskin",
+            "19 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

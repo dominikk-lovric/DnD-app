@@ -12,8 +12,6 @@ class CheckListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(options);
-    print(stats);
     double width = MediaQuery.of(context).size.width;
     List<Widget> items = [];
     for (int i = 0; i < stats.length; i++) {

@@ -1,15 +1,37 @@
 {
-	"name": "Knight Of The Gauntlet",
-	"catId": "background",
-	"description": "Choose A or B: (A) Spear, Smith’s Tools, Bullseye Lantern, Holy Symbol, Manacles, Oil (5 flasks), Tinderbox, Traveler’s Clothes, 9 GP; or (B) 50 GP",
-	"abilities": ["Str", "Int", "Wis"],
-	"feat": [
-		{
-			"name": "Tyro of the Gauntlet",
-			"path": "assets/json/feats/tyro-of-the-gauntlet"
-		}
-	],
-	"skills": ["Athletics", "Medicine"],
-	"tools": "Smith’s Tools",
-	"equipment": [["Spear", "Smith’s Tools", "Bullseye Lantern", "Holy Symbol", "Manacles", "Oil (5 flasks)", "Tinderbox", "Traveler’s Clothes", "9 GP"], ["50 GP"]]
+    "name": "Knight Of The Gauntlet",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Spear, Smith’s Tools, Bullseye Lantern, Holy Symbol, Manacles, Oil (5 flasks), Tinderbox, Traveler’s Clothes, 9 GP; or (B) 50 GP",
+    "abilities": [
+        "Str",
+        "Int",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Tyro of the Gauntlet",
+            "path": "assets/json/feats/tyro-of-the-gauntlet"
+        }
+    ],
+    "skills": [
+        "Athletics",
+        "Medicine"
+    ],
+    "tools": "Smith’s Tools",
+    "equipment": [
+        [
+            "Spear",
+            "Smith’s Tools",
+            "Bullseye Lantern",
+            "Holy Symbol",
+            "Manacles",
+            "Oil (5 flasks)",
+            "Tinderbox",
+            "Traveler’s Clothes",
+            "9 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

@@ -1,25 +1,25 @@
 {
-  "name": "Light Bringer",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Astarion's Book of Hungers",
-  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Sacred Magic",
-      "description": "You learn the Light spell and can cast it without Material components. If you already know that cantrip, you learn a different Cleric cantrip of your choice. The spell’s spellcasting ability is the ability increased by this feat."
-    },
-    {
-      "name": "Solar Luminance",
-      "description": "When you cast Light, you can have the light from the spell be sunlight. Once you use this benefit, you can’t use it again until you finish a Long Rest."
-    },
-    {
-      "name": "Sun’s Healing",
-      "description": "As a Bonus Action while within sunlight, you can expend one of your Hit Point Dice, roll the die, and regain a number of Hit Points equal to the roll. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-    }
-  ]
+    "name": "Light Bringer",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Astarion's Book of Hungers",
+    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Sacred Magic",
+            "description": "You learn the Light spell and can cast it without Material components. If you already know that cantrip, you learn a different Cleric cantrip of your choice. The spell’s spellcasting ability is the ability increased by this feat."
+        },
+        {
+            "name": "Solar Luminance",
+            "description": "When you cast Light, you can have the light from the spell be sunlight. Once you use this benefit, you can’t use it again until you finish a Long Rest."
+        },
+        {
+            "name": "Sun’s Healing",
+            "description": "As a Bonus Action while within sunlight, you can expend one of your Hit Point Dice, roll the die, and regain a number of Hit Points equal to the roll. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+        }
+    ]
 }

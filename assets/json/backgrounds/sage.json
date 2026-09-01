@@ -1,16 +1,35 @@
 {
-	"name": "Sage",
-	"catId": "background",
-	"description": "You spent your formative years traveling between manors and monasteries, performing various odd jobs and services in exchange for access to their libraries. You whiled away many a long evening studying books and scrolls, learning the lore of the multiverse - even the rudiments of magic - and your mind yearns for more.",
-	"abilities": ["Con", "Int", "Wis"],
-	"feat": [
-		{
-			"name": "Magic Initiate",
-			"path": "assets/json/feats/magic-initiate",
-			"type": "Wizard"
-		}
-	],
-	"skills": ["Arcana", "History"],
-	"tools": "Calligrapher's Supplies",
-	"equipment": [["Quarterstaff", "Calligrapher's Supplies", "Book (history)", "Parchment (8 sheets)", "Robe", "8 GP"], ["50 GP"]]
+    "name": "Sage",
+    "catId": "backgrounds",
+    "description": "You spent your formative years traveling between manors and monasteries, performing various odd jobs and services in exchange for access to their libraries. You whiled away many a long evening studying books and scrolls, learning the lore of the multiverse - even the rudiments of magic - and your mind yearns for more.",
+    "abilities": [
+        "Con",
+        "Int",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Magic Initiate",
+            "path": "assets/json/feats/magic-initiate",
+            "type": "Wizard"
+        }
+    ],
+    "skills": [
+        "Arcana",
+        "History"
+    ],
+    "tools": "Calligrapher's Supplies",
+    "equipment": [
+        [
+            "Quarterstaff",
+            "Calligrapher's Supplies",
+            "Book (history)",
+            "Parchment (8 sheets)",
+            "Robe",
+            "8 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

@@ -1,15 +1,35 @@
 {
-	"name": "House Ghallanda Heir",
-	"catId": "background",
-	"description": "Thanks to your connections to House Ghallanda, you grew up accustomed to creature comforts, lively conversation, good drink, and delicious food. You might be a charming and witty scion of the house who loves nothing more than a pleasant evening beside a warm hearth. Or you could be a schemer who exploits bonds of trust and friendship to bend others to your will. You might pursue an adventuring career to master the cuisines of other cultures and ages, expand your network of useful contacts, or earn enough money to open your own inn.",
-	"abilities": ["Dex", "Wis", "Cha"],
-	"feat": [
-		{
-			"name": "Mark of Hospitality",
-			"path": "assets/json/feats/mark-of-hospitality"
-		}
-	],
-	"skills": ["Insight", "Persuasion"],
-	"tools": "Cook’s Utensils",
-	"equipment": [["Cook’s Utensils", "Fine Clothes", "Iron Pot", "Lamp", "Oil (5 flasks)", "Perfume", "26 GP"], ["50 GP"]]
+    "name": "House Ghallanda Heir",
+    "catId": "backgrounds",
+    "description": "Thanks to your connections to House Ghallanda, you grew up accustomed to creature comforts, lively conversation, good drink, and delicious food. You might be a charming and witty scion of the house who loves nothing more than a pleasant evening beside a warm hearth. Or you could be a schemer who exploits bonds of trust and friendship to bend others to your will. You might pursue an adventuring career to master the cuisines of other cultures and ages, expand your network of useful contacts, or earn enough money to open your own inn.",
+    "abilities": [
+        "Dex",
+        "Wis",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Hospitality",
+            "path": "assets/json/feats/mark-of-hospitality"
+        }
+    ],
+    "skills": [
+        "Insight",
+        "Persuasion"
+    ],
+    "tools": "Cook’s Utensils",
+    "equipment": [
+        [
+            "Cook’s Utensils",
+            "Fine Clothes",
+            "Iron Pot",
+            "Lamp",
+            "Oil (5 flasks)",
+            "Perfume",
+            "26 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

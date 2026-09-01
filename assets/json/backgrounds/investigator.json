@@ -1,8 +1,12 @@
 {
     "name": "Investigator",
-    "catId": "background",
+    "catId": "backgrounds",
     "description": "You relentlessly seek the truth. Perhaps you witnessed something remarkable or terrible and now desire to unravel its mystery, or maybe you’re motivated by universal justice and honesty. Whether the cases you’re embroiled in are local crimes or eldritch conspiracies, you’re driven to reveal what others would keep hidden.",
-    "abilities": ["Int", "Wis", "Cha"],
+    "abilities": [
+        "Int",
+        "Wis",
+        "Cha"
+    ],
     "feat": [
         {
             "name": "Sharp eye",
@@ -12,7 +16,10 @@
             "options": "assets/json/feats/darkGift"
         }
     ],
-    "skills": ["Insight", "Investigation"],
+    "skills": [
+        "Insight",
+        "Investigation"
+    ],
     "tools": "Disguise Kit",
     "equipment": [
         [
@@ -23,6 +30,8 @@
             "3 Vials",
             "16 GP"
         ],
-        ["50 GP"]
+        [
+            "50 GP"
+        ]
     ]
 }

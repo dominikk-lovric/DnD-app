@@ -1,21 +1,21 @@
 {
-  "name": "Tactical Combatant",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "DND Beyond Drops - July 2026",
-  "description": "General Feat (Prerequisite: Level 4+ and Strength or Dexterity 13+) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Buffering Strike",
-      "description": "When you hit a creature with a weapon, you can gain Temporary Hit Points equal to the total number rolled on the weapon’s damage dice. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest."
-    },
-    {
-      "name": "Honed Instincts",
-      "description": "When you fail an ability check, you can roll 1d6 and add the number rolled to the ability check, potentially turning it into a success. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest."
-    }
-  ]
+    "name": "Tactical Combatant",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "DND Beyond Drops - July 2026",
+    "description": "General Feat (Prerequisite: Level 4+ and Strength or Dexterity 13+) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Buffering Strike",
+            "description": "When you hit a creature with a weapon, you can gain Temporary Hit Points equal to the total number rolled on the weapon’s damage dice. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest."
+        },
+        {
+            "name": "Honed Instincts",
+            "description": "When you fail an ability check, you can roll 1d6 and add the number rolled to the ability check, potentially turning it into a success. Once you use this benefit, you can’t use it again until you roll Initiative or finish a Short or Long Rest."
+        }
+    ]
 }

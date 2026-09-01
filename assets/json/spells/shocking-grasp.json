@@ -1,25 +1,25 @@
 {
-  "catId": "spell",
-  "name": "Shocking Grasp",
-  "level": 0,
-  "school": "Evocation",
-  "spellList": [
-    "Artificer",
-    "Sorcerer",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Touch",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "Lightning springs from you to a creature that you try to touch. Make a melee spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and it can’t make Opportunity Attacks until the start of its next turn.\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).\n"
+    "catId": "spells",
+    "name": "Shocking Grasp",
+    "level": 0,
+    "school": "Evocation",
+    "spellList": [
+        "Artificer",
+        "Sorcerer",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Touch",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "Lightning springs from you to a creature that you try to touch. Make a melee spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and it can’t make Opportunity Attacks until the start of its next turn.\nCantrip Upgrade. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).\n"
 }

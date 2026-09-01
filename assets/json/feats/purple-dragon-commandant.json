@@ -1,21 +1,21 @@
 {
-  "name": "Purple Dragon Commandant",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Forgotten Realms - Heroes of Faerun",
-  "description": "General Feat (Prerequisite: Level 4+, Purple Dragon Rook Feat or Martial Weapon Proficiency) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Encourage Ally",
-      "description": "As a Bonus Action, you bolster one ally you can see within 30 feet. The ally gains Temporary Hit Points equal to 2d6 plus the modifier of the ability score increased by this feat. You can take this Bonus Action a number of times equal to your Proficiency Bonus, and you regain all uses when you finish a Long Rest."
-    },
-    {
-      "name": "Last Stand",
-      "description": "You have Advantage on attack rolls while Bloodied."
-    }
-  ]
+    "name": "Purple Dragon Commandant",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Forgotten Realms - Heroes of Faerun",
+    "description": "General Feat (Prerequisite: Level 4+, Purple Dragon Rook Feat or Martial Weapon Proficiency) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Encourage Ally",
+            "description": "As a Bonus Action, you bolster one ally you can see within 30 feet. The ally gains Temporary Hit Points equal to 2d6 plus the modifier of the ability score increased by this feat. You can take this Bonus Action a number of times equal to your Proficiency Bonus, and you regain all uses when you finish a Long Rest."
+        },
+        {
+            "name": "Last Stand",
+            "description": "You have Advantage on attack rolls while Bloodied."
+        }
+    ]
 }

@@ -1,16 +1,36 @@
 {
-	"name": "Genie Touched",
-	"catId": "background",
-	"description": "Choose A or B: (A) Light Hammer, Glassblower’s Tools, Fine Clothes, Lamp, Oil (3 flasks), Waterskin, 2 GP; or (B) 50 GP",
-	"abilities": ["Dex", "Wis", "Cha"],
-	"feat": [
-		{
-			"name": "Magic Initiate",
-			"path": "assets/json/feats/magic-initiate",
-			"type": "Wizard"
-		}
-	],
-	"skills": ["Perception", "Persuasion"],
-	"tools": "Glassblower’s Tools",
-	"equipment": [["Light Hammer", "Glassblower’s Tools", "Fine Clothes", "Lamp", "Oil (3 flasks)", "Waterskin", "2 GP"], ["50 GP"]]
+    "name": "Genie Touched",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Light Hammer, Glassblower’s Tools, Fine Clothes, Lamp, Oil (3 flasks), Waterskin, 2 GP; or (B) 50 GP",
+    "abilities": [
+        "Dex",
+        "Wis",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Magic Initiate",
+            "path": "assets/json/feats/magic-initiate",
+            "type": "Wizard"
+        }
+    ],
+    "skills": [
+        "Perception",
+        "Persuasion"
+    ],
+    "tools": "Glassblower’s Tools",
+    "equipment": [
+        [
+            "Light Hammer",
+            "Glassblower’s Tools",
+            "Fine Clothes",
+            "Lamp",
+            "Oil (3 flasks)",
+            "Waterskin",
+            "2 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

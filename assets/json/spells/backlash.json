@@ -1,25 +1,25 @@
 {
-  "catId": "spell",
-  "name": "Backlash",
-  "level": 4,
-  "school": "Abjuration",
-  "spellList": [
-    "Bard",
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Reaction"
-  ],
-  "range": "60 feet",
-  "components": [
-    "V"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "If the triggering damage was from a creature within range, you can force the creature to make a Constitution saving throw. The creature takes 4d6 Force damage on a failed save or half as much damage on a successful one.\nUsing a Higher-Level Spell Slot. The damage reduction and Force damage from this spell both increase by 1d6 for every spell slot level above 4.\n"
+    "catId": "spells",
+    "name": "Backlash",
+    "level": 4,
+    "school": "Abjuration",
+    "spellList": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Reaction"
+    ],
+    "range": "60 feet",
+    "components": [
+        "V"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "If the triggering damage was from a creature within range, you can force the creature to make a Constitution saving throw. The creature takes 4d6 Force damage on a failed save or half as much damage on a successful one.\nUsing a Higher-Level Spell Slot. The damage reduction and Force damage from this spell both increase by 1d6 for every spell slot level above 4.\n"
 }

@@ -1,26 +1,26 @@
 {
-  "catId": "spell",
-  "name": "Blade Ward",
-  "level": 0,
-  "school": "Abjuration",
-  "spellList": [
-    "Bard",
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "up to 1 minute"
-  ],
-  "concentration": true,
-  "description": "Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.\n"
+    "catId": "spells",
+    "name": "Blade Ward",
+    "level": 0,
+    "school": "Abjuration",
+    "spellList": [
+        "Bard",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "up to 1 minute"
+    ],
+    "concentration": true,
+    "description": "Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.\n"
 }

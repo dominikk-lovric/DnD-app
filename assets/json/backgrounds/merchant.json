@@ -1,15 +1,32 @@
 {
-	"name": "Merchant",
-	"catId": "background",
-	"description": "You were apprenticed to a trader, caravan master, or shopkeeper, learning the fundamentals of commerce. You traveled broadly, and you earned a living by buying and selling the raw materials artisans need to practice their craft or finished works from such crafters. You might have transported goods from one place to another (by ship, wagon, or caravan) or bought them from traveling traders and sold them in your own shop.",
-	"abilities": ["Con", "Int", "Cha"],
-	"feat": [
-		{
-			"name": "Lucky",
-			"path": "assets/json/feats/lucky"
-		}
-	],
-	"skills": ["Animal Handling", "Persuasion"],
-	"tools": "Navigator's Tools",
-	"equipment": [["Navigator’s Tools", "2 Pouches", "Traveler's Clothes", "22 GP"], ["50 GP"]]
+    "name": "Merchant",
+    "catId": "backgrounds",
+    "description": "You were apprenticed to a trader, caravan master, or shopkeeper, learning the fundamentals of commerce. You traveled broadly, and you earned a living by buying and selling the raw materials artisans need to practice their craft or finished works from such crafters. You might have transported goods from one place to another (by ship, wagon, or caravan) or bought them from traveling traders and sold them in your own shop.",
+    "abilities": [
+        "Con",
+        "Int",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Lucky",
+            "path": "assets/json/feats/lucky"
+        }
+    ],
+    "skills": [
+        "Animal Handling",
+        "Persuasion"
+    ],
+    "tools": "Navigator's Tools",
+    "equipment": [
+        [
+            "Navigator’s Tools",
+            "2 Pouches",
+            "Traveler's Clothes",
+            "22 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

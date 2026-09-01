@@ -1,14 +1,21 @@
 {
     "name": "Pact Seeker",
-    "catId": "background",
+    "catId": "backgrounds",
     "description": "You had a purpose in mind. Perhaps you were seeking out knowledge or power. Or maybe you were in search of hidden secrets. One way or another, your journey lead you to seek out an extraplanar entity. Once you made contact, a deal was struck, and your life changed.",
-    "abilities": ["Con", "Int", "Cha"],
+    "abilities": [
+        "Con",
+        "Int",
+        "Cha"
+    ],
     "feat": [
         {
             "options": "assets/json/feats/planar-pact.json"
         }
     ],
-    "skills": ["Arcana", "Persuasion"],
+    "skills": [
+        "Arcana",
+        "Persuasion"
+    ],
     "tools": "Calligrapher’s Supplies",
     "equipment": [
         [
@@ -20,6 +27,8 @@
             "Traveler’s Clothes",
             "2 GP"
         ],
-        ["50 GP"]
+        [
+            "50 GP"
+        ]
     ]
 }

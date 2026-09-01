@@ -1,17 +1,17 @@
 {
-  "name": "Love Bites",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Astarion's Book of Hungers",
-  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Endearing Pain",
-      "description": "Immediately after you damage a creature with a Melee weapon or an Unarmed Strike, you can take a Bonus Action to give the target the Charmed condition until the start of your next turn or until you or your allies damage it. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-    }
-  ]
+    "name": "Love Bites",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Astarion's Book of Hungers",
+    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Endearing Pain",
+            "description": "Immediately after you damage a creature with a Melee weapon or an Unarmed Strike, you can take a Bonus Action to give the target the Charmed condition until the start of your next turn or until you or your allies damage it. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+        }
+    ]
 }

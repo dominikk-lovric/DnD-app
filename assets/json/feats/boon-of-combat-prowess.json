@@ -1,17 +1,17 @@
 {
-  "name": "Boon Of Combat Prowess",
-  "catId": "feat",
-  "type": "Epic Boon Feat",
-  "source": "Player's Handbook",
-  "description": "Prerequisite: Level 19+ You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
-    },
-    {
-      "name": "Peerless Aim",
-      "description": "When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn."
-    }
-  ]
+    "name": "Boon Of Combat Prowess",
+    "catId": "feats",
+    "type": "Epic Boon Feat",
+    "source": "Player's Handbook",
+    "description": "Prerequisite: Level 19+ You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+        },
+        {
+            "name": "Peerless Aim",
+            "description": "When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn."
+        }
+    ]
 }

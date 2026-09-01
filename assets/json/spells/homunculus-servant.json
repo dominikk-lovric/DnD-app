@@ -1,26 +1,26 @@
 {
-  "catId": "spell",
-  "name": "Homunculus Servant",
-  "level": 2,
-  "school": "Conjuration",
-  "spellList": [
-    "Artificer"
-  ],
-  "castingTime": [
-    "1 hour",
-    "Ritual"
-  ],
-  "range": "10 feet",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a gem worth 100+ GP",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "Combat The homunculus is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your commands (no action required by you). If you don’t issue any, it takes the Dodge action and uses its movement to avoid danger.\nUsing a Higher-Level Spell Slot Use the spell slot’s level for the spell’s level in the stat block.\n",
-  "needsMaterials": true
+    "catId": "spells",
+    "name": "Homunculus Servant",
+    "level": 2,
+    "school": "Conjuration",
+    "spellList": [
+        "Artificer"
+    ],
+    "castingTime": [
+        "1 hour",
+        "Ritual"
+    ],
+    "range": "10 feet",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a gem worth 100+ GP",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "Combat The homunculus is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your commands (no action required by you). If you don’t issue any, it takes the Dodge action and uses its movement to avoid danger.\nUsing a Higher-Level Spell Slot Use the spell slot’s level for the spell’s level in the stat block.\n",
+    "needsMaterials": true
 }

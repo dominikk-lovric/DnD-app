@@ -1,24 +1,24 @@
 {
-  "catId": "spell",
-  "name": "Simbul's Synostodweomer",
-  "level": 7,
-  "school": "Transmutation",
-  "spellList": [
-    "Sorcerer",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "Touch",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "1 hour"
-  ],
-  "concentration": false,
-  "description": ""
+    "catId": "spells",
+    "name": "Simbul's Synostodweomer",
+    "level": 7,
+    "school": "Transmutation",
+    "spellList": [
+        "Sorcerer",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "Touch",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "1 hour"
+    ],
+    "concentration": false,
+    "description": ""
 }

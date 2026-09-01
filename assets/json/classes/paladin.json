@@ -1,27 +1,175 @@
 {
     "id": "c7",
-    "catId": "class",
+    "catId": "classes",
     "name": "Paladin",
     "source": "Player's Handbook",
     "icon": {
         "base": "assets/icons/base/classes/paladin.jpg"
     },
     "hitDie": "d10",
-    "savingThrows": ["Wis", "Cha"],
-    "casterLevel": 0.5,
-    "spellcastingAbility": "Cha",
-    "spells": {
-        "Prepared Spells": [
-            2, 3, 4, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12, 14, 14, 15, 15
-        ],
-        "1st": [2, 2, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-        "2nd": [0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "3rd": [0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "4th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 3, 3],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2]
+    "savingThrows": [
+        "Wis",
+        "Cha"
+    ],
+    "spellcasting": {
+        "casterLevel": 0.5,
+        "spellcastingAbility": "Cha",
+        "spellcastingTable": {
+            "Prepared Spells": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                6,
+                7,
+                7,
+                9,
+                9,
+                10,
+                10,
+                11,
+                11,
+                12,
+                12,
+                14,
+                14,
+                15,
+                15
+            ],
+            "1st": [
+                2,
+                2,
+                3,
+                3,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+            ],
+            "2nd": [
+                0,
+                0,
+                0,
+                0,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "3rd": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "4th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3
+            ],
+            "5th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                2
+            ]
+        }
     },
     "attacksPerLevel": [
-        1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
     ],
     "proficiencies": [
         {
@@ -38,11 +186,19 @@
         },
         {
             "name": "Armor",
-            "proficiencies": ["Light", "Medium", "Heavy", "Shields"]
+            "proficiencies": [
+                "Light",
+                "Medium",
+                "Heavy",
+                "Shields"
+            ]
         },
         {
             "name": "Weapon",
-            "proficiencies": ["Simple", "Martial"]
+            "proficiencies": [
+                "Simple",
+                "Martial"
+            ]
         }
     ],
     "startingEquipment": [
@@ -54,7 +210,9 @@
             "Holy Symbol",
             "Priest's Pack and 9 GP"
         ],
-        ["150 GP"]
+        [
+            "150 GP"
+        ]
     ],
     "progression": [],
     "features": [
@@ -88,7 +246,26 @@
             "level": 3,
             "description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You start with one such effect: Divine Sense, which is described below. Other Paladin features give additional Channel Divinity effect options. Each time you use this class's Channel Divinity, you choose which effect from this class to create. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting Feature. Divine Sense. As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell.",
             "value": [
-                0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+                0,
+                0,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
             ]
         },
         {
@@ -165,7 +342,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -212,7 +408,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -264,7 +479,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -311,7 +545,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {
@@ -363,7 +616,26 @@
                 }
             ],
             "attacksPerLevel": [
-                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
             ],
             "features": [
                 {

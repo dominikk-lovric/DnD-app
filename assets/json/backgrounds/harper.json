@@ -1,15 +1,35 @@
 {
-	"name": "Harper",
-	"catId": "background",
-	"description": "Choose A or B: (A) Disguise Kit, Bedroll, Costume, Grappling Hook, Rope, Traveler’s Clothes, 14 GP; or (B) 50 GP",
-	"abilities": ["Dex", "Int", "Cha"],
-	"feat": [
-		{
-			"name": "Harper Agent",
-			"path": "assets/json/feats/harper-agent"
-		}
-	],
-	"skills": ["Performance", "Sleight of Hand"],
-	"tools": "Disguise Kit",
-	"equipment": [["Disguise Kit", "Bedroll", "Costume", "Grappling Hook", "Rope", "Traveler’s Clothes", "14 GP"], ["50 GP"]]
+    "name": "Harper",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Disguise Kit, Bedroll, Costume, Grappling Hook, Rope, Traveler’s Clothes, 14 GP; or (B) 50 GP",
+    "abilities": [
+        "Dex",
+        "Int",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Harper Agent",
+            "path": "assets/json/feats/harper-agent"
+        }
+    ],
+    "skills": [
+        "Performance",
+        "Sleight of Hand"
+    ],
+    "tools": "Disguise Kit",
+    "equipment": [
+        [
+            "Disguise Kit",
+            "Bedroll",
+            "Costume",
+            "Grappling Hook",
+            "Rope",
+            "Traveler’s Clothes",
+            "14 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

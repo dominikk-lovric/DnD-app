@@ -1,17 +1,17 @@
 {
-  "name": "Rebuke",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Astarion's Book of Hungers",
-  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Radiant Strike",
-      "description": "When you make a damage roll that deals Radiant damage, you can cause one Huge or smaller creature taking the damage to have the Prone condition. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-    }
-  ]
+    "name": "Rebuke",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Astarion's Book of Hungers",
+    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Radiant Strike",
+            "description": "When you make a damage roll that deals Radiant damage, you can cause one Huge or smaller creature taking the damage to have the Prone condition. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+        }
+    ]
 }

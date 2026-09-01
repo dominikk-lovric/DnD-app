@@ -1,15 +1,34 @@
 {
-	"name": "Inquisitive",
-	"catId": "background",
-	"description": "You have honed your talents of investigation and deduction—fueled by a boundless curiosity—to explore mysteries, find missing people, recover stolen goods, unearth corruption and conspiracies, and solve crimes. As an inquisitive, you might have pursued freelance work, signed on with an inquisitive agency (perhaps one licensed by a dragonmarked house such as Medani or Tharashk), reported for a broadsheet, or worked for a police force.",
-	"abilities": ["Con", "Int", "Cha"],
-	"feat": [
-		{
-			"name": "Alert",
-			"path": "assets/json/feats/alert"
-		}
-	],
-	"skills": ["Insight", "Investigation"],
-	"tools": "Thieves’ Tools",
-	"equipment": [["Thieves’ Tools", "Bullseye Lantern", "Crowbar", "Oil (10 flasks)", "Traveler’s Clothes", "10 GP"], ["50 GP"]]
+    "name": "Inquisitive",
+    "catId": "backgrounds",
+    "description": "You have honed your talents of investigation and deduction—fueled by a boundless curiosity—to explore mysteries, find missing people, recover stolen goods, unearth corruption and conspiracies, and solve crimes. As an inquisitive, you might have pursued freelance work, signed on with an inquisitive agency (perhaps one licensed by a dragonmarked house such as Medani or Tharashk), reported for a broadsheet, or worked for a police force.",
+    "abilities": [
+        "Con",
+        "Int",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Alert",
+            "path": "assets/json/feats/alert"
+        }
+    ],
+    "skills": [
+        "Insight",
+        "Investigation"
+    ],
+    "tools": "Thieves’ Tools",
+    "equipment": [
+        [
+            "Thieves’ Tools",
+            "Bullseye Lantern",
+            "Crowbar",
+            "Oil (10 flasks)",
+            "Traveler’s Clothes",
+            "10 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

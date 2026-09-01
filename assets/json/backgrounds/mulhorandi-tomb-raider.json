@@ -1,15 +1,44 @@
 {
-	"name": "Mulhorandi Tomb Raider",
-	"catId": "background",
-	"description": "Choose A or B: (A) Dagger, Light Hammer, Mason’s Tools, Backpack, Bedroll, Crowbar, Ladder, Pole, 2 Pouches, Rope, String, Tinderbox, 5 Torches, Traveler’s Clothes, Waterskin, 26 GP; or (B) 50 GP",
-	"abilities": ["Dex", "Con", "Int"],
-	"feat": [
-		{
-			"name": "Lucky",
-			"path": "assets/json/feats/lucky"
-		}
-	],
-	"skills": ["Investigation", "Religion"],
-	"tools": "Mason’s Tools",
-	"equipment": [["Dagger", "Light Hammer", "Mason’s Tools", "Backpack", "Bedroll", "Crowbar", "Ladder", "Pole", "2 Pouches", "Rope", "String", "Tinderbox", "5 Torches", "Traveler’s Clothes", "Waterskin", "26 GP"], ["50 GP"]]
+    "name": "Mulhorandi Tomb Raider",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Dagger, Light Hammer, Mason’s Tools, Backpack, Bedroll, Crowbar, Ladder, Pole, 2 Pouches, Rope, String, Tinderbox, 5 Torches, Traveler’s Clothes, Waterskin, 26 GP; or (B) 50 GP",
+    "abilities": [
+        "Dex",
+        "Con",
+        "Int"
+    ],
+    "feat": [
+        {
+            "name": "Lucky",
+            "path": "assets/json/feats/lucky"
+        }
+    ],
+    "skills": [
+        "Investigation",
+        "Religion"
+    ],
+    "tools": "Mason’s Tools",
+    "equipment": [
+        [
+            "Dagger",
+            "Light Hammer",
+            "Mason’s Tools",
+            "Backpack",
+            "Bedroll",
+            "Crowbar",
+            "Ladder",
+            "Pole",
+            "2 Pouches",
+            "Rope",
+            "String",
+            "Tinderbox",
+            "5 Torches",
+            "Traveler’s Clothes",
+            "Waterskin",
+            "26 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

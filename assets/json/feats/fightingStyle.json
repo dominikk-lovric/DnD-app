@@ -1,16 +1,17 @@
 {
-  "options": [
-    "assets/json/feats/archery.json",
-    "assets/json/feats/blind-fighting.json",
-    "assets/json/feats/defense.json",
-    "assets/json/feats/dueling.json",
-    "assets/json/feats/great-weapon-fighting.json",
-    "assets/json/feats/interception.json",
-    "assets/json/feats/pack-fighting.json",
-    "assets/json/feats/prone-fighting.json",
-    "assets/json/feats/protection.json",
-    "assets/json/feats/thrown-weapon-fighting.json",
-    "assets/json/feats/two-weapon-fighting.json",
-    "assets/json/feats/unarmed-fighting.json"
-  ]
+    "options": [
+        "assets/json/feats/archery.json",
+        "assets/json/feats/blind-fighting.json",
+        "assets/json/feats/defense.json",
+        "assets/json/feats/dueling.json",
+        "assets/json/feats/great-weapon-fighting.json",
+        "assets/json/feats/interception.json",
+        "assets/json/feats/pack-fighting.json",
+        "assets/json/feats/prone-fighting.json",
+        "assets/json/feats/protection.json",
+        "assets/json/feats/thrown-weapon-fighting.json",
+        "assets/json/feats/two-weapon-fighting.json",
+        "assets/json/feats/unarmed-fighting.json"
+    ],
+    "catId": "feats"
 }

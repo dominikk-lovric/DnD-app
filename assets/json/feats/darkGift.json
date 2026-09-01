@@ -1,13 +1,14 @@
 {
-  "options": [
-    "assets/json/feats/aberrant-anatomy.json",
-    "assets/json/feats/echoing-soul.json",
-    "assets/json/feats/gathered-whispers.json",
-    "assets/json/feats/living-shadow.json",
-    "assets/json/feats/mist-walker.json",
-    "assets/json/feats/second-skin.json",
-    "assets/json/feats/symbiotic-being.json",
-    "assets/json/feats/touch-of-death.json",
-    "assets/json/feats/watchers.json"
-  ]
+    "options": [
+        "assets/json/feats/aberrant-anatomy.json",
+        "assets/json/feats/echoing-soul.json",
+        "assets/json/feats/gathered-whispers.json",
+        "assets/json/feats/living-shadow.json",
+        "assets/json/feats/mist-walker.json",
+        "assets/json/feats/second-skin.json",
+        "assets/json/feats/symbiotic-being.json",
+        "assets/json/feats/touch-of-death.json",
+        "assets/json/feats/watchers.json"
+    ],
+    "catId": "feats"
 }

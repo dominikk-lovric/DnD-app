@@ -1,25 +1,25 @@
 {
-  "catId": "spell",
-  "name": "Flame Blade",
-  "level": 2,
-  "school": "Evocation",
-  "spellList": [
-    "Druid",
-    "Sorcerer"
-  ],
-  "castingTime": [
-    "Bonus Action"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a sumac leaf",
-  "duration": [
-    "up to 10 minutes"
-  ],
-  "concentration": true,
-  "description": "You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke it again as a Bonus Action.\nAs a Magic action, you can make a melee spell attack with the fiery blade. On a hit, the target takes Fire damage equal to 3d6 plus your spellcasting ability modifier.\nThe flaming blade sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 2.\n"
+    "catId": "spells",
+    "name": "Flame Blade",
+    "level": 2,
+    "school": "Evocation",
+    "spellList": [
+        "Druid",
+        "Sorcerer"
+    ],
+    "castingTime": [
+        "Bonus Action"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a sumac leaf",
+    "duration": [
+        "up to 10 minutes"
+    ],
+    "concentration": true,
+    "description": "You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke it again as a Bonus Action.\nAs a Magic action, you can make a melee spell attack with the fiery blade. On a hit, the target takes Fire damage equal to 3d6 plus your spellcasting ability modifier.\nThe flaming blade sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 2.\n"
 }

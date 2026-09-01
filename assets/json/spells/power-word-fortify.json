@@ -1,23 +1,23 @@
 {
-  "catId": "spell",
-  "name": "Power Word Fortify",
-  "level": 7,
-  "school": "Enchantment",
-  "spellList": [
-    "Bard",
-    "Cleric"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "60 feet",
-  "components": [
-    "V"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "You fortify up to six creatures you can see within range. The spell bestows 120 Temporary Hit Points, which you divide among the spell’s recipients.\n"
+    "catId": "spells",
+    "name": "Power Word Fortify",
+    "level": 7,
+    "school": "Enchantment",
+    "spellList": [
+        "Bard",
+        "Cleric"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "60 feet",
+    "components": [
+        "V"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "You fortify up to six creatures you can see within range. The spell bestows 120 Temporary Hit Points, which you divide among the spell’s recipients.\n"
 }

@@ -1,36 +1,285 @@
 {
     "id": "c3",
-    "catId": "class",
+    "catId": "classes",
     "name": "Cleric",
     "source": "Player's Handbook",
     "icon": {
         "base": "assets/icons/base/classes/cleric.jpg"
     },
     "hitDie": "d8",
-    "savingThrows": ["Wis", "Cha"],
-
-    "casterLevel": 1,
-    "spellcastingAbility": "Wis",
-    "spells": {
-        "Cantrips": [
-            3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
-        ],
-        "Prepared Spells": [
-            4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 16, 17, 17, 18, 18, 19, 20,
-            21, 22
-        ],
-        "1st": [2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-        "2nd": [0, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "3rd": [0, 0, 0, 0, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3],
-        "6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2],
-        "7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2],
-        "8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
-        "9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+    "savingThrows": [
+        "Wis",
+        "Cha"
+    ],
+    "spellcasting": {
+        "casterLevel": 1,
+        "spellcastingAbility": "Wis",
+        "spellcastingTable": {
+            "Cantrips": [
+                3,
+                3,
+                3,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+            ],
+            "Prepared Spells": [
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11,
+                12,
+                14,
+                15,
+                16,
+                16,
+                17,
+                17,
+                18,
+                18,
+                19,
+                20,
+                21,
+                22
+            ],
+            "1st": [
+                2,
+                3,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+            ],
+            "2nd": [
+                0,
+                0,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "3rd": [
+                0,
+                0,
+                0,
+                0,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "4th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+            ],
+            "5th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                3,
+                3,
+                3
+            ],
+            "6th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2,
+                2
+            ],
+            "7th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2
+            ],
+            "8th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+            ],
+            "9th": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1
+            ]
+        }
     },
     "attacksPerLevel": [
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
     ],
     "proficiencies": [
         {
@@ -46,11 +295,17 @@
         },
         {
             "name": "Armor",
-            "proficiencies": ["Light", "Medium", "Shields"]
+            "proficiencies": [
+                "Light",
+                "Medium",
+                "Shields"
+            ]
         },
         {
             "name": "Weapon",
-            "proficiencies": ["Simple"]
+            "proficiencies": [
+                "Simple"
+            ]
         }
     ],
     "startingEquipment": [
@@ -62,7 +317,9 @@
             "Priest's Pack",
             "and 7 GP"
         ],
-        ["110 GP"]
+        [
+            "110 GP"
+        ]
     ],
     "features": [
         {
@@ -80,7 +337,26 @@
             "level": 2,
             "description": "You can channel divine energy directly from the Outer Planes to fuel magical effects. You start with two such effects: Divine Spark and Turn Undead, each of which is described below. Each time you use this class’s Channel Divinity, choose which Channel Divinity effect from this class to create. You gain additional effect options at higher Cleric levels. You can use this class’s Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain additional uses when you reach certain Cleric levels, as shown in the Channel Divinity column of the Cleric Features table. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class’s Spellcasting feature. Divine Spark. As a Magic action, you point your Holy Symbol at another creature you can see within 30 feet of yourself and focus divine energy at it. Roll 1d8 and add your Wisdom modifier. You either restore Hit Points to the creature equal to that total or force the creature to make a Constitution saving throw. On a failed save, the creature takes Necrotic or Radiant damage (your choice) equal to that total. On a successful save, the creature takes half as much damage (round down). You roll an additional d8 when you reach Cleric levels 7 (2d8), 13 (3d8), and 18 (4d8). Turn Undead. As a Magic action, you present your Holy Symbol and censure Undead creatures. Each Undead of your choice within 30 feet of you must make a Wisdom saving throw. If the creature fails its save, it has the Frightened and Incapacitated conditions for 1 minute. For that duration, it tries to move as far from you as it can on its turns. This effect ends early on the creature if it takes any damage, if you have the Incapacitated condition, or if you die.",
             "value": [
-                0, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4
+                0,
+                2,
+                2,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                4,
+                4,
+                4
             ]
         },
         {
@@ -137,9 +413,18 @@
                         "Ray of Enfeeblement",
                         "Spare the Dying"
                     ],
-                    "5": ["Revivify", "Vampiric Touch"],
-                    "7": ["Blight", "Death Ward"],
-                    "9": ["Dispel Evil and Good", "Raise Dead"]
+                    "5": [
+                        "Revivify",
+                        "Vampiric Touch"
+                    ],
+                    "7": [
+                        "Blight",
+                        "Death Ward"
+                    ],
+                    "9": [
+                        "Dispel Evil and Good",
+                        "Raise Dead"
+                    ]
                 }
             },
             "features": [
@@ -182,9 +467,21 @@
                         "Identify",
                         "Mind Spike"
                     ],
-                    "5": ["Dispel Magic", "Nondetection", "Tongues"],
-                    "7": ["Arcane Eye", "Banishment", "Confusion"],
-                    "9": ["Legend Lore", "Scrying", "Synaptic Static"]
+                    "5": [
+                        "Dispel Magic",
+                        "Nondetection",
+                        "Tongues"
+                    ],
+                    "7": [
+                        "Arcane Eye",
+                        "Banishment",
+                        "Confusion"
+                    ],
+                    "9": [
+                        "Legend Lore",
+                        "Scrying",
+                        "Synaptic Static"
+                    ]
                 }
             },
             "features": [
@@ -219,10 +516,24 @@
             "name": "Life Domain",
             "spells": {
                 "addedSpells": {
-                    "3": ["Aid", "Bless", "Cure Wounds", "Lesser Restoration"],
-                    "5": ["Mass Healing Word", "Revivify"],
-                    "7": ["Aura of Life", "Death Ward"],
-                    "9": ["Greater Restoration", "Mass Cure Wounds"]
+                    "3": [
+                        "Aid",
+                        "Bless",
+                        "Cure Wounds",
+                        "Lesser Restoration"
+                    ],
+                    "5": [
+                        "Mass Healing Word",
+                        "Revivify"
+                    ],
+                    "7": [
+                        "Aura of Life",
+                        "Death Ward"
+                    ],
+                    "9": [
+                        "Greater Restoration",
+                        "Mass Cure Wounds"
+                    ]
                 }
             },
             "features": [
@@ -263,9 +574,18 @@
                         "Scorching Ray",
                         "See Invisibility"
                     ],
-                    "5": ["Daylight", "Fireball"],
-                    "7": ["Arcane Eye", "Wall of Fire"],
-                    "9": ["Flame Strike", "Scrying"]
+                    "5": [
+                        "Daylight",
+                        "Fireball"
+                    ],
+                    "7": [
+                        "Arcane Eye",
+                        "Wall of Fire"
+                    ],
+                    "9": [
+                        "Flame Strike",
+                        "Scrying"
+                    ]
                 }
             },
             "features": [
@@ -306,9 +626,18 @@
                         "Invisibility",
                         "Pass without Trace"
                     ],
-                    "5": ["Hypnotic Pattern", "Nondetection"],
-                    "7": ["Confusion", "Dimension Door"],
-                    "9": ["Dominate Person", "Modify Memory"]
+                    "5": [
+                        "Hypnotic Pattern",
+                        "Nondetection"
+                    ],
+                    "7": [
+                        "Confusion",
+                        "Dimension Door"
+                    ],
+                    "9": [
+                        "Dominate Person",
+                        "Modify Memory"
+                    ]
                 }
             },
             "features": [
@@ -349,9 +678,18 @@
                         "Shield of Faith",
                         "Spiritual Weapon"
                     ],
-                    "5": ["Crusader's Mantle", "Spirit Guardians"],
-                    "7": ["Fire Shield", "Freedom of Movement"],
-                    "9": ["Hold Monster", "Steel Wind Strike"]
+                    "5": [
+                        "Crusader's Mantle",
+                        "Spirit Guardians"
+                    ],
+                    "7": [
+                        "Fire Shield",
+                        "Freedom of Movement"
+                    ],
+                    "9": [
+                        "Hold Monster",
+                        "Steel Wind Strike"
+                    ]
                 }
             },
             "features": [

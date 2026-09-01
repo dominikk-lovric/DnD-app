@@ -1,21 +1,21 @@
 {
-  "name": "Keen Mind",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Player's Handbook",
-  "description": "Prerequisite: Level 4+, Intelligence 13+ You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase your Intelligence score by 1, to a maximum of 20."
-    },
-    {
-      "name": "Lore Knowledge",
-      "description": "Choose one of the following skills: Arcana, History, Investigation, Nature, or Religion. If you lack proficiency in the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it."
-    },
-    {
-      "name": "Quick Study",
-      "description": "You can take the Study action as a Bonus Action."
-    }
-  ]
+    "name": "Keen Mind",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Player's Handbook",
+    "description": "Prerequisite: Level 4+, Intelligence 13+ You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase your Intelligence score by 1, to a maximum of 20."
+        },
+        {
+            "name": "Lore Knowledge",
+            "description": "Choose one of the following skills: Arcana, History, Investigation, Nature, or Religion. If you lack proficiency in the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain Expertise in it."
+        },
+        {
+            "name": "Quick Study",
+            "description": "You can take the Study action as a Bonus Action."
+        }
+    ]
 }

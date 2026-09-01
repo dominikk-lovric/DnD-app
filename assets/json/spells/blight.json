@@ -1,26 +1,26 @@
 {
-  "catId": "spell",
-  "name": "Blight",
-  "level": 4,
-  "school": "Necromancy",
-  "spellList": [
-    "Druid",
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "30 feet",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "A creature that you can see within range makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one. A Plant creature automatically fails the save.\nAlternatively, target a nonmagical plant that isn’t a creature, such as a tree or shrub. It doesn’t make a save; it simply withers and dies.\nUsing a Higher-Level Spell Slot. The damage increases by 1d8 for each spell slot level above 4.\n"
+    "catId": "spells",
+    "name": "Blight",
+    "level": 4,
+    "school": "Necromancy",
+    "spellList": [
+        "Druid",
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "30 feet",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "A creature that you can see within range makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one. A Plant creature automatically fails the save.\nAlternatively, target a nonmagical plant that isn’t a creature, such as a tree or shrub. It doesn’t make a save; it simply withers and dies.\nUsing a Higher-Level Spell Slot. The damage increases by 1d8 for each spell slot level above 4.\n"
 }

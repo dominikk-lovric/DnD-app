@@ -31,7 +31,11 @@ class ListWidget extends StatelessWidget {
                     children: [
                       ...items.map((item) {
                         if (item is List) {
-                          return ListWidget(item, size: size);
+                          if (item is List<Widget>) {
+                            return Column(children: item);
+                          } else {
+                            return ListWidget(item, size: size);
+                          }
                         } else if (item is Map<String, dynamic>) {
                           return TableWidget(item, size);
                         } else {

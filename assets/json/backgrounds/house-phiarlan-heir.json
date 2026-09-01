@@ -1,15 +1,31 @@
 {
-	"name": "House Phiarlan Heir",
-	"catId": "background",
-	"description": "Though you have seen wealth, fame, and beauty as a child of House Phiarlan, you consider knowledge (and the power it brings) the greatest treasure of all. You might pursue that power as an artist or performer, always alert for secrets even as you regale the world with story, song, acrobatics, or art. Or you might foster ties to the secretive espionage arm of your house: the Serpentine Table.",
-	"abilities": ["Dex", "Wis", "Cha"],
-	"feat": [
-		{
-			"name": "Mark of Shadow",
-			"path": "assets/json/feats/mark-of-shadow"
-		}
-	],
-	"skills": ["Deception", "Stealth"],
-	"tools": "Disguise Kit",
-	"equipment": [["Disguise Kit", "Fine Clothes", "10 GP"], ["50 GP"]]
+    "name": "House Phiarlan Heir",
+    "catId": "backgrounds",
+    "description": "Though you have seen wealth, fame, and beauty as a child of House Phiarlan, you consider knowledge (and the power it brings) the greatest treasure of all. You might pursue that power as an artist or performer, always alert for secrets even as you regale the world with story, song, acrobatics, or art. Or you might foster ties to the secretive espionage arm of your house: the Serpentine Table.",
+    "abilities": [
+        "Dex",
+        "Wis",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Shadow",
+            "path": "assets/json/feats/mark-of-shadow"
+        }
+    ],
+    "skills": [
+        "Deception",
+        "Stealth"
+    ],
+    "tools": "Disguise Kit",
+    "equipment": [
+        [
+            "Disguise Kit",
+            "Fine Clothes",
+            "10 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

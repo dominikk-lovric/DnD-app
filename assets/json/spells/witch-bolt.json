@@ -1,26 +1,26 @@
 {
-  "catId": "spell",
-  "name": "Witch Bolt",
-  "level": 1,
-  "school": "Evocation",
-  "spellList": [
-    "Sorcerer",
-    "Warlock",
-    "Wizard"
-  ],
-  "castingTime": [
-    "Action"
-  ],
-  "range": "60 feet",
-  "components": [
-    "V",
-    "S",
-    "M"
-  ],
-  "materials": "a twig struck by lightning",
-  "duration": [
-    "up to 1 minute"
-  ],
-  "concentration": true,
-  "description": "A beam of crackling energy lances toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against it. On a hit, the target takes 2d12 Lightning damage.\nOn each of your subsequent turns, you can take a Bonus Action to deal 1d12 Lightning damage to the target automatically, even if the first attack missed.\nThe spell ends if the target is ever outside the spell’s range or if it has Total Cover from you.\nUsing a Higher-Level Spell Slot. The initial damage increases by 1d12 for each spell slot level above 1.\n"
+    "catId": "spells",
+    "name": "Witch Bolt",
+    "level": 1,
+    "school": "Evocation",
+    "spellList": [
+        "Sorcerer",
+        "Warlock",
+        "Wizard"
+    ],
+    "castingTime": [
+        "Action"
+    ],
+    "range": "60 feet",
+    "components": [
+        "V",
+        "S",
+        "M"
+    ],
+    "materials": "a twig struck by lightning",
+    "duration": [
+        "up to 1 minute"
+    ],
+    "concentration": true,
+    "description": "A beam of crackling energy lances toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against it. On a hit, the target takes 2d12 Lightning damage.\nOn each of your subsequent turns, you can take a Bonus Action to deal 1d12 Lightning damage to the target automatically, even if the first attack missed.\nThe spell ends if the target is ever outside the spell’s range or if it has Total Cover from you.\nUsing a Higher-Level Spell Slot. The initial damage increases by 1d12 for each spell slot level above 1.\n"
 }

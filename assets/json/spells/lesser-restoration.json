@@ -1,28 +1,28 @@
 {
-  "catId": "spell",
-  "name": "Lesser Restoration",
-  "level": 2,
-  "school": "Abjuration",
-  "spellList": [
-    "Artificer",
-    "Bard",
-    "Cleric",
-    "Druid",
-    "Paladin",
-    "Ranger"
-  ],
-  "castingTime": [
-    "Bonus Action"
-  ],
-  "range": "Touch",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "Instantaneous"
-  ],
-  "concentration": false,
-  "description": "You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.\n"
+    "catId": "spells",
+    "name": "Lesser Restoration",
+    "level": 2,
+    "school": "Abjuration",
+    "spellList": [
+        "Artificer",
+        "Bard",
+        "Cleric",
+        "Druid",
+        "Paladin",
+        "Ranger"
+    ],
+    "castingTime": [
+        "Bonus Action"
+    ],
+    "range": "Touch",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "Instantaneous"
+    ],
+    "concentration": false,
+    "description": "You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.\n"
 }

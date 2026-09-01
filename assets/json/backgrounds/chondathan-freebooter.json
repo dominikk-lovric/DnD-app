@@ -1,15 +1,40 @@
 {
-	"name": "Chondathan Freebooter",
-	"catId": "background",
-	"description": "Choose A or B: (A) Dagger, Weaver’s Tools, Backpack, Ball Bearings, Basket, Bedroll, Bucket, Rations (3 days’ worth), Rope, Signal Whistle, Traveler’s Clothes, 38 GP; or (B) 50 GP",
-	"abilities": ["Str", "Dex", "Wis"],
-	"feat": [
-		{
-			"name": "Skilled",
-			"path": "assets/json/feats/skilled"
-		}
-	],
-	"skills": ["Athletics", "Sleight of Hand"],
-	"tools": "Weaver’s Tools",
-	"equipment": [["Dagger", "Weaver’s Tools", "Backpack", "Ball Bearings", "Basket", "Bedroll", "Bucket", "Rations (3 days’ worth)", "Rope", "Signal Whistle", "Traveler’s Clothes", "38 GP"], ["50 GP"]]
+    "name": "Chondathan Freebooter",
+    "catId": "backgrounds",
+    "description": "Choose A or B: (A) Dagger, Weaver’s Tools, Backpack, Ball Bearings, Basket, Bedroll, Bucket, Rations (3 days’ worth), Rope, Signal Whistle, Traveler’s Clothes, 38 GP; or (B) 50 GP",
+    "abilities": [
+        "Str",
+        "Dex",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Skilled",
+            "path": "assets/json/feats/skilled"
+        }
+    ],
+    "skills": [
+        "Athletics",
+        "Sleight of Hand"
+    ],
+    "tools": "Weaver’s Tools",
+    "equipment": [
+        [
+            "Dagger",
+            "Weaver’s Tools",
+            "Backpack",
+            "Ball Bearings",
+            "Basket",
+            "Bedroll",
+            "Bucket",
+            "Rations (3 days’ worth)",
+            "Rope",
+            "Signal Whistle",
+            "Traveler’s Clothes",
+            "38 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

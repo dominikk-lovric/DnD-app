@@ -1,17 +1,17 @@
 {
-  "name": "Delicious Pain",
-  "catId": "feat",
-  "type": "General Feat",
-  "source": "Astarion's Book of Hungers",
-  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-  "features": [
-    {
-      "name": "Ability Score Increase",
-      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-    },
-    {
-      "name": "Toughened Flesh",
-      "description": "Immediately after you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to gain Resistance to Bludgeoning, Piercing, and Slashing damage until the start of your next turn. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-    }
-  ]
+    "name": "Delicious Pain",
+    "catId": "feats",
+    "type": "General Feat",
+    "source": "Astarion's Book of Hungers",
+    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+    "features": [
+        {
+            "name": "Ability Score Increase",
+            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+        },
+        {
+            "name": "Toughened Flesh",
+            "description": "Immediately after you take Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to gain Resistance to Bludgeoning, Piercing, and Slashing damage until the start of your next turn. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+        }
+    ]
 }

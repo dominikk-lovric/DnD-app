@@ -1,15 +1,31 @@
 {
-	"name": "House Medani Heir",
-	"catId": "background",
-	"description": "As a member of House Medani, your life revolves around subterfuge - not engaging in it, but preventing others from doing so. You see the world around you as an intricate web of schemes, plots, and counterplots. Assessing the range of possibilities, you use instinct to predict threats to your clients and defend against them well before those threats can turn into danger. Defending against an assassin’s blade is a job any Deneith sellsword or Tharashk enforcer can do - making sure no one ever draws that blade is the Medani way.",
-	"abilities": ["Dex", "Int", "Wis"],
-	"feat": [
-		{
-			"name": "Mark of Detection",
-			"path": "assets/json/feats/mark-of-detection"
-		}
-	],
-	"skills": ["Insight", "Investigation"],
-	"tools": "Disguise Kit",
-	"equipment": [["Disguise Kit", "Fine Clothes", "10 GP"], ["50 GP"]]
+    "name": "House Medani Heir",
+    "catId": "backgrounds",
+    "description": "As a member of House Medani, your life revolves around subterfuge - not engaging in it, but preventing others from doing so. You see the world around you as an intricate web of schemes, plots, and counterplots. Assessing the range of possibilities, you use instinct to predict threats to your clients and defend against them well before those threats can turn into danger. Defending against an assassin’s blade is a job any Deneith sellsword or Tharashk enforcer can do - making sure no one ever draws that blade is the Medani way.",
+    "abilities": [
+        "Dex",
+        "Int",
+        "Wis"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Detection",
+            "path": "assets/json/feats/mark-of-detection"
+        }
+    ],
+    "skills": [
+        "Insight",
+        "Investigation"
+    ],
+    "tools": "Disguise Kit",
+    "equipment": [
+        [
+            "Disguise Kit",
+            "Fine Clothes",
+            "10 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

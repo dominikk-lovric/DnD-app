@@ -1,15 +1,32 @@
 {
-	"name": "House Vadalis Heir",
-	"catId": "background",
-	"description": "You have grown up with respect for both family and nature. You understand the culture of the Five Nations, but you don’t get drawn into the games of ambition and status that others play. You know the beauty and power inherent in life, the mysteries of birth and death, and the miracles that happen in between. Your insights into the natural world allow you to see through the lies and deception of city folk—and never let on how much of their subterfuge you recognize.",
-	"abilities": ["Con", "Wis", "Cha"],
-	"feat": [
-		{
-			"name": "Mark of Handling",
-			"path": "assets/json/feats/mark-of-handling"
-		}
-	],
-	"skills": ["Animal Handling", "Nature"],
-	"tools": "Herbalism Kit",
-	"equipment": [["Herbalism Kit", "Fine Clothes", "Net", "29 GP"], ["50 GP"]]
+    "name": "House Vadalis Heir",
+    "catId": "backgrounds",
+    "description": "You have grown up with respect for both family and nature. You understand the culture of the Five Nations, but you don’t get drawn into the games of ambition and status that others play. You know the beauty and power inherent in life, the mysteries of birth and death, and the miracles that happen in between. Your insights into the natural world allow you to see through the lies and deception of city folk—and never let on how much of their subterfuge you recognize.",
+    "abilities": [
+        "Con",
+        "Wis",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Mark of Handling",
+            "path": "assets/json/feats/mark-of-handling"
+        }
+    ],
+    "skills": [
+        "Animal Handling",
+        "Nature"
+    ],
+    "tools": "Herbalism Kit",
+    "equipment": [
+        [
+            "Herbalism Kit",
+            "Fine Clothes",
+            "Net",
+            "29 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }

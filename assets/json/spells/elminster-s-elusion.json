@@ -1,23 +1,23 @@
 {
-  "catId": "spell",
-  "name": "Elminster's Elusion",
-  "level": 2,
-  "school": "Abjuration",
-  "spellList": [
-    "Wizard"
-  ],
-  "castingTime": [
-    "Bonus Action"
-  ],
-  "range": "Self",
-  "components": [
-    "V",
-    "S"
-  ],
-  "materials": "",
-  "duration": [
-    "up to 10 minutes"
-  ],
-  "concentration": true,
-  "description": ""
+    "catId": "spells",
+    "name": "Elminster's Elusion",
+    "level": 2,
+    "school": "Abjuration",
+    "spellList": [
+        "Wizard"
+    ],
+    "castingTime": [
+        "Bonus Action"
+    ],
+    "range": "Self",
+    "components": [
+        "V",
+        "S"
+    ],
+    "materials": "",
+    "duration": [
+        "up to 10 minutes"
+    ],
+    "concentration": true,
+    "description": ""
 }

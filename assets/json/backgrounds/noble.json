@@ -1,15 +1,32 @@
 {
-	"name": "Noble",
-	"catId": "background",
-	"description": "You were raised in a castle, surrounded by wealth, power, and privilege. Your family of minor aristocrats ensured that you received a first-class education, some of which you appreciated and some of which you resented. Your time in the castle, especially the many hours you spent observing your family at court, also taught you a great deal about leadership.",
-	"abilities": ["Str", "Int", "Cha"],
-	"feat": [
-		{
-			"name": "Skilled",
-			"path": "assets/json/feats/skilled"
-		}
-	],
-	"skills": ["History", "Persuasion"],
-	"tools": "Gaming Set",
-	"equipment": [["Gaming Set (same as above)", "Fine Clothes", "Perfume", "29 GP"], ["50 GP"]]
+    "name": "Noble",
+    "catId": "backgrounds",
+    "description": "You were raised in a castle, surrounded by wealth, power, and privilege. Your family of minor aristocrats ensured that you received a first-class education, some of which you appreciated and some of which you resented. Your time in the castle, especially the many hours you spent observing your family at court, also taught you a great deal about leadership.",
+    "abilities": [
+        "Str",
+        "Int",
+        "Cha"
+    ],
+    "feat": [
+        {
+            "name": "Skilled",
+            "path": "assets/json/feats/skilled"
+        }
+    ],
+    "skills": [
+        "History",
+        "Persuasion"
+    ],
+    "tools": "Gaming Set",
+    "equipment": [
+        [
+            "Gaming Set (same as above)",
+            "Fine Clothes",
+            "Perfume",
+            "29 GP"
+        ],
+        [
+            "50 GP"
+        ]
+    ]
 }
