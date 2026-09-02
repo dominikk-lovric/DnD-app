@@ -1,0 +1,66 @@
+{
+  "name": "Archfey Patron",
+  "traits": {},
+  "spells": {},
+  "progression": [
+    {
+      "name": "Spells",
+      "value": [
+        "Calm Emotions , Faerie Fire , Misty Step , Phantasmal Force , Sleep",
+        "Blink , Plant Growth",
+        "Dominate Beast , Greater Invisibility",
+        "Dominate Person , Seeming"
+      ]
+    }
+  ],
+  "attacksPerLevel": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "features": [
+    {
+      "name": "Archfey Spells",
+      "level": 3,
+      "description": "The magic of your patron ensures you always have certain spells ready; when you reach a Warlock level specified in the Archfey Spells table, you thereafter always have the listed spells prepared."
+    },
+    {
+      "name": "Steps of the Fey",
+      "level": 3,
+      "description": "Your patron grants you the ability to move between the boundaries of the planes. You can cast Misty Step without expending a spell slot a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a Long Rest. In addition, whenever you cast that spell, you can choose one of the following additional effects. Refreshing Step. Immediately after you teleport, you or one creature you can see within 10 feet of yourself gains 1d10 Temporary Hit Points. Taunting Step. Creatures within 5 feet of the space you left must succeed on a Wisdom saving throw against your spell save DC or have Disadvantage on attack rolls against creatures other than you until the start of your next turn."
+    },
+    {
+      "name": "Misty Escape",
+      "level": 6,
+      "description": "You can cast Misty Step as a Reaction in response to taking damage. In addition, the following effects are now among your Steps of the Fey options. Disappearing Step. You have the Invisible condition until the start of your next turn or until immediately after you make an attack roll, deal damage, or cast a spell. Dreadful Step. Creatures within 5 feet of the space you left or the space you appear in (your choice) must succeed on a Wisdom saving throw against your spell save DC or take 2d10 Psychic damage."
+    },
+    {
+      "name": "Beguiling Defenses",
+      "level": 10,
+      "description": "Your patron teaches you how to guard your mind and body. You are immune to the Charmed condition. In addition, immediately after a creature you can see hits you with an attack roll, you can take a Reaction to reduce the damage you take by half (round down), and you can force the attacker to make a Wisdom saving throw against your spell save DC. On a failed save, the attacker takes Psychic damage equal to the damage you take. Once you use this Reaction, you can’t use it again until you finish a Long Rest unless you expend a Pact Magic spell slot (no action required) to restore your use of it."
+    },
+    {
+      "name": "Bewitching Magic",
+      "level": 14,
+      "description": "Your patron grants you the ability to weave your magic with teleportation. Immediately after you cast an Enchantment or Illusion spell using an action and a spell slot, you can cast Misty Step as part of the same action and without expending a spell slot."
+    }
+  ],
+  "catId": "classes"
+}

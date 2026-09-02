@@ -1,0 +1,66 @@
+{
+  "name": "Shadow Sorcery",
+  "traits": {},
+  "spells": {},
+  "progression": [
+    {
+      "name": "Spells",
+      "value": [
+        "Bane , Darkness , Inflict Wounds , Pass Without Trace",
+        "Hunger of Hadar , Nondetection",
+        "Greater Invisibility , Phantasmal Killer",
+        "Contagion , Creation"
+      ]
+    }
+  ],
+  "attacksPerLevel": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "features": [
+    {
+      "name": "Shadow Spells",
+      "level": 3,
+      "description": "When you reach a Sorcerer level specified in the Shadow Spells table, you thereafter always have the listed spells prepared."
+    },
+    {
+      "name": "Power of Shadow",
+      "level": 3,
+      "description": "You gain the following benefits. Eyes of the Dark. You have Darkvision with a range of 120 feet and Blindsight with a range of 10 feet. In addition, if a spell you cast creates an area of Darkness, you can see normally through that spell’s Darkness. Strength of the Grave. If you would drop to 0 Hit Points and not die outright, you can make a Charisma saving throw (DC 5 plus the damage taken). On a successful save, your Hit Points instead change to a number equal to your Charisma modifier plus your Sorcerer level. After you succeed on this save, you can’t use this benefit again until you finish a Long Rest."
+    },
+    {
+      "name": "Beasts of Ill Omen",
+      "level": 6,
+      "description": "You can call forth a howling creature of shadow to hound your foes. You can spend 3 Sorcery Points to cast Summon Beast as a Bonus Action without expending a spell slot, without preparing the spell, and without Material components. The summoned creature appears as a beast made of shadow, and enemies within 5 feet of the summoned creature have Disadvantage on saving throws against spells you cast. Whenever you cast the spell, you can modify it so that it doesn’t require Concentration. If you do so, the spell’s duration becomes 1 minute for that casting, and the spell ends early if you cast the spell again."
+    },
+    {
+      "name": "Shadow Walk",
+      "level": 14,
+      "description": "While you are in Dim Light or Darkness, you can take a Bonus Action to teleport up to 120 feet to an unoccupied space you can see that is also in Dim Light or Darkness."
+    },
+    {
+      "name": "Umbral Form",
+      "level": 18,
+      "description": "When you use Innate Sorcery, you can adopt a shadowy form, gaining the benefits below while your Innate Sorcery is active or until you end the form (no action required). Once you use this feature, you can’t use it again until you finish a Long Rest unless you spend 6 Sorcery Points (no action required) to restore your use of it. Incorporeal Movement. You can move through creatures and objects as if they were Difficult Terrain, but you take 1d10 Force damage if you end your turn inside a creature or an object. Shadow Resilience. You have Resistance to all damage except Force and Radiant damage."
+    }
+  ],
+  "catId": "classes"
+}

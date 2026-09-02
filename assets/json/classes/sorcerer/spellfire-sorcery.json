@@ -1,0 +1,66 @@
+{
+  "name": "Spellfire Sorcery",
+  "traits": {},
+  "spells": {},
+  "progression": [
+    {
+      "name": "Spells",
+      "value": [
+        "Cure Wounds , Guiding Bolt , Lesser Restoration , Scorching Ray",
+        "Aura of Vitality , Dispel Magic",
+        "Fire Shield , Wall of Fire",
+        "Greater Restoration , Flame Strike"
+      ]
+    }
+  ],
+  "attacksPerLevel": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "features": [
+    {
+      "name": "Spellfire Burst",
+      "level": 3,
+      "description": "When you spend at least 1 Sorcery Point as part of a Magic action or a Bonus Action on your turn, you can unleash one of the following magical effects of your choice. You can do so only once per turn. Bolstering Flames. You or one creature you can see within 30 feet of yourself gains Temporary Hit Points equal to 1d4 plus your Charisma modifier. Radiant Fire. One creature you can see within 30 feet of yourself takes 1d4 Fire or Radiant damage (your choice)."
+    },
+    {
+      "name": "Spellfire Spells",
+      "level": 3,
+      "description": "When you reach a Sorcerer level specified in the Spellfire Spells table, you thereafter always have the listed spells prepared."
+    },
+    {
+      "name": "Absorb Spells",
+      "level": 6,
+      "description": "You always have Counterspell prepared. Additionally, whenever a target fails the saving throw against a Counterspell you cast, you regain 1d4 Sorcery Points."
+    },
+    {
+      "name": "Honed Spellfire",
+      "level": 14,
+      "description": "Your Spellfire Burst improves. You add your Sorcerer level to the Temporary Hit Points gained from Bolstering Flames, and the damage of your Radiant Fire increases to 1d8."
+    },
+    {
+      "name": "Crown of Spellfire",
+      "level": 18,
+      "description": "When you use Innate Sorcery, you can alter it and infuse yourself with the essence of spellfire, gaining the following benefits while this use of Innate Sorcery is active. Once you use this feature to alter Innate Sorcery, you can’t use it again until you finish a Long Rest unless you spend 5 Sorcery Points (no action required) to restore your use of it. Burning Life Force. Once per turn when you are hit by an attack roll, you can expend a number of Hit Point Dice, up to a maximum equal to your Charisma modifier (minimum of one). Roll the expended dice, and reduce the amount of damage from that attack equal to the total rolled. Flight. You gain a Fly Speed of 60 feet and can hover. Spell Avoidance. When you’re subjected to a spell or magical effect that allows you to make a saving throw to take only half damage, you instead take no damage if you succeed on the save and only half damage if you fail. You can’t use this benefit if you have the Incapacitated condition."
+    }
+  ],
+  "catId": "classes"
+}

@@ -1,4 +1,5 @@
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/list_widget.dart';
 import 'package:flutter/material.dart';
@@ -6,31 +7,68 @@ import 'package:flutter/material.dart';
 class TableWidget extends StatelessWidget {
   Map<String, dynamic> info;
   String type;
-  int size;
-  bool noListing;
+  int nameSize;
+  int textSize;
   TableWidget(
-    this.info,
-    this.size, [
+    this.info, [
     this.type = "vertical",
-    this.noListing = false,
+    this.nameSize = 4,
+    this.textSize = 4,
   ]);
 
   @override
   Widget build(BuildContext context) {
     List<String> names = info.keys.toList();
     List<TableRow> rows = [];
-    if (type == "vertical") {
+    if (type == "horizontal") {
+      names.map((name) {
+        rows.add(
+          TableRow(
+            children: [
+              Padding(
+                padding: EdgeInsetsGeometry.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                child: Center(
+                  child: Text(
+                    StringService.titleFromKey(name),
+                    style: TextStyleService.getTextStyle(nameSize, 4),
+                  ),
+                ),
+              ),
+              ...info[name].map((el) {
+                return Padding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                    horizontal: 10,
+                    vertical: 5,
+                  ),
+                  child: Center(
+                    child: Text(
+                      el.toString(),
+                      style: TextStyleService.getTextStyle(textSize, 4),
+                    ),
+                  ),
+                );
+              }),
+            ],
+          ),
+        );
+      });
+    } else {
       rows.add(
         TableRow(
           children: [
             ...names.map(
-              (name) => Center(
-                child: Padding(
-                  padding: EdgeInsetsGeometry.all(10),
+              (name) => Padding(
+                padding: EdgeInsetsGeometry.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                child: Center(
                   child: Text(
-                    name.toString(),
-                    style: TextStyleService.getTextStyle(size, 4),
-                    maxLines: 1,
+                    StringService.titleFromKey(name),
+                    style: TextStyleService.getTextStyle(nameSize, 4),
                   ),
                 ),
               ),
@@ -43,80 +81,31 @@ class TableWidget extends StatelessWidget {
           TableRow(
             children: [
               ...names.map(
-                (name) => Center(
-                  child: Text(
-                    info[name][i].toString(),
-                    style: TextStyleService.getTextStyle(size, 4),
+                (name) => Padding(
+                  padding: EdgeInsetsGeometry.symmetric(
+                    horizontal: 10,
+                    vertical: 5,
+                  ),
+                  child: Center(
+                    child: Text(
+                      info[name][i].toString(),
+                      style: TextStyleService.getTextStyle(textSize, 4),
+                    ),
                   ),
                 ),
               ),
-            ],
-          ),
-        );
-      }
-    } else if (type == "horizontal") {
-      for (int i = 0; i < names.length; i++) {
-        List<Widget> myList = [
-          Text(names[i], style: TextStyleService.getTextStyle(size, 4)),
-        ];
-        if (noListing) {
-          myList.addAll([
-            ...info[names[i]].map((el) {
-              return Text(
-                el.toString(),
-                style: TextStyleService.getTextStyle(size, 4),
-              );
-            }),
-          ]);
-        } else {
-          if (info[names[i]] is List) {
-            if (info[names[i]].length > 1) {
-              myList.add(ListWidget(info[names[i]]));
-            } else {
-              myList.add(
-                Text(
-                  info[names[i]][0],
-                  style: TextStyleService.getTextStyle(size, 4),
-                ),
-              );
-            }
-          } else {
-            myList.add(
-              Text(
-                info[names[i]],
-                style: TextStyleService.getTextStyle(size, 4),
-              ),
-            );
-          }
-        }
-        rows.add(
-          TableRow(
-            children: [
-              ...myList.map((item) {
-                return Center(
-                  child: Padding(
-                    padding: EdgeInsetsGeometry.all(10),
-                    child: item,
-                  ),
-                );
-              }),
             ],
           ),
         );
       }
     }
     return SingleChildScrollView(
-      scrollDirection: (type == "horizontal") ? Axis.horizontal : Axis.vertical,
+      scrollDirection: type == "vertical" ? Axis.vertical : Axis.horizontal,
       child: Table(
-        border: TableBorder(
-          verticalInside: BorderSide(color: ColorService.getColor(4), width: 1),
-          horizontalInside: BorderSide(
-            color: ColorService.getColor(4),
-            width: 1,
-          ),
+        border: TableBorder.symmetric(
+          inside: BorderSide(color: ColorService.getColor(4)),
         ),
         defaultColumnWidth: IntrinsicColumnWidth(),
-        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
         children: rows,
       ),
     );

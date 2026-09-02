@@ -9,7 +9,8 @@
                     "type": "text",
                     "noTitle": true
                 },
-                "icon": "heart"
+                "icon": "heart",
+                "noTitle": true
             },
             "savingThrows": {
                 "type": "checkList",
@@ -21,7 +22,7 @@
                     "casterLevel": {
                         "type": "text"
                     },
-                    "spellcastingAblility": {
+                    "spellcastingAbility": {
                         "type": "text"
                     },
                     "spellcastingTable": {
@@ -30,22 +31,49 @@
                 }
             },
             "attacksPerLevel": {
-                "type": "list",
-                "item": {
-                    "type": "text",
-                    "noTitle": true
-                }
+                "type": "table"
             },
             "proficiencies": {
                 "type": "map",
                 "item": {
-                    "options": {
-                        "type": "text"
+                    "Skill": {
+                        "type": "map",
+                        "item": {
+                            "options": {
+                                "type": "text"
+                            },
+                            "proficiencies": {
+                                "type": "list",
+                                "item": { "type": "text", "noTitle": true },
+                                "noTitle": true
+                            }
+                        }
                     },
-                    "proficiency": {
-                        "type": "list",
-                        "item": { "type": "text", "noTitle": true },
-                        "noTitle": true
+                    "Armor": {
+                        "type": "map",
+                        "item": {
+                            "options": {
+                                "type": "text"
+                            },
+                            "proficiencies": {
+                                "type": "list",
+                                "item": { "type": "text", "noTitle": true },
+                                "noTitle": true
+                            }
+                        }
+                    },
+                    "Weapon": {
+                        "type": "map",
+                        "item": {
+                            "options": {
+                                "type": "text"
+                            },
+                            "proficiencies": {
+                                "type": "list",
+                                "item": { "type": "text", "noTitle": true },
+                                "noTitle": true
+                            }
+                        }
                     }
                 }
             },
@@ -59,11 +87,23 @@
             },
             "features": {
                 "type": "list",
-                "item": { "type": "feature", "noTitle": true }
+                "item": {
+                    "type": "map",
+                    "item": {
+                        "level": {
+                            "type": "text"
+                        },
+                        "description": {
+                            "type": "text"
+                        }
+                    }
+                }
             },
             "archetypes": {
                 "type": "list",
-                "item": { "type": "classes", "noTitle": true }
+                "item": {
+                    "type": "path"
+                }
             }
         },
         "filters": [
@@ -137,15 +177,13 @@
             "features": {
                 "type": "list",
                 "item": {
-                    "type": "feature",
-                    "noTitle": true
+                    "type": "feature"
                 }
             },
             "subspicies": {
                 "type": "list",
                 "item": {
-                    "type": "species",
-                    "noTitle": true
+                    "type": "species"
                 }
             }
         },
@@ -314,8 +352,7 @@
             "features": {
                 "type": "list",
                 "item": {
-                    "type": "feature",
-                    "noTitle": true
+                    "type": "feature"
                 }
             }
         },
@@ -370,9 +407,9 @@
             "feat": {
                 "type": "list",
                 "item": {
-                    "type": "feats",
-                    "noTitle": true
-                }
+                    "type": "path"
+                },
+                "path": true
             },
             "skills": {
                 "type": "list",

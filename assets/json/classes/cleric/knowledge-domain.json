@@ -1,0 +1,58 @@
+{
+  "name": "Knowledge Domain",
+  "spells": {
+    "addedSpells": {
+      "3": [
+        "Command",
+        "Comprehend Languages",
+        "Detect Magic",
+        "Detect Thoughts",
+        "Identify",
+        "Mind Spike"
+      ],
+      "5": [
+        "Dispel Magic",
+        "Nondetection",
+        "Tongues"
+      ],
+      "7": [
+        "Arcane Eye",
+        "Banishment",
+        "Confusion"
+      ],
+      "9": [
+        "Legend Lore",
+        "Scrying",
+        "Synaptic Static"
+      ]
+    }
+  },
+  "features": [
+    {
+      "name": "Blessings of Knowledge",
+      "level": 3,
+      "description": "You gain proficiency with one type of Artisan’s Tools of your choice and in two of the following skills of your choice: Arcana, History, Nature, or Religion. You have Expertise in those two skills."
+    },
+    {
+      "name": "Knowledge Domain Spells",
+      "level": 3,
+      "description": "When you reach a Cleric level specified in the Knowledge Domain Spells table, you thereafter always have the listed spells prepared. *Spell of the Divination School"
+    },
+    {
+      "name": "Mind Magic",
+      "level": 3,
+      "description": "As a Magic action, you can expend one use of your Channel Divinity to manifest your magical knowledge. Choose one spell from the Divination school on the Knowledge Domain Spells table that you have prepared. As part of that action, you cast that spell without expending a spell slot or needing Material components."
+    },
+    {
+      "name": "Unfettered Mind",
+      "level": 6,
+      "description": "You gain telepathy out to 60 feet. When you use this telepathy, you can simultaneously contact a number of creatures equal to your Wisdom modifier (minimum of one). Additionally, you gain proficiency in Intelligence saving throws. If you already have this proficiency, you instead gain saving throw proficiency with one ability in which you lack it."
+    },
+    {
+      "name": "Divine Foreknowledge",
+      "level": 17,
+      "description": "As a Bonus Action, you magically expand your mind to the future. For 1 hour, you have Advantage on D20 Tests. Once you use this feature, you can’t use it again until you finish a Long Rest. You can also restore your use of this feature by expending a level 6+ spell slot (no action required)."
+    }
+  ],
+  "catId": "classes"
+}

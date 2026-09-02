@@ -11,47 +11,43 @@ class ListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        spacing: 10,
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return IntrinsicHeight(
+      child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          IntrinsicHeight(
-            child: Row(
+          Container(width: 10),
+          Container(color: ColorService.getColor(5), width: 1),
+          Container(width: 5),
+          Expanded(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
+              spacing: 10,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(width: 10),
-                Container(color: ColorService.getColor(5), width: 1),
-                Container(width: 5),
-                Expanded(
-                  child: Column(
-                    spacing: 10,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ...items.map((item) {
-                        if (item is List) {
-                          if (item is List<Widget>) {
-                            return Column(children: item);
-                          } else {
-                            return ListWidget(item, size: size);
-                          }
-                        } else if (item is Map<String, dynamic>) {
-                          return TableWidget(item, size);
-                        } else {
-                          return Text(
-                            item.toString(),
-                            style: TextStyleService.getTextStyle(
-                              size,
-                              4,
-                              Overflow: TextOverflow.clip,
-                            ),
-                          );
-                        }
-                      }),
-                    ],
-                  ),
-                ),
+                ...items.map((item) {
+                  if (item is Widget) {
+                    return item;
+                  } else if (item is List) {
+                    if (item.isNotEmpty && item.every((x) => x is Widget)) {
+                      return Column(children: List<Widget>.from(item));
+                    } else {
+                      return ListWidget(item, size: size);
+                    }
+                  } else if (item is Map<String, dynamic>) {
+                    print("MAP");
+                    return TableWidget(item);
+                  } else {
+                    print("ELSE");
+                    return Text(
+                      item.toString(),
+                      style: TextStyleService.getTextStyle(
+                        size,
+                        4,
+                        Overflow: TextOverflow.clip,
+                      ),
+                    );
+                  }
+                }),
               ],
             ),
           ),

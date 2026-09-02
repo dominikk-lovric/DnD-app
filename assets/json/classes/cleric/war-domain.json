@@ -1,0 +1,53 @@
+{
+  "name": "War Domain",
+  "spells": {
+    "addedSpells": {
+      "3": [
+        "Guiding Bolt",
+        "Magic Weapon",
+        "Shield of Faith",
+        "Spiritual Weapon"
+      ],
+      "5": [
+        "Crusader's Mantle",
+        "Spirit Guardians"
+      ],
+      "7": [
+        "Fire Shield",
+        "Freedom of Movement"
+      ],
+      "9": [
+        "Hold Monster",
+        "Steel Wind Strike"
+      ]
+    }
+  },
+  "features": [
+    {
+      "name": "Guided Strike",
+      "level": 3,
+      "description": "When you or a creature within 30 feet of you misses with an attack roll, you can expend one use of your Channel Divinity and give that roll a +10 bonus, potentially causing it to hit. When you use this feature to benefit another creature’s attack roll, you must take a Reaction to do so."
+    },
+    {
+      "name": "War Domain Spells",
+      "level": 3,
+      "description": "Your connection to this divine domain ensures you always have certain spells ready. When you reach a Cleric level specified in the War Domain Spells table, you thereafter always have the listed spells prepared."
+    },
+    {
+      "name": "War Priest",
+      "level": 3,
+      "description": "As a Bonus Action, you can make one attack with a weapon or an Unarmed Strike. You can use this Bonus Action a number of times equal to your Wisdom modifier (minimum of once). You regain all expended uses when you finish a Short or Long Rest."
+    },
+    {
+      "name": "War God’s Blessing",
+      "level": 6,
+      "description": "You can expend a use of your Channel Divinity to cast Shield of Faith or Spiritual Weapon rather than expending a spell slot. When you cast either spell in this way, the spell doesn’t require Concentration. Instead the spell lasts for 1 minute, but it ends early if you cast that spell again, have the Incapacitated condition, or die."
+    },
+    {
+      "name": "Avatar of Battle",
+      "level": 17,
+      "description": "You gain Resistance to Bludgeoning, Piercing, and Slashing damage."
+    }
+  ],
+  "catId": "classes"
+}

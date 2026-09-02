@@ -42,6 +42,7 @@ class DescriptionColumnWidgetState extends State<DescriptionColumnWidget> {
   initState() {
     category = widget.info["catId"];
     loaded = false;
+    getItems();
     super.initState();
   }
 
@@ -70,61 +71,158 @@ class DescriptionColumnWidgetState extends State<DescriptionColumnWidget> {
   }
 
   Future<void> getItems() async {
-    List<Widget> res = [];
-    for (String key in widget.info.keys.toList()) {
-      res.add(getItem(key));
+    final List<Widget> res = [];
+
+    final Map<String, dynamic> schema = Map<String, dynamic>.from(
+      widget.categoryData[category]["schema"],
+    );
+
+    for (final entry in schema.entries) {
+      final String key = entry.key;
+
+      if (!widget.info.containsKey(key)) {
+        continue;
+      }
+
+      res.add(
+        await getItem(
+          widget.info[key],
+          entry.value,
+          StringService.titleFromKey(key),
+        ),
+      );
     }
+
     setState(() {
       widgets = res;
       loaded = true;
     });
   }
 
-  Widget getItem(String key, String title) {
-    Map<String, dynamic> schema = widget.categoryData[category]["schema"];
-    String type = schema[key]["type"];
-    String newTitle = (schema[key]["noTitle"] == true) ? "" : title;
-    String setting = title + widget.info["catId"] + "DescriptionType";
+  Future<Widget> getItem(
+    dynamic itemInfo,
+    Map<String, dynamic> schemaItem,
+    String title,
+  ) async {
+    //     debugPrint('''
+    // ========== getItem ==========
+    // title: $title
+    // item type: ${itemInfo.runtimeType}
+    // item: $itemInfo
+    // schema type: ${schemaItem.runtimeType}
+    // schema: $schemaItem
+    // ==============================
+    // ''');
+    final String type = schemaItem["type"];
+    final String newTitle = schemaItem["noTitle"] == true ? "" : title;
+
+    final String setting =
+        "${StringService.slugify(title)}${widget.info["catId"]}DescriptionStyle";
     switch (type) {
       case "text":
         return DescriptionWidget(
-          title,
-          Text(
-            widget.info[key].toString(),
-            style: TextStyleService.getTextStyle(4, 4),
-          ),
+          newTitle,
+          Text(itemInfo.toString(), style: TextStyleService.getTextStyle(4, 4)),
           setting,
         );
-        break;
+
       case "list":
-        List<Widget> widgets=[];
-        
-        return DescriptionWidget(newTitle, , setting);
-        break;
-      case "map":
-        break;
-      case "icon":
-        break;
-      case "bool":
-        break;
-      case "table":
-        break;
-      default:
-        if (widget.categoryData.keys.toList().contains(key)) {
-          break;
-        } else {
-          break;
+        final List<Widget> children = [];
+
+        for (final item in itemInfo) {
+          children.add(await getItem(item, schemaItem["item"], title));
         }
+        return DescriptionWidget(newTitle, ListWidget(children), setting);
+
+      case "map":
+        final List<Widget> children = [];
+
+        for (final key in itemInfo.keys.toList()) {
+          children.add(
+            await getItem(
+              itemInfo[key],
+              schemaItem["item"][key],
+              StringService.titleFromKey(key),
+            ),
+          );
+        }
+
+        return DescriptionWidget(newTitle, ListWidget(children), setting);
+
+      case "icon":
+        Icon icon;
+
+        switch (schemaItem["icon"]) {
+          case "heart":
+            icon = const Icon(Icons.favorite, color: Colors.red);
+            break;
+
+          default:
+            icon = Icon(Icons.do_not_disturb, color: ColorService.getColor(4));
+        }
+
+        return Stack(
+          children: [
+            icon,
+            Text(
+              itemInfo.toString(),
+              style: TextStyleService.getTextStyle(3, 4),
+            ),
+          ],
+        );
+
+      case "feature":
+        return FeatureDescriptionWidget(
+          Map<String, dynamic>.from(itemInfo),
+          "features-entry${category.toLowerCase()}DescriptionStyle",
+        );
+
+      case "checkList":
+        return DescriptionWidget(
+          title,
+          CheckListWidget(itemInfo, schemaItem["list"]),
+          setting,
+        );
+
+      case "table":
+        return DescriptionWidget(title, TableWidget(itemInfo), setting);
+
+      case "path":
+        Map<String, dynamic> pathInfo = await JsonService.loadFromPath(
+          itemInfo["path"],
+        );
+        return DescriptionWidget(
+          itemInfo["name"],
+          DescriptionColumnWidget(pathInfo, widget.categoryData),
+          setting,
+          initiallyExpanded: true,
+        );
+
+      default:
+        return const SizedBox.shrink();
     }
-    return SizedBox.shrink();
   }
 
-  dynamic getInfo(String key){
-    List<String> selectors=key.split(".");
-    dynamic item=widget.info;
-    for (final selector in selectors){
-      item=item[selector];
+  dynamic getInfo(String key) {
+    List<String> selectors = key.split(".");
+    dynamic item = widget.info;
+    for (final selector in selectors) {
+      item = item[selector];
     }
     return item;
+  }
+
+  dynamic getSchemaItem(String key) {
+    List<String> selectors = key.split(".");
+    dynamic item = widget.categoryData[category]["schema"];
+    for (final selector in selectors) {
+      item = item[selector];
+    }
+    return item;
+  }
+
+  Widget getFeature(Map<String, dynamic> feature) {
+    List<Widget> items = [];
+    return Column(children: items);
   }
 }

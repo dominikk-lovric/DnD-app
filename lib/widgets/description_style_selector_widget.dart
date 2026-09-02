@@ -110,61 +110,68 @@ class DescriptionStyleSelectorWidgetState
     final index = keyIndex[item]!;
 
     final setting =
-        StringService.slugify(item) +
+        StringService.slugify(StringService.titleFromKey(item)) +
         StringService.slugify(widget.category) +
         "DescriptionStyle";
 
     final type = schema["type"];
 
-    return DescriptionWidget(
-      StringService.titleFromKey(item),
-      Column(
-        children: [
-          if (type == "list") getSelector("${item}Entry", schema["item"]),
+    return schema["noTitle"] == true
+        ? SizedBox.shrink()
+        : DescriptionWidget(
+            StringService.titleFromKey(item),
+            Column(
+              children: [
+                if (type == "list") getSelector("${item}Entry", schema["item"]),
 
-          if (type == "map")
-            ...schema["item"].entries.map<Widget>((entry) {
-              final childName = StringService.CapitalizeWord(entry.key);
+                if (type == "map")
+                  ...schema["item"].entries.map<Widget>((entry) {
+                    final childName = StringService.CapitalizeWord(entry.key);
 
-              return getSelector(childName, entry.value);
-            }),
+                    return getSelector(childName, entry.value);
+                  }),
 
-          ...options.map((option) {
-            return GestureDetector(
-              onTap: () async {
-                await keyList[index].currentState?.close();
+                ...options.map((option) {
+                  return GestureDetector(
+                    onTap: () async {
+                      await keyList[index].currentState?.close();
 
-                await SettingsService.setSetting(setting, option);
-
-                if (mounted) {
-                  setState(() {});
-                }
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: SettingsService.getSetting(setting) == option
-                      ? ColorService.getColor(1)
-                      : Colors.transparent,
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                child: Text(
-                  StringService.titleFromKey(option),
-                  style: TextStyleService.getTextStyle(3, 4),
-                ),
-              ),
-            );
-          }),
-        ],
-      ),
-      "expand",
-      initiallyExpanded: false,
-      key: keyList[index],
-      titleLevel: 3,
-    );
+                      await SettingsService.setSetting(setting, option);
+                      print(
+                        "Setting (" +
+                            setting +
+                            ") set, item: " +
+                            SettingsService.getSetting(setting),
+                      );
+                      if (mounted) {
+                        setState(() {});
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: SettingsService.getSetting(setting) == option
+                            ? ColorService.getColor(1)
+                            : Colors.transparent,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
+                      child: Text(
+                        StringService.titleFromKey(option),
+                        style: TextStyleService.getTextStyle(3, 4),
+                      ),
+                    ),
+                  );
+                }),
+              ],
+            ),
+            "expand",
+            initiallyExpanded: false,
+            key: keyList[index],
+            titleLevel: 3,
+          );
   }
 
   List<String> getItems(Map<String, dynamic> schema) {

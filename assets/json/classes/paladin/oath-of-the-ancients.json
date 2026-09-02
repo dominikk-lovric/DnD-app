@@ -1,0 +1,67 @@
+{
+  "name": "Oath of the Ancients",
+  "traits": {},
+  "spells": {},
+  "progression": [
+    {
+      "name": "Spells",
+      "value": [
+        "Ensnaring Strike , Speak with Animals",
+        "Misty Step , Moonbeam",
+        "Plant Growth , Protection from Energy",
+        "Ice Storm , Stoneskin",
+        "Commune with Nature , Tree Stride"
+      ]
+    }
+  ],
+  "attacksPerLevel": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "features": [
+    {
+      "name": "Nature's Wrath",
+      "level": 3,
+      "description": "As a Magic action, you can expend one of your uses of Channel Divinity to conjure spectral vines around nearby creatures. Each creature of your choice that you can see within 15 feet of yourself must succeed on a Strength saving throw or have the Restrained condition for 1 minute. A Restrained creature repeats the save at the end of each of its turns, ending the effect on a success."
+    },
+    {
+      "name": "Oath of the Ancients Spells",
+      "level": 3,
+      "description": "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oath of the Ancients Spells table, you thereafter always have the listed spells prepared."
+    },
+    {
+      "name": "Aura of Warding",
+      "level": 7,
+      "description": "Ancient magic lies so heavily upon you that it forms an eldritch ward, blunting energy from beyond the Material Plane; you and your allies have Resistance to Necrotic, Psychic and Radiant damage while in your Aura of Protection."
+    },
+    {
+      "name": "Undying Sentinel",
+      "level": 15,
+      "description": "When you are reduced to 0 Hit Points and not killed outright, you can drop to 1 Hit Point instead, and regain a number of Hit Points equal to three times your Paladin level. Once you use this feature, you can't do so again until you finish a Long Rest. Additionally, you can't be aged magically, and you cease visibly aging."
+    },
+    {
+      "name": "Elder Champion",
+      "level": 20,
+      "description": "As a Bonus Action, you can imbue your Aura of Protection with primal power, granting the benefits below for 1 minute or until you end them (no action required). Once you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Diminish Defiance. Enemies in the aura have Disadvantage on saving throws against your spells and Channel Divinity options. Regeneration. At the start of each of your turns, you regain 10 Hit Points. Swift Spells. Whenever you cast a spell that has a casting time of an action, you can cast it using a Bonus Action instead."
+    }
+  ],
+  "catId": "classes"
+}

@@ -116,12 +116,6 @@ flutter:
 
         #classes
         - assets/json/classes/barbarian.json
-
-        - assets/json/classes/barbarian/berserker.json
-        - assets/json/classes/barbarian/wild_heart.json
-        - assets/json/classes/barbarian/world_tree.json
-        - assets/json/classes/barbarian/zealot.json
-
         - assets/json/classes/bard.json
         - assets/json/classes/cleric.json
         - assets/json/classes/druid.json
@@ -134,6 +128,92 @@ flutter:
         - assets/json/classes/warlock.json
         - assets/json/classes/wizard.json
         - assets/json/species/aasimar.json
+
+        #barbarian
+        - assets/json/classes/barbarian/berserker.json
+        - assets/json/classes/barbarian/wild-heart.json
+        - assets/json/classes/barbarian/world-tree.json
+        - assets/json/classes/barbarian/zealot.json
+
+        #bard
+        - assets/json/classes/bard/college-of-dance.json
+        - assets/json/classes/bard/college-of-glamour.json
+        - assets/json/classes/bard/college-of-lore.json
+        - assets/json/classes/bard/college-of-spirits.json
+        - assets/json/classes/bard/college-of-the-moon.json
+        - assets/json/classes/bard/college-of-valor.json
+
+        #cleric
+        - assets/json/classes/cleric/grave-domain.json
+        - assets/json/classes/cleric/knowledge-domain.json
+        - assets/json/classes/cleric/life-domain.json
+        - assets/json/classes/cleric/light-domain.json
+        - assets/json/classes/cleric/trickery-domain.json
+        - assets/json/classes/cleric/war-domain.json
+
+        #druid
+        - assets/json/classes/druid/circle-of-the-land.json
+        - assets/json/classes/druid/circle-of-the-moon.json
+        - assets/json/classes/druid/circle-of-the-sea.json
+        - assets/json/classes/druid/circle-of-the-stars.json
+
+        #fighter
+        - assets/json/classes/fighter/banneret.json
+        - assets/json/classes/fighter/battle-master.json
+        - assets/json/classes/fighter/champion.json
+        - assets/json/classes/fighter/eldritch-knight.json
+        - assets/json/classes/fighter/psi-warrior.json
+
+        #monk
+        - assets/json/classes/monk/warrior-of-mercy.json
+        - assets/json/classes/monk/warrior-of-shadow.json
+        - assets/json/classes/monk/warrior-of-the-elements.json
+        - assets/json/classes/monk/warrior-of-the-open-hand.json
+
+        #paladin
+        - assets/json/classes/paladin/oath-of-devotion.json
+        - assets/json/classes/paladin/oath-of-glory.json
+        - assets/json/classes/paladin/oath-of-the-ancients.json
+        - assets/json/classes/paladin/oath-of-the-noble-genies.json
+        - assets/json/classes/paladin/oath-of-vengeance.json
+
+        #ranger
+        - assets/json/classes/ranger/beast-master.json
+        - assets/json/classes/ranger/fey-wanderer.json
+        - assets/json/classes/ranger/gloom-stalker.json
+        - assets/json/classes/ranger/hollow-warden.json
+        - assets/json/classes/ranger/hunter.json
+        - assets/json/classes/ranger/winter-walker.json
+
+        #rogue
+        - assets/json/classes/rogue/arcane-trickster.json
+        - assets/json/classes/rogue/assassin.json
+        - assets/json/classes/rogue/phantom.json
+        - assets/json/classes/rogue/scion-of-the-three.json
+        - assets/json/classes/rogue/soulknife.json
+        - assets/json/classes/rogue/thief.json
+
+        #sorcerer
+        - assets/json/classes/sorcerer/aberrant-sorcery.json
+        - assets/json/classes/sorcerer/clockwork-sorcery.json
+        - assets/json/classes/sorcerer/draconic-sorcery.json
+        - assets/json/classes/sorcerer/shadow-sorcery.json
+        - assets/json/classes/sorcerer/spellfire-sorcery.json
+        - assets/json/classes/sorcerer/wild-magic-sorcery.json
+
+        #warlock
+        - assets/json/classes/warlock/archfey-patron.json
+        - assets/json/classes/warlock/celestial-patron.json
+        - assets/json/classes/warlock/fiend-patron.json
+        - assets/json/classes/warlock/great-old-one-patron.json
+        - assets/json/classes/warlock/undead-patron.json
+
+        #wizard
+        - assets/json/classes/wizard/abjurer.json
+        - assets/json/classes/wizard/bladesinger.json
+        - assets/json/classes/wizard/diviner.json
+        - assets/json/classes/wizard/evoker.json
+        - assets/json/classes/wizard/illusionist.json
 
         #species
         - assets/json/species/aasimar.json

@@ -8,9 +8,13 @@
     },
     "hitDie": "d12",
     "savingThrows": ["Str", "Con"],
-    "attacksPerLevel": [
-        1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
-    ],
+    "attacksPerLevel": {
+        "level": [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20
+        ],
+        "attacks": [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+    },
     "proficiencies": {
         "Skill": {
             "options": 2,
@@ -122,10 +126,12 @@
                 "amount": [
                     2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
                 ],
-                "change": {
-                    "event": "longRest",
-                    "amount": 1
-                },
+                "change": [
+                    {
+                        "event": "longRest",
+                        "amount": 1
+                    }
+                ],
                 "features": "assets/json/other/weaponMastery.json"
             }
         },
@@ -401,10 +407,12 @@
             ],
             "options": {
                 "amount": 1,
-                "change": {
-                    "event": "Reckless Attack",
-                    "amount": 1
-                },
+                "change": [
+                    {
+                        "event": "Reckless Attack",
+                        "amount": 1
+                    }
+                ],
                 "features": [
                     {
                         "name": "Forcefull Blow",
@@ -763,11 +771,11 @@
         },
         {
             "name": "Path of the Wild Heart",
-            "path": "assets/json/classes/barbarian/wild_heart.json"
+            "path": "assets/json/classes/barbarian/wild-heart.json"
         },
         {
             "name": "Path of the World Tree",
-            "path": "assets/json/classes/barbarian/world_tree.json"
+            "path": "assets/json/classes/barbarian/world-tree.json"
         },
         {
             "name": "Path of the Zealot",

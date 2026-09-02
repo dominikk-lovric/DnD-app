@@ -1,5 +1,5 @@
 {
-    "options": [
+    "features": [
         "assets/json/feats/boon-of-combat-prowess.json",
         "assets/json/feats/boon-of-dimensional-travel.json",
         "assets/json/feats/boon-of-energy-resistance.json",

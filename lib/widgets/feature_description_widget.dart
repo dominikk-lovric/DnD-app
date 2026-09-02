@@ -46,7 +46,7 @@ class FeatureDescriptionWidget extends StatefulWidget {
 class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
   Map<String, dynamic> info;
   String settingName;
-  List<dynamic> options = [];
+  List<Map<String, dynamic>> options = [];
 
   int titleLevel;
   int subtitleLevel;
@@ -70,19 +70,59 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
   void initState() {
     super.initState();
 
-    if (info.containsKey("options")) {
-      if (info["options"]["features"] is String) {
-        loadFile(info["options"]["features"]);
-      } else {
-        options = info["options"]["features"];
-      }
+    final rawOptions = info["options"];
+
+    if (rawOptions is! Map) {
+      return;
+    }
+
+    final features = rawOptions["features"];
+
+    if (features is String) {
+      loadFile(features);
+    } else if (features is List) {
+      loadFeatures(features);
     }
   }
 
   Future<void> loadFile(String fileName) async {
     final json = await JsonService.loadFromPath(fileName);
+
+    final features = json["features"];
+
+    if (features is! List) {
+      debugPrint(
+        'Feature file "$fileName" has invalid "features": '
+        '${features.runtimeType}',
+      );
+      return;
+    }
+
+    await loadFeatures(features);
+  }
+
+  Future<void> loadFeatures(List features) async {
+    final List<Map<String, dynamic>> result = [];
+
+    for (final feature in features) {
+      if (feature is Map) {
+        result.add(Map<String, dynamic>.from(feature));
+      } else if (feature is String) {
+        final json = await JsonService.loadFromPath(feature);
+
+        result.add(json);
+      } else {
+        debugPrint(
+          "Invalid feature entry: "
+          "${feature.runtimeType} -> $feature",
+        );
+      }
+    }
+
+    if (!mounted) return;
+
     setState(() {
-      options = json["features"] ?? [];
+      options = result;
     });
   }
 
@@ -195,22 +235,24 @@ class FeatureDescriptionWidgetState extends State<FeatureDescriptionWidget> {
     int description,
   ) {
     final item = selector(info);
+
     if (item is List) {
       Map<String, List<dynamic>> table = {
         "Level": List.generate(20, (i) => i + 1),
         "Amount": item,
       };
-      return (TableWidget(table, 3, "horizontal"));
-    } else if (info is String) {
-      return (Text(
-        ParserService.getModifier(info),
+
+      return TableWidget(table, "horizontal");
+    } else if (item is String) {
+      return Text(
+        ParserService.getModifier(item),
         style: TextStyleService.getTextStyle(description, 4),
-      ));
+      );
     } else {
-      return (Text(
+      return Text(
         item.toString(),
         style: TextStyleService.getTextStyle(description, 4),
-      ));
+      );
     }
   }
 }
