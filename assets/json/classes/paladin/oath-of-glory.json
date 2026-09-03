@@ -14,59 +14,77 @@
       ]
     }
   ],
-  "attacksPerLevel": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
-  ],
-  "features": [
-    {
-      "name": "Inspiring Smite",
+  "attacksPerLevel": {
+    "level": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "attacks": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "features": {
+    "Inspiring Smite": {
       "level": 3,
       "description": "Immediately after you cast Divine Smite , you can expend one use of your Channel Divinity and distribute Temporary Hit Points to creatures of your choice within 30 feet of yourself, which can include you. The total number of Temporary Hit Points equals 2d8 plus your Paladin level, divided among the chosen creatures however you like."
     },
-    {
-      "name": "Oath of Glory Spells.",
+    "Oath of Glory Spells.": {
       "level": 3,
       "description": "The magic of your oath ensures you always have certain spells ready; when you reach a Paladin level specified in the Oath of Glory Spells table, you thereafter always have the listed spells prepared."
     },
-    {
-      "name": "Peerless Athlete",
+    "Peerless Athlete": {
       "level": 3,
       "description": "As a Bonus Action, you can expend one use of your Channel Divinity to augment your athleticism. For 1 hour, you have Advantage on Strength (Athletics) and Dexterity (Acrobatics) checks, and the distance of your Long and High Jumps increases by 10 feet (this extra distance costs movement as normal)."
     },
-    {
-      "name": "Aura of Alacrity",
+    "Aura of Alacrity": {
       "level": 7,
       "description": "Your Speed increases by 10 feet. In addition, whenever an ally enters your Aura of Protection for the first time on a turn or starts their turn there, the ally's Speed increases by 10 feet until the end of their next turn."
     },
-    {
-      "name": "Glorious Defense",
+    "Glorious Defense": {
       "level": 15,
       "description": "You can turn defense into a sudden strike. When you or another creature you can see within 10 feet of you is hit by an attack roll, you can take a Reaction to grant a bonus to the target's AC against that attack, potentially causing it to miss. The bonus equals your Charisma modifier (minimum of +1). If the attack misses, you can make one attack with a weapon against the attacker as part of this Reaction if the attacker is within your weapon's range. You can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a Long Rest."
     },
-    {
-      "name": "Living Legend",
+    "Living Legend": {
       "level": 20,
       "description": "You can empower yourself with the legends - whether true or exaggerated - of your great deeds. As a Bonus Action, you gain the benefits below for 10 minutes. Once you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Charismatic. You are blessed with an otherworldly presence and have Advantage on all Charisma checks. Saving Throw Reroll. If you fail a saving throw, you can take a Reaction to reroll it. You must use this new roll. Unerring Strike. Once on each of your turns when you make an attack roll with a weapon and miss, you can cause that attack to hit instead."
     }
-  ],
+  },
   "catId": "classes"
 }

@@ -1,21 +1,18 @@
 {
-    "name": "Fey Pact",
-    "catId": "feats",
-    "type": "Planar Pact Feat",
-    "source": "D&D Beyond Drops - May 2026",
-    "description": "Planar Pact Feat (Prerequisite: Can’t Have Another Planar Pact Feat) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Fey Bond",
-            "description": "You know Sylvan. If you already know Sylvan when you select this feat, you instead learn one language of your choice from the language tables in the Player’s Handbook. You also gain Proficiency in the Nature skill."
-        },
-        {
-            "name": "Fey Cantrips",
-            "description": "You know the Druidcraft cantrip and learn one other cantrip of your choice from the Divination or Enchantment school of magic. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
-        },
-        {
-            "name": "Honeyed Words",
-            "description": "When you fail a Charisma (Deception or Persuasion) check, you can reroll the check, and you must use the new roll. Once this benefit turns a failure into a success, you can’t use it again until you finish a Long Rest."
-        }
-    ]
+  "name": "Fey Pact",
+  "catId": "feats",
+  "type": "Planar Pact Feat",
+  "source": "D&D Beyond Drops - May 2026",
+  "description": "Planar Pact Feat (Prerequisite: Can’t Have Another Planar Pact Feat) You gain the following benefits.",
+  "features": {
+    "Fey Bond": {
+      "description": "You know Sylvan. If you already know Sylvan when you select this feat, you instead learn one language of your choice from the language tables in the Player’s Handbook. You also gain Proficiency in the Nature skill."
+    },
+    "Fey Cantrips": {
+      "description": "You know the Druidcraft cantrip and learn one other cantrip of your choice from the Divination or Enchantment school of magic. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+    },
+    "Honeyed Words": {
+      "description": "When you fail a Charisma (Deception or Persuasion) check, you can reroll the check, and you must use the new roll. Once this benefit turns a failure into a success, you can’t use it again until you finish a Long Rest."
+    }
+  }
 }

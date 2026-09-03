@@ -648,7 +648,15 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
         }
 
         final infoData = snapshot.data!;
-        return DescriptionColumnWidget(infoData, categoryData);
+        return DescriptionColumnWidget(
+          infoData,
+          categoryData,
+          scrollable:
+              SettingsService.getSetting(
+                currentCategory + "DescriptionStyle",
+              ) !=
+              "sheet",
+        );
       },
     );
   }

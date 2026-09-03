@@ -1,26 +1,23 @@
 {
-    "id": "s8",
-    "catId": "species",
-    "name": "Human",
-    "creatureType": "Humanoid",
-    "size": [
-        "Medium",
-        "Small"
-    ],
-    "speed": 30,
-    "features": [
-        {
-            "name": "Resourceful",
-            "description": "You gain Heroic Inspiration whenever you finish a Long Rest."
-        },
-        {
-            "name": "Skillful",
-            "description": "You gain proficiency in one skill of your choice."
-        },
-        {
-            "name": "Versatile",
-            "description": "You gain an Origin feat of your choice. Skilled is recommended."
-        }
-    ],
-    "source": "Player's Handbook"
+  "id": "s8",
+  "catId": "species",
+  "name": "Human",
+  "creatureType": "Humanoid",
+  "size": [
+    "Medium",
+    "Small"
+  ],
+  "speed": 30,
+  "features": {
+    "Resourceful": {
+      "description": "You gain Heroic Inspiration whenever you finish a Long Rest."
+    },
+    "Skillful": {
+      "description": "You gain proficiency in one skill of your choice."
+    },
+    "Versatile": {
+      "description": "You gain an Origin feat of your choice. Skilled is recommended."
+    }
+  },
+  "source": "Player's Handbook"
 }

@@ -1,21 +1,18 @@
 {
-    "name": "Boon Of Bountiful Health",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 30."
-        },
-        {
-            "name": "Augmented Health",
-            "description": "When you gain Temporary Hit Points, increase the number of Temporary Hit Points you gain by 5."
-        },
-        {
-            "name": "Superior Recuperation",
-            "description": "When you spend one or more Hit Point Dice to regain Hit Points, you can instead use the highest number possible for each die."
-        }
-    ]
+  "name": "Boon Of Bountiful Health",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    "Augmented Health": {
+      "description": "When you gain Temporary Hit Points, increase the number of Temporary Hit Points you gain by 5."
+    },
+    "Superior Recuperation": {
+      "description": "When you spend one or more Hit Point Dice to regain Hit Points, you can instead use the highest number possible for each die."
+    }
+  }
 }

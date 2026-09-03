@@ -1,17 +1,15 @@
 {
-    "name": "Putrefy",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Astarion's Book of Hungers",
-    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-        },
-        {
-            "name": "Necrosis",
-            "description": "When you make a damage roll that deals Necrotic damage, you can cause one creature taking that damage to have the Poisoned condition until the start of your next turn. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-        }
-    ]
+  "name": "Putrefy",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Astarion's Book of Hungers",
+  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+    },
+    "Necrosis": {
+      "description": "When you make a damage roll that deals Necrotic damage, you can cause one creature taking that damage to have the Poisoned condition until the start of your next turn. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+    }
+  }
 }

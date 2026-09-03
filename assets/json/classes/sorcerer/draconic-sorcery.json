@@ -13,54 +13,73 @@
       ]
     }
   ],
-  "attacksPerLevel": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
-  ],
-  "features": [
-    {
-      "name": "Draconic Resilience",
+  "attacksPerLevel": {
+    "level": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "attacks": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "features": {
+    "Draconic Resilience": {
       "level": 3,
       "description": "The magic in your body manifests physical traits of your draconic gift. Your Hit Point maximum increases by 3, and it increases by 1 whenever you gain another Sorcerer level. Parts of you are also covered by dragon-like scales. While you aren’t wearing armor, your base Armor Class equals 10 plus your Dexterity and Charisma modifiers."
     },
-    {
-      "name": "Draconic Spells",
+    "Draconic Spells": {
       "level": 3,
       "description": "When you reach a Sorcerer level specified in the Draconic Spells table, you thereafter always have the listed spells prepared."
     },
-    {
-      "name": "Elemental Affinity",
+    "Elemental Affinity": {
       "level": 6,
       "description": "Your draconic magic has an affinity with a damage type associated with dragons. Choose one of those types: Acid, Cold, Fire, Lightning, or Poison. You have Resistance to that damage type, and when you cast a spell that deals damage of that type, you can add your Charisma modifier to one damage roll of that spell."
     },
-    {
-      "name": "Dragon Wings",
+    "Dragon Wings": {
       "level": 14,
       "description": "As a Bonus Action, you can cause draconic wings to appear on your back. The wings last for 1 hour or until you dismiss them (no action required). For the duration, you have a Fly Speed of 60 feet. Once you use this feature, you can’t use it again until you finish a Long Rest unless you spend 3 Sorcery Points (no action required) to restore your use of it."
     },
-    {
-      "name": "Dragon Companion",
+    "Dragon Companion": {
       "level": 18,
       "description": "You can cast Summon Dragon without a Material component. You can also cast it once without a spell slot, and you regain the ability to cast it in this way when you finish a Long Rest. Whenever you start casting the spell, you can modify it so that it doesn’t require Concentration. If you do so, the spell’s duration becomes 1 minute for that casting."
     }
-  ],
+  },
   "catId": "classes"
 }

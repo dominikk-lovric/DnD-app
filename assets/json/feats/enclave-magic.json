@@ -1,21 +1,18 @@
 {
-    "name": "Enclave Magic",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "General Feat (Prerequisite: Level 4+, Emerald Enclave Fledgling Feat) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Friend to Animals",
-            "description": "You have Advantage on ability checks when taking the Influence action with Beasts."
-        },
-        {
-            "name": "Two Hearts, One Mind",
-            "description": "You always have the Beast Sense spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. When you cast it without a spell slot using this feature, it doesn’t require Concentration. You can also cast the spell using any spell slots you have of the appropriate level. The spell’s spellcasting ability is the ability increased by this feat."
-        }
-    ]
+  "name": "Enclave Magic",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "General Feat (Prerequisite: Level 4+, Emerald Enclave Fledgling Feat) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+    },
+    "Friend to Animals": {
+      "description": "You have Advantage on ability checks when taking the Influence action with Beasts."
+    },
+    "Two Hearts, One Mind": {
+      "description": "You always have the Beast Sense spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. When you cast it without a spell slot using this feature, it doesn’t require Concentration. You can also cast the spell using any spell slots you have of the appropriate level. The spell’s spellcasting ability is the ability increased by this feat."
+    }
+  }
 }

@@ -1,25 +1,21 @@
 {
-    "name": "Athlete",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+, Strength or Dexterity 13+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Climb Speed",
-            "description": "You gain a Climb Speed equal to your Speed."
-        },
-        {
-            "name": "Hop Up",
-            "description": "When you have the Prone condition, you can right yourself with only 5 feet of movement."
-        },
-        {
-            "name": "Jumping",
-            "description": "You can make a running Long or High Jump after moving only 5 feet."
-        }
-    ]
+  "name": "Athlete",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Strength or Dexterity 13+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    "Climb Speed": {
+      "description": "You gain a Climb Speed equal to your Speed."
+    },
+    "Hop Up": {
+      "description": "When you have the Prone condition, you can right yourself with only 5 feet of movement."
+    },
+    "Jumping": {
+      "description": "You can make a running Long or High Jump after moving only 5 feet."
+    }
+  }
 }

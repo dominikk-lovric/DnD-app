@@ -1,21 +1,18 @@
 {
-    "name": "Greater Mark Of Scribing",
-    "catId": "feats",
-    "type": "Dragonmark Feat",
-    "source": "Eberron - Forge of the Artificer",
-    "description": "General Feat (Prerequisite: Level 4+, Mark of Scribing Feat) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-        },
-        {
-            "name": "Improved Intuition",
-            "description": "When you use the Gifted Scribe benefit of your Mark of Scribing feat, you can roll 1d6 instead of 1d4."
-        },
-        {
-            "name": "Inspired Scribing",
-            "description": "When you cast Comprehend Languages, you can modify the spell to encompass up to three willing creatures you can see within 30 feet of yourself. Each chosen creature also gains the benefits of the spell for the duration. In addition, for the duration of the spell, you and the chosen creatures can communicate telepathically with each other while within 1 mile of each other. Once you modify the spell with this benefit, you can’t do so again until you finish a Long Rest."
-        }
-    ]
+  "name": "Greater Mark Of Scribing",
+  "catId": "feats",
+  "type": "Dragonmark Feat",
+  "source": "Eberron - Forge of the Artificer",
+  "description": "General Feat (Prerequisite: Level 4+, Mark of Scribing Feat) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+    },
+    "Improved Intuition": {
+      "description": "When you use the Gifted Scribe benefit of your Mark of Scribing feat, you can roll 1d6 instead of 1d4."
+    },
+    "Inspired Scribing": {
+      "description": "When you cast Comprehend Languages, you can modify the spell to encompass up to three willing creatures you can see within 30 feet of yourself. Each chosen creature also gains the benefits of the spell for the duration. In addition, for the duration of the spell, you and the chosen creatures can communicate telepathically with each other while within 1 mile of each other. Once you modify the spell with this benefit, you can’t do so again until you finish a Long Rest."
+    }
+  }
 }

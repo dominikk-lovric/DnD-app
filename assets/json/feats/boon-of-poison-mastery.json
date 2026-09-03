@@ -1,21 +1,18 @@
 {
-    "name": "Boon Of Poison Mastery",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 30."
-        },
-        {
-            "name": "Antitoxic",
-            "description": "You have Immunity to Poison damage and the Poisoned condition."
-        },
-        {
-            "name": "Perfect Poisoner",
-            "description": "Once per turn, when you roll dice to determine Poison damage a creature takes from your attack, spell, or feature, you can instead use the highest number possible for each die."
-        }
-    ]
+  "name": "Boon Of Poison Mastery",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    "Antitoxic": {
+      "description": "You have Immunity to Poison damage and the Poisoned condition."
+    },
+    "Perfect Poisoner": {
+      "description": "Once per turn, when you roll dice to determine Poison damage a creature takes from your attack, spell, or feature, you can instead use the highest number possible for each die."
+    }
+  }
 }

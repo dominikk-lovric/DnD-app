@@ -1,17 +1,15 @@
 {
-    "name": "Vampire Hunter",
-    "catId": "feats",
-    "type": "Origin Feat",
-    "source": "Astarion's Book of Hungers",
-    "description": "Origin Feat You gain the following benefits.",
-    "features": [
-        {
-            "name": "Adroit Escape",
-            "description": "You have Advantage on checks to escape from nonmagical restraints or the Grappled condition."
-        },
-        {
-            "name": "Vitality Ward",
-            "description": "When you take Necrotic damage, you can take a Reaction to mitigate the damage. Roll a number of d6s equal to your Proficiency Bonus, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-        }
-    ]
+  "name": "Vampire Hunter",
+  "catId": "feats",
+  "type": "Origin Feat",
+  "source": "Astarion's Book of Hungers",
+  "description": "Origin Feat You gain the following benefits.",
+  "features": {
+    "Adroit Escape": {
+      "description": "You have Advantage on checks to escape from nonmagical restraints or the Grappled condition."
+    },
+    "Vitality Ward": {
+      "description": "When you take Necrotic damage, you can take a Reaction to mitigate the damage. Roll a number of d6s equal to your Proficiency Bonus, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+    }
+  }
 }

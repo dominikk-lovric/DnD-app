@@ -1,13 +1,12 @@
 {
-    "name": "Ability Score Improvement",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+ Increase one ability score of your choice by 2, or increase two ability scores of your choice by 1. This feat can't increase an ability score above 20.",
-    "features": [
-        {
-            "name": "Repeatable",
-            "description": "You can take this feat more than once."
-        }
-    ]
+  "name": "Ability Score Improvement",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+ Increase one ability score of your choice by 2, or increase two ability scores of your choice by 1. This feat can't increase an ability score above 20.",
+  "features": {
+    "Repeatable": {
+      "description": "You can take this feat more than once."
+    }
+  }
 }

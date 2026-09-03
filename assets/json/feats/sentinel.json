@@ -1,21 +1,18 @@
 {
-    "name": "Sentinel",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+, Strength or Dexterity 13+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Guardian",
-            "description": "Immediately after a creature within 5 feet of you takes the Disengage action or hits a target other than you with an attack, you can make an Opportunity Attack against that creature."
-        },
-        {
-            "name": "Halt",
-            "description": "When you hit a creature with an Opportunity Attack, the creature’s Speed becomes 0 for the rest of the current turn."
-        }
-    ]
+  "name": "Sentinel",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Strength or Dexterity 13+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    "Guardian": {
+      "description": "Immediately after a creature within 5 feet of you takes the Disengage action or hits a target other than you with an attack, you can make an Opportunity Attack against that creature."
+    },
+    "Halt": {
+      "description": "When you hit a creature with an Opportunity Attack, the creature’s Speed becomes 0 for the rest of the current turn."
+    }
+  }
 }

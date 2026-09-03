@@ -1,21 +1,18 @@
 {
-    "name": "Slasher",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Hamstring",
-            "description": "Once per turn when you hit a creature with an attack that deals Slashing damage, you can reduce the Speed of that creature by 10 feet until the start of your next turn."
-        },
-        {
-            "name": "Enhanced Critical",
-            "description": "When you score a Critical Hit that deals Slashing damage to a creature, it has Disadvantage on attack rolls until the start of your next turn."
-        }
-    ]
+  "name": "Slasher",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    "Hamstring": {
+      "description": "Once per turn when you hit a creature with an attack that deals Slashing damage, you can reduce the Speed of that creature by 10 feet until the start of your next turn."
+    },
+    "Enhanced Critical": {
+      "description": "When you score a Critical Hit that deals Slashing damage to a creature, it has Disadvantage on attack rolls until the start of your next turn."
+    }
+  }
 }

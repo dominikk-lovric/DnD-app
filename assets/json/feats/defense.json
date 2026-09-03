@@ -1,8 +1,8 @@
 {
-    "name": "Defense",
-    "catId": "feats",
-    "type": "Fighting Style Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Fighting Style Feature While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.",
-    "features": []
+  "name": "Defense",
+  "catId": "feats",
+  "type": "Fighting Style Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Fighting Style Feature While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to Armor Class.",
+  "features": {}
 }

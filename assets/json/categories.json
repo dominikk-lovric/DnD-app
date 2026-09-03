@@ -6,11 +6,9 @@
             "hitDie": {
                 "type": "icon",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 },
-                "icon": "heart",
-                "noTitle": true
+                "icon": "heart"
             },
             "savingThrows": {
                 "type": "checkList",
@@ -44,8 +42,7 @@
                             },
                             "proficiencies": {
                                 "type": "list",
-                                "item": { "type": "text", "noTitle": true },
-                                "noTitle": true
+                                "item": { "type": "text" }
                             }
                         }
                     },
@@ -57,8 +54,7 @@
                             },
                             "proficiencies": {
                                 "type": "list",
-                                "item": { "type": "text", "noTitle": true },
-                                "noTitle": true
+                                "item": { "type": "text" }
                             }
                         }
                     },
@@ -70,8 +66,7 @@
                             },
                             "proficiencies": {
                                 "type": "list",
-                                "item": { "type": "text", "noTitle": true },
-                                "noTitle": true
+                                "item": { "type": "text" }
                             }
                         }
                     }
@@ -81,21 +76,14 @@
                 "type": "list",
                 "item": {
                     "type": "list",
-                    "item": { "type": "text", "noTitle": true },
-                    "noTitle": true
+                    "item": { "type": "text" }
                 }
             },
             "features": {
-                "type": "list",
+                "type": "map",
                 "item": {
-                    "type": "map",
-                    "item": {
-                        "level": {
-                            "type": "text"
-                        },
-                        "description": {
-                            "type": "text"
-                        }
+                    "default": {
+                        "type": "feature"
                     }
                 }
             },
@@ -159,8 +147,7 @@
             "size": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "speed": {
@@ -175,9 +162,11 @@
                 }
             },
             "features": {
-                "type": "list",
+                "type": "map",
                 "item": {
-                    "type": "feature"
+                    "default": {
+                        "type": "feature"
+                    }
                 }
             },
             "subspicies": {
@@ -237,15 +226,13 @@
             "spellList": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "castingTime": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "range": {
@@ -254,8 +241,7 @@
             "components": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "materials": {
@@ -264,16 +250,14 @@
             "duration": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "concentration": {
                 "type": "bool"
             },
             "description": {
-                "type": "text",
-                "noTitle": true
+                "type": "text"
             }
         },
         "filters": [
@@ -346,13 +330,14 @@
                 "type": "text"
             },
             "description": {
-                "type": "text",
-                "noTitle": true
+                "type": "text"
             },
             "features": {
-                "type": "list",
+                "type": "map",
                 "item": {
-                    "type": "feature"
+                    "default": {
+                        "type": "feature"
+                    }
                 }
             }
         },
@@ -394,14 +379,12 @@
         "sorting": ["alphabetical", "source"],
         "schema": {
             "description": {
-                "type": "text",
-                "noTitle": true
+                "type": "text"
             },
             "abilities": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "feat": {
@@ -414,8 +397,7 @@
             "skills": {
                 "type": "list",
                 "item": {
-                    "type": "text",
-                    "noTitle": true
+                    "type": "text"
                 }
             },
             "tools": {
@@ -426,10 +408,8 @@
                 "item": {
                     "type": "list",
                     "item": {
-                        "type": "text",
-                        "noTitle": true
-                    },
-                    "noTitle": true
+                        "type": "text"
+                    }
                 }
             }
         },

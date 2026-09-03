@@ -163,39 +163,33 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                   horizontal: 40,
                   vertical: 24,
                 ),
-                child: SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 800),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          getTitleWidget(),
-                          const Divider(indent: 10, endIndent: 10),
-                          if (widget.subtitle != "")
-                            Text(
-                              widget.subtitle.toString(),
-                              style: TextStyleService.getTextStyle(
-                                widget.subtitleLevel,
-                                4,
-                              ),
-                            ),
-                          Flexible(
-                            child: SingleChildScrollView(
-                              child: widget.descrption,
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 800),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        getTitleWidget(),
+                        const Divider(indent: 10, endIndent: 10),
+                        if (widget.subtitle != "")
+                          Text(
+                            widget.subtitle.toString(),
+                            style: TextStyleService.getTextStyle(
+                              widget.subtitleLevel,
+                              4,
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () => Navigator.pop(context),
-                              child: const Text("Close"),
-                            ),
+                        Flexible(child: widget.descrption),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text("Close"),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -258,11 +252,9 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                   ),
                   backgroundColor: ColorService.getBasicColor(2),
                   body: SafeArea(
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsetsGeometry.all(20),
-                        child: widget.descrption,
-                      ),
+                    child: Padding(
+                      padding: EdgeInsetsGeometry.all(20),
+                      child: widget.descrption,
                     ),
                   ),
                 ),

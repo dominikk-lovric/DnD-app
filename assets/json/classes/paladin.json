@@ -236,34 +236,28 @@
     ]
   ],
   "progression": [],
-  "features": [
-    {
-      "name": "Lay On Hands",
+  "features": {
+    "Lay On Hands": {
       "level": 1,
       "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level. As a Bonus Action, you can touch a creature (which could be yourself) and draw power from the pool of healing to restore a number of Hit Points to that creature, up to the maximum amount remaining in the pool. You can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature; those points don't also restore Hit Points to the creature."
     },
-    {
-      "name": "Spellcasting",
+    "Spellcasting": {
       "level": 1,
       "description": "You have learned to cast spells through prayer and meditation. See Chapter 7 for the rules on Spellcasting. The Information below details how you use those rules with Paladin spells, which appear in the Paladin spell list later in the class's description. Spell Slots. The Paladin Features table shows how many spell slots you have to cast your level 1+ spells. You regain all expended slots when you finish a Long Rest. Prepared Spells of Level 1+. You prepare the list of level 1+ spells that are available for you to cast with this feature. To start, choose two level 1 Paladin spells. Heroism and Searing Smite are recommended. The number of spells on your list increases as you gain Paladin levels, as shown in the Prepared Spells column of the Paladin Features table. Whenever that number increases, choose additional spells from the Paladin spell list until the number of spells on your list matches the number on the table. The chosen spells must be of a level for which you have spell slots. For example, if you're a level 5 Paladin, your list of prepared spells can include six spells of levels 1 and 2 in any combination. If another Paladin feature gives you spells that you always have prepared, those spells don’t count against the number of spells you can prepare with this feature, but those spells otherwise count as Paladin spells for you. Changing Your Prepared Spells. Whenever you finish a Long Rest, you can replace one spell on your list with another Paladin spell for which you have spell slots. Spellcasting Ability. Charisma is your spellcasting ability for your Paladin spells. Spellcasting Focus. You can use a Holy Symbol as a Spellcasting Focus for your Paladin spells."
     },
-    {
-      "name": "Weapon Mastery",
+    "Weapon Mastery": {
       "level": 1,
       "description": "Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Longswords and Javelins. Whenever you finish a Long Rest, you can change the kinds of weapons you chose. For Example, you could switch to using the mastery properties of Halberds and Flails."
     },
-    {
-      "name": "Fighting Style",
+    "Fighting Style": {
       "level": 2,
       "description": "You gain a Fighting Style feat of your choice (see chapter 5). Instead of choosing one of those feats, you can choose the option below. Blessed Warrior. You learn two Cleric cantrips of your choice (See the Cleric class's section for a list of Cleric spells). Guidance and Sacred Flame are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Paladin level, you can replace one of these cantrips with another Cleric cantrip."
     },
-    {
-      "name": "Paladin's Smite",
+    "Paladin's Smite": {
       "level": 2,
       "description": "You always have the Divine Smite spell prepared. You can cast it without expending a spell slot, but you must finish a Long Rest before you can cast it this way again."
     },
-    {
-      "name": "Channel Divinity",
+    "Channel Divinity": {
       "level": 3,
       "description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You start with one such effect: Divine Sense, which is described below. Other Paladin features give additional Channel Divinity effect options. Each time you use this class's Channel Divinity, you choose which effect from this class to create. You can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11. If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting Feature. Divine Sense. As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell.",
       "value": [
@@ -289,62 +283,51 @@
         3
       ]
     },
-    {
-      "name": "Paladin Subclass",
+    "Paladin Subclass": {
       "level": 3,
       "description": "You gain a Paladin Subclass of your choice. The Oath of Devotion, Oath of Glory, Oath of the Ancients and Oath of Vengeance subclasses are detailed after this class's description. A Subclass is a specialization that grants you features at certain Paladin levels. For the rest of your career, you gain each of your subclass’s features that are of your Paladin level or lower. Breaking Your Oath A Paladin tries to hold to the highest standards of conduct, but even the most dedicated are fallible. Sometimes a Paladin transgresses on their oath. A Paladin who has broken a vow typically seeks absolution, spending an all-night vigil as a sign of penitence or undertaking a fast. After a rite of forgiveness, the Paladin starts fresh. If your Paladin unrepentantly violates their oath, talk to your DM. Your Paladin should probably take a more appropriate subclass or even abandon the class and adopt another one."
     },
-    {
-      "name": "Ability Score Improvement",
+    "Ability Score Improvement": {
       "level": 4,
       "description": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Paladin levels 8, 12, and 16."
     },
-    {
-      "name": "Extra Attack",
+    "Extra Attack": {
       "level": 5,
       "description": "You can attack twice instead of once whenever you take the Attack action on your turn."
     },
-    {
-      "name": "Faithful Steed",
+    "Faithful Steed": {
       "level": 5,
       "description": "You can call on the aid of an otherworldly steed. You always have the Find Steed spell prepared. You can also cast the spell once without expending a spell slot, and you regain your ability to do so when you finish a Long Rest."
     },
-    {
-      "name": "Aura of Protection",
+    "Aura of Protection": {
       "level": 6,
       "description": "You radiate a protective, unseeable aura in a 10-foot Emanation that originates from you. The aura is inactive while you have the Incapacitated condition. You and your allies in the aura gain a bonus to saving throws equal to your Charisma modifier (minimum bonus of +1). If another Paladin is present, a creature can benefit from only one Aura of Protection at a time; the creature chooses which aura while in them."
     },
-    {
-      "name": "Abjure Foes",
+    "Abjure Foes": {
       "level": 9,
       "description": "As a Magic action, you can expend one use of this class's Channel Divinity to overwhelm foes with awe. As you present your Holy Symbol or weapon, you can target a number of creatures equal to your Charisma modifier (minimum of one creature) that you can see within 60 feet of yourself. Each target must succeed on a Wisdom saving throw or have the Frightened condition for 1 minute or until it takes any damage. While Frightened in this way, a target can only do one of the following on its turns: move, take an action or take a Bonus Action."
     },
-    {
-      "name": "Aura of Courage",
+    "Aura of Courage": {
       "level": 10,
       "description": "You and your allies have Immunity to the Frightened condition while in your Aura of Protection. If a Frightened ally enters the aura, that condition has no effect on that ally while there."
     },
-    {
-      "name": "Radiant Strikes",
+    "Radiant Strikes": {
       "level": 11,
       "description": "Your strikes now carry supernatural power. When you hit a target with an attack roll using a Melee weapon or an Unarmed Strike, the target takes an extra 1d8 Radiant damage."
     },
-    {
-      "name": "Restoring Touch",
+    "Restoring Touch": {
       "level": 14,
       "description": "When you use Lay On Hands on a creature, you can also remove one or more of the following conditions from the creature: Blinded, Charmed, Deafened, Frightened, Paralyzed, or Stunned. You must expend 5 Hit Points from the healing pool of Lay On Hands for each of these conditions you remove; those points don't also restore Hit Points to the creature."
     },
-    {
-      "name": "Aura Expansion",
+    "Aura Expansion": {
       "level": 18,
       "description": "Your Aura of Protection is now a 30-foot Emanation."
     },
-    {
-      "name": "Epic Boon",
+    "Epic Boon": {
       "level": 19,
       "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Truesight is recommended."
     }
-  ],
+  },
   "archetypes": [
     {
       "name": "Oath of Devotion",

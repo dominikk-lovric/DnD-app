@@ -1,48 +1,29 @@
 {
-  "name": "College of Valor",
-  "attacksPerLevel": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
-  ],
-  "features": [
-    {
-      "name": "Combat Inspiration",
-      "level": 3,
-      "description": "You can use your wit to turn the tide of battle. A creature that has a Bardic Inspiration die from you can use it for one of the following effects. Defense. When the creature is hit by an attack roll, that creature can use its Reaction to roll the Bardic Inspiration die and add the number rolled to its AC against that attack, potentially causing the attack to miss. Offense. Immediately after the creature hits a target with an attack roll, the creature can roll the Bardic Inspiration die and add the number rolled to the attack’s damage against the target."
+    "name": "College of Valor",
+    "attacksPerLevel": {
+        "level": [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20
+        ],
+        "attacks": [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
     },
-    {
-      "name": "Martial Training",
-      "level": 3,
-      "description": "You gain proficiency with Martial weapons and training with Medium armor and Shields. In addition, you can use a Simple or Martial weapon as a Spellcasting Focus to cast spells from your Bard spell list."
+    "features": {
+        "Combat Inspiration": {
+            "level": 3,
+            "description": "You can use your wit to turn the tide of battle. A creature that has a Bardic Inspiration die from you can use it for one of the following effects. Defense. When the creature is hit by an attack roll, that creature can use its Reaction to roll the Bardic Inspiration die and add the number rolled to its AC against that attack, potentially causing the attack to miss. Offense. Immediately after the creature hits a target with an attack roll, the creature can roll the Bardic Inspiration die and add the number rolled to the attack’s damage against the target."
+        },
+        "Martial Training": {
+            "level": 3,
+            "description": "You gain proficiency with Martial weapons and training with Medium armor and Shields. In addition, you can use a Simple or Martial weapon as a Spellcasting Focus to cast spells from your Bard spell list."
+        },
+        "Extra Attack": {
+            "level": 6,
+            "description": "You can attack twice instead of once whenever you take the Attack action on your turn. In addition, you can cast one of your cantrips that has a casting time of an action in place of one of those attacks."
+        },
+        "Battle Magic": {
+            "level": 14,
+            "description": "After you cast a spell that has a casting time of an action, you can make one attack with a weapon as a Bonus Action."
+        }
     },
-    {
-      "name": "Extra Attack",
-      "level": 6,
-      "description": "You can attack twice instead of once whenever you take the Attack action on your turn. In addition, you can cast one of your cantrips that has a casting time of an action in place of one of those attacks."
-    },
-    {
-      "name": "Battle Magic",
-      "level": 14,
-      "description": "After you cast a spell that has a casting time of an action, you can make one attack with a weapon as a Bonus Action."
-    }
-  ],
-  "catId": "classes"
+    "catId": "classes"
 }

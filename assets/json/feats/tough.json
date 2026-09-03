@@ -1,8 +1,8 @@
 {
-    "name": "Tough",
-    "catId": "feats",
-    "type": "Origin Feat",
-    "source": "Player's Handbook",
-    "description": "Your Hit Point maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Point maximum increases by an additional 2 Hit Points.",
-    "features": []
+  "name": "Tough",
+  "catId": "feats",
+  "type": "Origin Feat",
+  "source": "Player's Handbook",
+  "description": "Your Hit Point maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Point maximum increases by an additional 2 Hit Points.",
+  "features": {}
 }

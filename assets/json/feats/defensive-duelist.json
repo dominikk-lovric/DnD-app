@@ -1,17 +1,15 @@
 {
-    "name": "Defensive Duelist",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+, Dexterity 13+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Parry",
-            "description": "If you're holding a Finesse weapon and another creature hits you with a melee attack, you can take a Reaction to add your Proficiency Bonus to your Armor Class, potentially causing the attack to miss you. You gain this bonus to your AC against melee attacks until the start of your next turn."
-        }
-    ]
+  "name": "Defensive Duelist",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Dexterity 13+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Dexterity score by 1, to a maximum of 20."
+    },
+    "Parry": {
+      "description": "If you're holding a Finesse weapon and another creature hits you with a melee attack, you can take a Reaction to add your Proficiency Bonus to your Armor Class, potentially causing the attack to miss you. You gain this bonus to your AC against melee attacks until the start of your next turn."
+    }
+  }
 }

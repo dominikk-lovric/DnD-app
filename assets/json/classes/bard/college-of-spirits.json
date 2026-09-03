@@ -14,27 +14,23 @@
     "11": "Brute. Each creature of your choice in a 30-foot Emanation originating from the target makes a Strength saving throw. On a failed save, a creature takes Thunder damage equal to three rolls of your Bardic Inspiration die and has the Prone condition. On a successful save, a creature takes half as much damage only.",
     "12": "Priest. The target regains Hit Points equal to two rolls of your Bardic Inspiration die, and one of the following conditions of your choice ends on the target: Blinded, Charmed,Deafened, Paralyzed, Poisoned or Stunned."
   },
-  "features": [
-    {
-      "name": "Channeler",
+  "features": {
+    "Channeler": {
       "level": 3,
       "description": "You learn how to contact spirits beyond the grave, letting their power and knowledge flow through you. You gain the following benefits. Guiding Whispers. You know the Guidance cantrip. It has a range of 60 feet when you cast it. Spiritual Focus. You employ tools that aid you in channeling spirits. You gain a Gaming Set (playing cards). You have proficiency with this Gaming Set, and you can use it or one of the following items as a Spellcasting Focus for your Bard spells: Arcane Focus (crystal or orb), Candle, or Ink Pen."
     },
-    {
-      "name": "Spirits from Beyond",
+    "Spirits from Beyond": {
       "level": 3,
       "description": "You can call forth spirits of the dead to empower you and your allies. When you take a Bonus Action to give a creature a Bardic Inspiration die, you can call forth the powers of a random spirit. To determine the spirit you channel, roll the Bardic Inspiration die and refer to the Spirits from Beyond table. The spirit remains channeled until you unleash it or until you finish a Short or Long Rest. Controlled Channeling. As a Bonus Action, you can expend a use of your Bardic Inspiration and channel a specific spirit. When you do so, choose the spirit from the Spirits from Beyond table rather than rolling. The chosen spirit’s corresponding number must be less than or equal to the highest number on your Bardic Inspiration die; for example, if your Bardic Inspiration die is a d8, you can choose to channel any spirit up to (and including) the Shade. Unleashing a Spirit. As a Magic action, you can unleash one of your channeled spirits. Choose one creature you can see within 30 feet of yourself as the spirit’s target. The spirit then takes effect; if a spirit’s effect requires a saving throw, the DC equals your Bard spell save DC."
     },
-    {
-      "name": "Empowered Channeling",
+    "Empowered Channeling": {
       "level": 6,
       "description": "Your ability to channel spirits improves. You gain the following benefits. Power from Beyond. Once per turn, when you cast a Bard spell with a spell slot that deals damage or restores Hit Points, roll 1d6. You gain a bonus equal to the number rolled to one of the spell’s damage rolls or to the total Hit Points the spell restores. Spiritual Manifestation. You always have the Spirit Guardians spell prepared. You can cast the spell once without a spell slot, and you regain the ability to cast it in this way when you finish a Long Rest. Whenever you cast the spell, you can modify it so the spirits also guard against worldly threats. When you cast the spell in this way, you and allies within the spell’s Emanation have Half Cover. Once you modify the spell in this way, you can’t do so again until you finish a Short or Long Rest."
     },
-    {
-      "name": "Mystical Connection",
+    "Mystical Connection": {
       "level": 14,
       "description": "You gain mastery over the spirits you call forth. Whenever you roll on the Spirits from Beyond table, you can roll the die twice and choose which of the two effects to bestow. If you roll the same number on both dice, you can instead choose any effect on the table."
     }
-  ],
+  },
   "catId": "classes"
 }

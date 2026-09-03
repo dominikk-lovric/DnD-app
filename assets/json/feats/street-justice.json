@@ -1,25 +1,21 @@
 {
-    "name": "Street Justice",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Headlock",
-            "description": "Your allies have Advantage on attack rolls against a creature Grappled by you."
-        },
-        {
-            "name": "Sturdy Knot",
-            "description": "When you use Chain, Manacles, or Rope to bind a creature, add your Proficiency Bonus to the DC to escape or burst the Chain, Manacles, or Rope."
-        },
-        {
-            "name": "Tough Talk",
-            "description": "A creature’s Hostile attitude doesn’t impose Disadvantage on your Charisma (Intimidation) checks to influence that creature."
-        }
-    ]
+  "name": "Street Justice",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    "Headlock": {
+      "description": "Your allies have Advantage on attack rolls against a creature Grappled by you."
+    },
+    "Sturdy Knot": {
+      "description": "When you use Chain, Manacles, or Rope to bind a creature, add your Proficiency Bonus to the DC to escape or burst the Chain, Manacles, or Rope."
+    },
+    "Tough Talk": {
+      "description": "A creature’s Hostile attitude doesn’t impose Disadvantage on your Charisma (Intimidation) checks to influence that creature."
+    }
+  }
 }

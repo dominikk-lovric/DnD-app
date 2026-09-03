@@ -1,17 +1,15 @@
 {
-    "name": "Boon Of Truesight",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 19+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 30."
-        },
-        {
-            "name": "Truesight",
-            "description": "You have Truesight with a range of 60 feet."
-        }
-    ]
+  "name": "Boon Of Truesight",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 19+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    "Truesight": {
+      "description": "You have Truesight with a range of 60 feet."
+    }
+  }
 }

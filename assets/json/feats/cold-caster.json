@@ -1,21 +1,18 @@
 {
-    "name": "Cold Caster",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Cantrip",
-            "description": "You learn the Ray of Frost cantrip. If you already know it, you learn a different Wizard cantrip of your choice. The spell’s spellcasting ability is the ability increased by this feat."
-        },
-        {
-            "name": "Frostbite",
-            "description": "Once per turn when you hit a creature with an attack roll and deal Cold damage, you can temporarily negate the creature’s defenses. The creature subtracts 1d4 from the next saving throw it makes before the end of your next turn."
-        }
-    ]
+  "name": "Cold Caster",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "General Feat (Prerequisite: Level 4+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20."
+    },
+    "Cantrip": {
+      "description": "You learn the Ray of Frost cantrip. If you already know it, you learn a different Wizard cantrip of your choice. The spell’s spellcasting ability is the ability increased by this feat."
+    },
+    "Frostbite": {
+      "description": "Once per turn when you hit a creature with an attack roll and deal Cold damage, you can temporarily negate the creature’s defenses. The creature subtracts 1d4 from the next saving throw it makes before the end of your next turn."
+    }
+  }
 }

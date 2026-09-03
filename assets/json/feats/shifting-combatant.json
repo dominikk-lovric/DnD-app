@@ -1,21 +1,18 @@
 {
-    "name": "Shifting Combatant",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "DND Beyond Drops - July 2026",
-    "description": "General Feat (Prerequisite: Level 4+, Weapon Mastery Feature) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Domino Strike",
-            "description": "When you hit a creature with a weapon and activate the Push mastery property to push that creature into a space occupied by a Large or smaller creature, you can force the creatures to collide. Each creature makes a Dexterity saving throw (DC 8 plus the ability modifier of the score increased by this feat and your Proficiency Bonus), taking 1d10 Bludgeoning damage on a failed save."
-        },
-        {
-            "name": "Fearless Leap",
-            "description": "When you make a Long Jump, moving at least 10 feet immediately before the jump, and land in a space within 5 feet of two or more enemies, attack rolls made against you have Disadvantage until the start of your next turn."
-        }
-    ]
+  "name": "Shifting Combatant",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "DND Beyond Drops - July 2026",
+  "description": "General Feat (Prerequisite: Level 4+, Weapon Mastery Feature) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    "Domino Strike": {
+      "description": "When you hit a creature with a weapon and activate the Push mastery property to push that creature into a space occupied by a Large or smaller creature, you can force the creatures to collide. Each creature makes a Dexterity saving throw (DC 8 plus the ability modifier of the score increased by this feat and your Proficiency Bonus), taking 1d10 Bludgeoning damage on a failed save."
+    },
+    "Fearless Leap": {
+      "description": "When you make a Long Jump, moving at least 10 feet immediately before the jump, and land in a space within 5 feet of two or more enemies, attack rolls made against you have Disadvantage until the start of your next turn."
+    }
+  }
 }

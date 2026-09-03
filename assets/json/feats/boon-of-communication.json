@@ -1,25 +1,21 @@
 {
-    "name": "Boon Of Communication",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30."
-        },
-        {
-            "name": "Cunning Speaker",
-            "description": "You don’t have Disadvantage on ability checks to influence Hostile creatures."
-        },
-        {
-            "name": "Gifted Interpreter",
-            "description": "You understand the literal meaning of any language you hear or see signed, and you can understand the literal meaning of any written language you see."
-        },
-        {
-            "name": "Mental Communication",
-            "description": "You gain telepathy with a range of 120 feet."
-        }
-    ]
+  "name": "Boon Of Communication",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 30."
+    },
+    "Cunning Speaker": {
+      "description": "You don’t have Disadvantage on ability checks to influence Hostile creatures."
+    },
+    "Gifted Interpreter": {
+      "description": "You understand the literal meaning of any language you hear or see signed, and you can understand the literal meaning of any written language you see."
+    },
+    "Mental Communication": {
+      "description": "You gain telepathy with a range of 120 feet."
+    }
+  }
 }

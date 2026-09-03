@@ -1,21 +1,18 @@
 {
-    "name": "Greater Mark Of Detection",
-    "catId": "feats",
-    "type": "Dragonmark Feat",
-    "source": "Eberron - Forge of the Artificer",
-    "description": "General Feat (Prerequisite: Level 4+, Mark of Detection Feat) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-        },
-        {
-            "name": "Improved Intuition",
-            "description": "When you use the Deductive Intuition benefit of your Mark of Detection feat, you can roll 1d6 instead of 1d4."
-        },
-        {
-            "name": "Shared Detection",
-            "description": "When you use the Magical Detection benefit of your Mark of Detection feat to cast See Invisibility without a spell slot, you can choose one creature you can see within 30 feet of yourself. That creature also gains the benefits of the spell for its duration."
-        }
-    ]
+  "name": "Greater Mark Of Detection",
+  "catId": "feats",
+  "type": "Dragonmark Feat",
+  "source": "Eberron - Forge of the Artificer",
+  "description": "General Feat (Prerequisite: Level 4+, Mark of Detection Feat) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+    },
+    "Improved Intuition": {
+      "description": "When you use the Deductive Intuition benefit of your Mark of Detection feat, you can roll 1d6 instead of 1d4."
+    },
+    "Shared Detection": {
+      "description": "When you use the Magical Detection benefit of your Mark of Detection feat to cast See Invisibility without a spell slot, you can choose one creature you can see within 30 feet of yourself. That creature also gains the benefits of the spell for its duration."
+    }
+  }
 }

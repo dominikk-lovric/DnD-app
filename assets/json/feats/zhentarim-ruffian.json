@@ -1,17 +1,15 @@
 {
-    "name": "Zhentarim Ruffian",
-    "catId": "feats",
-    "type": "Origin Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "Origin Feat You gain the following benefits.",
-    "features": [
-        {
-            "name": "Exploit Opening",
-            "description": "When you roll damage for an Opportunity Attack, you can roll the damage dice twice and use either roll against the target."
-        },
-        {
-            "name": "Family First",
-            "description": "If you have Heroic Inspiration when you roll Initiative, you can expend it to give yourself and your allies Advantage on that Initiative roll."
-        }
-    ]
+  "name": "Zhentarim Ruffian",
+  "catId": "feats",
+  "type": "Origin Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Origin Feat You gain the following benefits.",
+  "features": {
+    "Exploit Opening": {
+      "description": "When you roll damage for an Opportunity Attack, you can roll the damage dice twice and use either roll against the target."
+    },
+    "Family First": {
+      "description": "If you have Heroic Inspiration when you roll Initiative, you can expend it to give yourself and your allies Advantage on that Initiative roll."
+    }
+  }
 }

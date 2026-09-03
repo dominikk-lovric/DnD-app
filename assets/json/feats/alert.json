@@ -1,17 +1,15 @@
 {
-    "name": "Alert",
-    "catId": "feats",
-    "type": "Origin Feat",
-    "source": "Player's Handbook",
-    "description": "You gain the following benefits.",
-    "features": [
-        {
-            "name": "Initiative Proficiency",
-            "description": "When you roll Initiative, you can add your Proficiency Bonus to the roll."
-        },
-        {
-            "name": "Initiative Swap",
-            "description": "Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition."
-        }
-    ]
+  "name": "Alert",
+  "catId": "feats",
+  "type": "Origin Feat",
+  "source": "Player's Handbook",
+  "description": "You gain the following benefits.",
+  "features": {
+    "Initiative Proficiency": {
+      "description": "When you roll Initiative, you can add your Proficiency Bonus to the roll."
+    },
+    "Initiative Swap": {
+      "description": "Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition."
+    }
+  }
 }

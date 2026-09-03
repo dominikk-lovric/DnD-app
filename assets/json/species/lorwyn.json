@@ -1,30 +1,26 @@
 {
-    "id": "s19",
-    "catId": "species",
-    "name": "Lorwyn Changeling",
-    "creatureType": "Fey",
-    "size": [
-        "Medium",
-        "Small"
-    ],
-    "speed": 30,
-    "features": [
-        {
-            "name": "Shape Self",
-            "description": "As an action, you can reshape your body to a two-legged Humanoid shape or to a four-legged Beast shape. While you have a Humanoid shape, you can wear clothing and armor made for a Humanoid of your size."
-        },
-        {
-            "name": "Darkvision",
-            "description": "You have Darkvision with a range of 120 feet."
-        },
-        {
-            "name": "Delightful Imitator",
-            "description": "You have proficiency in the Performance skill."
-        },
-        {
-            "name": "Unpredictable Movement",
-            "description": "When you roll Initiative and don’t have Disadvantage on that roll, you can take the Dash action as a Reaction."
-        }
-    ],
-    "source": "Lorwyn - First Light"
+  "id": "s19",
+  "catId": "species",
+  "name": "Lorwyn Changeling",
+  "creatureType": "Fey",
+  "size": [
+    "Medium",
+    "Small"
+  ],
+  "speed": 30,
+  "features": {
+    "Shape Self": {
+      "description": "As an action, you can reshape your body to a two-legged Humanoid shape or to a four-legged Beast shape. While you have a Humanoid shape, you can wear clothing and armor made for a Humanoid of your size."
+    },
+    "Darkvision": {
+      "description": "You have Darkvision with a range of 120 feet."
+    },
+    "Delightful Imitator": {
+      "description": "You have proficiency in the Performance skill."
+    },
+    "Unpredictable Movement": {
+      "description": "When you roll Initiative and don’t have Disadvantage on that roll, you can take the Dash action as a Reaction."
+    }
+  },
+  "source": "Lorwyn - First Light"
 }

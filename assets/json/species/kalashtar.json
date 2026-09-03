@@ -1,29 +1,25 @@
 {
-    "id": "s12",
-    "catId": "species",
-    "name": "Kalashtar",
-    "creatureType": "Abberation",
-    "size": [
-        "Medium"
-    ],
-    "speed": 30,
-    "features": [
-        {
-            "name": "Dual Mind",
-            "description": "You have Advantage on Wisdom and Charisma saving throws."
-        },
-        {
-            "name": "Mental Discipline",
-            "description": "You have Resistance to Psychic damage."
-        },
-        {
-            "name": "Mind Link",
-            "description": "You have telepathy with a range in feet equal to 10 times your level. When you’re using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1 hour or until you take another Magic action to end this effect."
-        },
-        {
-            "name": "Severed from Dreams",
-            "description": "You can’t be the target of the Dream spell. In addition, when you finish a Long Rest, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another Long Rest."
-        }
-    ],
-    "source": "Eberron - Forge of the Artificer"
+  "id": "s12",
+  "catId": "species",
+  "name": "Kalashtar",
+  "creatureType": "Abberation",
+  "size": [
+    "Medium"
+  ],
+  "speed": 30,
+  "features": {
+    "Dual Mind": {
+      "description": "You have Advantage on Wisdom and Charisma saving throws."
+    },
+    "Mental Discipline": {
+      "description": "You have Resistance to Psychic damage."
+    },
+    "Mind Link": {
+      "description": "You have telepathy with a range in feet equal to 10 times your level. When you’re using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1 hour or until you take another Magic action to end this effect."
+    },
+    "Severed from Dreams": {
+      "description": "You can’t be the target of the Dream spell. In addition, when you finish a Long Rest, you gain proficiency in one skill of your choice. This proficiency lasts until you finish another Long Rest."
+    }
+  },
+  "source": "Eberron - Forge of the Artificer"
 }

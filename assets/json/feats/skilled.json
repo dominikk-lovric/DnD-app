@@ -1,13 +1,12 @@
 {
-    "name": "Skilled",
-    "catId": "feats",
-    "type": "Origin Feat",
-    "source": "Player's Handbook",
-    "description": "You gain proficiency in any combination of three skills or tools of your choice.",
-    "features": [
-        {
-            "name": "Repeatable",
-            "description": "You can take this feat more than once."
-        }
-    ]
+  "name": "Skilled",
+  "catId": "feats",
+  "type": "Origin Feat",
+  "source": "Player's Handbook",
+  "description": "You gain proficiency in any combination of three skills or tools of your choice.",
+  "features": {
+    "Repeatable": {
+      "description": "You can take this feat more than once."
+    }
+  }
 }

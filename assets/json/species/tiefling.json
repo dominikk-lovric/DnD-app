@@ -1,78 +1,98 @@
 {
-    "id": "s10",
-    "catId": "species",
-    "name": "Tiefling",
-    "creatureType": "Humanoid",
-    "size": ["Medium", "Small"],
-    "speed": 30,
-    "spells": {
-        "addedSpells": {
-            "1": ["Thaumaturgy"]
-        }
+  "id": "s10",
+  "catId": "species",
+  "name": "Tiefling",
+  "creatureType": "Humanoid",
+  "size": [
+    "Medium",
+    "Small"
+  ],
+  "speed": 30,
+  "spells": {
+    "addedSpells": {
+      "1": [
+        "Thaumaturgy"
+      ]
+    }
+  },
+  "features": {
+    "Darkvision": {
+      "description": "You have Darkvision with a range of 60 feet."
     },
-    "features": [
-        {
-            "name": "Darkvision",
-            "description": "You have Darkvision with a range of 60 feet."
-        },
-        {
-            "name": "Fiendish Legacy",
-            "description": "You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1 benefit of the chosen legacy.\n\nWhen you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level.\n\nIntelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the legacy)."
-        },
-        {
-            "name": "Otherworldly Presence",
-            "description": "You know the Thaumaturgy cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy trait."
+    "Fiendish Legacy": {
+      "description": "You are the recipient of a legacy that grants you supernatural abilities. Choose a legacy from the Fiendish Legacies table. You gain the level 1 benefit of the chosen legacy.\n\nWhen you reach character levels 3 and 5, you learn a higher-level spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level.\n\nIntelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the legacy)."
+    },
+    "Otherworldly Presence": {
+      "description": "You know the Thaumaturgy cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy trait."
+    }
+  },
+  "subspecies": [
+    {
+      "name": "Abyssal",
+      "spells": {
+        "addedSpells": {
+          "1": [
+            "Poison Spray"
+          ],
+          "3": [
+            "Ray of Sickness"
+          ],
+          "5": [
+            "Hold Person"
+          ]
         }
-    ],
-    "subspecies": [
+      },
+      "features": [
         {
-            "name": "Abyssal",
-            "spells": {
-                "addedSpells": {
-                    "1": ["Poison Spray"],
-                    "3": ["Ray of Sickness"],
-                    "5": ["Hold Person"]
-                }
-            },
-            "features": [
-                {
-                    "name": "Abyssal Legacy",
-                    "description": "You have resistance to Poison damage."
-                }
-            ]
-        },
-        {
-            "name": "Chthonic",
-            "spells": {
-                "addedSpells": {
-                    "1": ["Chill Touch"],
-                    "3": ["False Life"],
-                    "5": ["Ray of Enfeeblement"]
-                }
-            },
-            "features": [
-                {
-                    "name": "Chthonic Legacy",
-                    "description": "You have revenge to Necrotic damage"
-                }
-            ]
-        },
-        {
-            "name": "Infernal",
-            "spells": {
-                "addedSpells": {
-                    "1": ["Fire Bolt"],
-                    "3": ["Hellish Rebuke"],
-                    "5": ["Darkness"]
-                }
-            },
-            "features": [
-                {
-                    "name": "Infernal Legacy",
-                    "description": "You have resistance to Fire damage."
-                }
-            ]
+          "name": "Abyssal Legacy",
+          "description": "You have resistance to Poison damage."
         }
-    ],
-    "source": "Player's Handbook"
+      ]
+    },
+    {
+      "name": "Chthonic",
+      "spells": {
+        "addedSpells": {
+          "1": [
+            "Chill Touch"
+          ],
+          "3": [
+            "False Life"
+          ],
+          "5": [
+            "Ray of Enfeeblement"
+          ]
+        }
+      },
+      "features": [
+        {
+          "name": "Chthonic Legacy",
+          "description": "You have revenge to Necrotic damage"
+        }
+      ]
+    },
+    {
+      "name": "Infernal",
+      "spells": {
+        "addedSpells": {
+          "1": [
+            "Fire Bolt"
+          ],
+          "3": [
+            "Hellish Rebuke"
+          ],
+          "5": [
+            "Darkness"
+          ]
+        }
+      },
+      "features": [
+        {
+          "name": "Infernal Legacy",
+          "description": "You have resistance to Fire damage."
+        }
+      ]
+    }
+  ],
+  "source": "Player's Handbook"
 }

@@ -1,21 +1,18 @@
 {
-    "name": "Skill Expert",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 20."
-        },
-        {
-            "name": "Skill Proficiency",
-            "description": "You gain proficiency in one skill of your choice."
-        },
-        {
-            "name": "Expertise",
-            "description": "Choose one skill in which you have proficiency but lack Expertise. You gain Expertise with that skill."
-        }
-    ]
+  "name": "Skill Expert",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 20."
+    },
+    "Skill Proficiency": {
+      "description": "You gain proficiency in one skill of your choice."
+    },
+    "Expertise": {
+      "description": "Choose one skill in which you have proficiency but lack Expertise. You gain Expertise with that skill."
+    }
+  }
 }

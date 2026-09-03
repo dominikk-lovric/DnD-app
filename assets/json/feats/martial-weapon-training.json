@@ -1,17 +1,15 @@
 {
-    "name": "Martial Weapon Training",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Weapon Proficiency",
-            "description": "You gain proficiency with Martial weapons."
-        }
-    ]
+  "name": "Martial Weapon Training",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Dexterity score by 1, to a maximum of 20."
+    },
+    "Weapon Proficiency": {
+      "description": "You gain proficiency with Martial weapons."
+    }
+  }
 }

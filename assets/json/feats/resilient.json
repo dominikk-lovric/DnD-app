@@ -1,17 +1,15 @@
 {
-    "name": "Resilient",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Choose one ability in which you lack saving throw proficiency. Increase the chosen ability score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Saving Throw Proficiency",
-            "description": "You gain saving throw proficiency with the chosen ability."
-        }
-    ]
+  "name": "Resilient",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Choose one ability in which you lack saving throw proficiency. Increase the chosen ability score by 1, to a maximum of 20."
+    },
+    "Saving Throw Proficiency": {
+      "description": "You gain saving throw proficiency with the chosen ability."
+    }
+  }
 }

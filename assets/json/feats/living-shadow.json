@@ -1,26 +1,23 @@
 {
-    "name": "Living Shadow",
-    "catId": "feats",
-    "type": "Dark Gift Feat",
-    "source": "Ravenloft - The Horrors Within",
-    "description": "Dark Gift Feat (Prerequisite: Ravenloft Campaign) The shadow you cast is animate and ever-present - sometimes it even acts according to its own will. You gain the following features.",
-    "features": [
-        {
-            "name": "Grasping Shadow",
-            "description": "You learn the Mage Hand spell and can cast it without spell components. Intelligence, Wisdom or Charisma is your spellcasting ability for this spell (choose when you select this feat)."
-        },
-        {
-            "name": "Lengthened Strike",
-            "description": "When you make a melee attack roll as part of the Attack or Magic action on your turn, you can increase your reach for that attack by 10 feet, as your shadow stretches to aid you. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
-        },
-        {
-            "name": "Ominous Will",
-            "description": "Immediately after you make a D20 Test and roll a 1 on the d20, your shadow attempts to exert its will. Make a Wisdom saving throw (DC 13 plus your Proficiency Bonus). On a failed save, you have the Incapacitated condition until the start of your next turn, at which point you must roll on the Shadow's Will table to determine what you do during that turn.",
-            "table": {
-                "1": "You don't take any action or a Bonus Action, and you use all your movement to move. Roll 1d4 for the direction 1, north: 2, east; 3, south; 4, west.",
-                "2-6": "You don't move or take a Bonus Action, and you take the Attack action to make one melee attack against a random creature within reach. If none are within reach, you take no action.",
-                "7-8": "You have the Prone condition, and your turn ends."
-            }
-        }
-    ]
+  "name": "Living Shadow",
+  "catId": "feats",
+  "type": "Dark Gift Feat",
+  "source": "Ravenloft - The Horrors Within",
+  "description": "Dark Gift Feat (Prerequisite: Ravenloft Campaign) The shadow you cast is animate and ever-present - sometimes it even acts according to its own will. You gain the following features.",
+  "features": {
+    "Grasping Shadow": {
+      "description": "You learn the Mage Hand spell and can cast it without spell components. Intelligence, Wisdom or Charisma is your spellcasting ability for this spell (choose when you select this feat)."
+    },
+    "Lengthened Strike": {
+      "description": "When you make a melee attack roll as part of the Attack or Magic action on your turn, you can increase your reach for that attack by 10 feet, as your shadow stretches to aid you. You can use this feature a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
+    },
+    "Ominous Will": {
+      "description": "Immediately after you make a D20 Test and roll a 1 on the d20, your shadow attempts to exert its will. Make a Wisdom saving throw (DC 13 plus your Proficiency Bonus). On a failed save, you have the Incapacitated condition until the start of your next turn, at which point you must roll on the Shadow's Will table to determine what you do during that turn.",
+      "table": {
+        "1": "You don't take any action or a Bonus Action, and you use all your movement to move. Roll 1d4 for the direction 1, north: 2, east; 3, south; 4, west.",
+        "2-6": "You don't move or take a Bonus Action, and you take the Attack action to make one melee attack against a random creature within reach. If none are within reach, you take no action.",
+        "7-8": "You have the Prone condition, and your turn ends."
+      }
+    }
+  }
 }

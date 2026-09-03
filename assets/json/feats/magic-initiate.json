@@ -1,25 +1,21 @@
 {
-    "name": "Magic Initiate",
-    "catId": "feats",
-    "type": "Origin Feat",
-    "source": "Player's Handbook",
-    "description": "You gain the following benefits.",
-    "features": [
-        {
-            "name": "Two Cantrips",
-            "description": "You learn two cantrips of your choice from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
-        },
-        {
-            "name": "Level 1 Spell",
-            "description": "Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have."
-        },
-        {
-            "name": "Spell Change",
-            "description": "Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list."
-        },
-        {
-            "name": "Repeatable",
-            "description": "You can take this feat more than once, but you must choose a different spell list each time."
-        }
-    ]
+  "name": "Magic Initiate",
+  "catId": "feats",
+  "type": "Origin Feat",
+  "source": "Player's Handbook",
+  "description": "You gain the following benefits.",
+  "features": {
+    "Two Cantrips": {
+      "description": "You learn two cantrips of your choice from the Cleric, Druid, or Wizard spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+    },
+    "Level 1 Spell": {
+      "description": "Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have."
+    },
+    "Spell Change": {
+      "description": "Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list."
+    },
+    "Repeatable": {
+      "description": "You can take this feat more than once, but you must choose a different spell list each time."
+    }
+  }
 }

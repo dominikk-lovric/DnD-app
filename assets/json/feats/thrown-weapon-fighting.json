@@ -1,8 +1,8 @@
 {
-    "name": "Thrown Weapon Fighting",
-    "catId": "feats",
-    "type": "Fighting Style Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Fighting Style Feature When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.",
-    "features": []
+  "name": "Thrown Weapon Fighting",
+  "catId": "feats",
+  "type": "Fighting Style Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Fighting Style Feature When you hit with a ranged attack roll using a weapon that has the Thrown property, you gain a +2 bonus to the damage roll.",
+  "features": {}
 }

@@ -1,25 +1,21 @@
 {
-    "name": "Sharpshooter",
-    "catId": "feats",
-    "type": "General Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 4+, Dexterity 13+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Dexterity score by 1, to a maximum of 20."
-        },
-        {
-            "name": "Bypass Cover",
-            "description": "Your ranged attacks with weapons ignore Half Cover and Three-Quarters Cover."
-        },
-        {
-            "name": "Firing in Melee",
-            "description": "Being within 5 feet of an enemy doesn’t impose Disadvantage on your attack rolls with Ranged weapons."
-        },
-        {
-            "name": "Long Shots",
-            "description": "Attacking at long range doesn't impose Disadvantage on your attack rolls with Ranged weapons."
-        }
-    ]
+  "name": "Sharpshooter",
+  "catId": "feats",
+  "type": "General Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 4+, Dexterity 13+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Dexterity score by 1, to a maximum of 20."
+    },
+    "Bypass Cover": {
+      "description": "Your ranged attacks with weapons ignore Half Cover and Three-Quarters Cover."
+    },
+    "Firing in Melee": {
+      "description": "Being within 5 feet of an enemy doesn’t impose Disadvantage on your attack rolls with Ranged weapons."
+    },
+    "Long Shots": {
+      "description": "Attacking at long range doesn't impose Disadvantage on your attack rolls with Ranged weapons."
+    }
+  }
 }

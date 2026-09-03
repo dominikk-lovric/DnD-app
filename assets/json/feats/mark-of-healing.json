@@ -1,32 +1,28 @@
 {
-    "name": "Mark Of Healing",
-    "catId": "feats",
-    "type": "Dragonmark Feat",
-    "source": "Eberron - Forge of the Artificer",
-    "description": "Dragonmark Feat (Prerequisite: Eberron Campaign, Can’t have another Dragonmark Feat) You gain the following benefits. When you reach character level 3, you also always have the Lesser Restoration spell prepared and can cast it the same way.",
-    "features": [
-        {
-            "name": "Medical Intuition",
-            "description": "When you make a Wisdom (Medicine) check or an ability check using a Herbalism Kit, you can roll 1d4 and add the number rolled to the ability check."
-        },
-        {
-            "name": "Healing Touch",
-            "description": "You always have the Cure Wounds spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast it using any spell slots you have you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
-        },
-        {
-            "name": "Spells of the Mark",
-            "description": "If you have the Spellcasting or Pact Magic feature, the spells on the Mark of Healing Spells table are added to that feature’s spell list."
-        },
-        {
-            "name": "Mark of Healing Spells",
-            "description": "",
-            "table": {
-                "1": "False Life, Healing Word",
-                "2": "Arcane Vigor, Prayer of Healing",
-                "3": "Aura of Vitality, Mass Healing Word",
-                "4": "Aura of Life, Aura of Purity",
-                "5": "Greater Restoration"
-            }
-        }
-    ]
+  "name": "Mark Of Healing",
+  "catId": "feats",
+  "type": "Dragonmark Feat",
+  "source": "Eberron - Forge of the Artificer",
+  "description": "Dragonmark Feat (Prerequisite: Eberron Campaign, Can’t have another Dragonmark Feat) You gain the following benefits. When you reach character level 3, you also always have the Lesser Restoration spell prepared and can cast it the same way.",
+  "features": {
+    "Medical Intuition": {
+      "description": "When you make a Wisdom (Medicine) check or an ability check using a Herbalism Kit, you can roll 1d4 and add the number rolled to the ability check."
+    },
+    "Healing Touch": {
+      "description": "You always have the Cure Wounds spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast it using any spell slots you have you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+    },
+    "Spells of the Mark": {
+      "description": "If you have the Spellcasting or Pact Magic feature, the spells on the Mark of Healing Spells table are added to that feature’s spell list."
+    },
+    "Mark of Healing Spells": {
+      "description": "",
+      "table": {
+        "1": "False Life, Healing Word",
+        "2": "Arcane Vigor, Prayer of Healing",
+        "3": "Aura of Vitality, Mass Healing Word",
+        "4": "Aura of Life, Aura of Purity",
+        "5": "Greater Restoration"
+      }
+    }
+  }
 }

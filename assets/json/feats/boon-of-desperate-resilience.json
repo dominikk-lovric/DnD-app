@@ -1,17 +1,15 @@
 {
-    "name": "Boon Of Desperate Resilience",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase your Strength or Constitution score by 1, to a maximum of 30."
-        },
-        {
-            "name": "Defense of Body and Mind",
-            "description": "While you are Bloodied, you have Resistance to every damage type except Force."
-        }
-    ]
+  "name": "Boon Of Desperate Resilience",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase your Strength or Constitution score by 1, to a maximum of 30."
+    },
+    "Defense of Body and Mind": {
+      "description": "While you are Bloodied, you have Resistance to every damage type except Force."
+    }
+  }
 }

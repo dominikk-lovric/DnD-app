@@ -1,21 +1,18 @@
 {
-    "name": "Boon Of The Soul Drinker",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Forgotten Realms - Heroes of Faerun",
-    "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 30."
-        },
-        {
-            "name": "Grave Resistance",
-            "description": "You have Resistance to Cold damage and Necrotic damage."
-        },
-        {
-            "name": "Siphon Life",
-            "description": "When an enemy within 120 feet of you is reduced to 0 Hit Points, you can take a Reaction to regain 50 Hit Points. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
-        }
-    ]
+  "name": "Boon Of The Soul Drinker",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Forgotten Realms - Heroes of Faerun",
+  "description": "Epic Boon Feat (Prerequisite: Level 19+) You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    "Grave Resistance": {
+      "description": "You have Resistance to Cold damage and Necrotic damage."
+    },
+    "Siphon Life": {
+      "description": "When an enemy within 120 feet of you is reduced to 0 Hit Points, you can take a Reaction to regain 50 Hit Points. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest."
+    }
+  }
 }

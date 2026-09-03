@@ -14,59 +14,77 @@
       ]
     }
   ],
-  "attacksPerLevel": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1
-  ],
-  "features": [
-    {
-      "name": "Elemental Smite",
+  "attacksPerLevel": {
+    "level": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "attacks": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "features": {
+    "Elemental Smite": {
       "level": 3,
       "description": "Immediately after you cast Divine Smite , you can expend one use of your Channel Divinity and invoke one of the following effects. Dao’s Crush. Earth rises up around the target of your Divine Smite. The target has the Grappled condition (escape DC equal to your spell save DC). While Grappled, the target has the Restrained condition. Djinni’s Escape. You teleport to an unoccupied space you can see within 30 feet of yourself and take on a semi-incorporeal form, which lasts until the end of your next turn. While in this form, you have Resistance to Bludgeoning, Piercing, and Slashing damage, and you have Immunity to the Grappled, Prone, and Restrained conditions. Efreeti’s Fury. The target of your Divine Smite takes an extra 2d4 Fire damage, and fire jumps from the target to another creature you can see within 30 feet of yourself. The second creature also takes 2d4 Fire damage. Marid’s Surge. The target of your Divine Smite and each creature of your choice in a 10-foot Emanation originating from you make a Strength saving throw against your spell save DC. On a failed save, a creature is pushed 15 feet straight away from you and has the Prone condition."
     },
-    {
-      "name": "Genie Spells",
+    "Genie Spells": {
       "level": 3,
       "description": "When you reach a Paladin level specified in the Genie Spells table, you thereafter always have the listed spells prepared"
     },
-    {
-      "name": "Genie's Splendor",
+    "Genie's Splendor": {
       "level": 3,
       "description": "When you aren’t wearing any armor, your base Armor Class equals 10 plus your Dexterity and Charisma modifiers. You can use a Shield and still gain this benefit. You also gain proficiency in one of the following skills of your choice: Acrobatics, Intimidation, Performance, or Persuasion."
     },
-    {
-      "name": "Aura of Elemental Shielding",
+    "Aura of Elemental Shielding": {
       "level": 7,
       "description": "Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. You and your allies have Resistance to that damage type while in your Aura of Protection. At the start of each of your turns, you can change the damage type affected by this feature to one of the other listed options (no action required)."
     },
-    {
-      "name": "Elemental Rebuke",
+    "Elemental Rebuke": {
       "level": 15,
       "description": "When you are hit by an attack roll, you can take a Reaction to halve the attack’s damage against yourself (round down) and force the attacker to make a Dexterity saving throw against your spell save DC. On a failed save, the attacker takes damage equal to 2d10 plus your Charisma modifier of one of the following types (your choice): Acid, Cold, Fire, Lightning, or Thunder. On a successful save, the attacker takes half as much damage. You can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a Long Rest."
     },
-    {
-      "name": "Noble Scion",
+    "Noble Scion": {
       "level": 20,
       "description": "As a Bonus Action, you gain the benefits below for 10 minutes or until you end them (no action required). Once you use this feature, you can’t use it again until you finish a Long Rest. You can also restore your use of it by expending a level 5 spell slot (no action required). Flight. You have a Fly Speed of 60 feet and can hover. Minor Wish. When you or an ally in your Aura of Protection fails a D20 Test, you can take a Reaction to make you or that ally succeed instead."
     }
-  ],
+  },
   "catId": "classes"
 }

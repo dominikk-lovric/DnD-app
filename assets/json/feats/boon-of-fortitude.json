@@ -1,17 +1,15 @@
 {
-    "name": "Boon Of Fortitude",
-    "catId": "feats",
-    "type": "Epic Boon Feat",
-    "source": "Player's Handbook",
-    "description": "Prerequisite: Level 19+ You gain the following benefits.",
-    "features": [
-        {
-            "name": "Ability Score Increase",
-            "description": "Increase one ability score of your choice by 1, to a maximum of 30."
-        },
-        {
-            "name": "Fortified Health",
-            "description": "Your Hit Point maximum increases by 40. In addition, whenever you regain Hit Points, you can regain additional Hit Points equal to your Constitution modifier. Once you've regained these additional Hit Points, you can't do so again until the start of your next turn."
-        }
-    ]
+  "name": "Boon Of Fortitude",
+  "catId": "feats",
+  "type": "Epic Boon Feat",
+  "source": "Player's Handbook",
+  "description": "Prerequisite: Level 19+ You gain the following benefits.",
+  "features": {
+    "Ability Score Increase": {
+      "description": "Increase one ability score of your choice by 1, to a maximum of 30."
+    },
+    "Fortified Health": {
+      "description": "Your Hit Point maximum increases by 40. In addition, whenever you regain Hit Points, you can regain additional Hit Points equal to your Constitution modifier. Once you've regained these additional Hit Points, you can't do so again until the start of your next turn."
+    }
+  }
 }

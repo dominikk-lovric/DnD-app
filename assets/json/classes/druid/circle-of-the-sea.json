@@ -1,31 +1,26 @@
 {
   "name": "Circle of the Sea",
-  "features": [
-    {
-      "name": "Circle of the Sea Spells",
+  "features": {
+    "Circle of the Sea Spells": {
       "level": 3,
       "description": "When you reach a Druid level specified in the Circle of the Sea Spells table, you thereafter always have the listed spells prepared."
     },
-    {
-      "name": "Wrath of the Sea",
+    "Wrath of the Sea": {
       "level": 3,
       "description": "As a Bonus Action, you can expend a use of your Wild Shape to manifest a 5-foot Emanation that takes the form of ocean spray that surrounds you for 10 minutes. It ends early if you dismiss it (no action required), manifest it again, or have the Incapacitated condition. When you manifest the Emanation and as a Bonus Action on your subsequent turns, you can choose another creature you can see in the Emanation. The target must succeed on a Constitution saving throw against your spell save DC or take Cold damage and, if the creature is Large or smaller, be pushed up to 15 feet away from you. To determine this damage, roll a number of d6s equal to your Wisdom modifier (minimum of one die)."
     },
-    {
-      "name": "Aquatic Affinity",
+    "Aquatic Affinity": {
       "level": 6,
       "description": "The size of the Emanation created by your Wrath of the Sea increases to 10 feet. In addition, you gain a Swim Speed equal to your Speed."
     },
-    {
-      "name": "Stormborn",
+    "Stormborn": {
       "level": 10,
       "description": "Your Wrath of the Sea confers two more benefits while active, as detailed below. Flight. You gain a Fly Speed equal to your Speed. Resistance. You have Resistance to Cold, Lightning, and Thunder damage."
     },
-    {
-      "name": "Oceanic Gift",
+    "Oceanic Gift": {
       "level": 14,
       "description": "Instead of manifesting the Emanation of Wrath of the Sea around yourself, you can manifest it around one willing creature within 60 feet of yourself. That creature gains all the benefits of the Emanation and uses your spell save DC and Wisdom modifier for it. In addition, you can manifest the Emanation around both the other creature and yourself if you expend two uses of your Wild Shape instead of one when manifesting it."
     }
-  ],
+  },
   "catId": "classes"
 }

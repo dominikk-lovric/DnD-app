@@ -105,7 +105,7 @@ class TableWidget extends StatelessWidget {
         border: TableBorder.symmetric(
           inside: BorderSide(color: ColorService.getColor(4)),
         ),
-        defaultColumnWidth: IntrinsicColumnWidth(),
+        defaultColumnWidth: FlexColumnWidth(),
         children: rows,
       ),
     );
