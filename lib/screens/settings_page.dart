@@ -20,7 +20,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class SettingsPageState extends State<SettingsPage> {
-  Map<String, dynamic>? categoryData;
+  Map<String, dynamic>? schemata;
   List<String>? categories;
   List<String> options = ["popUp", "expand", "page", "text", "sheet", "static"];
 
@@ -28,14 +28,15 @@ class SettingsPageState extends State<SettingsPage> {
   initState() {
     super.initState();
 
-    loadCategories();
+    loadSchemata();
   }
 
-  Future<void> loadCategories() async {
-    final json = JsonService("categories");
+  Future<void> loadSchemata() async {
+    final json = JsonService("schemata");
     Map<String, dynamic> items = await json.loadData();
+    print(items);
     setState(() {
-      categoryData = items;
+      schemata = items;
       categories = items.keys.toList();
     });
   }
@@ -85,7 +86,7 @@ class SettingsPageState extends State<SettingsPage> {
                       ...(categories ?? []).map((el) {
                         return DescriptionStyleSelectorWidget(
                           el,
-                          (categoryData ?? {})[el ?? ""] ?? {},
+                          (schemata ?? {})[el ?? ""] ?? {},
                         );
                       }),
                     ],

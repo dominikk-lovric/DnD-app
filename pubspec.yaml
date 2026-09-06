@@ -89,7 +89,6 @@ flutter:
     # see https://flutter.dev/to/font-from-package
     assets:
         #icons
-
         - assets/icons/base/classes/barbarian.jpg
         - assets/icons/base/classes/bard.jpg
         - assets/icons/base/classes/cleric.jpg
@@ -106,7 +105,7 @@ flutter:
         - assets/icons/base/arrow-down.png
 
         #jsons
-
+        - assets/json/schemata.json
         - assets/json/classes.json
         - assets/json/spells.json
         - assets/json/feats.json

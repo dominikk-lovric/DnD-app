@@ -1,0 +1,295 @@
+{
+    "classes": {
+        "hitDie": {
+            "type": "icon",
+            "icon": "heart"
+        },
+        "savingThrows": {
+            "type": "checkList",
+            "list": ["Str", "Dex", "Con", "Int", "Wis", "Cha"]
+        },
+        "spellcasting": {
+            "type": "map",
+            "item": {
+                "casterLevel": {
+                    "type": "text"
+                },
+                "spellcastingAbility": {
+                    "type": "text"
+                },
+                "spellcastingTable": {
+                    "type": "table"
+                }
+            }
+        },
+        "attacksPerLevel": {
+            "type": "table"
+        },
+        "proficiencies": {
+            "type": "map",
+            "item": {
+                "Skill": {
+                    "type": "map",
+                    "item": {
+                        "options": {
+                            "type": "text"
+                        },
+                        "proficiencies": {
+                            "type": "list",
+                            "item": { "type": "text" }
+                        }
+                    }
+                },
+                "Armor": {
+                    "type": "map",
+                    "item": {
+                        "options": {
+                            "type": "text"
+                        },
+                        "proficiencies": {
+                            "type": "list",
+                            "item": { "type": "text" }
+                        }
+                    }
+                },
+                "Weapon": {
+                    "type": "map",
+                    "item": {
+                        "options": {
+                            "type": "text"
+                        },
+                        "proficiencies": {
+                            "type": "list",
+                            "item": { "type": "text" }
+                        }
+                    }
+                }
+            }
+        },
+        "startingEquipment": {
+            "type": "list",
+            "item": {
+                "type": "list",
+                "item": { "type": "text" }
+            }
+        },
+        "features": {
+            "type": "map",
+            "item": {
+                "default": {
+                    "type": "features"
+                }
+            }
+        },
+        "archetypes": {
+            "type": "map",
+            "item": {
+                "default": {
+                    "type": "path"
+                }
+            }
+        }
+    },
+    "species": {
+        "creatureType": {
+            "type": "text"
+        },
+        "size": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "speed": {
+            "type": "text"
+        },
+        "spells": {
+            "type": "map",
+            "item": {
+                "addedSpells": {
+                    "type": "table"
+                }
+            }
+        },
+        "features": {
+            "type": "map",
+            "item": {
+                "default": {
+                    "type": "features"
+                }
+            }
+        },
+        "subspicies": {
+            "type": "list",
+            "item": {
+                "type": "species"
+            }
+        }
+    },
+    "spells": {
+        "level": {
+            "type": "text"
+        },
+        "school": {
+            "type": "text"
+        },
+        "spellList": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "castingTime": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "range": {
+            "type": "text"
+        },
+        "components": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "materials": {
+            "type": "text"
+        },
+        "duration": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "concentration": {
+            "type": "bool"
+        },
+        "description": {
+            "type": "text"
+        }
+    },
+    "feats": {
+        "type": {
+            "type": "text"
+        },
+        "description": {
+            "type": "text"
+        },
+        "features": {
+            "type": "map",
+            "item": {
+                "default": {
+                    "type": "features"
+                }
+            }
+        }
+    },
+    "backgrounds": {
+        "description": {
+            "type": "text"
+        },
+        "abilities": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "feat": {
+            "type": "list",
+            "item": {
+                "type": "path"
+            },
+            "path": true
+        },
+        "skills": {
+            "type": "list",
+            "item": {
+                "type": "text"
+            }
+        },
+        "tools": {
+            "type": "text"
+        },
+        "equipment": {
+            "type": "list",
+            "item": {
+                "type": "list",
+                "item": {
+                    "type": "text"
+                }
+            }
+        }
+    },
+    "features": {
+        "level": { "type": "text" },
+        "description": { "type": "text" },
+        "uses": {
+            "type": "map",
+            "item": {
+                "amountPerLevel": { "type": "table" },
+                "amount": { "type": "text" },
+                "replenish": {
+                    "type": "map",
+                    "item": {
+                        "default": {
+                            "type": "map",
+                            "item": {
+                                "amountPerLevel": { "type": "table" },
+                                "amount": { "type": "text" }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "options": {
+            "type": "map",
+            "item": {
+                "amountPerLevel": { "type": "table" },
+                "amount": { "type": "text" },
+                "change": {
+                    "type": "map",
+                    "item": {
+                        "default": {
+                            "type": "map",
+                            "item": {
+                                "amountPerLevel": { "type": "table" },
+                                "amount": { "type": "text" }
+                            }
+                        }
+                    }
+                },
+                "features": {
+                    "type": "map",
+                    "item": {
+                        "default": {
+                            "type": "features"
+                        }
+                    }
+                },
+                "featuresPath": {
+                    "type": "path",
+                    "item": {
+                        "type": "list",
+                        "item": {
+                            "type": "features"
+                        }
+                    }
+                },
+                "pathPath": {
+                    "type": "path",
+                    "item": {
+                        "type": "map",
+                        "item": {
+                            "default": {
+                                "type": "path"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -30,6 +30,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
   final sortingKey = GlobalKey<SortingMenuWidgetState>();
   final filterKey = GlobalKey<FilterMenuWidgetState>();
+  Map<String, dynamic> schemata = {};
 
   final PageController _pageController = PageController();
   late List<dynamic> categories = [];
@@ -64,6 +65,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     searchWord = "";
     await loadCategories();
     await loadItems(categories[0]);
+    await loadSchemata();
   }
 
   void getSelector(String category) {
@@ -153,6 +155,13 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     setState(() {
       currentState = file;
       data = filterData(items);
+    });
+  }
+
+  Future<void> loadSchemata() async {
+    final schemas = await JsonService.loadFromPath("schemata.json");
+    setState(() {
+      schemata = schemas;
     });
   }
 
@@ -632,7 +641,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   }
 
   Widget buildInfoWidget(String category, String item) {
-    return FutureBuilder<Map<String, dynamic>>(
+    return FutureBuilder<dynamic>(
       future: JsonService.loadFromPath(item),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -647,10 +656,10 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           return const SizedBox.shrink();
         }
 
-        final infoData = snapshot.data!;
+        final infoData = Map<String, dynamic>.from(snapshot.data as Map);
         return DescriptionColumnWidget(
           infoData,
-          categoryData,
+          schemata,
           scrollable:
               SettingsService.getSetting(
                 currentCategory + "DescriptionStyle",

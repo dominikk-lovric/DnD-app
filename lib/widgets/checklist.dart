@@ -46,8 +46,8 @@ class CheckListWidget extends StatelessWidget {
           columns = 1;
         }
 
-        final itemWidth = 65.0;
-        final spacing = 10.0;
+        final itemWidth = TextStyleService.getFontSize(2) * 3;
+        final spacing = itemWidth / 4;
 
         return SizedBox(
           width: columns * itemWidth + (columns - 1) * spacing,

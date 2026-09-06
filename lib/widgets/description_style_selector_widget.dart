@@ -36,7 +36,7 @@ class DescriptionStyleSelectorWidgetState
   void initState() {
     super.initState();
 
-    final items = getItems(widget.data["schema"]);
+    final items = getItems(widget.data);
 
     keyList = List.generate(
       items.length,
@@ -96,7 +96,7 @@ class DescriptionStyleSelectorWidgetState
             "expand",
             initiallyExpanded: false,
           ),
-          ...widget.data["schema"].entries.map<Widget>((entry) {
+          ...widget.data.entries.map<Widget>((entry) {
             return getSelector(entry.key, entry.value);
           }),
         ],

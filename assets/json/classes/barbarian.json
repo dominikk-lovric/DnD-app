@@ -146,7 +146,7 @@
                         "amount": 1
                     }
                 },
-                "path": "assets/json/other/weaponMastery.json"
+                "featuresPath": "assets/json/other/weaponMastery.json"
             }
         },
         "Danger Sense": {
@@ -230,9 +230,8 @@
             ],
             "options": {
                 "amount": 1,
-                "features": [
-                    {
-                        "name": "Primal Knowledge: Animal Handling",
+                "features": {
+                    "Primal Knowledge: Animal Handling": {
                         "description": "You gain proficiency in the Animal Handling skill.",
                         "usage": [
                             {
@@ -246,8 +245,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Primal Knowledge: Athletics",
+                    "Primal Knowledge: Athletics": {
                         "description": "You gain proficiency in the Athletics skill.",
                         "usage": [
                             {
@@ -261,8 +259,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Primal Knowledge: Intimidation",
+                    "Primal Knowledge: Intimidation": {
                         "description": "You gain proficiency in the Intimidation skill.",
                         "usage": [
                             {
@@ -276,8 +273,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Primal Knowledge: Nature",
+                    "Primal Knowledge: Nature": {
                         "description": "You gain proficiency in the Nature skill.",
                         "usage": [
                             {
@@ -291,8 +287,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Primal Knowledge: Perception",
+                    "Primal Knowledge: Perception": {
                         "description": "You gain proficiency in the Perception skill.",
                         "usage": [
                             {
@@ -306,8 +301,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Primal Knowledge: Survival",
+                    "Primal Knowledge: Survival": {
                         "description": "You gain proficiency in the Survival skill.",
                         "usage": [
                             {
@@ -321,7 +315,7 @@
                             }
                         ]
                     }
-                ]
+                }
             }
         },
         "Ability Score Improvement": {
@@ -416,9 +410,8 @@
                         "amount": 1
                     }
                 },
-                "features": [
-                    {
-                        "name": "Forcefull Blow",
+                "features": {
+                    "Forcefull Blow": {
                         "description": "The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
                         "usage": [
                             {
@@ -441,8 +434,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Hamstring blow",
+                    "Hamstring blow": {
                         "description": "The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
                         "usage": [
                             {
@@ -457,7 +449,7 @@
                             }
                         ]
                     }
-                ]
+                }
             }
         },
         "Relentless Rage": {
@@ -503,9 +495,8 @@
             ],
             "options": {
                 "amount": 2,
-                "features": [
-                    {
-                        "name": "Forcefull Blow",
+                "features": {
+                    "Forcefull Blow": {
                         "description": "The target is pushed 15 feet straight away from you. You can then move up to half your Speed straight toward the target without provoking Opportunity Attacks.",
                         "usage": [
                             {
@@ -528,8 +519,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Hamstring blow",
+                    "Hamstring blow": {
                         "description": "The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time— the most recent one.",
                         "usage": [
                             {
@@ -544,8 +534,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Staggering Blow",
+                    "Staggering Blow": {
                         "description": "The target has Disadvantage on the next saving throw it makes, and it can’t make Opportunity Attacks until the start of your next turn.",
                         "usage": [
                             {
@@ -570,8 +559,7 @@
                             }
                         ]
                     },
-                    {
-                        "name": "Sundering Blow",
+                    "Sundering Blow": {
                         "description": "Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus to the roll. An attack roll can gain only one Sundering Blow bonus.",
                         "usage": [
                             {
@@ -591,7 +579,7 @@
                             }
                         ]
                     }
-                ]
+                }
             }
         },
         "Persistent Rage": {
@@ -639,7 +627,7 @@
             "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Irresistible Offense is recommended.",
             "options": {
                 "amount": 1,
-                "path": "assets/json/feats/epicBoons.json"
+                "pathPath": "assets/json/feats/epicBoons.json"
             }
         },
         "Primal Champion": {
@@ -664,22 +652,18 @@
             ]
         }
     },
-    "archetypes": [
-        {
-            "name": "Path of the Berserker",
+    "archetypes": {
+        "Path of the Berserker": {
             "path": "assets/json/classes/barbarian/berserker.json"
         },
-        {
-            "name": "Path of the Wild Heart",
+        "Path of the Wild Heart": {
             "path": "assets/json/classes/barbarian/wild-heart.json"
         },
-        {
-            "name": "Path of the World Tree",
+        "Path of the World Tree": {
             "path": "assets/json/classes/barbarian/world-tree.json"
         },
-        {
-            "name": "Path of the Zealot",
+        "Path of the Zealot": {
             "path": "assets/json/classes/barbarian/zealot.json"
         }
-    ]
+    }
 }

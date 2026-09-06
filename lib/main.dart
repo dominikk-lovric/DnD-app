@@ -1,3 +1,4 @@
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -42,6 +43,16 @@ class _MyApp extends State<MyApp> {
     await SettingsService.setSetting("globalDescriptionStyle", "popUp");
     await SettingsService.setSetting("groupItemsWiki", true);
     await initWikiSettings();
+    await setFontHeight(height);
+  }
+
+  Future<void> setFontHeight(double height) async {
+    TextStyleService.setFontSize(0, height * 0.1 * 8 / 12);
+    TextStyleService.setFontSize(1, height * 0.1 * 7 / 12);
+    TextStyleService.setFontSize(2, height * 0.1 * 6 / 12);
+    TextStyleService.setFontSize(3, height * 0.1 * 5 / 12);
+    TextStyleService.setFontSize(4, height * 0.1 * 4 / 12);
+    TextStyleService.setFontSize(5, height * 0.1 * 3 / 12);
   }
 
   Future<void> initWikiSettings() async {
