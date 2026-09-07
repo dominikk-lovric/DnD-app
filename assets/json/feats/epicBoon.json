@@ -1,34 +1,78 @@
-[
-    "assets/json/feats/boon-of-combat-prowess",
-    "assets/json/feats/boon-of-dimensional-travel",
-    "assets/json/feats/boon-of-energy-resistance",
-    "assets/json/feats/boon-of-erupting-spellpower",
-    "assets/json/feats/boon-of-fate",
-    "assets/json/feats/boon-of-fortitude",
-    "assets/json/feats/boon-of-irresistible-offense",
-    "assets/json/feats/boon-of-magic-school-mastery",
-    "assets/json/feats/boon-of-recovery",
-    "assets/json/feats/boon-of-skill",
-    "assets/json/feats/boon-of-speed",
-    "assets/json/feats/boon-of-spell-recall",
-    "assets/json/feats/boon-of-the-iron-mind",
-    "assets/json/feats/boon-of-the-night-spirit",
-    "assets/json/feats/boon-of-truesight",
-    "assets/json/feats/boon-of-siberys",
-    "assets/json/feats/boon-of-bloodshed",
-    "assets/json/feats/boon-of-bountiful-realth",
-    "assets/json/feats/boon-of-communication",
-    "assets/json/feats/boon-of-desperate-resilience",
-    "assets/json/feats/boon-of-exquisite-radiance",
-    "assets/json/feats/boon-of-fluid-forms",
-    "assets/json/feats/boon-of-fortune's-favor",
-    "assets/json/feats/boon-of-poison-mastery",
-    "assets/json/feats/boon-of-revelry",
-    "assets/json/feats/boon-of-terror",
-    "assets/json/feats/boon-of-the-bright-sun",
-    "assets/json/feats/boon-of-the-durious-storm",
-    "assets/json/feats/boon-of-the-soul-drinker",
-    "assets/json/feats/boon-of-blazing-dawn",
-    "assets/json/feats/boon-of-looming-shadows",
-    "assets/json/feats/boon-of-misty-escape"
-]
+{
+    "boon-of-combat-prowess": {
+        "path": "assets/json/feats/boon-of-combat-prowess"
+    },
+    "boon-of-dimensional-travel": {
+        "path": "assets/json/feats/boon-of-dimensional-travel"
+    },
+    "boon-of-energy-resistance": {
+        "path": "assets/json/feats/boon-of-energy-resistance"
+    },
+    "boon-of-erupting-spellpower": {
+        "path": "assets/json/feats/boon-of-erupting-spellpower"
+    },
+    "boon-of-fate": { "path": "assets/json/feats/boon-of-fate" },
+    "boon-of-fortitude": { "path": "assets/json/feats/boon-of-fortitude" },
+    "boon-of-irresistible-offense": {
+        "path": "assets/json/feats/boon-of-irresistible-offense"
+    },
+    "boon-of-magic-school-mastery": {
+        "path": "assets/json/feats/boon-of-magic-school-mastery"
+    },
+    "boon-of-recovery": { "path": "assets/json/feats/boon-of-recovery" },
+    "boon-of-skill": { "path": "assets/json/feats/boon-of-skill" },
+    "boon-of-speed": { "path": "assets/json/feats/boon-of-speed" },
+    "boon-of-spell-recall": {
+        "path": "assets/json/feats/boon-of-spell-recall"
+    },
+    "boon-of-the-iron-mind": {
+        "path": "assets/json/feats/boon-of-the-iron-mind"
+    },
+    "boon-of-the-night-spirit": {
+        "path": "assets/json/feats/boon-of-the-night-spirit"
+    },
+    "boon-of-truesight": { "path": "assets/json/feats/boon-of-truesight" },
+    "boon-of-siberys": { "path": "assets/json/feats/boon-of-siberys" },
+    "boon-of-bloodshed": { "path": "assets/json/feats/boon-of-bloodshed" },
+    "boon-of-bountiful-realth": {
+        "path": "assets/json/feats/boon-of-bountiful-realth"
+    },
+    "boon-of-communication": {
+        "path": "assets/json/feats/boon-of-communication"
+    },
+    "boon-of-desperate-resilience": {
+        "path": "assets/json/feats/boon-of-desperate-resilience"
+    },
+    "boon-of-exquisite-radiance": {
+        "path": "assets/json/feats/boon-of-exquisite-radiance"
+    },
+    "boon-of-fluid-forms": {
+        "path": "assets/json/feats/boon-of-fluid-forms"
+    },
+    "boon-of-fortune's-favor": {
+        "path": "assets/json/feats/boon-of-fortune's-favor"
+    },
+    "boon-of-poison-mastery": {
+        "path": "assets/json/feats/boon-of-poison-mastery"
+    },
+    "boon-of-revelry": { "path": "assets/json/feats/boon-of-revelry" },
+    "boon-of-terror": { "path": "assets/json/feats/boon-of-terror" },
+    "boon-of-the-bright-sun": {
+        "path": "assets/json/feats/boon-of-the-bright-sun"
+    },
+    "boon-of-the-durious-storm": {
+        "path": "assets/json/feats/boon-of-the-durious-storm"
+    },
+    "boon-of-the-soul-drinker": {
+        "path": "assets/json/feats/boon-of-the-soul-drinker"
+    },
+    "boon-of-blazing-dawn": {
+        "path": "assets/json/feats/boon-of-blazing-dawn"
+    },
+    "boon-of-looming-shadows": {
+        "path": "assets/json/feats/boon-of-looming-shadows"
+    },
+    "boon-of-misty-escap": {
+        "path": "assets/json/feats/boon-of-misty-escape"
+    }
+}

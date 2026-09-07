@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
+import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/draggable_sheet_widget.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,17 @@ class DescriptionWidget extends StatefulWidget {
 
 class DescriptionWidgetState extends State<DescriptionWidget> {
   final ExpansibleController _expansibleController = ExpansibleController();
+
+  final OverlayPortalController _settingMenuController =
+      OverlayPortalController();
+
+  final LayerLink _settingMenuLink = LayerLink();
+
+  final Object _settingMenuGroupId = Object();
+
+  Offset? _settingMenuPosition;
+
+  static const double _settingMenuWidth = 180;
 
   @override
   initState() {
@@ -109,26 +121,41 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
   List<String> types = ["popUp", "expand", "text", "sheet", "page"];
 
   Widget getClickWidget() {
-    return widget.clickWidget ??
-        Text(
-          widget.clickTitle == "" ? widget.title : widget.clickTitle,
-          style: TextStyleService.getTextStyle(widget.clickLevel, 4),
+    return GestureDetector(
+      onLongPressStart: (details) async {
+        getSettingSelector(
+          details,
+          widget.descriptionType ?? "globalDescriptionStyle",
         );
+      },
+      child:
+          widget.clickWidget ??
+          Text(
+            widget.clickTitle == "" ? widget.title : widget.clickTitle,
+            style: TextStyleService.getTextStyle(widget.clickLevel, 4),
+          ),
+    );
   }
 
   Widget getTitleWidget() {
-    return widget.titleWidget ??
-        Text(
-          widget.clickTitle == "" ? widget.title : widget.clickTitle,
-          style: TextStyleService.getTextStyle(widget.titleLevel, 4),
+    return GestureDetector(
+      onLongPressStart: (details) async {
+        getSettingSelector(
+          details,
+          widget.descriptionType ?? "globalDescriptionStyle",
         );
+      },
+      child:
+          widget.titleWidget ??
+          Text(
+            widget.clickTitle == "" ? widget.title : widget.clickTitle,
+            style: TextStyleService.getTextStyle(widget.titleLevel, 4),
+          ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.title == "") {
-      return widget.descrption;
-    }
     String setting;
     if (types.contains(widget.descriptionType)) {
       setting =
@@ -200,17 +227,25 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         child: getClickWidget(),
       );
     } else if (setting == "text") {
-      return Row(
-        spacing: 10,
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            widget.title + ":",
-            style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
-          ),
-          widget.descrption,
-        ],
+      return GestureDetector(
+        onLongPressStart: (details) async {
+          getSettingSelector(
+            details,
+            widget.descriptionType ?? "globalDescriptionStyle",
+          );
+        },
+        child: Row(
+          spacing: 10,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              widget.title + ":",
+              style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
+            ),
+            widget.descrption,
+          ],
+        ),
       );
     } else if (setting == "page") {
       return GestureDetector(
@@ -321,8 +356,18 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         clickTitle: (widget.clickTitle == "")
             ? widget.title
             : widget.clickTitle,
-        clickWidget: widget.clickWidget,
-        titleWidget: widget.titleWidget,
+        clickWidget: getClickWidget(),
+        titleWidget: getTitleWidget(),
+      );
+    } else if (setting == "static") {
+      return GestureDetector(
+        onLongPressStart: (details) async {
+          getSettingSelector(
+            details,
+            widget.descriptionType ?? "globalDescriptionStyle",
+          );
+        },
+        child: widget.descrption,
       );
     } else {
       return Column(
@@ -336,5 +381,93 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         ],
       );
     }
+  }
+
+  Future<void> getSettingSelector(
+    LongPressStartDetails details,
+    String setting,
+  ) async {
+    const optionList = ["popUp", "text", "page", "expand", "sheet", "static"];
+
+    final result = await showMenu<String>(
+      context: context,
+      elevation: 8,
+      color: Colors.transparent,
+      shadowColor: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      menuPadding: EdgeInsets.zero,
+      position: RelativeRect.fromLTRB(
+        details.globalPosition.dx,
+        details.globalPosition.dy,
+        MediaQuery.of(context).size.width - details.globalPosition.dx,
+        MediaQuery.of(context).size.height - details.globalPosition.dy,
+      ),
+      items: [
+        PopupMenuItem<String>(
+          padding: EdgeInsets.zero,
+          enabled: false,
+          child: _buildSettingMenu(setting),
+        ),
+      ],
+    );
+
+    if (!mounted || result == null) return;
+
+    await SettingsService.setSetting(setting, result);
+
+    if (!mounted) return;
+
+    setState(() {});
+  }
+
+  Widget _buildSettingMenu(String setting) {
+    const options = ["popUp", "text", "page", "expand", "sheet", "static"];
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            color: ColorService.getColor(1),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text(
+              "Set style:",
+              style: TextStyleService.getTextStyle(1, 4),
+            ),
+          ),
+
+          Container(height: 1, color: ColorService.getColor(3)),
+
+          ...options.map((option) {
+            final selected = getSetting() == option;
+
+            return InkWell(
+              onTap: () async {
+                print(setting);
+                print(option);
+                Navigator.pop(context, option);
+                await SettingsService.setSetting(setting, option);
+                setState(() {});
+              },
+              child: Container(
+                color: selected
+                    ? ColorService.getColor(0)
+                    : ColorService.getColor(3),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                child: Text(
+                  StringService.titleFromKey(option),
+                  style: TextStyleService.getTextStyle(4, 4),
+                ),
+              ),
+            );
+          }),
+        ],
+      ),
+    );
   }
 }

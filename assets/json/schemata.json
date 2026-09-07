@@ -269,24 +269,13 @@
                         }
                     }
                 },
-                "featuresPath": {
-                    "type": "path",
-                    "item": {
-                        "type": "list",
-                        "item": {
-                            "type": "features"
-                        }
-                    }
+                "path": {
+                    "type": "path"
                 },
-                "pathPath": {
-                    "type": "path",
+                "linkList": {
+                    "type": "linkList",
                     "item": {
-                        "type": "map",
-                        "item": {
-                            "default": {
-                                "type": "path"
-                            }
-                        }
+                        "type": "path"
                     }
                 }
             }

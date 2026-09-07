@@ -77,6 +77,17 @@ class SchemaRenderService {
       case "icon":
         return _renderIcon(data: data, schema: schema);
 
+      case "linkList":
+        return _renderLinkList(
+          context: context,
+          category: category,
+          data: data,
+          schema: schema,
+          schemata: schemata,
+          title: title,
+          setting: setting,
+        );
+
       default:
         if (schemata.containsKey(type)) {
           return DescriptionWidget(
@@ -229,15 +240,78 @@ class SchemaRenderService {
 
           return const SizedBox.shrink();
         }
+        return SizedBox.shrink();
+      },
+    );
+  }
 
-        return render(
-          context: context,
-          category: category,
-          data: loadedData,
-          schema: Map<String, dynamic>.from(childSchema),
-          schemata: schemata,
-          title: title,
-          setting: setting,
+  static Widget _renderLinkList({
+    required BuildContext context,
+    required String category,
+    required dynamic data,
+    required Map<String, dynamic> schema,
+    required Map<String, dynamic> schemata,
+    required String title,
+    required String setting,
+  }) {
+    final String? path;
+
+    if (data is String) {
+      path = data;
+    } else if (data is Map && data["path"] is String) {
+      path = data["path"];
+    } else {
+      path = null;
+    }
+
+    if (path == null || path.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    print(path);
+
+    return FutureBuilder<dynamic>(
+      future: JsonService.loadFromPath(data),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (snapshot.hasError || !snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        final dynamic loadedData = snapshot.data;
+
+        return Column(
+          children: [
+            ...loadedData.keys.toList().map((el) {
+              if (loadedData[el].containsKey("path")) {
+                return _renderPath(
+                  context: context,
+                  category: category,
+                  data: loadedData[el]["path"],
+                  schema: schema["item"],
+                  schemata: schemata,
+                  title: StringService.titleFromKey(el),
+                  setting: setting,
+                );
+              } else {
+                print("///" + loadedData[el].toString());
+                print(schemata["features"]);
+                print("\n\n\n");
+                return render(
+                  context: context,
+                  category: "features",
+                  data: loadedData[el],
+                  schema: {"type": "features"},
+                  schemata: schemata,
+                  title: StringService.titleFromKey(el),
+                  setting: setting,
+                );
+              }
+            }),
+          ],
         );
       },
     );

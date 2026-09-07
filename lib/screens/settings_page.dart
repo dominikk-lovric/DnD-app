@@ -2,7 +2,6 @@ import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/color_selector_widget.dart';
-import 'package:dnd_app/widgets/description_style_selector_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -77,16 +76,6 @@ class SettingsPageState extends State<SettingsPage> {
                             ),
                             child: ColorSelectorWidget(colorList.indexOf(el)),
                           ),
-                        );
-                      }),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ...(categories ?? []).map((el) {
-                        return DescriptionStyleSelectorWidget(
-                          el,
-                          (schemata ?? {})[el ?? ""] ?? {},
                         );
                       }),
                     ],

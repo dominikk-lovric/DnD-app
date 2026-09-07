@@ -146,7 +146,7 @@
                         "amount": 1
                     }
                 },
-                "featuresPath": "assets/json/other/weaponMastery.json"
+                "linkList": "assets/json/other/weaponMastery.json"
             }
         },
         "Danger Sense": {
@@ -627,7 +627,7 @@
             "description": "You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Irresistible Offense is recommended.",
             "options": {
                 "amount": 1,
-                "pathPath": "assets/json/feats/epicBoons.json"
+                "linkList": "assets/json/feats/epicBoon.json"
             }
         },
         "Primal Champion": {

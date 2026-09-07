@@ -64,8 +64,6 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
   void didUpdateWidget(covariant FilterMenuWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.currentCategory != widget.currentCategory) {
-      // filter identities per index are no longer valid for the new
-      // category, so close everything rather than show stale options.
       for (final c in _subControllers.values) {
         if (c.isShowing) c.hide();
       }
@@ -195,9 +193,6 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
               CompositedTransformFollower(
                 link: _subLinkFor(i),
                 showWhenUnlinked: false,
-                // Anchored to open toward the left of the row, since the main
-                // panel already hugs the right edge of the screen. Flip these
-                // two Alignments if your layout needs it the other way.
                 targetAnchor: Alignment.topLeft,
                 followerAnchor: Alignment.topRight,
                 child: TapRegion(
@@ -207,12 +202,6 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                     color: ColorService.getColor(3),
                     borderRadius: BorderRadius.circular(8),
                     clipBehavior: Clip.antiAlias,
-                    // IntrinsicWidth sizes this panel to the widest row's
-                    // natural width instead of a fixed width — the trade-off
-                    // is that it can't sit inside a SingleChildScrollView
-                    // (viewports can't report an intrinsic width), so a filter
-                    // with a very large number of options will just make a
-                    // very tall panel rather than a scrollable one.
                     child: IntrinsicWidth(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,

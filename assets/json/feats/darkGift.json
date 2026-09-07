@@ -1,5 +1,5 @@
 {
-    "options": [
+    "paths": [
         "assets/json/feats/aberrant-anatomy.json",
         "assets/json/feats/echoing-soul.json",
         "assets/json/feats/gathered-whispers.json",
