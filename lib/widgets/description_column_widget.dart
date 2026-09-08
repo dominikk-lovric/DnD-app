@@ -55,19 +55,20 @@ class DescriptionColumnWidgetState extends State<DescriptionColumnWidget> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    if (!widget.scrollable) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: widgets,
-      );
-    }
+    //    if (!widget.scrollable) {
+    return Column(
+      spacing: 10,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: widgets,
+    );
+    //  }
 
-    return ListView.builder(
+    /*return ListView.builder(
       itemCount: widgets.length,
       itemBuilder: (context, index) {
         return widgets[index];
       },
-    );
+    );*/
   }
 
   Future<void> getItems() async {

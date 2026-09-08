@@ -119,10 +119,12 @@
                 }
             }
         },
-        "subspicies": {
-            "type": "list",
+        "subspecies": {
+            "type": "map",
             "item": {
-                "type": "species"
+                "default": {
+                    "type": "species"
+                }
             }
         }
     },

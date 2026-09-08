@@ -370,6 +370,15 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
             filterKey.currentState?.closeMenu();
             return KeyEventResult.handled;
           }
+          for (String setting in SettingsService.getSettingNames()) {
+            print(
+              "await SetSetting(" +
+                  setting +
+                  "," +
+                  SettingsService.getSetting(setting).toString() +
+                  ")",
+            );
+          }
           Navigator.pop(context);
           return KeyEventResult.handled;
         }

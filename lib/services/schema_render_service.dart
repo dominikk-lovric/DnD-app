@@ -18,10 +18,13 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     String setting = "",
+    void Function(void Function())? resetFunction,
   }) {
     final String type = schema["type"];
 
-    setting = "${StringService.slugify(title)}${category}DescriptionStyle";
+    setting = (setting == "")
+        ? "${StringService.slugify(title)}${category}DescriptionStyle"
+        : setting;
 
     switch (type) {
       case "text":
@@ -29,6 +32,8 @@ class SchemaRenderService {
           title,
           Text(data.toString(), style: TextStyleService.getTextStyle(4, 4)),
           setting,
+          resetFunction: resetFunction,
+          optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
         );
 
       case "list":
@@ -40,6 +45,7 @@ class SchemaRenderService {
           schemata: schemata,
           title: title,
           setting: setting,
+          resetFunction: resetFunction,
         );
 
       case "map":
@@ -65,17 +71,31 @@ class SchemaRenderService {
         );
 
       case "table":
-        return DescriptionWidget(title, TableWidget(data), setting);
+        return DescriptionWidget(
+          title,
+          TableWidget(data),
+          setting,
+          resetFunction: resetFunction,
+          optionList: ["popUp", "page", "expand", "sheet", "static"],
+        );
 
       case "checkList":
         return DescriptionWidget(
           title,
           CheckListWidget(data, schema["list"]),
           setting,
+          resetFunction: resetFunction,
+          optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
         );
 
       case "icon":
-        return _renderIcon(data: data, schema: schema);
+        return _renderIcon(
+          title: title,
+          setting: setting,
+          resetFunction: resetFunction,
+          data: data,
+          schema: schema,
+        );
 
       case "linkList":
         return _renderLinkList(
@@ -88,6 +108,21 @@ class SchemaRenderService {
           setting: setting,
         );
 
+      case "bool":
+        return DescriptionWidget(
+          title,
+          Checkbox(
+            value: data,
+            checkColor: ColorService.getColor(4),
+            activeColor: ColorService.getColor(1),
+            side: BorderSide(color: ColorService.getColor(4), width: 1.5),
+            onChanged: (_) {},
+          ),
+          setting,
+          resetFunction: resetFunction,
+          optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
+        );
+
       default:
         if (schemata.containsKey(type)) {
           return DescriptionWidget(
@@ -98,6 +133,8 @@ class SchemaRenderService {
               category: type,
             ),
             setting,
+            resetFunction: resetFunction,
+            optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
           );
         }
 
@@ -113,6 +150,7 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     required String setting,
+    void Function(void Function())? resetFunction,
   }) {
     final List<Widget> children = [];
 
@@ -127,12 +165,17 @@ class SchemaRenderService {
           schema: itemSchema,
           schemata: schemata,
           title: title,
-          setting: setting,
+          setting: "listEntry" + setting,
         ),
       );
     }
 
-    return DescriptionWidget(title, ListWidget(children), setting);
+    return DescriptionWidget(
+      title,
+      ListWidget(children),
+      setting,
+      optionList: ["popUp", "page", "expand", "sheet", "static"],
+    );
   }
 
   static Widget _renderMap({
@@ -143,6 +186,7 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     required String setting,
+    void Function(void Function())? resetFunction,
   }) {
     final List<Widget> children = [];
 
@@ -154,10 +198,14 @@ class SchemaRenderService {
 
       Map<String, dynamic>? childSchema;
 
+      String name = "";
+
       if (itemSchema.containsKey(key)) {
         childSchema = Map<String, dynamic>.from(itemSchema[key]);
+        name = key;
       } else if (itemSchema.containsKey("default")) {
         childSchema = Map<String, dynamic>.from(itemSchema["default"]);
+        name = "default";
       }
 
       if (childSchema == null) {
@@ -174,12 +222,18 @@ class SchemaRenderService {
           schema: childSchema,
           schemata: schemata,
           title: childTitle,
-          setting: setting,
+          setting: "mapItem" + name + setting,
         ),
       );
     }
 
-    return DescriptionWidget(title, ListWidget(children), setting);
+    return DescriptionWidget(
+      title,
+      ListWidget(children),
+      setting,
+      resetFunction: resetFunction,
+      optionList: ["popUp", "page", "expand", "sheet", "static"],
+    );
   }
 
   static Widget _renderPath({
@@ -190,6 +244,7 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     required String setting,
+    void Function(void Function())? resetFunction,
   }) {
     final String? path;
 
@@ -234,6 +289,9 @@ class SchemaRenderService {
                 ),
                 setting,
                 initiallyExpanded: true,
+                resetFunction: resetFunction,
+
+                optionList: ["popUp", "page", "expand", "sheet", "static"],
               );
             }
           }
@@ -253,6 +311,7 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     required String setting,
+    void Function(void Function())? resetFunction,
   }) {
     final String? path;
 
@@ -267,8 +326,6 @@ class SchemaRenderService {
     if (path == null || path.isEmpty) {
       return const SizedBox.shrink();
     }
-
-    print(path);
 
     return FutureBuilder<dynamic>(
       future: JsonService.loadFromPath(data),
@@ -297,9 +354,6 @@ class SchemaRenderService {
                   setting: setting,
                 );
               } else {
-                print("///" + loadedData[el].toString());
-                print(schemata["features"]);
-                print("\n\n\n");
                 return render(
                   context: context,
                   category: "features",
@@ -318,6 +372,9 @@ class SchemaRenderService {
   }
 
   static Widget _renderIcon({
+    required String title,
+    required String setting,
+    void Function(void Function())? resetFunction,
     required dynamic data,
     required Map<String, dynamic> schema,
   }) {
@@ -328,7 +385,7 @@ class SchemaRenderService {
         icon = Icon(
           Icons.favorite,
           color: ColorService.getColor(4),
-          size: TextStyleService.getFontSize(0),
+          size: TextStyleService.getFontSize(0) * 2,
         );
         break;
 
@@ -336,12 +393,19 @@ class SchemaRenderService {
         icon = Icon(Icons.do_not_disturb, color: ColorService.getColor(4));
     }
 
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        icon,
-        Text(data.toString(), style: TextStyleService.getTextStyle(4, 2)),
-      ],
+    return DescriptionWidget(
+      title,
+      Stack(
+        alignment: Alignment.center,
+        children: [
+          icon,
+          Text(data.toString(), style: TextStyleService.getTextStyle(4, 2)),
+        ],
+      ),
+      setting,
+      initiallyExpanded: true,
+      resetFunction: resetFunction,
+      optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
@@ -20,6 +21,8 @@ class DescriptionWidget extends StatefulWidget {
   Widget? clickWidget;
   Widget? titleWidget;
   bool initiallyExpanded;
+  List<String>? optionList;
+  Function(void Function())? resetFunction;
 
   DescriptionWidget(
     this.title,
@@ -34,6 +37,8 @@ class DescriptionWidget extends StatefulWidget {
     this.clickTitle = "",
     this.clickWidget,
     this.titleWidget,
+    this.resetFunction = null,
+    this.optionList = null,
   });
 
   @override
@@ -42,6 +47,8 @@ class DescriptionWidget extends StatefulWidget {
 
 class DescriptionWidgetState extends State<DescriptionWidget> {
   final ExpansibleController _expansibleController = ExpansibleController();
+
+  bool bgColor = false;
 
   final OverlayPortalController _settingMenuController =
       OverlayPortalController();
@@ -57,10 +64,25 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
   @override
   initState() {
     super.initState();
+    SettingsService.revision.addListener(_onSettingsChanged);
+  }
+
+  Future<void> initSettings() async {
+    await SettingsService.initSetting(
+      widget.descriptionType.toString() + "bgColor",
+      false,
+    );
+    print(
+      SettingsService.getSetting(widget.descriptionType.toString() + "bgColor"),
+    );
+    bgColor = SettingsService.getSetting(
+      widget.descriptionType.toString() + "bgColor",
+    );
   }
 
   @override
   dispose() {
+    SettingsService.revision.removeListener(_onSettingsChanged);
     _expansibleController.dispose();
     super.dispose();
   }
@@ -128,12 +150,22 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           widget.descriptionType ?? "globalDescriptionStyle",
         );
       },
-      child:
-          widget.clickWidget ??
-          Text(
-            widget.clickTitle == "" ? widget.title : widget.clickTitle,
-            style: TextStyleService.getTextStyle(widget.clickLevel, 4),
-          ),
+      child: (widget.clickWidget == null)
+          ? Card(
+              color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+              shadowColor: bgColor ? null : Colors.transparent,
+              child: Padding(
+                padding: EdgeInsetsDirectional.symmetric(
+                  vertical: 8,
+                  horizontal: 8,
+                ),
+                child: Text(
+                  widget.clickTitle == "" ? widget.title : widget.clickTitle,
+                  style: TextStyleService.getTextStyle(widget.clickLevel, 4),
+                ),
+              ),
+            )
+          : widget.clickWidget,
     );
   }
 
@@ -194,29 +226,31 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                   constraints: const BoxConstraints(maxWidth: 800),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        getTitleWidget(),
-                        const Divider(indent: 10, endIndent: 10),
-                        if (widget.subtitle != "")
-                          Text(
-                            widget.subtitle.toString(),
-                            style: TextStyleService.getTextStyle(
-                              widget.subtitleLevel,
-                              4,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          getTitleWidget(),
+                          const Divider(indent: 10, endIndent: 10),
+                          if (widget.subtitle != "")
+                            Text(
+                              widget.subtitle.toString(),
+                              style: TextStyleService.getTextStyle(
+                                widget.subtitleLevel,
+                                4,
+                              ),
+                            ),
+                          Flexible(child: widget.descrption),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text("Close"),
                             ),
                           ),
-                        Flexible(child: widget.descrption),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: const Text("Close"),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -234,17 +268,23 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
             widget.descriptionType ?? "globalDescriptionStyle",
           );
         },
-        child: Row(
-          spacing: 10,
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              widget.title + ":",
-              style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
+        child: Card(
+          color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+          shadowColor: bgColor ? null : Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${widget.title}:",
+                  style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
+                ),
+                const SizedBox(width: 10),
+                Expanded(child: widget.descrption),
+              ],
             ),
-            widget.descrption,
-          ],
+          ),
         ),
       );
     } else if (setting == "page") {
@@ -286,10 +326,12 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                     ),
                   ),
                   backgroundColor: ColorService.getBasicColor(2),
-                  body: SafeArea(
-                    child: Padding(
-                      padding: EdgeInsetsGeometry.all(20),
-                      child: widget.descrption,
+                  body: SingleChildScrollView(
+                    child: SafeArea(
+                      child: Padding(
+                        padding: EdgeInsetsGeometry.all(20),
+                        child: widget.descrption,
+                      ),
                     ),
                   ),
                 ),
@@ -300,48 +342,62 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         child: getClickWidget(),
       );
     } else if (setting == "expand") {
-      return Material(
-        color: Colors.transparent,
-        child: Theme(
-          data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-          child: ExpansionTile(
-            controller: _expansibleController,
-            initiallyExpanded: widget.initiallyExpanded,
-            showTrailingIcon: false,
-            tilePadding: EdgeInsets.zero,
-            title: getTitleWidget(),
-            expansionAnimationStyle: AnimationStyle(
-              duration: const Duration(milliseconds: 300),
-              reverseDuration: const Duration(milliseconds: 300),
+      return Card(
+        color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+        shadowColor: bgColor ? null : Colors.transparent,
+        child: Padding(
+          padding: EdgeInsetsGeometry.symmetric(vertical: 8, horizontal: 8),
+          child: GestureDetector(
+            onLongPressStart: (details) async {
+              getSettingSelector(
+                details,
+                widget.descriptionType ?? "globalDescriptionStyle",
+              );
+            },
+            child: Theme(
+              data: Theme.of(
+                context,
+              ).copyWith(dividerColor: Colors.transparent),
+              child: ExpansionTile(
+                controller: _expansibleController,
+                initiallyExpanded: widget.initiallyExpanded,
+                showTrailingIcon: false,
+                tilePadding: EdgeInsets.zero,
+                title: getTitleWidget(),
+                expansionAnimationStyle: AnimationStyle(
+                  duration: const Duration(milliseconds: 300),
+                  reverseDuration: const Duration(milliseconds: 300),
+                ),
+                children: [
+                  Divider(
+                    indent: 15,
+                    endIndent: 15,
+                    color: ColorService.getColor(4),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsGeometry.directional(
+                      start: 10,
+                      end: 10,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (widget.subtitle != "")
+                          Text(
+                            widget.subtitle.toString(),
+                            style: TextStyleService.getTextStyle(
+                              widget.subtitleLevel,
+                              4,
+                            ),
+                          ),
+                        widget.descrption,
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            children: [
-              Divider(
-                indent: 15,
-                endIndent: 15,
-                color: ColorService.getColor(4),
-              ),
-              Padding(
-                padding: const EdgeInsetsGeometry.directional(
-                  start: 10,
-                  end: 10,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (widget.subtitle != "")
-                      Text(
-                        widget.subtitle.toString(),
-                        style: TextStyleService.getTextStyle(
-                          widget.subtitleLevel,
-                          4,
-                        ),
-                      ),
-                    widget.descrption,
-                  ],
-                ),
-              ),
-            ],
           ),
         ),
       );
@@ -367,18 +423,27 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
             widget.descriptionType ?? "globalDescriptionStyle",
           );
         },
-        child: widget.descrption,
+        child: Card(
+          color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+          shadowColor: bgColor ? null : Colors.transparent,
+          child: Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+              vertical: 8,
+              horizontal: 8,
+            ),
+            child: widget.descrption,
+          ),
+        ),
       );
     } else {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            (widget.clickTitle == "") ? widget.title : widget.clickTitle,
-            style: TextStyleService.getTextStyle(widget.titleLevel, 4),
-          ),
-          widget.descrption,
-        ],
+      return GestureDetector(
+        onLongPressStart: (details) async {
+          getSettingSelector(
+            details,
+            widget.descriptionType ?? "globalDescriptionStyle",
+          );
+        },
+        child: widget.descrption,
       );
     }
   }
@@ -387,13 +452,11 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
     LongPressStartDetails details,
     String setting,
   ) async {
-    const optionList = ["popUp", "text", "page", "expand", "sheet", "static"];
-
     final result = await showMenu<String>(
       context: context,
       elevation: 8,
-      color: Colors.transparent,
-      shadowColor: Colors.transparent,
+      color: ColorService.getColor(3),
+      shadowColor: ColorService.getColor(3),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       menuPadding: EdgeInsets.zero,
       position: RelativeRect.fromLTRB(
@@ -406,7 +469,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         PopupMenuItem<String>(
           padding: EdgeInsets.zero,
           enabled: false,
-          child: _buildSettingMenu(setting),
+          child: StatefulBuilder(
+            builder: (context, menuSetState) =>
+                _buildSettingMenu(setting, menuSetState),
+          ),
         ),
       ],
     );
@@ -420,8 +486,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
     setState(() {});
   }
 
-  Widget _buildSettingMenu(String setting) {
-    const options = ["popUp", "text", "page", "expand", "sheet", "static"];
+  Widget _buildSettingMenu(String setting, StateSetter menuSetState) {
+    List<String> options =
+        widget.optionList ??
+        ["popUp", "text", "page", "expand", "sheet", "static"];
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
@@ -439,17 +507,34 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           ),
 
           Container(height: 1, color: ColorService.getColor(3)),
-
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text("Background", style: TextStyleService.getTextStyle(4, 4)),
+              Checkbox(
+                value: bgColor,
+                checkColor: ColorService.getColor(4),
+                activeColor: ColorService.getColor(1),
+                side: BorderSide(color: ColorService.getColor(4), width: 1.5),
+                onChanged: (value) async {
+                  final newValue = value ?? true;
+                  menuSetState(() => bgColor = newValue);
+                  await SettingsService.setSetting(
+                    widget.descriptionType.toString() + "bgColor",
+                    newValue,
+                  );
+                  setState(() {});
+                },
+              ),
+            ],
+          ),
           ...options.map((option) {
             final selected = getSetting() == option;
 
             return InkWell(
               onTap: () async {
-                print(setting);
-                print(option);
                 Navigator.pop(context, option);
                 await SettingsService.setSetting(setting, option);
-                setState(() {});
               },
               child: Container(
                 color: selected
@@ -469,5 +554,9 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         ],
       ),
     );
+  }
+
+  void _onSettingsChanged() {
+    setState(() {});
   }
 }
