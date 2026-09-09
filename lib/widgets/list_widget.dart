@@ -15,13 +15,13 @@ class ListWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(width: 10),
+          Container(width: MediaQuery.sizeOf(context).width / 72),
           Container(color: ColorService.getColor(5), width: 1),
-          Container(width: 5),
+          Container(width: MediaQuery.sizeOf(context).width / 144),
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              spacing: 10,
+              spacing: MediaQuery.sizeOf(context).width / 72,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ...items.map((item) {
@@ -34,10 +34,8 @@ class ListWidget extends StatelessWidget {
                       return ListWidget(item, size: size);
                     }
                   } else if (item is Map<String, dynamic>) {
-                    print("MAP");
                     return TableWidget(item);
                   } else {
-                    print("ELSE");
                     return Text(
                       item.toString(),
                       style: TextStyleService.getTextStyle(

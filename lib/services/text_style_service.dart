@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dnd_app/services/color_service.dart';
 import 'package:flutter/material.dart';
 
@@ -31,11 +33,12 @@ class TextStyleService {
   }
 
   static double getFontSize(int size) {
-    double? setting = SettingsService.getSetting(sizes[size]);
+    double? setting = SettingsService.getSetting("baseFontSize");
     if (setting != null) {
-      return setting;
+      return setting * pow((5 / 6), size);
+    } else {
+      return 55;
     }
-    return baseSizes[size];
   }
 
   static Future<void> setFontSize(int sizeName, double size) async {

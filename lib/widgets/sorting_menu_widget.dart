@@ -113,7 +113,12 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Text("Sorting", style: TextStyleService.getTextStyle(1, 4)),
           ),
-          Text(style: TextStyleService.getTextStyle(3, 4), "Grouping"),
+          Padding(
+            padding: EdgeInsetsGeometry.directional(
+              start: MediaQuery.sizeOf(context).height / 72,
+            ),
+            child: Text(style: TextStyleService.getTextStyle(3, 4), "Grouping"),
+          ),
           _radioTile(
             label: "Yes",
             selected:
@@ -129,7 +134,12 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
             onTap: () => _handleTap("group_no"),
           ),
           const Divider(height: 1),
-          Text(style: TextStyleService.getTextStyle(3, 4), "Sort by"),
+          Padding(
+            padding: EdgeInsetsGeometry.directional(
+              start: MediaQuery.sizeOf(context).height / 72,
+            ),
+            child: Text(style: TextStyleService.getTextStyle(3, 4), "Sort by"),
+          ),
           ...widget.sorts.map(
             (sort) => _radioTile(
               label: sort,
@@ -141,9 +151,14 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
               currentSorting == "featType" ||
               currentSorting == "source") ...[
             const Divider(height: 1),
-            Text(
-              style: TextStyleService.getTextStyle(3, 4),
-              "Secondary sorting",
+            Padding(
+              padding: EdgeInsetsGeometry.directional(
+                start: MediaQuery.sizeOf(context).height / 72,
+              ),
+              child: Text(
+                style: TextStyleService.getTextStyle(3, 4),
+                "Secondary sorting",
+              ),
             ),
             _radioTile(
               label: "Alphabetical",
@@ -162,15 +177,20 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
           ],
           if (widget.subsort != null) ...[
             const Divider(height: 1),
-            Text(
-              style: TextStyleService.getTextStyle(3, 4),
-              "Secondary sorting order",
+            Padding(
+              padding: EdgeInsetsGeometry.directional(
+                start: MediaQuery.sizeOf(context).height / 72,
+              ),
+              child: Text(
+                style: TextStyleService.getTextStyle(3, 4),
+                "Secondary sorting order",
+              ),
             ),
             ...widget.subsort!.map(
               (value) => Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
+                padding: EdgeInsets.symmetric(
+                  horizontal: (3 / 2) * MediaQuery.sizeOf(context).height / 72,
+                  vertical: MediaQuery.sizeOf(context).height / 72,
                 ),
                 child: Text(value, style: TextStyleService.getTextStyle(4, 4)),
               ),
@@ -189,16 +209,20 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: EdgeInsets.symmetric(
+          horizontal: (3 / 2) * MediaQuery.sizeOf(context).height / 72,
+          vertical: MediaQuery.sizeOf(context).height / 72,
+        ),
         child: Row(
           children: [
             Icon(
+              size: TextStyleService.getFontSize(4),
               selected
                   ? Icons.radio_button_checked
                   : Icons.radio_button_unchecked,
               color: ColorService.getColor(4),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: MediaQuery.sizeOf(context).height / 72),
             Text(label, style: TextStyleService.getTextStyle(4, 4)),
           ],
         ),

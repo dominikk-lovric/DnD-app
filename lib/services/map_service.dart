@@ -60,8 +60,10 @@ class MapService {
           }
         }
         if (!byStart) {
-          if (fl.contains(item.toLowerCase())) {
-            items[key] = info[key];
+          for (String f in fl) {
+            if (item.toLowerCase().contains(f.toLowerCase())) {
+              items[key] = info[key];
+            }
           }
         } else {
           for (final f in fl) {

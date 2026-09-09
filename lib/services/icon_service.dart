@@ -1,3 +1,4 @@
+import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
@@ -19,8 +20,8 @@ class IconService {
 
     return Image.asset(
       path,
-      cacheWidth: 100,
-      cacheHeight: 100,
+      cacheWidth: 200,
+      cacheHeight: 200,
       fit: BoxFit.cover,
       errorBuilder: (context, error, stackTrace) {
         return Image.asset(

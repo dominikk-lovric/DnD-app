@@ -64,6 +64,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
   @override
   initState() {
     super.initState();
+    initSettings();
     SettingsService.revision.addListener(_onSettingsChanged);
   }
 
@@ -72,12 +73,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
       widget.descriptionType.toString() + "bgColor",
       false,
     );
-    print(
-      SettingsService.getSetting(widget.descriptionType.toString() + "bgColor"),
-    );
     bgColor = SettingsService.getSetting(
       widget.descriptionType.toString() + "bgColor",
     );
+    setState(() {});
   }
 
   @override
@@ -218,21 +217,27 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                 ),
               ),
               child: Dialog(
-                insetPadding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                  vertical: 24,
+                insetPadding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.sizeOf(context).width / 36,
+                  vertical: MediaQuery.sizeOf(context).width / 24,
                 ),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 800),
                   child: Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.sizeOf(context).height / 36,
+                      vertical: MediaQuery.sizeOf(context).height / 72,
+                    ),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           getTitleWidget(),
-                          const Divider(indent: 10, endIndent: 10),
+                          Divider(
+                            indent: MediaQuery.sizeOf(context).width / 72,
+                            endIndent: MediaQuery.sizeOf(context).width / 72,
+                          ),
                           if (widget.subtitle != "")
                             Text(
                               widget.subtitle.toString(),
@@ -246,6 +251,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                             alignment: Alignment.centerRight,
                             child: TextButton(
                               onPressed: () => Navigator.pop(context),
+                              style: TextButton.styleFrom(
+                                foregroundColor: ColorService.getColor(4),
+                                backgroundColor: ColorService.getColor(0),
+                              ),
                               child: const Text("Close"),
                             ),
                           ),
@@ -272,15 +281,19 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           color: bgColor ? ColorService.getColor(3) : Colors.transparent,
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            padding: EdgeInsets.symmetric(
+              vertical: MediaQuery.sizeOf(context).width / 72,
+              horizontal: MediaQuery.sizeOf(context).width / 72,
+            ),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "${widget.title}:",
                   style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: MediaQuery.sizeOf(context).width / 72),
                 Expanded(child: widget.descrption),
               ],
             ),
@@ -346,7 +359,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         color: bgColor ? ColorService.getColor(3) : Colors.transparent,
         shadowColor: bgColor ? null : Colors.transparent,
         child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(vertical: 8, horizontal: 8),
+          padding: EdgeInsetsGeometry.symmetric(
+            vertical: MediaQuery.sizeOf(context).width / 72,
+            horizontal: MediaQuery.sizeOf(context).width / 72,
+          ),
           child: GestureDetector(
             onLongPressStart: (details) async {
               getSettingSelector(
@@ -355,9 +371,13 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
               );
             },
             child: Theme(
-              data: Theme.of(
-                context,
-              ).copyWith(dividerColor: Colors.transparent),
+              data: Theme.of(context).copyWith(
+                splashFactory: NoSplash.splashFactory,
+                dividerColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+              ),
               child: ExpansionTile(
                 controller: _expansibleController,
                 initiallyExpanded: widget.initiallyExpanded,
@@ -370,8 +390,8 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                 ),
                 children: [
                   Divider(
-                    indent: 15,
-                    endIndent: 15,
+                    indent: MediaQuery.sizeOf(context).width / 72,
+                    endIndent: MediaQuery.sizeOf(context).width / 72,
                     color: ColorService.getColor(4),
                   ),
                   Padding(
@@ -382,17 +402,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
-                      children: [
-                        if (widget.subtitle != "")
-                          Text(
-                            widget.subtitle.toString(),
-                            style: TextStyleService.getTextStyle(
-                              widget.subtitleLevel,
-                              4,
-                            ),
-                          ),
-                        widget.descrption,
-                      ],
+                      children: [widget.descrption],
                     ),
                   ),
                 ],
@@ -428,8 +438,8 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(
-              vertical: 8,
-              horizontal: 8,
+              vertical: MediaQuery.sizeOf(context).width / 72,
+              horizontal: MediaQuery.sizeOf(context).width / 72,
             ),
             child: widget.descrption,
           ),
@@ -457,7 +467,11 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
       elevation: 8,
       color: ColorService.getColor(3),
       shadowColor: ColorService.getColor(3),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          MediaQuery.sizeOf(context).width / 72,
+        ),
+      ),
       menuPadding: EdgeInsets.zero,
       position: RelativeRect.fromLTRB(
         details.globalPosition.dx,
@@ -499,7 +513,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         children: [
           Container(
             color: ColorService.getColor(1),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).width / 36,
+              vertical: MediaQuery.sizeOf(context).width / 72,
+            ),
             child: Text(
               "Set style:",
               style: TextStyleService.getTextStyle(1, 4),

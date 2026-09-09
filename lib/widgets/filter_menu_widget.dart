@@ -32,7 +32,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
 
   final Object _groupId = Object();
 
-  static const double _menuWidth = 280;
+  static double _menuWidth = 0;
 
   bool get submenuOpen {
     bool flag = false;
@@ -102,6 +102,17 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
 
   @override
   Widget build(BuildContext context) {
+    _menuWidth = 0;
+    for (final filter in widget.filters) {
+      if (filter["id"].length > _menuWidth) {
+        _menuWidth = filter["id"].length * 1.0;
+      }
+    }
+    _menuWidth = _menuWidth * TextStyleService.getFontSize(5) * 0.8;
+    if (170 > _menuWidth) {
+      _menuWidth = 170;
+    }
+
     return CompositedTransformTarget(
       link: _mainLink,
       child: OverlayPortal(
@@ -157,11 +168,14 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
             padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             child: Container(
               color: ColorService.getColor(1),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).width / 36,
+                vertical: MediaQuery.sizeOf(context).width / 72,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Filters", style: TextStyleService.getTextStyle(1, 4)),
+                  Text("Filters", style: TextStyleService.getTextStyle(2, 4)),
                   IconButton(
                     icon: const Icon(Icons.rotate_left),
                     color: ColorService.getColor(4),
@@ -193,7 +207,11 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
               CompositedTransformFollower(
                 link: _subLinkFor(i),
                 showWhenUnlinked: false,
-                targetAnchor: Alignment.topLeft,
+                targetAnchor:
+                    (MediaQuery.sizeOf(context).width >
+                        MediaQuery.sizeOf(context).height)
+                    ? Alignment.topLeft
+                    : Alignment.topCenter,
                 followerAnchor: Alignment.topRight,
                 child: TapRegion(
                   groupId: _groupId,
@@ -211,9 +229,10 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                             width: double.infinity,
                             color: ColorService.getColor(1),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 8,
+                              padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    MediaQuery.sizeOf(context).width / 36,
+                                vertical: MediaQuery.sizeOf(context).width / 72,
                               ),
                               child: Text(
                                 StringService.titleFromKey(
@@ -230,9 +249,12 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                             return InkWell(
                               onTap: () => _toggleOption(i, e),
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 2,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.sizeOf(context).height / 72,
+                                  vertical:
+                                      MediaQuery.sizeOf(context).height /
+                                      (72 * 5),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
@@ -250,11 +272,14 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                                     Text(
                                       e.toString(),
                                       style: TextStyleService.getTextStyle(
-                                        4,
+                                        5,
                                         4,
                                       ),
                                     ),
-                                    const SizedBox(width: 12),
+                                    SizedBox(
+                                      width:
+                                          MediaQuery.sizeOf(context).width / 72,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -279,16 +304,16 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
             children: [
               if (i != 0) const Divider(height: 1),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.sizeOf(context).width / 36,
+                  vertical: MediaQuery.sizeOf(context).width / 72,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       StringService.titleFromKey(filtersList[i]["id"]),
-                      style: TextStyleService.getTextStyle(3, 4),
+                      style: TextStyleService.getTextStyle(4, 4),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,

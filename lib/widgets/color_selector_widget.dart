@@ -50,7 +50,9 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget> {
       animation: ColorService.themeNotifier,
       builder: (context, child) {
         return ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 350),
+          constraints: BoxConstraints(
+            maxWidth: 350 * MediaQuery.sizeOf(context).width / 72,
+          ),
           child: Container(
             child: InputDecorator(
               decoration: InputDecoration(
@@ -69,13 +71,13 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget> {
               child: Padding(
                 padding: EdgeInsets.all(12),
                 child: Wrap(
-                  spacing: 5,
-                  runSpacing: 10,
+                  spacing: MediaQuery.sizeOf(context).width / 144,
+                  runSpacing: MediaQuery.sizeOf(context).width / 72,
                   alignment: WrapAlignment.center,
                   children: [
                     Container(
-                      height: 60,
-                      width: 60,
+                      height: MediaQuery.sizeOf(context).width / 12,
+                      width: MediaQuery.sizeOf(context).width / 12,
                       decoration: BoxDecoration(
                         color: Color.fromARGB(
                           ARGB[0],
@@ -88,8 +90,8 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget> {
                       ),
                     ),
                     Wrap(
-                      spacing: 10,
-                      runSpacing: 10,
+                      spacing: MediaQuery.sizeOf(context).width / 72,
+                      runSpacing: MediaQuery.sizeOf(context).width / 72,
                       children: [
                         colorInput(rController, "R", 1),
                         colorInput(gController, "G", 2),
@@ -100,15 +102,15 @@ class _ColorSelectorWidget extends State<ColorSelectorWidget> {
                       builder: (context, constraints) {
                         if (constraints.maxWidth < 350) {
                           return Wrap(
-                            spacing: 5,
-                            runSpacing: 10,
+                            spacing: MediaQuery.sizeOf(context).width / 144,
+                            runSpacing: MediaQuery.sizeOf(context).width / 72,
                             children: [ResetButtonWIdget(), SaveButtonWidget()],
                           );
                         }
 
                         return Column(
                           mainAxisSize: MainAxisSize.min,
-                          spacing: 10,
+                          spacing: MediaQuery.sizeOf(context).width / 72,
                           children: [ResetButtonWIdget(), SaveButtonWidget()],
                         );
                       },

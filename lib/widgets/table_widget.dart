@@ -27,8 +27,8 @@ class TableWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsetsGeometry.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
+                  horizontal: MediaQuery.sizeOf(context).width / 72,
+                  vertical: MediaQuery.sizeOf(context).width / 144,
                 ),
                 child: Center(
                   child: Text(
@@ -40,8 +40,8 @@ class TableWidget extends StatelessWidget {
               ...info[name].map((el) {
                 return Padding(
                   padding: EdgeInsetsGeometry.symmetric(
-                    horizontal: 10,
-                    vertical: 5,
+                    horizontal: MediaQuery.sizeOf(context).width / 72,
+                    vertical: MediaQuery.sizeOf(context).width / 144,
                   ),
                   child: Center(
                     child: Text(
@@ -62,8 +62,8 @@ class TableWidget extends StatelessWidget {
             ...names.map(
               (name) => Padding(
                 padding: EdgeInsetsGeometry.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
+                  horizontal: MediaQuery.sizeOf(context).width / 72,
+                  vertical: MediaQuery.sizeOf(context).width / 144,
                 ),
                 child: Center(
                   child: Text(
@@ -83,8 +83,8 @@ class TableWidget extends StatelessWidget {
               ...names.map(
                 (name) => Padding(
                   padding: EdgeInsetsGeometry.symmetric(
-                    horizontal: 10,
-                    vertical: 5,
+                    horizontal: MediaQuery.sizeOf(context).width / 72,
+                    vertical: MediaQuery.sizeOf(context).width / 144,
                   ),
                   child: Center(
                     child: Text(

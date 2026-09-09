@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
+import 'package:flutter/services.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -33,7 +34,6 @@ class SettingsPageState extends State<SettingsPage> {
   Future<void> loadSchemata() async {
     final json = JsonService("schemata");
     Map<String, dynamic> items = await json.loadData();
-    print(items);
     setState(() {
       schemata = items;
       categories = items.keys.toList();
@@ -47,45 +47,60 @@ class SettingsPageState extends State<SettingsPage> {
     }
 
     List<String> colorList = ColorService.getColorNames();
-    return AnimatedBuilder(
-      animation: ColorService.themeNotifier,
-      builder: (context, child) {
-        return Scaffold(
-          backgroundColor: ColorService.getColor(2),
-          appBar: AppBar(
-            backgroundColor: ColorService.getColor(0),
-            toolbarHeight: SettingsService.getSetting("headerHeight"),
-          ),
-          body: Padding(
-            padding: EdgeInsetsGeometry.symmetric(vertical: 20, horizontal: 30),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Wrap(
-                    direction: Axis.horizontal,
+    return Focus(
+      autofocus: true,
+      onKeyEvent: (node, event) {
+        if (event is KeyDownEvent &&
+            event.logicalKey == LogicalKeyboardKey.escape) {
+          Navigator.pop(context);
+          return KeyEventResult.handled;
+        }
 
-                    spacing: 10,
-                    runSpacing: 20,
-                    children: [
-                      ...colorList.map((el) {
-                        return Container(
-                          child: Padding(
-                            padding: EdgeInsetsGeometry.symmetric(
-                              horizontal: 10,
-                              vertical: 5,
+        return KeyEventResult.ignored;
+      },
+      child: AnimatedBuilder(
+        animation: ColorService.themeNotifier,
+        builder: (context, child) {
+          return Scaffold(
+            backgroundColor: ColorService.getColor(2),
+            appBar: AppBar(
+              backgroundColor: ColorService.getColor(0),
+              toolbarHeight: SettingsService.getSetting("headerHeight"),
+            ),
+            body: Padding(
+              padding: EdgeInsetsGeometry.symmetric(
+                vertical: 20,
+                horizontal: 30,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Wrap(
+                      direction: Axis.horizontal,
+
+                      spacing: 10,
+                      runSpacing: 20,
+                      children: [
+                        ...colorList.map((el) {
+                          return Container(
+                            child: Padding(
+                              padding: EdgeInsetsGeometry.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              child: ColorSelectorWidget(colorList.indexOf(el)),
                             ),
-                            child: ColorSelectorWidget(colorList.indexOf(el)),
-                          ),
-                        );
-                      }),
-                    ],
-                  ),
-                ],
+                          );
+                        }),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

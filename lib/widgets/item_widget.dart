@@ -39,7 +39,7 @@ class ItemWidget extends StatelessWidget {
     final names = basics.keys.toList() as List<dynamic>;
     final items = basics.values.toList();
     final String icon = classData["Icon"][SettingsService.getSetting("theme")];
-    final height = SettingsService.getSetting("listItemHeight");
+    final height = TextStyleService.getFontSize(0) * 2;
 
     List<Widget> subtitleList = [];
     if (subtitle != null) {
@@ -55,7 +55,7 @@ class ItemWidget extends StatelessWidget {
             child: Padding(
               padding: EdgeInsetsGeometry.symmetric(
                 vertical: 0,
-                horizontal: 10,
+                horizontal: MediaQuery.sizeOf(context).width / 72,
               ),
               child: Text(
                 shorthands[basics["source"]] ?? "",
@@ -103,7 +103,7 @@ class ItemWidget extends StatelessWidget {
                   ? Padding(
                       padding: EdgeInsetsGeometry.directional(end: 10),
                       child: OptionalImageWidget(
-                        height * 1,
+                        TextStyleService.getFontSize(1) * 2,
                         icon,
                         key: ValueKey(classData["name"]),
                       ),
@@ -123,7 +123,10 @@ class ItemWidget extends StatelessWidget {
                       ),
                       maxLines: 1,
                     ),
-                    Wrap(spacing: 10, children: subtitleList),
+                    Wrap(
+                      spacing: MediaQuery.sizeOf(context).width / 72,
+                      children: subtitleList,
+                    ),
                   ],
                 ),
               ),

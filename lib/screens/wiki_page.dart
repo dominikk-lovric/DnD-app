@@ -1,7 +1,6 @@
 import 'package:dnd_app/services/map_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
-import 'package:dnd_app/widgets/background_info_widget.dart';
 import 'package:dnd_app/widgets/description_column_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/filter_menu_widget.dart';
@@ -17,9 +16,9 @@ import 'package:dnd_app/widgets/item_widget.dart';
 import 'package:dnd_app/widgets/category_selector_widget.dart';
 
 class WikiPage extends StatefulWidget {
-  const WikiPage(this.categoryNum, {super.key});
+  const WikiPage({super.key});
 
-  final int categoryNum;
+  final int categoryNum = 0;
 
   @override
   State<WikiPage> createState() => _WikiState();
@@ -70,7 +69,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
 
   void getSelector(String category) {
     int index = categories.indexOf(category);
-    List<String> settings = SettingsService.getSetting("wikiSorting");
+    List<dynamic> settings = SettingsService.getSetting("wikiSorting");
     dynamic Function(Map<String, dynamic>) ss;
     if ((categoryData[categories[index]]["sorting"]).contains(
           settings[index].toLowerCase(),
@@ -108,8 +107,8 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
         if (SettingsService.getSetting("featTypeSubSort") is List) {
           ss = (el) {
             final source = el["Basics"]["type"];
-            final List<String> typeOrder = SettingsService.getSetting(
-              "featTypeSubSort",
+            final List<String> typeOrder = List<String>.from(
+              SettingsService.getSetting("featTypeSubSort"),
             );
             return typeOrder.indexOf(source);
           };
@@ -179,7 +178,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     if (searchWord != "") {
       data = MapService.filterMap(data, "name", [
         searchWord.toString().toLowerCase(),
-      ], byStart: true);
+      ], byStart: false);
     }
   }
 
@@ -325,7 +324,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
     if (searchWord != "") {
       items = MapService.filterMap(items, "name", [
         searchWord.toString().toLowerCase(),
-      ], byStart: true);
+      ], byStart: false);
     }
 
     setState(() {
@@ -352,7 +351,16 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     headerHeight = SettingsService.getSetting("headerHeight") / 2;
-    categoryNum = widget.categoryNum;
+    categoryNum = 1;
+    for (final item in categories) {
+      if (item.length > categoryNum) {
+        categoryNum = item.length;
+      }
+    }
+    categoryNum =
+        (MediaQuery.sizeOf(context).width /
+                (categoryNum * TextStyleService.getFontSize(5)))
+            .floor();
     return Focus(
       autofocus: true,
       onKeyEvent: (node, event) {
@@ -369,15 +377,6 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
           if (filterKey.currentState?.menuOpen == true) {
             filterKey.currentState?.closeMenu();
             return KeyEventResult.handled;
-          }
-          for (String setting in SettingsService.getSettingNames()) {
-            print(
-              "await SetSetting(" +
-                  setting +
-                  "," +
-                  SettingsService.getSetting(setting).toString() +
-                  ")",
-            );
           }
           Navigator.pop(context);
           return KeyEventResult.handled;
@@ -442,7 +441,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                       if (searchWord.isNotEmpty) {
                         filtered = MapService.filterMap(filtered, "name", [
                           searchWord,
-                        ], byStart: true);
+                        ], byStart: false);
                       }
 
                       final sorted = MapService.sortMap(
@@ -527,7 +526,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                 }
 
                 int catIndex = categories.indexOf(category);
-                List<String> settings = SettingsService.getSetting(
+                List<dynamic> settings = SettingsService.getSetting(
                   "wikiSorting",
                 );
 
@@ -596,7 +595,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                         DescriptionWidget(
                           data[items[itemIndex]]["name"],
                           infoWidget,
-                          currentCategory + "DescriptionStyle",
+                          currentCategory + "DescriptionStyle".toString(),
                           clickWidget: ItemWidget(
                             items[itemIndex],
                             data[items[itemIndex]],
@@ -611,10 +610,7 @@ class _WikiState extends State<WikiPage> with SingleTickerProviderStateMixin {
                               children: [
                                 (icon != "none")
                                     ? OptionalImageWidget(
-                                        SettingsService.getSetting(
-                                              "headerHeight",
-                                            ) *
-                                            (8 / 10),
+                                        TextStyleService.getFontSize(1) * 2,
                                         icon,
                                         key: ValueKey(
                                           data[items[itemIndex]]["name"],

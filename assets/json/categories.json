@@ -214,47 +214,5 @@
                 "options": ["Str", "Dex", "Con", "Int", "Wis", "Cha"]
             }
         ]
-    },
-    "features": {
-        "level": { "type": "text" },
-        "description": { "type": "text" },
-        "uses": {
-            "type": "map",
-            "item": {
-                "amountPerLevel": { "type": "table" },
-                "amount": { "type": "text" },
-                "replenish": {
-                    "type": "map",
-                    "item": {
-                        "default": {
-                            "type": "map",
-                            "item": {
-                                "amountPerLevel": { "type": "table" },
-                                "amount": { "type": "text" }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "options": {
-            "type": "map",
-            "item": {
-                "amountPerLevel": { "type": "table" },
-                "amount": { "type": "text" },
-                "change": {
-                    "type": "map",
-                    "item": {
-                        "default": {
-                            "type": "map",
-                            "item": {
-                                "amountPerLevel": { "type": "table" },
-                                "amount": { "type": "text" }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }

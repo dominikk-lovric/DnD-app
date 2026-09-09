@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
 
-class CategorySelectorWdget extends StatefulWidget{
-
+class CategorySelectorWdget extends StatefulWidget {
   final List<dynamic> categories;
   final String currentState;
   final Function(String) onCategorySelected;
@@ -13,31 +12,25 @@ class CategorySelectorWdget extends StatefulWidget{
   final int categoryNumber;
 
   const CategorySelectorWdget({
-    super.key, 
+    super.key,
     required this.height,
     required this.categoryNumber,
-    required this.categories, 
-    required this.currentState, 
-    required this.onCategorySelected
+    required this.categories,
+    required this.currentState,
+    required this.onCategorySelected,
   });
 
   @override
   State<CategorySelectorWdget> createState() => CategorySelectorWidgetState();
-
 }
 
 class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
-  
-
   late List<GlobalKey> _itemKeys;
 
   @override
   void initState() {
     super.initState();
-    _itemKeys = List.generate(
-      widget.categories.length,
-      (_) => GlobalKey(),
-    );
+    _itemKeys = List.generate(widget.categories.length, (_) => GlobalKey());
   }
 
   @override
@@ -45,10 +38,7 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.categories.length != widget.categories.length) {
-      _itemKeys = List.generate(
-        widget.categories.length,
-        (_) => GlobalKey(),
-      );
+      _itemKeys = List.generate(widget.categories.length, (_) => GlobalKey());
     }
   }
 
@@ -68,45 +58,55 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
   @override
   Widget build(BuildContext context) {
     final itemWidth = MediaQuery.of(context).size.width / widget.categoryNumber;
-    final double barHeight = widget.height/6;
+    final double barHeight = widget.height / 6;
 
-    if(widget.categories.isEmpty){
+    if (widget.categories.isEmpty) {
       return SizedBox.shrink();
     }
 
-    return SizedBox(
+    return Container(
       height: widget.height,
-      child: 
-        ListView.builder(scrollDirection: Axis.horizontal,
+      child: Center(
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
           itemCount: widget.categories.length,
-          itemBuilder: (BuildContext context, int index){
-            return SizedBox(
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
               width: itemWidth,
               key: _itemKeys[index],
-              child:Container(
+              child: Container(
                 decoration: BoxDecoration(
-                  border:widget.categories[index]==widget.currentState?
-                  Border(
-                    bottom: BorderSide(
-                      color: ColorService.getColor(1),
-                      width: SettingsService.getSetting("headerHeight")*0.1,
-                    ),
-                  )
-                  :null
+                  border: widget.categories[index] == widget.currentState
+                      ? Border(
+                          bottom: BorderSide(
+                            color: ColorService.getColor(1),
+                            width:
+                                SettingsService.getSetting("headerHeight") *
+                                0.1,
+                          ),
+                        )
+                      : null,
                 ),
                 child: TextButton(
-                  style: TextButton.styleFrom(foregroundColor: ColorService.getColor(4), 
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero, )),
+                  style: TextButton.styleFrom(
+                    foregroundColor: ColorService.getColor(4),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero,
+                    ),
+                  ),
                   onPressed: () => {
                     widget.onCategorySelected(widget.categories[index]),
-                    },
-                  child: Text(widget.categories[index], style: TextStyleService.getTextStyle(3, 4),),
+                  },
+                  child: Text(
+                    widget.categories[index],
+                    style: TextStyleService.getTextStyle(4, 4),
+                  ),
                 ),
-              ),            
-            );                  
+              ),
+            );
           },
         ),
+      ),
     );
-  } 
+  }
 }

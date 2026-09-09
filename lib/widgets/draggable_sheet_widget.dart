@@ -150,9 +150,9 @@ class DraggableSheetWidget extends StatelessWidget {
                               controller: scrollController,
                               child: Padding(
                                 padding: EdgeInsetsGeometry.directional(
-                                  start: 30,
-                                  top: 10,
-                                  end: 10,
+                                  start: MediaQuery.sizeOf(context).width / 36,
+                                  top: MediaQuery.sizeOf(context).width / 72,
+                                  end: MediaQuery.sizeOf(context).width / 36,
                                 ),
                                 child: content,
                               ),

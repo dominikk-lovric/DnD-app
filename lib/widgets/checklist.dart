@@ -36,26 +36,12 @@ class CheckListWidget extends StatelessWidget {
     }
     return LayoutBuilder(
       builder: (context, constraints) {
-        int columns;
-
-        if (constraints.maxWidth > 500) {
-          columns = 6;
-        } else if (constraints.maxWidth > 300) {
-          columns = 2;
-        } else {
-          columns = 1;
-        }
-
-        final itemWidth = TextStyleService.getFontSize(2) * 3;
-        final spacing = itemWidth / 4;
-
-        return SizedBox(
-          width: columns * itemWidth + (columns - 1) * spacing,
+        return Container(
           child: Wrap(
-            spacing: spacing,
-            runSpacing: spacing,
+            spacing: MediaQuery.sizeOf(context).width / 72,
+            runSpacing: MediaQuery.sizeOf(context).width / 72,
             children: items.map((item) {
-              return SizedBox(width: itemWidth, child: item);
+              return SizedBox(child: item);
             }).toList(),
           ),
         );

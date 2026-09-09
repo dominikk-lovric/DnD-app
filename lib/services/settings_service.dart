@@ -51,8 +51,21 @@ class SettingsService {
   }
 
   static Future<bool> initSetting(String setting, dynamic item) {
-    if (_preferences.get(setting) == null) {
-      return setSetting(setting, item);
+    if (item is int) {
+      return _preferences.setInt(setting, getSetting(setting) ?? item);
+    } else if (item is double) {
+      return _preferences.setDouble(setting, getSetting(setting) ?? item);
+    } else if (item is String) {
+      return _preferences.setString(setting, getSetting(setting) ?? item);
+    } else if (item is bool) {
+      return _preferences.setBool(setting, getSetting(setting) ?? item);
+    } else if (item is Color) {
+      return _preferences.setInt(
+        setting,
+        getSetting(setting) ?? item.toARGB32(),
+      );
+    } else if (item is List<String>) {
+      return _preferences.setStringList(setting, getSetting(setting) ?? item);
     } else {
       return Future.value(false);
     }
