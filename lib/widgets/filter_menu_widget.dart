@@ -2,8 +2,9 @@ import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FilterMenuWidget extends StatefulWidget {
+class FilterMenuWidget extends ConsumerStatefulWidget {
   final Map<String, dynamic> categoryData;
   final String currentCategory;
   final List<dynamic> filters;
@@ -20,10 +21,13 @@ class FilterMenuWidget extends StatefulWidget {
   });
 
   @override
-  State<FilterMenuWidget> createState() => FilterMenuWidgetState();
+  ConsumerState<FilterMenuWidget> createState() => FilterMenuWidgetState();
 }
 
-class FilterMenuWidgetState extends State<FilterMenuWidget> {
+class FilterMenuWidgetState extends ConsumerState<FilterMenuWidget> {
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
+
   final OverlayPortalController _mainController = OverlayPortalController();
   final LayerLink _mainLink = LayerLink();
 
@@ -33,6 +37,14 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
   final Object _groupId = Object();
 
   static double _menuWidth = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
+  }
 
   bool get submenuOpen {
     bool flag = false;
@@ -108,9 +120,9 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
         _menuWidth = filter["id"].length * 1.0;
       }
     }
-    _menuWidth = _menuWidth * TextStyleService.getFontSize(5) * 0.8;
-    if (170 > _menuWidth) {
-      _menuWidth = 170;
+    _menuWidth = _menuWidth * textStyleController.getFontSize(4) * 1.0;
+    if (220 > _menuWidth) {
+      _menuWidth = 220;
     }
 
     return CompositedTransformTarget(
@@ -133,7 +145,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                   },
                   child: Material(
                     elevation: 8,
-                    color: ColorService.getColor(3),
+                    color: colorController.getColor(3),
                     borderRadius: BorderRadius.circular(8),
                     clipBehavior: Clip.antiAlias,
                     child: SizedBox(width: _menuWidth, child: _mainPanel()),
@@ -147,7 +159,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
           groupId: _groupId,
           child: IconButton(
             icon: const Icon(Icons.filter_alt),
-            color: ColorService.getColor(4),
+            color: colorController.getColor(4),
             onPressed: _mainController.toggle,
           ),
         ),
@@ -167,7 +179,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             child: Container(
-              color: ColorService.getColor(1),
+              color: colorController.getColor(1),
               padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.sizeOf(context).width / 36,
                 vertical: MediaQuery.sizeOf(context).width / 72,
@@ -175,10 +187,13 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Filters", style: TextStyleService.getTextStyle(2, 4)),
+                  Text(
+                    "Filters",
+                    style: textStyleController.getTextStyle(2, 4),
+                  ),
                   IconButton(
                     icon: const Icon(Icons.rotate_left),
-                    color: ColorService.getColor(4),
+                    color: colorController.getColor(4),
                     onPressed: _resetFilters,
                   ),
                 ],
@@ -217,7 +232,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                   groupId: _groupId,
                   child: Material(
                     elevation: 8,
-                    color: ColorService.getColor(3),
+                    color: colorController.getColor(3),
                     borderRadius: BorderRadius.circular(8),
                     clipBehavior: Clip.antiAlias,
                     child: IntrinsicWidth(
@@ -227,7 +242,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                         children: [
                           Container(
                             width: double.infinity,
-                            color: ColorService.getColor(1),
+                            color: colorController.getColor(1),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                 horizontal:
@@ -238,7 +253,7 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                                 StringService.titleFromKey(
                                   filtersList[i]["id"],
                                 ),
-                                style: TextStyleService.getTextStyle(3, 4),
+                                style: textStyleController.getTextStyle(3, 4),
                               ),
                             ),
                           ),
@@ -261,17 +276,17 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                                   children: [
                                     Checkbox(
                                       value: isSelected,
-                                      checkColor: ColorService.getColor(4),
-                                      activeColor: ColorService.getColor(1),
+                                      checkColor: colorController.getColor(4),
+                                      activeColor: colorController.getColor(1),
                                       side: BorderSide(
-                                        color: ColorService.getColor(4),
+                                        color: colorController.getColor(4),
                                         width: 1.5,
                                       ),
                                       onChanged: (_) => _toggleOption(i, e),
                                     ),
                                     Text(
                                       e.toString(),
-                                      style: TextStyleService.getTextStyle(
+                                      style: textStyleController.getTextStyle(
                                         5,
                                         4,
                                       ),
@@ -313,12 +328,12 @@ class FilterMenuWidgetState extends State<FilterMenuWidget> {
                   children: [
                     Text(
                       StringService.titleFromKey(filtersList[i]["id"]),
-                      style: TextStyleService.getTextStyle(4, 4),
+                      style: textStyleController.getTextStyle(4, 4),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
                       size: 14,
-                      color: ColorService.getColor(4),
+                      color: colorController.getColor(4),
                     ),
                   ],
                 ),

@@ -8,8 +8,9 @@ import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
 
 import 'package:dnd_app/widgets/optional_image_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ItemWidget extends StatelessWidget {
+class ItemWidget extends ConsumerWidget {
   Map<String, String> shorthands = {
     "Player's Handbook": "PHB",
     "Forgotten Realms - Heroes of Faerun": "FRHF",
@@ -34,12 +35,18 @@ class ItemWidget extends StatelessWidget {
   Widget? subtitle;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(settingsControllerProvider);
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final controller = ref.read(settingsControllerProvider.notifier);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
     final basics = Map<String, dynamic>.from(classData["Basics"]);
     final names = basics.keys.toList() as List<dynamic>;
     final items = basics.values.toList();
-    final String icon = classData["Icon"][SettingsService.getSetting("theme")];
-    final height = TextStyleService.getFontSize(0) * 2;
+    final String icon = classData["Icon"][controller.getSetting("theme")];
+    final height = textStyleController.getFontSize(0) * 2;
 
     List<Widget> subtitleList = [];
     if (subtitle != null) {
@@ -49,7 +56,7 @@ class ItemWidget extends StatelessWidget {
         subtitleList.add(
           Container(
             decoration: BoxDecoration(
-              color: ColorService.getColor(5),
+              color: colorController.getColor(5),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Padding(
@@ -59,7 +66,7 @@ class ItemWidget extends StatelessWidget {
               ),
               child: Text(
                 shorthands[basics["source"]] ?? "",
-                style: TextStyleService.getTextStyle(5, 3),
+                style: textStyleController.getTextStyle(5, 3),
               ),
             ),
           ),
@@ -81,14 +88,14 @@ class ItemWidget extends StatelessWidget {
             }
           }
           subtitleList.add(
-            Text(text, style: TextStyleService.getTextStyle(5, 6)),
+            Text(text, style: textStyleController.getTextStyle(5, 6)),
           );
         }
       }
     }
     return Container(
       child: Card(
-        color: ColorService.getColor(3),
+        color: colorController.getColor(3),
         child: Padding(
           padding: EdgeInsetsGeometry.directional(
             start: height * 0.1,
@@ -103,7 +110,7 @@ class ItemWidget extends StatelessWidget {
                   ? Padding(
                       padding: EdgeInsetsGeometry.directional(end: 10),
                       child: OptionalImageWidget(
-                        TextStyleService.getFontSize(1) * 2,
+                        textStyleController.getFontSize(1) * 2,
                         icon,
                         key: ValueKey(classData["name"]),
                       ),
@@ -116,7 +123,7 @@ class ItemWidget extends StatelessWidget {
                   children: [
                     Text(
                       classData["name"],
-                      style: TextStyleService.getTextStyle(
+                      style: textStyleController.getTextStyle(
                         1,
                         5,
                         Overflow: TextOverflow.clip,

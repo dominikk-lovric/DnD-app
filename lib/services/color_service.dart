@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
 
-class ColorService {
-  static final ChangeNotifier themeNotifier = ChangeNotifier();
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-  static List<String> colors = [
+final colorControllerProvider = NotifierProvider<ColorController, int>(
+  ColorController.new,
+);
+
+class ColorController extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  SettingsController get _settings =>
+      ref.read(settingsControllerProvider.notifier);
+
+  static const List<String> colorNames = [
     "Primary Color",
     "Secondary Color",
     "Backround Color",
@@ -14,7 +24,8 @@ class ColorService {
     "Dark Text Color",
     "Subtitle Color",
   ];
-  static List<Color> baseColors = [
+
+  static const List<Color> baseColors = [
     Color(0xff0c52a1),
     Color(0xff1b71d3),
     Color(0xff444444),
@@ -24,44 +35,42 @@ class ColorService {
     Color(0xffa8a8a8),
   ];
 
-  static Color getColor(int color) {
-    int? col = SettingsService.getSetting(colors[color]);
+  Color getColor(int color) {
+    int? col = _settings.getSetting(colorNames[color]);
     if (col != null) {
-      List<int> parts = fromARGB32(col);
+      final parts = fromARGB32(col);
       return Color.fromARGB(parts[0], parts[1], parts[2], parts[3]);
     } else {
       return getBasicColor(color);
     }
   }
 
-  static Future<void> setColor(int colorName, Color color) async {
-    await SettingsService.setSetting(colors[colorName], color.toARGB32());
-
-    themeNotifier.notifyListeners();
+  Future<void> setColor(int colorName, Color color) async {
+    await _settings.setSetting(colorNames[colorName], color.toARGB32());
+    state++; // triggers rebuild in anything watching colorControllerProvider
   }
 
-  static Future<void> resetColor(int colorName) async {
-    await SettingsService.setSetting(
-      colors[colorName],
+  Future<void> resetColor(int colorName) async {
+    await _settings.setSetting(
+      colorNames[colorName],
       getBasicColor(colorName).toARGB32(),
     );
-
-    themeNotifier.notifyListeners();
+    state++;
   }
 
-  static Color getBasicColor(int color) {
-    if (color < colors.length) {
+  Color getBasicColor(int color) {
+    if (color < colorNames.length) {
       return baseColors[color];
     } else {
-      return Color(0xffffffff);
+      return const Color(0xffffffff);
     }
   }
 
-  static List<String> getColorNames() {
-    return colors;
+  List<String> getColorNames() {
+    return colorNames;
   }
 
-  static List<int> fromARGB32(int argb) {
+  List<int> fromARGB32(int argb) {
     final int a = (argb >> 24) & 0xFF;
     final int r = (argb >> 16) & 0xFF;
     final int g = (argb >> 8) & 0xFF;

@@ -8,8 +8,9 @@ import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/draggable_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DescriptionWidget extends StatefulWidget {
+class DescriptionWidget extends ConsumerStatefulWidget {
   String title;
   Widget descrption;
   String? descriptionType;
@@ -22,7 +23,7 @@ class DescriptionWidget extends StatefulWidget {
   Widget? titleWidget;
   bool initiallyExpanded;
   List<String>? optionList;
-  Function(void Function())? resetFunction;
+  bool backgroundChoice;
 
   DescriptionWidget(
     this.title,
@@ -37,15 +38,18 @@ class DescriptionWidget extends StatefulWidget {
     this.clickTitle = "",
     this.clickWidget,
     this.titleWidget,
-    this.resetFunction = null,
     this.optionList = null,
+    this.backgroundChoice = true,
   });
 
   @override
-  State<StatefulWidget> createState() => DescriptionWidgetState();
+  ConsumerState<DescriptionWidget> createState() => DescriptionWidgetState();
 }
 
-class DescriptionWidgetState extends State<DescriptionWidget> {
+class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
+  late final SettingsController settingsController;
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
   final ExpansibleController _expansibleController = ExpansibleController();
 
   bool bgColor = false;
@@ -64,16 +68,19 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
   @override
   initState() {
     super.initState();
+
+    settingsController = ref.read(settingsControllerProvider.notifier);
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
     initSettings();
-    SettingsService.revision.addListener(_onSettingsChanged);
   }
 
   Future<void> initSettings() async {
-    await SettingsService.initSetting(
+    await settingsController.initSetting(
       widget.descriptionType.toString() + "bgColor",
       false,
     );
-    bgColor = SettingsService.getSetting(
+    bgColor = settingsController.getSetting(
       widget.descriptionType.toString() + "bgColor",
     );
     setState(() {});
@@ -81,7 +88,6 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
 
   @override
   dispose() {
-    SettingsService.revision.removeListener(_onSettingsChanged);
     _expansibleController.dispose();
     super.dispose();
   }
@@ -91,10 +97,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
       return widget.descriptionType!;
     }
 
-    return SettingsService.getSetting(
+    return settingsController.getSetting(
           widget.descriptionType ?? "globalDescriptionStyle",
         ) ??
-        SettingsService.getSetting("globalDescriptionStyle");
+        settingsController.getSetting("globalDescriptionStyle");
   }
 
   Future<void> close() async {
@@ -151,7 +157,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
       },
       child: (widget.clickWidget == null)
           ? Card(
-              color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+              color: bgColor ? colorController.getColor(3) : Colors.transparent,
               shadowColor: bgColor ? null : Colors.transparent,
               child: Padding(
                 padding: EdgeInsetsDirectional.symmetric(
@@ -160,7 +166,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                 ),
                 child: Text(
                   widget.clickTitle == "" ? widget.title : widget.clickTitle,
-                  style: TextStyleService.getTextStyle(widget.clickLevel, 4),
+                  style: textStyleController.getTextStyle(widget.clickLevel, 4),
                 ),
               ),
             )
@@ -180,7 +186,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           widget.titleWidget ??
           Text(
             widget.clickTitle == "" ? widget.title : widget.clickTitle,
-            style: TextStyleService.getTextStyle(widget.titleLevel, 4),
+            style: textStyleController.getTextStyle(widget.titleLevel, 4),
           ),
     );
   }
@@ -191,15 +197,15 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
     if (types.contains(widget.descriptionType)) {
       setting =
           widget.descriptionType ??
-          SettingsService.getSetting(
+          settingsController.getSetting(
             widget.descriptionType ?? "globalDescriptionStyle",
           );
     } else {
-      String? sett = SettingsService.getSetting(
+      String? sett = settingsController.getSetting(
         widget.descriptionType ?? "globalDescriptionStyle",
       );
       if (sett == null) {
-        setting = SettingsService.getSetting("globalDescriptionStyle");
+        setting = settingsController.getSetting("globalDescriptionStyle");
       } else {
         setting = sett;
       }
@@ -213,7 +219,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
             builder: (context) => Theme(
               data: Theme.of(context).copyWith(
                 dialogTheme: DialogThemeData(
-                  backgroundColor: ColorService.getColor(2),
+                  backgroundColor: colorController.getColor(2),
                 ),
               ),
               child: Dialog(
@@ -241,7 +247,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                           if (widget.subtitle != "")
                             Text(
                               widget.subtitle.toString(),
-                              style: TextStyleService.getTextStyle(
+                              style: textStyleController.getTextStyle(
                                 widget.subtitleLevel,
                                 4,
                               ),
@@ -252,8 +258,8 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                             child: TextButton(
                               onPressed: () => Navigator.pop(context),
                               style: TextButton.styleFrom(
-                                foregroundColor: ColorService.getColor(4),
-                                backgroundColor: ColorService.getColor(0),
+                                foregroundColor: colorController.getColor(4),
+                                backgroundColor: colorController.getColor(0),
                               ),
                               child: const Text("Close"),
                             ),
@@ -278,7 +284,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           );
         },
         child: Card(
-          color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+          color: bgColor ? colorController.getColor(3) : Colors.transparent,
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -291,7 +297,10 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
               children: [
                 Text(
                   "${widget.title}:",
-                  style: TextStyleService.getTextStyle(widget.subtitleLevel, 4),
+                  style: textStyleController.getTextStyle(
+                    widget.subtitleLevel,
+                    4,
+                  ),
                 ),
                 SizedBox(width: MediaQuery.sizeOf(context).width / 72),
                 Expanded(child: widget.descrption),
@@ -319,9 +328,11 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                 },
                 child: Scaffold(
                   appBar: AppBar(
-                    backgroundColor: ColorService.getColor(0),
-                    foregroundColor: ColorService.getColor(4),
-                    toolbarHeight: SettingsService.getSetting("headerHeight"),
+                    backgroundColor: colorController.getColor(0),
+                    foregroundColor: colorController.getColor(4),
+                    toolbarHeight:
+                        settingsController.getSetting("headerHeight") *
+                        MediaQuery.sizeOf(context).height,
                     title: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -329,7 +340,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                         (widget.subtitle != "")
                             ? Text(
                                 widget.subtitle,
-                                style: TextStyleService.getTextStyle(
+                                style: textStyleController.getTextStyle(
                                   widget.subtitleLevel,
                                   4,
                                 ),
@@ -338,12 +349,17 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                       ],
                     ),
                   ),
-                  backgroundColor: ColorService.getBasicColor(2),
+                  backgroundColor: colorController.getBasicColor(2),
                   body: SingleChildScrollView(
-                    child: SafeArea(
-                      child: Padding(
-                        padding: EdgeInsetsGeometry.all(20),
-                        child: widget.descrption,
+                    child: Padding(
+                      padding: EdgeInsetsGeometry.directional(
+                        bottom: settingsController.getSetting("bottomPadding"),
+                      ),
+                      child: SafeArea(
+                        child: Padding(
+                          padding: EdgeInsetsGeometry.all(20),
+                          child: widget.descrption,
+                        ),
                       ),
                     ),
                   ),
@@ -356,7 +372,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
       );
     } else if (setting == "expand") {
       return Card(
-        color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+        color: bgColor ? colorController.getColor(3) : Colors.transparent,
         shadowColor: bgColor ? null : Colors.transparent,
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(
@@ -392,7 +408,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
                   Divider(
                     indent: MediaQuery.sizeOf(context).width / 72,
                     endIndent: MediaQuery.sizeOf(context).width / 72,
-                    color: ColorService.getColor(4),
+                    color: colorController.getColor(4),
                   ),
                   Padding(
                     padding: const EdgeInsetsGeometry.directional(
@@ -434,7 +450,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
           );
         },
         child: Card(
-          color: bgColor ? ColorService.getColor(3) : Colors.transparent,
+          color: bgColor ? colorController.getColor(3) : Colors.transparent,
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(
@@ -465,8 +481,8 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
     final result = await showMenu<String>(
       context: context,
       elevation: 8,
-      color: ColorService.getColor(3),
-      shadowColor: ColorService.getColor(3),
+      color: colorController.getColor(3),
+      shadowColor: colorController.getColor(3),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           MediaQuery.sizeOf(context).width / 72,
@@ -493,7 +509,7 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
 
     if (!mounted || result == null) return;
 
-    await SettingsService.setSetting(setting, result);
+    await settingsController.setSetting(setting, result);
 
     if (!mounted) return;
 
@@ -512,58 +528,65 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            color: ColorService.getColor(1),
+            color: colorController.getColor(1),
             padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.sizeOf(context).width / 36,
-              vertical: MediaQuery.sizeOf(context).width / 72,
+              horizontal: MediaQuery.sizeOf(context).width / 72,
+              vertical: MediaQuery.sizeOf(context).width / 144,
             ),
             child: Text(
               "Set style:",
-              style: TextStyleService.getTextStyle(1, 4),
+              style: textStyleController.getTextStyle(3, 4),
             ),
           ),
 
-          Container(height: 1, color: ColorService.getColor(3)),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Background", style: TextStyleService.getTextStyle(4, 4)),
-              Checkbox(
-                value: bgColor,
-                checkColor: ColorService.getColor(4),
-                activeColor: ColorService.getColor(1),
-                side: BorderSide(color: ColorService.getColor(4), width: 1.5),
-                onChanged: (value) async {
-                  final newValue = value ?? true;
-                  menuSetState(() => bgColor = newValue);
-                  await SettingsService.setSetting(
-                    widget.descriptionType.toString() + "bgColor",
-                    newValue,
-                  );
-                  setState(() {});
-                },
-              ),
-            ],
-          ),
+          Container(height: 1, color: colorController.getColor(3)),
+          if (widget.backgroundChoice)
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Background",
+                  style: textStyleController.getTextStyle(4, 4),
+                ),
+                Checkbox(
+                  value: bgColor,
+                  checkColor: colorController.getColor(4),
+                  activeColor: colorController.getColor(1),
+                  side: BorderSide(
+                    color: colorController.getColor(4),
+                    width: 1.5,
+                  ),
+                  onChanged: (value) async {
+                    final newValue = value ?? true;
+                    menuSetState(() => bgColor = newValue);
+                    await settingsController.setSetting(
+                      widget.descriptionType.toString() + "bgColor",
+                      newValue,
+                    );
+                    setState(() {});
+                  },
+                ),
+              ],
+            ),
           ...options.map((option) {
             final selected = getSetting() == option;
 
             return InkWell(
               onTap: () async {
                 Navigator.pop(context, option);
-                await SettingsService.setSetting(setting, option);
+                await settingsController.setSetting(setting, option);
               },
               child: Container(
                 color: selected
-                    ? ColorService.getColor(0)
-                    : ColorService.getColor(3),
+                    ? colorController.getColor(0)
+                    : colorController.getColor(3),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 10,
                 ),
                 child: Text(
                   StringService.titleFromKey(option),
-                  style: TextStyleService.getTextStyle(4, 4),
+                  style: textStyleController.getTextStyle(4, 4),
                 ),
               ),
             );
@@ -571,9 +594,5 @@ class DescriptionWidgetState extends State<DescriptionWidget> {
         ],
       ),
     );
-  }
-
-  void _onSettingsChanged() {
-    setState(() {});
   }
 }

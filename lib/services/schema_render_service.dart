@@ -8,9 +8,11 @@ import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/list_widget.dart';
 import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SchemaRenderService {
-  static Widget render({
+  static Widget render(
+    WidgetRef ref, {
     required BuildContext context,
     required String category,
     required dynamic data,
@@ -18,8 +20,11 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     String setting = "",
-    void Function(void Function())? resetFunction,
   }) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
     final String type = schema["type"];
 
     setting = (setting == "")
@@ -30,14 +35,14 @@ class SchemaRenderService {
       case "text":
         return DescriptionWidget(
           title,
-          Text(data.toString(), style: TextStyleService.getTextStyle(4, 4)),
+          Text(data.toString(), style: textStyleController.getTextStyle(4, 4)),
           setting,
-          resetFunction: resetFunction,
           optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
         );
 
       case "list":
         return _renderList(
+          ref,
           context: context,
           category: category,
           data: data,
@@ -45,11 +50,11 @@ class SchemaRenderService {
           schemata: schemata,
           title: title,
           setting: setting,
-          resetFunction: resetFunction,
         );
 
       case "map":
         return _renderMap(
+          ref,
           context: context,
           category: category,
           data: data,
@@ -61,6 +66,7 @@ class SchemaRenderService {
 
       case "path":
         return _renderPath(
+          ref,
           context: context,
           category: category,
           data: data,
@@ -75,7 +81,6 @@ class SchemaRenderService {
           title,
           TableWidget(data),
           setting,
-          resetFunction: resetFunction,
           optionList: ["popUp", "page", "expand", "sheet", "static"],
         );
 
@@ -84,21 +89,21 @@ class SchemaRenderService {
           title,
           CheckListWidget(data, schema["list"]),
           setting,
-          resetFunction: resetFunction,
           optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
         );
 
       case "icon":
         return _renderIcon(
+          ref,
           title: title,
           setting: setting,
-          resetFunction: resetFunction,
           data: data,
           schema: schema,
         );
 
       case "linkList":
         return _renderLinkList(
+          ref,
           context: context,
           category: category,
           data: data,
@@ -113,13 +118,12 @@ class SchemaRenderService {
           title,
           Checkbox(
             value: data,
-            checkColor: ColorService.getColor(4),
-            activeColor: ColorService.getColor(1),
-            side: BorderSide(color: ColorService.getColor(4), width: 1.5),
+            checkColor: colorController.getColor(4),
+            activeColor: colorController.getColor(1),
+            side: BorderSide(color: colorController.getColor(4), width: 1.5),
             onChanged: (_) {},
           ),
           setting,
-          resetFunction: resetFunction,
           optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
         );
 
@@ -133,7 +137,6 @@ class SchemaRenderService {
               category: type,
             ),
             setting,
-            resetFunction: resetFunction,
             optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
           );
         }
@@ -142,7 +145,8 @@ class SchemaRenderService {
     }
   }
 
-  static Widget _renderList({
+  static Widget _renderList(
+    WidgetRef ref, {
     required BuildContext context,
     required String category,
     required dynamic data,
@@ -150,7 +154,6 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     required String setting,
-    void Function(void Function())? resetFunction,
   }) {
     final List<Widget> children = [];
 
@@ -159,6 +162,7 @@ class SchemaRenderService {
     for (final item in data) {
       children.add(
         render(
+          ref,
           context: context,
           category: category,
           data: item,
@@ -178,7 +182,8 @@ class SchemaRenderService {
     );
   }
 
-  static Widget _renderMap({
+  static Widget _renderMap(
+    WidgetRef ref, {
     required BuildContext context,
     required String category,
     required dynamic data,
@@ -216,6 +221,7 @@ class SchemaRenderService {
 
       children.add(
         render(
+          ref,
           context: context,
           category: category,
           data: value,
@@ -231,12 +237,12 @@ class SchemaRenderService {
       title,
       ListWidget(children),
       setting,
-      resetFunction: resetFunction,
       optionList: ["popUp", "page", "expand", "sheet", "static"],
     );
   }
 
-  static Widget _renderPath({
+  static Widget _renderPath(
+    WidgetRef ref, {
     required BuildContext context,
     required String category,
     required dynamic data,
@@ -289,7 +295,6 @@ class SchemaRenderService {
                 ),
                 setting,
                 initiallyExpanded: true,
-                resetFunction: resetFunction,
 
                 optionList: ["popUp", "page", "expand", "sheet", "static"],
               );
@@ -303,7 +308,8 @@ class SchemaRenderService {
     );
   }
 
-  static Widget _renderLinkList({
+  static Widget _renderLinkList(
+    WidgetRef ref, {
     required BuildContext context,
     required String category,
     required dynamic data,
@@ -311,7 +317,6 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     required String setting,
-    void Function(void Function())? resetFunction,
   }) {
     final String? path;
 
@@ -345,6 +350,7 @@ class SchemaRenderService {
             ...loadedData.keys.toList().map((el) {
               if (loadedData[el].containsKey("path")) {
                 return _renderPath(
+                  ref,
                   context: context,
                   category: category,
                   data: loadedData[el]["path"],
@@ -355,6 +361,7 @@ class SchemaRenderService {
                 );
               } else {
                 return render(
+                  ref,
                   context: context,
                   category: "features",
                   data: loadedData[el],
@@ -371,26 +378,31 @@ class SchemaRenderService {
     );
   }
 
-  static Widget _renderIcon({
+  static Widget _renderIcon(
+    WidgetRef ref, {
     required String title,
     required String setting,
     void Function(void Function())? resetFunction,
     required dynamic data,
     required Map<String, dynamic> schema,
   }) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
     Icon icon;
 
     switch (schema["icon"]) {
       case "heart":
         icon = Icon(
           Icons.favorite,
-          color: ColorService.getColor(4),
-          size: TextStyleService.getFontSize(0) * 2,
+          color: colorController.getColor(4),
+          size: textStyleController.getFontSize(0) * 2,
         );
         break;
 
       default:
-        icon = Icon(Icons.do_not_disturb, color: ColorService.getColor(4));
+        icon = Icon(Icons.do_not_disturb, color: colorController.getColor(4));
     }
 
     return DescriptionWidget(
@@ -399,12 +411,11 @@ class SchemaRenderService {
         alignment: Alignment.center,
         children: [
           icon,
-          Text(data.toString(), style: TextStyleService.getTextStyle(4, 2)),
+          Text(data.toString(), style: textStyleController.getTextStyle(4, 2)),
         ],
       ),
       setting,
       initiallyExpanded: true,
-      resetFunction: resetFunction,
       optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
     );
   }

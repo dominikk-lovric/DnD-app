@@ -1,5 +1,5 @@
-import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
 
@@ -10,10 +10,14 @@ class IconService {
 
   IconService(this.icon);
 
-  static Image getIcon(String path) {
+  static Image getIcon(WidgetRef ref, String path) {
+    final theme = ref
+        .read(settingsControllerProvider.notifier)
+        .getSetting("theme");
+
     if (!path.isNotEmpty) {
       return Image.asset(
-        "assets/icons/" + SettingsService.getSetting("theme") + "/default.png",
+        "assets/icons/" + theme + "/default.png",
         fit: BoxFit.cover,
       );
     }
@@ -25,9 +29,7 @@ class IconService {
       fit: BoxFit.cover,
       errorBuilder: (context, error, stackTrace) {
         return Image.asset(
-          "assets/icons/" +
-              SettingsService.getSetting("theme") +
-              "/default.png",
+          "assets/icons/" + theme + "/default.png",
           fit: BoxFit.cover,
         );
       },

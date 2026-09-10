@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CategorySelectorWdget extends StatefulWidget {
+class CategorySelectorWdget extends ConsumerStatefulWidget {
   final List<dynamic> categories;
   final String currentState;
   final Function(String) onCategorySelected;
@@ -21,15 +22,23 @@ class CategorySelectorWdget extends StatefulWidget {
   });
 
   @override
-  State<CategorySelectorWdget> createState() => CategorySelectorWidgetState();
+  ConsumerState<CategorySelectorWdget> createState() =>
+      CategorySelectorWidgetState();
 }
 
-class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
+class CategorySelectorWidgetState extends ConsumerState<CategorySelectorWdget> {
+  late final SettingsController settingsController;
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
   late List<GlobalKey> _itemKeys;
 
   @override
   void initState() {
     super.initState();
+
+    settingsController = ref.read(settingsControllerProvider.notifier);
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
     _itemKeys = List.generate(widget.categories.length, (_) => GlobalKey());
   }
 
@@ -58,8 +67,6 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
   @override
   Widget build(BuildContext context) {
     final itemWidth = MediaQuery.of(context).size.width / widget.categoryNumber;
-    final double barHeight = widget.height / 6;
-
     if (widget.categories.isEmpty) {
       return SizedBox.shrink();
     }
@@ -79,17 +86,18 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
                   border: widget.categories[index] == widget.currentState
                       ? Border(
                           bottom: BorderSide(
-                            color: ColorService.getColor(1),
+                            color: colorController.getColor(1),
                             width:
-                                SettingsService.getSetting("headerHeight") *
-                                0.1,
+                                settingsController.getSetting("headerHeight") *
+                                0.16 *
+                                MediaQuery.sizeOf(context).height,
                           ),
                         )
                       : null,
                 ),
                 child: TextButton(
                   style: TextButton.styleFrom(
-                    foregroundColor: ColorService.getColor(4),
+                    foregroundColor: colorController.getColor(4),
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
                     ),
@@ -99,7 +107,7 @@ class CategorySelectorWidgetState extends State<CategorySelectorWdget> {
                   },
                   child: Text(
                     widget.categories[index],
-                    style: TextStyleService.getTextStyle(4, 4),
+                    style: textStyleController.getTextStyle(4, 4),
                   ),
                 ),
               ),

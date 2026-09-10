@@ -2,8 +2,9 @@ import 'package:dnd_app/services/color_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SortingMenuWidget extends StatefulWidget {
+class SortingMenuWidget extends ConsumerStatefulWidget {
   final Future<void> Function(dynamic) function1;
   final Future<void> Function(dynamic) function2;
   final Future<void> Function(dynamic) function3;
@@ -22,16 +23,29 @@ class SortingMenuWidget extends StatefulWidget {
   });
 
   @override
-  State<SortingMenuWidget> createState() => SortingMenuWidgetState();
+  ConsumerState<SortingMenuWidget> createState() => SortingMenuWidgetState();
 }
 
-class SortingMenuWidgetState extends State<SortingMenuWidget> {
+class SortingMenuWidgetState extends ConsumerState<SortingMenuWidget> {
+  late final SettingsController settingsController;
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
+
   final OverlayPortalController _controller = OverlayPortalController();
   final LayerLink _layerLink = LayerLink();
 
   final Object _groupId = Object();
 
   static const double _menuWidth = 240;
+
+  @override
+  void initState() {
+    super.initState();
+
+    settingsController = ref.read(settingsControllerProvider.notifier);
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
+  }
 
   Future<void> _handleTap(String value) async {
     if (value == "group_yes") {
@@ -73,7 +87,7 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
                   onTapOutside: (_) => _controller.hide(),
                   child: Material(
                     elevation: 8,
-                    color: ColorService.getColor(2),
+                    color: colorController.getColor(2),
                     borderRadius: BorderRadius.circular(8),
                     clipBehavior: Clip.antiAlias,
                     child: SizedBox(
@@ -89,7 +103,7 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
         child: TapRegion(
           groupId: _groupId,
           child: IconButton(
-            icon: Icon(Icons.tune, color: ColorService.getColor(4)),
+            icon: Icon(Icons.tune, color: colorController.getColor(4)),
             onPressed: _controller.toggle,
           ),
         ),
@@ -98,7 +112,7 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
   }
 
   Widget _buildMenuContent() {
-    final currentSorting = SettingsService.getSetting(
+    final currentSorting = settingsController.getSetting(
       "wikiSorting",
     )[widget.index];
 
@@ -109,27 +123,33 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
         children: [
           Container(
             width: double.infinity,
-            color: ColorService.getColor(1),
+            color: colorController.getColor(1),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Text("Sorting", style: TextStyleService.getTextStyle(1, 4)),
+            child: Text(
+              "Sorting",
+              style: textStyleController.getTextStyle(1, 4),
+            ),
           ),
           Padding(
             padding: EdgeInsetsGeometry.directional(
               start: MediaQuery.sizeOf(context).height / 72,
             ),
-            child: Text(style: TextStyleService.getTextStyle(3, 4), "Grouping"),
+            child: Text(
+              style: textStyleController.getTextStyle(3, 4),
+              "Grouping",
+            ),
           ),
           _radioTile(
             label: "Yes",
             selected:
-                SettingsService.getSetting("wikiGrouping")[widget.index] ==
+                settingsController.getSetting("wikiGrouping")[widget.index] ==
                 "true",
             onTap: () => _handleTap("group_yes"),
           ),
           _radioTile(
             label: "No",
             selected:
-                SettingsService.getSetting("wikiGrouping")[widget.index] ==
+                settingsController.getSetting("wikiGrouping")[widget.index] ==
                 "false",
             onTap: () => _handleTap("group_no"),
           ),
@@ -138,7 +158,10 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
             padding: EdgeInsetsGeometry.directional(
               start: MediaQuery.sizeOf(context).height / 72,
             ),
-            child: Text(style: TextStyleService.getTextStyle(3, 4), "Sort by"),
+            child: Text(
+              style: textStyleController.getTextStyle(3, 4),
+              "Sort by",
+            ),
           ),
           ...widget.sorts.map(
             (sort) => _radioTile(
@@ -156,21 +179,21 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
                 start: MediaQuery.sizeOf(context).height / 72,
               ),
               child: Text(
-                style: TextStyleService.getTextStyle(3, 4),
+                style: textStyleController.getTextStyle(3, 4),
                 "Secondary sorting",
               ),
             ),
             _radioTile(
               label: "Alphabetical",
               selected:
-                  SettingsService.getSetting(currentSorting + "SubSort")
+                  settingsController.getSetting(currentSorting + "SubSort")
                       is! List,
               onTap: () => _handleTap("subsortAlphabetical"),
             ),
             _radioTile(
               label: "Standard",
               selected:
-                  SettingsService.getSetting(currentSorting + "SubSort")
+                  settingsController.getSetting(currentSorting + "SubSort")
                       is List,
               onTap: () => _handleTap("subsortStandard"),
             ),
@@ -182,7 +205,7 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
                 start: MediaQuery.sizeOf(context).height / 72,
               ),
               child: Text(
-                style: TextStyleService.getTextStyle(3, 4),
+                style: textStyleController.getTextStyle(3, 4),
                 "Secondary sorting order",
               ),
             ),
@@ -192,7 +215,10 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
                   horizontal: (3 / 2) * MediaQuery.sizeOf(context).height / 72,
                   vertical: MediaQuery.sizeOf(context).height / 72,
                 ),
-                child: Text(value, style: TextStyleService.getTextStyle(4, 4)),
+                child: Text(
+                  value,
+                  style: textStyleController.getTextStyle(4, 4),
+                ),
               ),
             ),
           ],
@@ -216,14 +242,14 @@ class SortingMenuWidgetState extends State<SortingMenuWidget> {
         child: Row(
           children: [
             Icon(
-              size: TextStyleService.getFontSize(4),
+              size: textStyleController.getFontSize(4),
               selected
                   ? Icons.radio_button_checked
                   : Icons.radio_button_unchecked,
-              color: ColorService.getColor(4),
+              color: colorController.getColor(4),
             ),
             SizedBox(width: MediaQuery.sizeOf(context).height / 72),
-            Text(label, style: TextStyleService.getTextStyle(4, 4)),
+            Text(label, style: textStyleController.getTextStyle(4, 4)),
           ],
         ),
       ),

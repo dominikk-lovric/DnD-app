@@ -8,18 +8,21 @@ import 'package:flutter/material.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/color_service.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends ConsumerStatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
+  ConsumerState<SettingsPage> createState() {
     return SettingsPageState();
   }
 }
 
-class SettingsPageState extends State<SettingsPage> {
+class SettingsPageState extends ConsumerState<SettingsPage> {
+  late final SettingsController settingsController;
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
   Map<String, dynamic>? schemata;
   List<String>? categories;
   List<String> options = ["popUp", "expand", "page", "text", "sheet", "static"];
@@ -28,6 +31,9 @@ class SettingsPageState extends State<SettingsPage> {
   initState() {
     super.initState();
 
+    settingsController = ref.read(settingsControllerProvider.notifier);
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
     loadSchemata();
   }
 
@@ -46,7 +52,7 @@ class SettingsPageState extends State<SettingsPage> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    List<String> colorList = ColorService.getColorNames();
+    List<String> colorList = colorController.getColorNames();
     return Focus(
       autofocus: true,
       onKeyEvent: (node, event) {
@@ -58,48 +64,45 @@ class SettingsPageState extends State<SettingsPage> {
 
         return KeyEventResult.ignored;
       },
-      child: AnimatedBuilder(
-        animation: ColorService.themeNotifier,
-        builder: (context, child) {
-          return Scaffold(
-            backgroundColor: ColorService.getColor(2),
-            appBar: AppBar(
-              backgroundColor: ColorService.getColor(0),
-              toolbarHeight: SettingsService.getSetting("headerHeight"),
-            ),
-            body: Padding(
-              padding: EdgeInsetsGeometry.symmetric(
-                vertical: 20,
-                horizontal: 30,
-              ),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Wrap(
-                      direction: Axis.horizontal,
+      child: Scaffold(
+        backgroundColor: colorController.getColor(2),
+        appBar: AppBar(
+          backgroundColor: colorController.getColor(0),
+          toolbarHeight: settingsController.getSetting("headerHeight"),
+        ),
+        body: Padding(
+          padding: EdgeInsetsGeometry.directional(
+            bottom: settingsController.getSetting("bottomPadding"),
+          ),
+          child: Padding(
+            padding: EdgeInsetsGeometry.symmetric(vertical: 20, horizontal: 30),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Wrap(
+                    direction: Axis.horizontal,
 
-                      spacing: 10,
-                      runSpacing: 20,
-                      children: [
-                        ...colorList.map((el) {
-                          return Container(
-                            child: Padding(
-                              padding: EdgeInsetsGeometry.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
-                              ),
-                              child: ColorSelectorWidget(colorList.indexOf(el)),
+                    spacing: 10,
+                    runSpacing: 20,
+                    children: [
+                      ...colorList.map((el) {
+                        return Container(
+                          child: Padding(
+                            padding: EdgeInsetsGeometry.symmetric(
+                              horizontal: 10,
+                              vertical: 5,
                             ),
-                          );
-                        }),
-                      ],
-                    ),
-                  ],
-                ),
+                            child: ColorSelectorWidget(colorList.indexOf(el)),
+                          ),
+                        );
+                      }),
+                    ],
+                  ),
+                ],
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }

@@ -1,8 +1,10 @@
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DraggableSheetWidget extends StatelessWidget {
+class DraggableSheetWidget extends ConsumerWidget {
   String title;
   Widget content;
   String? subtitle;
@@ -25,24 +27,36 @@ class DraggableSheetWidget extends StatelessWidget {
     this.titleWidget,
   });
 
-  Widget getClickWidget() {
+  Widget getClickWidget(WidgetRef ref) {
+    ref.watch(textStyleControllerProvider);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+
     return clickWidget ??
         Text(
           clickTitle == "" ? title : clickTitle,
-          style: TextStyleService.getTextStyle(clickLevel, 4),
+          style: textStyleController.getTextStyle(clickLevel, 4),
         );
   }
 
-  Widget getTitleWidget() {
+  Widget getTitleWidget(WidgetRef ref) {
+    ref.watch(textStyleControllerProvider);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+
     return titleWidget ??
         Text(
           clickTitle == "" ? title : clickTitle,
-          style: TextStyleService.getTextStyle(titleLevel, 4),
+          style: textStyleController.getTextStyle(titleLevel, 4),
         );
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(settingsControllerProvider);
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final settingsController = ref.read(settingsControllerProvider.notifier);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
     return GestureDetector(
       onTap: () {
         final sheetController = DraggableScrollableController();
@@ -66,8 +80,11 @@ class DraggableSheetWidget extends StatelessWidget {
                   expand: true,
                   builder: (context, scrollController) {
                     return Container(
+                      padding: EdgeInsetsGeometry.directional(
+                        bottom: settingsController.getSetting("bottomPadding"),
+                      ),
                       decoration: BoxDecoration(
-                        color: ColorService.getColor(2),
+                        color: colorController.getColor(2),
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(25),
                         ),
@@ -109,7 +126,7 @@ class DraggableSheetWidget extends StatelessWidget {
                                     width: 100,
                                     height: 3,
                                     decoration: BoxDecoration(
-                                      color: ColorService.getColor(4),
+                                      color: colorController.getColor(4),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
@@ -118,12 +135,12 @@ class DraggableSheetWidget extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisSize: MainAxisSize.min,
-                                  children: [getTitleWidget()],
+                                  children: [getTitleWidget(ref)],
                                 ),
                                 const SizedBox(height: 10),
                                 Divider(
                                   height: 1,
-                                  color: ColorService.getColor(4),
+                                  color: colorController.getColor(4),
                                   indent: 30,
                                   endIndent: 30,
                                 ),
@@ -138,7 +155,7 @@ class DraggableSheetWidget extends StatelessWidget {
                               ),
                               child: Text(
                                 subtitle.toString(),
-                                style: TextStyleService.getTextStyle(
+                                style: textStyleController.getTextStyle(
                                   subtitleLevel,
                                   4,
                                   Height: 0.8,
@@ -197,7 +214,7 @@ class DraggableSheetWidget extends StatelessWidget {
           },
         );
       },
-      child: getClickWidget(),
+      child: getClickWidget(ref),
     );
   }
 }

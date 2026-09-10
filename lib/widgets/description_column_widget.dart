@@ -1,12 +1,11 @@
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
-import 'package:dnd_app/services/text_style_service.dart';
-import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dnd_app/services/schema_render_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DescriptionColumnWidget extends StatefulWidget {
+class DescriptionColumnWidget extends ConsumerStatefulWidget {
   final Map<String, dynamic> info;
   final Map<String, dynamic> schemata;
 
@@ -28,11 +27,13 @@ class DescriptionColumnWidget extends StatefulWidget {
   });
 
   @override
-  State<DescriptionColumnWidget> createState() =>
+  ConsumerState<DescriptionColumnWidget> createState() =>
       DescriptionColumnWidgetState();
 }
 
-class DescriptionColumnWidgetState extends State<DescriptionColumnWidget> {
+class DescriptionColumnWidgetState
+    extends ConsumerState<DescriptionColumnWidget> {
+  late final SettingsController settingsController;
   late String category;
   bool loaded = false;
 
@@ -41,6 +42,7 @@ class DescriptionColumnWidgetState extends State<DescriptionColumnWidget> {
   @override
   void initState() {
     super.initState();
+    settingsController = ref.read(settingsControllerProvider.notifier);
 
     category = widget.category.isEmpty
         ? (widget.info["catId"] ?? "")
@@ -106,12 +108,13 @@ class DescriptionColumnWidgetState extends State<DescriptionColumnWidget> {
       final setting =
           "${StringService.slugify(title)}${category}DescriptionStyle";
 
-      final newTitle = SettingsService.getSetting(setting) == "static"
+      final newTitle = settingsController.getSetting(setting) == "static"
           ? ""
           : title;
 
       res.add(
         SchemaRenderService.render(
+          ref,
           context: context,
           category: category,
           data: widget.info[key],

@@ -3,8 +3,9 @@ import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/list_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TableWidget extends StatelessWidget {
+class TableWidget extends ConsumerWidget {
   Map<String, dynamic> info;
   String type;
   int nameSize;
@@ -17,7 +18,11 @@ class TableWidget extends StatelessWidget {
   ]);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
     List<String> names = info.keys.toList();
     List<TableRow> rows = [];
     if (type == "horizontal") {
@@ -33,7 +38,7 @@ class TableWidget extends StatelessWidget {
                 child: Center(
                   child: Text(
                     StringService.titleFromKey(name),
-                    style: TextStyleService.getTextStyle(nameSize, 4),
+                    style: textStyleController.getTextStyle(nameSize, 4),
                   ),
                 ),
               ),
@@ -46,7 +51,7 @@ class TableWidget extends StatelessWidget {
                   child: Center(
                     child: Text(
                       el.toString(),
-                      style: TextStyleService.getTextStyle(textSize, 4),
+                      style: textStyleController.getTextStyle(textSize, 4),
                     ),
                   ),
                 );
@@ -68,7 +73,7 @@ class TableWidget extends StatelessWidget {
                 child: Center(
                   child: Text(
                     StringService.titleFromKey(name),
-                    style: TextStyleService.getTextStyle(nameSize, 4),
+                    style: textStyleController.getTextStyle(nameSize, 4),
                   ),
                 ),
               ),
@@ -89,7 +94,7 @@ class TableWidget extends StatelessWidget {
                   child: Center(
                     child: Text(
                       info[name][i].toString(),
-                      style: TextStyleService.getTextStyle(textSize, 4),
+                      style: textStyleController.getTextStyle(textSize, 4),
                     ),
                   ),
                 ),
@@ -103,7 +108,7 @@ class TableWidget extends StatelessWidget {
       scrollDirection: type == "vertical" ? Axis.vertical : Axis.horizontal,
       child: Table(
         border: TableBorder.symmetric(
-          inside: BorderSide(color: ColorService.getColor(4)),
+          inside: BorderSide(color: colorController.getColor(4)),
         ),
         defaultColumnWidth: FlexColumnWidth(),
         children: rows,
