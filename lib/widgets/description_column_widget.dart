@@ -57,20 +57,11 @@ class DescriptionColumnWidgetState
       return const Center(child: CircularProgressIndicator());
     }
 
-    //    if (!widget.scrollable) {
     return Column(
       spacing: MediaQuery.sizeOf(context).width / 72,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: widgets,
     );
-    //  }
-
-    /*return ListView.builder(
-      itemCount: widgets.length,
-      itemBuilder: (context, index) {
-        return widgets[index];
-      },
-    );*/
   }
 
   Future<void> getItems() async {
