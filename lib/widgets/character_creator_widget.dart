@@ -26,6 +26,7 @@ class CharacterCreatorWidgetState
   Map<String, dynamic> speciesData = {};
   Map<String, dynamic> backgroundData = {};
   Map<String, dynamic> schemata = {};
+
   int classesNum = 1;
   int level = 0;
   bool loaded = false;
@@ -60,7 +61,7 @@ class CharacterCreatorWidgetState
       backgroundData = backgrounds;
       schemata = schema;
       loaded = true;
-      selectedMap["class1"] = selectedMap["class1"] ?? classData.keys.first;
+      selectedMap["classes"] = selectedMap["classes"] ?? [classData.keys.first];
       selectedMap["species"] = selectedMap["species"] ?? speciesData.keys.first;
       selectedMap["backgrounds"] =
           selectedMap["backgrounds"] ?? backgroundData.keys.first;
@@ -88,44 +89,13 @@ class CharacterCreatorWidgetState
               ),
               filled: true,
               fillColor: colorController.getColor(3),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-                borderSide: BorderSide(color: colorController.getColor(4)),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(MediaQuery.sizeOf(context).height / 72),
+                ),
               ),
             ),
-          ),
-
-          TextFormField(
-            style: textStyleController.getTextStyle(6, 4),
-            maxLength: 2,
-            decoration: InputDecoration(
-              label: Text(
-                "Level",
-                style: textStyleController.getTextStyle(6, 5),
-              ),
-              hintText: "1-20",
-              filled: true,
-              fillColor: colorController.getColor(3),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: colorController.getColor(4)),
-              ),
-              hintStyle: textStyleController.getTextStyle(6, 5),
-            ),
-            keyboardType: TextInputType.numberWithOptions(),
-            validator: (value) {
-              return (int.parse(value ?? "0") <= 20 &&
-                      int.parse(value ?? "0") > 0)
-                  ? null
-                  : "Level must be between 1 and 20";
-            },
-            onChanged: (value) {
-              try {
-                level = int.parse(value);
-              } catch (e) {
-                level = 0;
-              }
-              print(level);
-            },
           ),
           Container(
             padding: EdgeInsets.symmetric(
@@ -139,43 +109,125 @@ class CharacterCreatorWidgetState
               ),
             ),
             child: Column(
-              spacing: MediaQuery.sizeOf(context).height / 72,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
                     Text(
-                      "Class",
+                      "classes",
                       style: textStyleController.getTextStyle(5, 4),
                     ),
                     IconButton(
                       onPressed: () {
                         classesNum++;
-                        selectedMap["class".toString() +
-                                classesNum.toString()] =
-                            selectedMap["class".toString() +
-                                classesNum.toString()] ??
-                            classData.keys.first;
+                        selectedMap["classes"].add(classData.keys.first);
                         setState(() {});
                       },
                       icon: Icon(Icons.add, color: colorController.getColor(4)),
                     ),
                   ],
                 ),
-                ...selectedMap.keys.toList().map((id) {
-                  if (id.startsWith("class"))
-                    return getChoiceSelector(
-                      classData,
-                      id,
-                      "classes",
-                      level: true,
-                    );
-                  return SizedBox.shrink();
+                SizedBox(height: MediaQuery.sizeOf(context).height / 72),
+                ...selectedMap["classes"].map((id) {
+                  int num = selectedMap["classes"].indexOf(id);
+                  print(id + "=" + num.toString());
+                  print(selectedMap["classes"][num]);
+                  return Column(
+                    children: [
+                      getChoiceSelector(
+                        classData,
+                        (el) => el["classes"][num],
+                        (el, val) => el["classes"][num] = val,
+                        "classes",
+                        additionalWidgets: [
+                          IconButton(
+                            onPressed: () {
+                              selectedMap["classes"].remove(id);
+                              setState(() {});
+                            },
+                            icon: Icon(
+                              Icons.cancel,
+                              color: colorController.getColor(4),
+                            ),
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: TextFormField(
+                              initialValue: "1",
+                              maxLength: 2,
+                              style: textStyleController.getTextStyle(6, 5),
+                              textAlign: TextAlign.center,
+                              textAlignVertical: TextAlignVertical.center,
+                              validator: (value) {
+                                return (int.parse(value ?? "0") <= 20 &&
+                                        int.parse(value ?? "0") > 0)
+                                    ? null
+                                    : "Level must be between 1 and 20";
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: MediaQuery.sizeOf(context).height / 72),
+                    ],
+                  );
                 }),
               ],
             ),
           ),
-          getChoiceSelector(speciesData, "species", "species"),
-          getChoiceSelector(backgroundData, "backgrounds", "backgrounds"),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).height / 144,
+              vertical: MediaQuery.sizeOf(context).height / 72,
+            ),
+            decoration: BoxDecoration(
+              color: colorController.getColor(3),
+              borderRadius: BorderRadius.circular(
+                MediaQuery.sizeOf(context).height / 72,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Species", style: textStyleController.getTextStyle(5, 4)),
+                SizedBox(height: MediaQuery.sizeOf(context).height / 72),
+                getChoiceSelector(
+                  speciesData,
+                  (el) => el["species"],
+                  (el, val) => el["species"] = val,
+                  "species",
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).height / 144,
+              vertical: MediaQuery.sizeOf(context).height / 72,
+            ),
+            decoration: BoxDecoration(
+              color: colorController.getColor(3),
+              borderRadius: BorderRadius.circular(
+                MediaQuery.sizeOf(context).height / 72,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Background",
+                  style: textStyleController.getTextStyle(5, 4),
+                ),
+                SizedBox(height: MediaQuery.sizeOf(context).height / 72),
+                getChoiceSelector(
+                  backgroundData,
+                  (el) => el["backgrounds"],
+                  (el, val) => el["backgrounds"] = val,
+                  "backgrounds",
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -183,9 +235,10 @@ class CharacterCreatorWidgetState
 
   Widget getChoiceSelector(
     Map<String, dynamic> options,
-    String selectorId,
+    dynamic Function(dynamic) selector,
+    void Function(Map<String, dynamic>, dynamic) setter,
     String category, {
-    bool level = false,
+    List<Widget>? additionalWidgets = null,
   }) {
     List<String> keys = options.keys.toList();
     return Container(
@@ -202,32 +255,12 @@ class CharacterCreatorWidgetState
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          IconButton(
-            onPressed: () {
-              selectedMap.remove(selectorId);
-              setState(() {});
-            },
-            icon: Icon(Icons.cancel, color: colorController.getColor(4)),
-          ),
-          if (level)
-            Flexible(
-              flex: 1,
-              child: TextFormField(
-                maxLength: 2,
-                validator: (value) {
-                  return (int.parse(value ?? "0") <= 20 &&
-                          int.parse(value ?? "0") > 0)
-                      ? null
-                      : "Level must be between 1 and 20";
-                },
-              ),
-            ),
-
+          ...additionalWidgets ?? [],
           Flexible(
             flex: 4,
             child: DropdownButtonFormField(
               icon: const SizedBox.shrink(),
-              initialValue: selectedMap[selectorId],
+              initialValue: selector(selectedMap),
               dropdownColor: colorController.getColor(3),
               decoration: InputDecoration(
                 suffixIcon: null,
@@ -246,13 +279,13 @@ class CharacterCreatorWidgetState
                 );
               }).toList(),
               onChanged: (value) async {
-                setState(() => selectedMap[selectorId] = value ?? "");
+                setState(() => setter(selectedMap, value ?? ""));
               },
             ),
           ),
           DescriptionWidget(
-            options[selectedMap[selectorId]]["name"].toString(),
-            buildInfoWidget(options[selectedMap[selectorId]]["json"]),
+            options[selector(selectedMap)]["name"].toString(),
+            buildInfoWidget(options[selector(selectedMap)]["json"]),
             category + "DescriptionStyle",
             clickWidget: Icon(
               Icons.open_in_new,
@@ -283,6 +316,31 @@ class CharacterCreatorWidgetState
 
         final infoData = Map<String, dynamic>.from(snapshot.data as Map);
         return DescriptionColumnWidget(infoData, schemata);
+      },
+    );
+  }
+
+  Widget getStartingEquipment(String path) {
+    return FutureBuilder<dynamic>(
+      future: JsonService.loadFromPath(path),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (snapshot.hasError) {
+          return Text("Error loading data: ${snapshot.error}");
+        }
+
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        final infoData = Map<String, dynamic>.from(snapshot.data as Map);
+        List<List<dynamic>> equipment =
+            infoData["startingEquipment"] ?? (infoData["equipment"] ?? []);
+
+        return RadioGroup(onChanged: (value) {}, child: Column());
       },
     );
   }
