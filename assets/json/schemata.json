@@ -284,8 +284,40 @@
         }
     },
     "characterCreator": {
-        "name": {
-            "type": ""
+        "Character Creator": {
+            "type": "form",
+            "item": {
+                "name": {
+                    "type": "textInput"
+                },
+                "class": {
+                    "multipleSelect": {
+                        "startValue": 1,
+                        "item": {
+                            "type": "selector",
+                            "item": {
+                                "remove": {
+                                    "type": "remove"
+                                },
+                                "level": {
+                                    "type": "textInput",
+                                    "maxChar": 2,
+                                    "initial": "1"
+                                }
+                            },
+                            "path": "assets/json/classes"
+                        }
+                    }
+                },
+                "Species": {
+                    "type": "selector",
+                    "path": "assets/json/species"
+                },
+                "Backgrounds": {
+                    "type": "selector",
+                    "path": "assets/json/backgrounds"
+                }
+            }
         }
     }
 }

@@ -26,6 +26,16 @@ class CharacterCreatorWidgetState
   Map<String, dynamic> speciesData = {};
   Map<String, dynamic> backgroundData = {};
   Map<String, dynamic> schemata = {};
+  final Map<String, Future<Map<String, dynamic>>> _jsonCache = {};
+
+  Future<Map<String, dynamic>> _json(String path) {
+    return _jsonCache.putIfAbsent(
+      path,
+      () => JsonService.loadFromPath(
+        path,
+      ).then((d) => Map<String, dynamic>.from(d as Map)),
+    );
+  }
 
   int classesNum = 1;
   int level = 0;
@@ -65,6 +75,8 @@ class CharacterCreatorWidgetState
       selectedMap["species"] = selectedMap["species"] ?? speciesData.keys.first;
       selectedMap["backgrounds"] =
           selectedMap["backgrounds"] ?? backgroundData.keys.first;
+      selectedMap["start"] = ["a", "a"];
+      selectedMap["startingEquipment"] = {};
     });
   }
 
@@ -74,7 +86,6 @@ class CharacterCreatorWidgetState
     if (!loaded) {
       return Center(child: CircularProgressIndicator());
     }
-    print(selectedMap);
     return Form(
       key: _creatorKey,
       child: Column(
@@ -96,6 +107,8 @@ class CharacterCreatorWidgetState
                 ),
               ),
             ),
+
+            cursorColor: colorController.getColor(1),
           ),
           Container(
             padding: EdgeInsets.symmetric(
@@ -128,23 +141,23 @@ class CharacterCreatorWidgetState
                   ],
                 ),
                 SizedBox(height: MediaQuery.sizeOf(context).height / 72),
-                ...selectedMap["classes"].map((id) {
-                  int num = selectedMap["classes"].indexOf(id);
-                  print(id + "=" + num.toString());
-                  print(selectedMap["classes"][num]);
+                ...List.generate(selectedMap["classes"].length, (i) {
+                  final String id = selectedMap["classes"][i];
                   return Column(
                     children: [
                       getChoiceSelector(
                         classData,
-                        (el) => el["classes"][num],
-                        (el, val) => el["classes"][num] = val,
+                        (el) => el["classes"][i],
+                        (el, val) => el["classes"][i] = val,
                         "classes",
+                        "class-$i-$id",
                         additionalWidgets: [
                           IconButton(
-                            onPressed: () {
-                              selectedMap["classes"].remove(id);
-                              setState(() {});
-                            },
+                            onPressed: () => setState(() {
+                              selectedMap["classes"].removeAt(
+                                i,
+                              ); // ← by position
+                            }),
                             icon: Icon(
                               Icons.cancel,
                               color: colorController.getColor(4),
@@ -153,17 +166,14 @@ class CharacterCreatorWidgetState
                           Flexible(
                             flex: 1,
                             child: TextFormField(
+                              key: ValueKey("level-$i-$id"),
                               initialValue: "1",
-                              maxLength: 2,
-                              style: textStyleController.getTextStyle(6, 5),
+                              style: textStyleController.getTextStyle(6, 4),
                               textAlign: TextAlign.center,
-                              textAlignVertical: TextAlignVertical.center,
-                              validator: (value) {
-                                return (int.parse(value ?? "0") <= 20 &&
-                                        int.parse(value ?? "0") > 0)
-                                    ? null
-                                    : "Level must be between 1 and 20";
-                              },
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                              ),
+                              cursorColor: colorController.getColor(1),
                             ),
                           ),
                         ],
@@ -196,6 +206,7 @@ class CharacterCreatorWidgetState
                   (el) => el["species"],
                   (el, val) => el["species"] = val,
                   "species",
+                  "species",
                 ),
               ],
             ),
@@ -224,6 +235,40 @@ class CharacterCreatorWidgetState
                   (el) => el["backgrounds"],
                   (el, val) => el["backgrounds"] = val,
                   "backgrounds",
+                  "backgrounds",
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).height / 144,
+              vertical: MediaQuery.sizeOf(context).height / 72,
+            ),
+            decoration: BoxDecoration(
+              color: colorController.getColor(3),
+              borderRadius: BorderRadius.circular(
+                MediaQuery.sizeOf(context).height / 72,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Starting Equipment",
+                  style: textStyleController.getTextStyle(5, 4),
+                ),
+                getStartingEquipment(
+                  classData[selectedMap["classes"][0]]["json"],
+                  (el) => el["equipment"] ?? (el["startingEquipment"] ?? []),
+                  (el) => selectedMap["startingEquipment"]["class"],
+                  (el, val) => {el["startingEquipment"]["class"] = val},
+                ),
+                getStartingEquipment(
+                  backgroundData[selectedMap["backgrounds"]]["json"],
+                  (el) => el["equipment"] ?? (el["startingEquipment"] ?? []),
+                  (el) => selectedMap["startingEquipment"]["background"],
+                  (el, val) => {el["startingEquipment"]["background"] = val},
                 ),
               ],
             ),
@@ -237,11 +282,13 @@ class CharacterCreatorWidgetState
     Map<String, dynamic> options,
     dynamic Function(dynamic) selector,
     void Function(Map<String, dynamic>, dynamic) setter,
-    String category, {
+    String category,
+    String key, {
     List<Widget>? additionalWidgets = null,
   }) {
     List<String> keys = options.keys.toList();
     return Container(
+      key: ValueKey(key),
       padding: EdgeInsets.symmetric(
         horizontal: MediaQuery.sizeOf(context).height / 144,
         vertical: 0,
@@ -254,33 +301,42 @@ class CharacterCreatorWidgetState
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ...additionalWidgets ?? [],
           Flexible(
             flex: 4,
-            child: DropdownButtonFormField(
-              icon: const SizedBox.shrink(),
-              initialValue: selector(selectedMap),
-              dropdownColor: colorController.getColor(3),
-              decoration: InputDecoration(
-                suffixIcon: null,
-                filled: true,
-                fillColor: Colors.transparent,
-                border: InputBorder.none,
+            child: Theme(
+              data: Theme.of(context).copyWith(
+                splashFactory: NoSplash.splashFactory,
+                dividerColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
               ),
-              items: keys.map((item) {
-                String i = item;
-                return DropdownMenuItem(
-                  value: i,
-                  child: Text(
-                    options[item]["name"].toString(),
-                    style: textStyleController.getTextStyle(6, 4),
-                  ),
-                );
-              }).toList(),
-              onChanged: (value) async {
-                setState(() => setter(selectedMap, value ?? ""));
-              },
+              child: DropdownButtonFormField(
+                icon: const SizedBox.shrink(),
+                initialValue: selector(selectedMap),
+                dropdownColor: colorController.getColor(3),
+                decoration: InputDecoration(
+                  suffixIcon: null,
+                  filled: true,
+                  fillColor: Colors.transparent,
+                  border: InputBorder.none,
+                ),
+                items: keys.map((item) {
+                  String i = item;
+                  return DropdownMenuItem(
+                    value: i,
+                    child: Text(
+                      options[item]["name"].toString(),
+                      style: textStyleController.getTextStyle(6, 4),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (value) async {
+                  setState(() => setter(selectedMap, value ?? ""));
+                },
+              ),
             ),
           ),
           DescriptionWidget(
@@ -298,9 +354,8 @@ class CharacterCreatorWidgetState
   }
 
   Widget buildInfoWidget(String item) {
-    print(item);
     return FutureBuilder<dynamic>(
-      future: JsonService.loadFromPath(item),
+      future: _json(item),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -320,27 +375,73 @@ class CharacterCreatorWidgetState
     );
   }
 
-  Widget getStartingEquipment(String path) {
+  Widget getStartingEquipment(
+    String path,
+    dynamic Function(dynamic) selector,
+    dynamic Function(Map<String, dynamic>) valueSelector,
+    void Function(Map<String, dynamic>, dynamic) setter,
+  ) {
     return FutureBuilder<dynamic>(
-      future: JsonService.loadFromPath(path),
+      future: _json(path),
       builder: (context, snapshot) {
+        String labelFor(dynamic entry) =>
+            entry is List ? entry.join(", ") : entry.toString();
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         }
-
         if (snapshot.hasError) {
           return Text("Error loading data: ${snapshot.error}");
         }
-
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
         }
 
         final infoData = Map<String, dynamic>.from(snapshot.data as Map);
-        List<List<dynamic>> equipment =
-            infoData["startingEquipment"] ?? (infoData["equipment"] ?? []);
-
-        return RadioGroup(onChanged: (value) {}, child: Column());
+        final List<dynamic> equipment = selector(infoData).toList();
+        if (valueSelector(selectedMap) == null) {
+          setter(selectedMap, 0.toString());
+        }
+        return RadioGroup<int>(
+          groupValue: int.parse(valueSelector(selectedMap)) as int?,
+          onChanged: (value) => setState(() {
+            setter(selectedMap, value.toString());
+            print(value);
+          }),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (int i = 0; i < equipment.length; i++)
+                Material(
+                  color: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  child: Theme(
+                    data: Theme.of(context).copyWith(
+                      splashFactory: NoSplash.splashFactory,
+                      dividerColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                    ),
+                    child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          setter(selectedMap, i.toString());
+                        });
+                      },
+                      title: Text(
+                        labelFor(equipment[i]),
+                        style: textStyleController.getTextStyle(5, 4),
+                      ),
+                      leading: Radio<int>(
+                        value: i,
+                        activeColor: colorController.getColor(4),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        );
       },
     );
   }
