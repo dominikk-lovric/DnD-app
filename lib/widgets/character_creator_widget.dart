@@ -26,6 +26,18 @@ class CharacterCreatorWidgetState
   Map<String, dynamic> speciesData = {};
   Map<String, dynamic> backgroundData = {};
   Map<String, dynamic> schemata = {};
+  List<String> Stats = ["Str", "Dex", "Con", "Int", "Wis", "Cha"];
+  List<String> alignments = [
+    "Lawful Good",
+    "Neutral Good",
+    "Chaotic Good",
+    "Lawful Neutral",
+    "True Neutral",
+    "Chaotic Neutral",
+    "Lawful Evil",
+    "Neutral Evil",
+    "Chaotic Evil",
+  ];
   final Map<String, Future<Map<String, dynamic>>> _jsonCache = {};
 
   Future<Map<String, dynamic>> _json(String path) {
@@ -77,6 +89,7 @@ class CharacterCreatorWidgetState
           selectedMap["backgrounds"] ?? backgroundData.keys.first;
       selectedMap["start"] = ["a", "a"];
       selectedMap["startingEquipment"] = {};
+      selectedMap["stats"] = {};
     });
   }
 
@@ -88,7 +101,9 @@ class CharacterCreatorWidgetState
     }
     return Form(
       key: _creatorKey,
+
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: MediaQuery.sizeOf(context).height / 72,
         children: [
           TextFormField(
@@ -110,6 +125,130 @@ class CharacterCreatorWidgetState
 
             cursorColor: colorController.getColor(1),
           ),
+
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).height / 144,
+              vertical: MediaQuery.sizeOf(context).height / 72,
+            ),
+            decoration: BoxDecoration(
+              color: colorController.getColor(3),
+              borderRadius: BorderRadius.circular(
+                MediaQuery.sizeOf(context).height / 72,
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: MediaQuery.sizeOf(context).height / 72,
+              children: [
+                Text(
+                  "Ability Scores",
+                  style: textStyleController.getTextStyle(5, 4),
+                ),
+                Wrap(
+                  alignment: WrapAlignment.spaceBetween,
+                  runSpacing: MediaQuery.sizeOf(context).height / 144,
+                  children: [
+                    ...Stats.map((el) {
+                      return Container(
+                        width: textStyleController.getFontSize(4) * 4,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.sizeOf(context).height / 144,
+                          vertical: MediaQuery.sizeOf(context).height / 72,
+                        ),
+                        decoration: BoxDecoration(
+                          color: colorController.getColor(2),
+                          borderRadius: BorderRadius.circular(
+                            MediaQuery.sizeOf(context).height / 72,
+                          ),
+                        ),
+                        child: TextFormField(
+                          initialValue: "10",
+                          style: textStyleController.getTextStyle(5, 4),
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            label: Text(
+                              el.toString(),
+                              style: textStyleController.getTextStyle(5, 4),
+                            ),
+                            border: InputBorder.none,
+                          ),
+                          cursorColor: colorController.getColor(1),
+                          onChanged: (value) {
+                            selectedMap["stats"][el] = value;
+                          },
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Theme(
+            data: Theme.of(context).copyWith(
+              splashFactory: NoSplash.splashFactory,
+              dividerColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).height / 144,
+                vertical: MediaQuery.sizeOf(context).height / 72,
+              ),
+              decoration: BoxDecoration(
+                color: colorController.getColor(3),
+                borderRadius: BorderRadius.circular(
+                  MediaQuery.sizeOf(context).height / 72,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: MediaQuery.sizeOf(context).height / 72,
+                children: [
+                  Text(
+                    "Alignment",
+                    style: textStyleController.getTextStyle(5, 4),
+                  ),
+
+                  Container(
+                    decoration: BoxDecoration(
+                      color: colorController.getColor(2),
+                      borderRadius: BorderRadius.circular(
+                        MediaQuery.sizeOf(context).height / 72,
+                      ),
+                    ),
+                    child: DropdownButtonFormField(
+                      initialValue: alignments[0],
+                      dropdownColor: colorController.getColor(3),
+                      icon: SizedBox.shrink(),
+                      decoration: InputDecoration(
+                        suffixIcon: null,
+                        filled: true,
+                        fillColor: Colors.transparent,
+                        border: InputBorder.none,
+                      ),
+                      items: [
+                        ...alignments.map((el) {
+                          return DropdownMenuItem(
+                            value: el,
+                            child: Text(
+                              el.toString(),
+                              style: textStyleController.getTextStyle(5, 4),
+                            ),
+                          );
+                        }),
+                      ],
+                      onChanged: (value) {
+                        selectedMap["alignment"] = value;
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.sizeOf(context).height / 144,
@@ -127,7 +266,7 @@ class CharacterCreatorWidgetState
                 Row(
                   children: [
                     Text(
-                      "classes",
+                      "Classes",
                       style: textStyleController.getTextStyle(5, 4),
                     ),
                     IconButton(
@@ -151,18 +290,25 @@ class CharacterCreatorWidgetState
                         (el, val) => el["classes"][i] = val,
                         "classes",
                         "class-$i-$id",
+                        afterClickFunction: (i == 0)
+                            ? (el) => {
+                                print("reset"),
+                                selectedMap["startingEquipment"]["class"] = el,
+                              }
+                            : (el) {},
                         additionalWidgets: [
-                          IconButton(
-                            onPressed: () => setState(() {
-                              selectedMap["classes"].removeAt(
-                                i,
-                              ); // ← by position
-                            }),
-                            icon: Icon(
-                              Icons.cancel,
-                              color: colorController.getColor(4),
+                          if (i != 0)
+                            IconButton(
+                              onPressed: () => setState(() {
+                                selectedMap["classes"].removeAt(
+                                  i,
+                                ); // ← by position
+                              }),
+                              icon: Icon(
+                                Icons.cancel,
+                                color: colorController.getColor(4),
+                              ),
                             ),
-                          ),
                           Flexible(
                             flex: 1,
                             child: TextFormField(
@@ -236,6 +382,10 @@ class CharacterCreatorWidgetState
                   (el, val) => el["backgrounds"] = val,
                   "backgrounds",
                   "backgrounds",
+                  afterClickFunction: (el) => {
+                    print("reset"),
+                    selectedMap["startingEquipment"]["background"] = el,
+                  },
                 ),
               ],
             ),
@@ -284,7 +434,8 @@ class CharacterCreatorWidgetState
     void Function(Map<String, dynamic>, dynamic) setter,
     String category,
     String key, {
-    List<Widget>? additionalWidgets = null,
+    List<Widget>? additionalWidgets,
+    dynamic Function(dynamic)? afterClickFunction,
   }) {
     List<String> keys = options.keys.toList();
     return Container(
@@ -334,7 +485,12 @@ class CharacterCreatorWidgetState
                   );
                 }).toList(),
                 onChanged: (value) async {
-                  setState(() => setter(selectedMap, value ?? ""));
+                  setState(() {
+                    setter(selectedMap, value ?? "");
+                    if (afterClickFunction != null) {
+                      afterClickFunction!("0") ?? () {};
+                    }
+                  });
                 },
               ),
             ),
