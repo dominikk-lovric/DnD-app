@@ -28,8 +28,7 @@ class HomePage extends ConsumerWidget {
         foregroundColor: colorController.getColor(4),
         centerTitle: true,
         toolbarHeight:
-            controller.getSetting("headerHeight") *
-            MediaQuery.sizeOf(context).height,
+            controller.getSetting("headerHeight") * MediaQuery.sizeOf(context).height,
         actions: [
           Padding(
             padding: EdgeInsetsGeometry.directional(end: 10),

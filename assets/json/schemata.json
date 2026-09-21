@@ -287,12 +287,55 @@
         "Character Creator": {
             "type": "form",
             "item": {
-                "name": {
+                "Name": {
                     "type": "textInput"
                 },
-                "class": {
-                    "multipleSelect": {
-                        "startValue": 1,
+                "Ability Scores": {
+                    "type":"Wrap",
+                    "item": {
+                        "Str": {
+                          "type": "textInput",
+                            "initialValue": "10"
+                        },
+                        "Dex":{
+                          "type": "textInput",
+                            "initialValue": "10"
+                        },
+                        "Con": {
+                          "type": "textInput",
+                            "initialValue": "10"
+                        },
+                        "Int":{
+                          "type": "textInput",
+                            "initialValue": "10"
+                        },
+                        "Wis": {
+                          "type": "textInput",
+                            "initialValue": "10"
+                        },
+                        "Cha":{
+                          "type": "textInput",
+                            "initialValue": "10"
+                        }
+                    }
+                },
+                "Alignment": {
+                    "type": "selector",
+                    "items": [
+                        "Lawful Good",
+                        "Neutral Good",
+                        "Chaotic Good",
+                        "Lawful Neutral",
+                        "True Neutral",
+                        "Chaotic Neutral",
+                        "Lawful Evil",
+                        "Neutral Evil",
+                        "Chaotic Evil"
+                    ]
+                },
+                "Classes": {
+                    "type":"multipleSelect",
+                        "startAmount": 1,
                         "item": {
                             "type": "selector",
                             "item": {
@@ -301,21 +344,42 @@
                                 },
                                 "level": {
                                     "type": "textInput",
-                                    "maxChar": 2,
-                                    "initial": "1"
-                                }
-                            },
-                            "path": "assets/json/classes"
+                                    "initialValue": "1"
+                                },
+                            "path": "assets/json/classes",
+                                "openItem": true
+                            }
                         }
-                    }
                 },
                 "Species": {
                     "type": "selector",
-                    "path": "assets/json/species"
+                    "path": "assets/json/species",
+                    "openItem": true
                 },
-                "Backgrounds": {
+                "Background": {
                     "type": "selector",
-                    "path": "assets/json/backgrounds"
+                    "path": "assets/json/backgrounds",
+                    "openItem": true
+                },
+                "Starting Equipment": {
+                    "type": "map",
+                    "item": {
+                        "class": {
+                            "type": "radio",
+                            "from": {
+                                "source": "Classes",
+                                "choice": "0",
+                                "item": "startingEquipment"
+                            }
+                        },
+                        "background": {
+                            "type": "radio",
+                            "from": {
+                                "source": "Background",
+                                "item": "Equipment"
+                            }
+                        }
+                    }
                 }
             }
         }

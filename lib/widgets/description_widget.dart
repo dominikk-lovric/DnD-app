@@ -24,7 +24,7 @@ class DescriptionWidget extends ConsumerStatefulWidget {
   bool initiallyExpanded;
   List<String>? optionList;
   bool backgroundChoice;
-  List<Widget>? endWidgets;
+  bool closeButton;
 
   DescriptionWidget(
     this.title,
@@ -41,7 +41,7 @@ class DescriptionWidget extends ConsumerStatefulWidget {
     this.titleWidget,
     this.optionList = null,
     this.backgroundChoice = true,
-    this.endWidgets = null,
+        this.closeButton= true,
   });
 
   @override
@@ -256,27 +256,19 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
                               ),
                             ),
                           Flexible(child: widget.descrption),
-                          Align(
+                          if(widget.closeButton==true)Align(
                             alignment: Alignment.centerRight,
-                            child: Row(
-                              spacing: MediaQuery.sizeOf(context).height / 72,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                TextButton(
-                                  onPressed: () => Navigator.pop(context),
-                                  style: TextButton.styleFrom(
-                                    foregroundColor: colorController.getColor(
-                                      4,
-                                    ),
-                                    backgroundColor: colorController.getColor(
-                                      0,
-                                    ),
-                                  ),
-                                  child: Text("Close"),
+                            child: TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              style: TextButton.styleFrom(
+                                foregroundColor: colorController.getColor(
+                                  4,
                                 ),
-
-                                ...widget.endWidgets ?? [],
-                              ],
+                                backgroundColor: colorController.getColor(
+                                  0,
+                                ),
+                              ),
+                              child: Text("Close"),
                             ),
                           ),
                         ],
@@ -373,12 +365,7 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
                       child: SafeArea(
                         child: Padding(
                           padding: EdgeInsetsGeometry.all(20),
-                          child: Column(
-                            children: [
-                              widget.descrption,
-                              Row(children: [...widget.endWidgets ?? []]),
-                            ],
-                          ),
+                          child: widget.descrption
                         ),
                       ),
                     ),

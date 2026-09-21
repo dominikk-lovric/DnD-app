@@ -103,16 +103,7 @@ class _CharacterSelectionPageState
                     ),
                     optionList: ["page", "popUp"],
                     backgroundChoice: false,
-                    endWidgets: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        style: TextButton.styleFrom(
-                          foregroundColor: colorController.getColor(4),
-                          backgroundColor: colorController.getColor(0),
-                        ),
-                        child: Text("Submit"),
-                      ),
-                    ],
+                    closeButton: false,
                   ),
                 ),
               ),
