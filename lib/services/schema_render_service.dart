@@ -20,6 +20,7 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     String setting = "",
+        Widget? clickWidget
   }) {
     ref.watch(colorControllerProvider);
     ref.watch(textStyleControllerProvider);
@@ -38,6 +39,7 @@ class SchemaRenderService {
           Text(data.toString(), style: textStyleController.getTextStyle(4, 4)),
           setting,
           optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
+          clickWidget: clickWidget,
         );
 
       case "list":
@@ -82,6 +84,7 @@ class SchemaRenderService {
           TableWidget(data),
           setting,
           optionList: ["popUp", "page", "expand", "sheet", "static"],
+          clickWidget: clickWidget,
         );
 
       case "checkList":
@@ -90,6 +93,7 @@ class SchemaRenderService {
           CheckListWidget(data, schema["list"]),
           setting,
           optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
+          clickWidget: clickWidget,
         );
 
       case "icon":
@@ -125,6 +129,19 @@ class SchemaRenderService {
           ),
           setting,
           optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
+          clickWidget: clickWidget,
+        );
+
+      case"form":
+        return _renderForm(
+          ref,
+             context: context,
+             category: category,
+             data: data,
+             schema: schema,
+             schemata: schemata,
+             title: title,
+            clickWidget: clickWidget
         );
 
       default:
@@ -138,11 +155,26 @@ class SchemaRenderService {
             ),
             setting,
             optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
+            clickWidget: clickWidget,
           );
         }
 
         return const SizedBox.shrink();
     }
+  }
+
+  static Widget _renderForm(
+      WidgetRef ref, {
+  required BuildContext context,
+  required String category,
+  required dynamic data,
+  required Map<String, dynamic> schema,
+  required Map<String, dynamic> schemata,
+  required String title,
+  String setting = "",
+  Widget? clickWidget}
+      ){
+
   }
 
   static Widget _renderList(

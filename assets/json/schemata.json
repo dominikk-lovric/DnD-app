@@ -347,7 +347,7 @@
                                     "initialValue": "1"
                                 },
                             "path": "assets/json/classes",
-                                "openItem": true
+                            "openItem": "true"
                             }
                         }
                 },
