@@ -20,7 +20,7 @@ class SchemaRenderService {
     required Map<String, dynamic> schemata,
     required String title,
     String setting = "",
-        Widget? clickWidget
+    Widget? clickWidget,
   }) {
     ref.watch(colorControllerProvider);
     ref.watch(textStyleControllerProvider);
@@ -132,18 +132,6 @@ class SchemaRenderService {
           clickWidget: clickWidget,
         );
 
-      case"form":
-        return _renderForm(
-          ref,
-             context: context,
-             category: category,
-             data: data,
-             schema: schema,
-             schemata: schemata,
-             title: title,
-            clickWidget: clickWidget
-        );
-
       default:
         if (schemata.containsKey(type)) {
           return DescriptionWidget(
@@ -161,20 +149,6 @@ class SchemaRenderService {
 
         return const SizedBox.shrink();
     }
-  }
-
-  static Widget _renderForm(
-      WidgetRef ref, {
-  required BuildContext context,
-  required String category,
-  required dynamic data,
-  required Map<String, dynamic> schema,
-  required Map<String, dynamic> schemata,
-  required String title,
-  String setting = "",
-  Widget? clickWidget}
-      ){
-
   }
 
   static Widget _renderList(
@@ -449,6 +423,256 @@ class SchemaRenderService {
       setting,
       initiallyExpanded: true,
       optionList: ["popUp", "text", "page", "expand", "sheet", "static"],
+    );
+  }
+
+  static Widget renderForm(
+    ref,
+    context, {
+    String title = "Form",
+    required Map<String, dynamic> schema,
+    required Map<String, dynamic> schemata,
+    String setting = "DescriptionStyle",
+    Widget? clickWidget,
+  }) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+    final _formKey = GlobalKey();
+    Map<String, dynamic> selectionMap = {};
+    return DescriptionWidget(
+      title,
+      Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            ...schema["item"].keys.toList().map((el) {
+              return renderItem(
+                ref,
+                context,
+                schema: schema["item"][el],
+                schemata: schemata,
+                title: el,
+              );
+            }),
+
+            Row(
+              spacing: MediaQuery.sizeOf(context).height / 72,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: TextButton.styleFrom(
+                    foregroundColor: colorController.getColor(4),
+                    backgroundColor: colorController.getColor(0),
+                  ),
+                  child: Text("Cancel"),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  style: TextButton.styleFrom(
+                    foregroundColor: colorController.getColor(4),
+                    backgroundColor: colorController.getColor(0),
+                  ),
+                  child: Text("Submit"),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      title + setting,
+      clickWidget: clickWidget,
+      optionList: ["page", "popUp"],
+      backgroundChoice: false,
+      closeButton: false,
+    );
+  }
+
+  static Widget renderItem(
+    ref,
+    context, {
+    String title = "",
+    required Map<String, dynamic> schema,
+    required Map<String, dynamic> schemata,
+    String setting = "DescriptionStyle",
+    Widget? clickWidget,
+    int color = 3,
+  }) {
+    switch (schema["type"]) {
+      case "form":
+        return renderForm(
+          ref,
+          context,
+          title: title,
+          schema: schema,
+          schemata: schemata,
+          clickWidget: clickWidget,
+          setting: title + setting,
+        );
+      case "textInput":
+        return renderTextInput(
+          ref,
+          context,
+          title: title,
+          schema: schema,
+          schemata: schemata,
+          setting: title + setting,
+          color: color,
+        );
+      case "wrap":
+        return DescriptionWidget(
+          title,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            spacing: MediaQuery.sizeOf(context).height / 144,
+            children: [
+              ...schema["item"].keys.toList().map((el) {
+                return Expanded(
+                  child: renderItem(
+                    ref,
+                    context,
+                    title: el,
+                    schema: schema["item"][el],
+                    schemata: schemata,
+                    setting: "Wrap" + setting,
+                    color: 2,
+                  ),
+                );
+              }),
+            ],
+          ),
+          title + setting,
+          titleLevel: 5,
+        );
+      case "selector":
+        return renderSelector(
+          ref,
+          context,
+          title: title,
+          schema: schema,
+          schemata: schemata,
+          setting: "Selector" + setting,
+        );
+      default:
+        return Text(title);
+    }
+  }
+
+  static Widget renderSelector(
+    ref,
+    context, {
+    String title = "Input",
+    required Map<String, dynamic> schema,
+    required Map<String, dynamic> schemata,
+    String setting = "DescriptionStyle",
+    Widget? clickWidget,
+  }) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+    return FutureBuilder(
+      future: JsonService.loadFromPath(schema["path"]),
+      builder: ((context, snapshot) {
+        Map<String, dynamic> items;
+        dynamic initial;
+        if (schema["choices"] != null) {
+          items = schema["choices"] as Map<String, dynamic>;
+        } else {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (snapshot.hasError) {
+            return Text("Error loading data: ${snapshot.error}");
+          }
+
+          if (!snapshot.hasData) {
+            return const SizedBox.shrink();
+          }
+
+          items = Map<String, dynamic>.from(snapshot.data as Map);
+        }
+        initial = items.keys.first;
+        return DescriptionWidget(
+          title,
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).height / 144,
+              vertical: 0,
+            ),
+            decoration: BoxDecoration(
+              color: colorController.getColor(2),
+              borderRadius: BorderRadius.circular(
+                MediaQuery.sizeOf(context).height / 72,
+              ),
+            ),
+
+            child: DropdownButtonFormField(
+              icon: const SizedBox.shrink(),
+              dropdownColor: colorController.getColor(3),
+              initialValue: initial,
+              decoration: InputDecoration(
+                suffixIcon: null,
+                filled: true,
+                fillColor: Colors.transparent,
+                border: InputBorder.none,
+              ),
+              items: items.keys.toList().map((item) {
+                String i = item;
+                return DropdownMenuItem(
+                  value: i,
+                  child: Text(
+                    items[item]["name"],
+                    style: textStyleController.getTextStyle(6, 4),
+                  ),
+                );
+              }).toList(),
+              onChanged: (value) async {},
+            ),
+          ),
+          title + setting,
+          titleLevel: 5,
+        );
+      }),
+    );
+  }
+
+  static Widget renderTextInput(
+    ref,
+    context, {
+    String title = "Input",
+    required Map<String, dynamic> schema,
+    required Map<String, dynamic> schemata,
+    String setting = "DescriptionStyle",
+    Widget? clickWidget,
+    int color = 3,
+  }) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+    return DescriptionWidget(
+      title,
+      TextFormField(
+        style: textStyleController.getTextStyle(6, 4),
+        decoration: InputDecoration(
+          label: Text(title, style: textStyleController.getTextStyle(6, 5)),
+          filled: true,
+          fillColor: colorController.getColor(color),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(
+              Radius.circular(MediaQuery.sizeOf(context).height / 72),
+            ),
+          ),
+        ),
+
+        cursorColor: colorController.getColor(1),
+      ),
+      title + setting,
     );
   }
 }

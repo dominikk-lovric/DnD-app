@@ -86,14 +86,10 @@ class CharacterCreatorWidgetState
       selectedMap["species"] = selectedMap["species"] ?? speciesData.keys.first;
       selectedMap["backgrounds"] =
           selectedMap["backgrounds"] ?? backgroundData.keys.first;
-      selectedMap["startingEquipment"] =selectedMap["startingEquipment"]?? {};
-      selectedMap["stats"] =selectedMap["stats"]?? {"Str":10,
-        "Dex":10,
-        "Con":10,
-        "Int":10,
-        "Wis":10,
-        "Cha":10,
-      };
+      selectedMap["startingEquipment"] = selectedMap["startingEquipment"] ?? {};
+      selectedMap["stats"] =
+          selectedMap["stats"] ??
+          {"Str": 10, "Dex": 10, "Con": 10, "Int": 10, "Wis": 10, "Cha": 10};
     });
   }
 
@@ -430,36 +426,31 @@ class CharacterCreatorWidgetState
           Align(
             alignment: AlignmentGeometry.centerRight,
             child: Row(
-              spacing: MediaQuery.sizeOf(context).height/72,
+              spacing: MediaQuery.sizeOf(context).height / 72,
               mainAxisSize: .min,
               children: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   style: TextButton.styleFrom(
-                    foregroundColor: colorController.getColor(
-                      4,
-                    ),
-                    backgroundColor: colorController.getColor(
-                      0,
-                    ),
+                    foregroundColor: colorController.getColor(4),
+                    backgroundColor: colorController.getColor(0),
                   ),
                   child: Text("Close"),
                 ),
                 TextButton(
-                  onPressed: () {Navigator.pop(context);print(selectedMap);},
+                  onPressed: () {
+                    Navigator.pop(context);
+                    print(selectedMap);
+                  },
                   style: TextButton.styleFrom(
-                    foregroundColor: colorController.getColor(
-                      4,
-                    ),
-                    backgroundColor: colorController.getColor(
-                      0,
-                    ),
+                    foregroundColor: colorController.getColor(4),
+                    backgroundColor: colorController.getColor(0),
                   ),
                   child: Text("Submit"),
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -632,7 +623,6 @@ class CharacterCreatorWidgetState
                     ),
                   ),
                 ),
-
             ],
           ),
         );

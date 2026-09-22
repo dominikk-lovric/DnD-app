@@ -40,18 +40,22 @@ class JsonService {
     return null;
   }
 
-  static Future<dynamic> loadFromPath(String file) async {
-    String path = file.startsWith("assets/json/") ? file : "assets/json/$file";
+  static Future<dynamic> loadFromPath(String? file) async {
+    if (file != null) {
+      String path = file.startsWith("assets/json/")
+          ? file
+          : "assets/json/$file";
 
-    if (!path.endsWith(".json")) {
-      path = "$path.json";
-    }
+      if (!path.endsWith(".json")) {
+        path = "$path.json";
+      }
 
-    try {
-      final jsonString = await rootBundle.loadString(path);
-      return json.decode(jsonString);
-    } catch (e) {
-      return null;
+      try {
+        final jsonString = await rootBundle.loadString(path);
+        return json.decode(jsonString);
+      } catch (e) {
+        return null;
+      }
     }
   }
 }

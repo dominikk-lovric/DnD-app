@@ -291,65 +291,65 @@
                     "type": "textInput"
                 },
                 "Ability Scores": {
-                    "type":"Wrap",
+                    "type": "wrap",
                     "item": {
                         "Str": {
-                          "type": "textInput",
+                            "type": "textInput",
                             "initialValue": "10"
                         },
-                        "Dex":{
-                          "type": "textInput",
+                        "Dex": {
+                            "type": "textInput",
                             "initialValue": "10"
                         },
                         "Con": {
-                          "type": "textInput",
+                            "type": "textInput",
                             "initialValue": "10"
                         },
-                        "Int":{
-                          "type": "textInput",
+                        "Int": {
+                            "type": "textInput",
                             "initialValue": "10"
                         },
                         "Wis": {
-                          "type": "textInput",
+                            "type": "textInput",
                             "initialValue": "10"
                         },
-                        "Cha":{
-                          "type": "textInput",
+                        "Cha": {
+                            "type": "textInput",
                             "initialValue": "10"
                         }
                     }
                 },
                 "Alignment": {
                     "type": "selector",
-                    "items": [
-                        "Lawful Good",
-                        "Neutral Good",
-                        "Chaotic Good",
-                        "Lawful Neutral",
-                        "True Neutral",
-                        "Chaotic Neutral",
-                        "Lawful Evil",
-                        "Neutral Evil",
-                        "Chaotic Evil"
-                    ]
+                    "choices": {
+                        "1": { "name": "Lawful Good" },
+                        "2": { "name": "Neutral Good" },
+                        "3": { "name": "Chaotic Good" },
+                        "4": { "name": "Lawful Neutral" },
+                        "5": { "name": "True Neutral" },
+                        "6": { "name": "Chaotic Neutral" },
+                        "7": { "name": "Lawful Evil" },
+                        "8": { "name": "Neutral Evil" },
+                        "9": { "name": "Chaotic Evil" }
+                    }
                 },
                 "Classes": {
-                    "type":"multipleSelect",
-                        "startAmount": 1,
+                    "type": "multipleSelect",
+                    "startAmount": 1,
+                    "item": {
+                        "type": "selector",
                         "item": {
-                            "type": "selector",
-                            "item": {
-                                "remove": {
-                                    "type": "remove"
-                                },
-                                "level": {
-                                    "type": "textInput",
-                                    "initialValue": "1"
-                                },
+                            "remove": {
+                                "type": "remove"
+                            },
+                            "level": {
+                                "type": "textInput",
+                                "initialValue": "1"
+                            },
                             "path": "assets/json/classes",
                             "openItem": "true"
-                            }
                         }
+                    }
                 },
                 "Species": {
                     "type": "selector",

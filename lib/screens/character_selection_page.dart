@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/json_service.dart';
+import 'package:dnd_app/services/schema_render_service.dart';
 import 'package:dnd_app/services/settings_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/character_creator_widget.dart';
@@ -80,30 +82,53 @@ class _CharacterSelectionPageState
                     getCharacterCreatorSelector(details);
                   },
                   onTap: () {},
-                  child: DescriptionWidget(
-                    "Character Creator",
-                    CharacterCreatorWidget(),
-                    "characterCreationType",
-                    clickWidget: CircleAvatar(
-                      backgroundColor: colorController.getBasicColor(3),
-                      radius:
-                          textStyleController.getFontSize(1) *
-                          ((settingsController.getSetting("height") /
-                                  settingsController.getSetting("width")) +
-                              (settingsController.getSetting("width") /
-                                  settingsController.getSetting("height"))) /
-                          2,
-                      child: Center(
-                        child: Icon(
-                          Icons.add,
-                          size: textStyleController.getFontSize(1),
-                          color: colorController.getColor(4),
+                  child: FutureBuilder(
+                    future: JsonService.loadFromPath("schemata.json"),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+
+                      if (snapshot.hasError) {
+                        return Text("Error loading data: ${snapshot.error}");
+                      }
+
+                      if (!snapshot.hasData) {
+                        return const SizedBox.shrink();
+                      }
+
+                      final infoData = Map<String, dynamic>.from(
+                        snapshot.data as Map,
+                      );
+
+                      return SchemaRenderService.renderItem(
+                        ref,
+                        context,
+                        title: "Character Creator",
+                        schemata: infoData,
+                        schema:
+                            infoData["characterCreator"]["Character Creator"],
+                        clickWidget: CircleAvatar(
+                          backgroundColor: colorController.getBasicColor(3),
+                          radius:
+                              textStyleController.getFontSize(1) *
+                              ((settingsController.getSetting("height") /
+                                      settingsController.getSetting("width")) +
+                                  (settingsController.getSetting("width") /
+                                      settingsController.getSetting(
+                                        "height",
+                                      ))) /
+                              2,
+                          child: Center(
+                            child: Icon(
+                              Icons.add,
+                              size: textStyleController.getFontSize(1),
+                              color: colorController.getColor(4),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    optionList: ["page", "popUp"],
-                    backgroundChoice: false,
-                    closeButton: false,
+                      );
+                    },
                   ),
                 ),
               ),
