@@ -338,6 +338,7 @@
                     "startAmount": 1,
                     "item": {
                         "type": "selector",
+                        "category": "classes",
                         "item": {
                             "remove": {
                                 "type": "remove"
@@ -354,11 +355,13 @@
                 "Species": {
                     "type": "selector",
                     "path": "assets/json/species",
+                    "category": "species",
                     "openItem": true
                 },
                 "Background": {
                     "type": "selector",
                     "path": "assets/json/backgrounds",
+                    "category": "backgrounds",
                     "openItem": true
                 },
                 "Starting Equipment": {
