@@ -550,18 +550,22 @@ class SchemaRenderService {
         return renderMultipleSelecor(
           ref,
           context,
+          title: title,
           schema: schema,
           schemata: schemata,
           setting: "Multiple" + setting,
         );
       case "selector":
-        return renderSelector(
-          ref,
-          context,
-          title: title,
-          schema: schema,
-          schemata: schemata,
-          setting: "Selector" + setting,
+        return DescriptionWidget(
+          title,
+          SelectorField(
+            title: title,
+            schema: schema,
+            schemata: schemata,
+            setting: "Selector" + setting,
+          ),
+          title + "Selector" + setting,
+          titleLevel: 5,
         );
       default:
         return Text(title);
@@ -581,166 +585,27 @@ class SchemaRenderService {
     ref.watch(textStyleControllerProvider);
     final colorController = ref.read(colorControllerProvider.notifier);
     final textStyleController = ref.read(textStyleControllerProvider.notifier);
-    List<Widget> items = [];
+    List<Widget> widgets = [];
     for (int i = 0; i < schema["startAmount"]; i++) {
-      print(schema["item"]);
-      items.add(
-        renderItem(
-          ref,
-          context,
-          schema: schema["item"],
-          schemata: schemata,
-          setting: setting,
-        ),
-      );
+      widgets.add(SelectorField(schema: schema["item"], schemata: schemata));
     }
-    print(items.toString());
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.sizeOf(context).height / 144,
-        vertical: 0,
-      ),
-      decoration: BoxDecoration(
-        color: colorController.getColor(3),
-        borderRadius: BorderRadius.circular(
-          MediaQuery.sizeOf(context).height / 72,
+    return DescriptionWidget(
+      title,
+      Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.sizeOf(context).height / 144,
+          vertical: 0,
         ),
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Text("Classes", style: textStyleController.getTextStyle(5, 4)),
-            ],
+        decoration: BoxDecoration(
+          color: colorController.getColor(3),
+          borderRadius: BorderRadius.circular(
+            MediaQuery.sizeOf(context).height / 72,
           ),
-          ...items,
-        ],
+        ),
+        child: Column(children: [...widgets]),
       ),
-    );
-  }
-
-  static Widget renderSelector(
-    ref,
-    context, {
-    String title = "Input",
-    required Map<String, dynamic> schema,
-    required Map<String, dynamic> schemata,
-    String setting = "DescriptionStyle",
-    Widget? clickWidget,
-  }) {
-    ref.watch(colorControllerProvider);
-    ref.watch(textStyleControllerProvider);
-    final colorController = ref.read(colorControllerProvider.notifier);
-    final textStyleController = ref.read(textStyleControllerProvider.notifier);
-    return FutureBuilder(
-      future: JsonService.loadFromPath(schema["path"]),
-      builder: ((context, snapshot) {
-        Map<String, dynamic> items;
-        dynamic initial;
-        if (schema["choices"] != null) {
-          items = schema["choices"] as Map<String, dynamic>;
-        } else {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          if (snapshot.hasError) {
-            return Text("Error loading data: ${snapshot.error}");
-          }
-
-          if (!snapshot.hasData) {
-            return const SizedBox.shrink();
-          }
-
-          items = Map<String, dynamic>.from(snapshot.data as Map);
-        }
-        initial = items.keys.first;
-        String current = initial;
-        return DescriptionWidget(
-          title,
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.sizeOf(context).height / 144,
-              vertical: 0,
-            ),
-            decoration: BoxDecoration(
-              color: colorController.getColor(2),
-              borderRadius: BorderRadius.circular(
-                MediaQuery.sizeOf(context).height / 72,
-              ),
-            ),
-
-            child: Row(
-              children: [
-                Flexible(
-                  flex: 1,
-                  child: DropdownButtonFormField(
-                    icon: const SizedBox.shrink(),
-                    dropdownColor: colorController.getColor(3),
-                    initialValue: initial,
-                    decoration: InputDecoration(
-                      suffixIcon: null,
-                      filled: true,
-                      fillColor: Colors.transparent,
-                      border: InputBorder.none,
-                    ),
-                    items: items.keys.toList().map((item) {
-                      String i = item;
-                      return DropdownMenuItem(
-                        value: i,
-                        child: Text(
-                          items[item]["name"],
-                          style: textStyleController.getTextStyle(6, 4),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (value) async {
-                      current = value.toString();
-                    },
-                  ),
-                ),
-                if (schema["openItem"] != null)
-                  DescriptionWidget(
-                    items[current]["name"].toString(),
-                    FutureBuilder<dynamic>(
-                      future: JsonService.loadFromPath(items[current]["json"]),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-
-                        if (snapshot.hasError) {
-                          return Text("Error loading data: ${snapshot.error}");
-                        }
-
-                        if (!snapshot.hasData) {
-                          return const SizedBox.shrink();
-                        }
-
-                        final infoData = Map<String, dynamic>.from(
-                          snapshot.data as Map,
-                        );
-
-                        return DescriptionColumnWidget(infoData, schemata);
-                      },
-                    ),
-
-                    schema["category"] ?? "" + "DescriptionStyle",
-                    clickWidget: Icon(
-                      Icons.open_in_new,
-                      color: colorController.getColor(4),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-          title + setting,
-          titleLevel: 5,
-        );
-      }),
+      title + "Multiple" + setting,
+      titleLevel: 5,
     );
   }
 
@@ -777,6 +642,145 @@ class SchemaRenderService {
         cursorColor: colorController.getColor(1),
       ),
       title + setting,
+    );
+  }
+}
+
+class SelectorField extends ConsumerStatefulWidget {
+  String title;
+  Map<String, dynamic> schema;
+  Map<String, dynamic> schemata;
+  String setting;
+  Widget? clickWidget;
+  SelectorField({
+    this.title = "Input",
+    required this.schema,
+    required this.schemata,
+    this.setting = "DescriptionStyle",
+    this.clickWidget,
+  });
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _SelectorFieldState();
+  }
+}
+
+class _SelectorFieldState extends ConsumerState<SelectorField> {
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
+
+  bool loaded = false;
+  Map<String, dynamic> items = {};
+  String current = "";
+  @override
+  void initState() {
+    super.initState();
+    loadItems();
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
+  }
+
+  Future<void> loadItems() async {
+    print(widget.schema);
+    print(widget.schema["path"]);
+    Map<String, dynamic> item = {};
+    if (widget.schema["path"] != null) {
+      print("PATH");
+      item = await JsonService.loadFromPath(widget.schema["path"]);
+    } else {
+      item = widget.schema["choices"] ?? {"null": "null "};
+    }
+    print(item.keys.first);
+    print("\n\n");
+    setState(() {
+      items = item;
+      current = items.keys.first;
+      loaded = true;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!loaded) {
+      return Center(child: CircularProgressIndicator());
+    }
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.sizeOf(context).height / 144,
+        vertical: 0,
+      ),
+      decoration: BoxDecoration(
+        color: colorController.getColor(2),
+        borderRadius: BorderRadius.circular(
+          MediaQuery.sizeOf(context).height / 72,
+        ),
+      ),
+
+      child: Row(
+        children: [
+          Flexible(
+            flex: 1,
+            child: DropdownButtonFormField(
+              icon: const SizedBox.shrink(),
+              dropdownColor: colorController.getColor(3),
+              initialValue: items.keys.first,
+              decoration: InputDecoration(
+                suffixIcon: null,
+                filled: true,
+                fillColor: Colors.transparent,
+                border: InputBorder.none,
+              ),
+              items: items.keys.toList().map((item) {
+                String i = item;
+                return DropdownMenuItem(
+                  value: i,
+                  child: Text(
+                    items[item]["name"],
+                    style: textStyleController.getTextStyle(6, 4),
+                  ),
+                );
+              }).toList(),
+              onChanged: (value) async {
+                setState(() {
+                  current = value.toString();
+                });
+              },
+            ),
+          ),
+          if (widget.schema["openItem"] != null)
+            DescriptionWidget(
+              items[current]["name"].toString(),
+              FutureBuilder<dynamic>(
+                future: JsonService.loadFromPath(items[current]["json"]),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+
+                  if (snapshot.hasError) {
+                    return Text("Error loading data: ${snapshot.error}");
+                  }
+
+                  if (!snapshot.hasData) {
+                    return const SizedBox.shrink();
+                  }
+
+                  final infoData = Map<String, dynamic>.from(
+                    snapshot.data as Map,
+                  );
+
+                  return DescriptionColumnWidget(infoData, widget.schemata);
+                },
+              ),
+
+              widget.schema["category"] ?? "" + "DescriptionStyle",
+              clickWidget: Icon(
+                Icons.open_in_new,
+                color: colorController.getColor(4),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

@@ -346,10 +346,10 @@
                             "level": {
                                 "type": "textInput",
                                 "initialValue": "1"
-                            },
-                            "path": "assets/json/classes",
-                            "openItem": "true"
-                        }
+                            }
+                        },
+                        "openItem": "true",
+                        "path": "assets/json/classes"
                     }
                 },
                 "Species": {
