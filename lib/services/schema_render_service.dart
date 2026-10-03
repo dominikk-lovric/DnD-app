@@ -440,7 +440,7 @@ class SchemaRenderService {
     final colorController = ref.read(colorControllerProvider.notifier);
     final textStyleController = ref.read(textStyleControllerProvider.notifier);
     final _formKey = GlobalKey();
-    Map<String, dynamic> selectionMap = {};
+    Map<String, dynamic> formMap = {};
     return DescriptionWidget(
       title,
       Form(
@@ -454,6 +454,7 @@ class SchemaRenderService {
                 schema: schema["item"][el],
                 schemata: schemata,
                 title: el,
+                dataMap: formMap,
               );
             }),
 
@@ -496,6 +497,7 @@ class SchemaRenderService {
     String title = "",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
+    required Map<String, dynamic?> dataMap,
     String setting = "DescriptionStyle",
     Widget? clickWidget,
     int color = 3,
@@ -512,6 +514,7 @@ class SchemaRenderService {
           setting: title + setting,
         );
       case "textInput":
+        dataMap[title] = "";
         return renderTextInput(
           ref,
           context,
@@ -520,8 +523,35 @@ class SchemaRenderService {
           schemata: schemata,
           setting: title + setting,
           color: color,
+          dataMap: dataMap,
+        );
+      case "column":
+        dataMap.putIfAbsent(title, () => <String, dynamic>{});
+
+        final childData = dataMap[title] as Map<String, dynamic>;
+        return DescriptionWidget(
+          title,
+          Column(
+            children: [
+              ...schema["item"].keys.toList().map((el) {
+                return renderItem(
+                  ref,
+                  context,
+                  schema: schema["item"][el],
+                  schemata: schemata,
+                  dataMap: childData,
+                );
+              }),
+            ],
+          ),
+          "Column" + setting,
+          titleLevel: 5,
         );
       case "wrap":
+        dataMap.putIfAbsent(title, () => <String, dynamic>{});
+
+        final childData = dataMap[title] as Map<String, dynamic>;
+
         return DescriptionWidget(
           title,
           Row(
@@ -538,6 +568,7 @@ class SchemaRenderService {
                     schemata: schemata,
                     setting: "Wrap" + setting,
                     color: 2,
+                    dataMap: childData,
                   ),
                 );
               }),
@@ -553,9 +584,13 @@ class SchemaRenderService {
           title: title,
           schema: schema,
           schemata: schemata,
+          dataMap: dataMap,
           setting: "Multiple" + setting,
         );
       case "selector":
+        final selectorData =
+            dataMap.putIfAbsent(title, () => <String, dynamic>{})
+                as Map<String, dynamic>;
         return DescriptionWidget(
           title,
           SelectorField(
@@ -563,6 +598,7 @@ class SchemaRenderService {
             schema: schema,
             schemata: schemata,
             setting: "Selector" + setting,
+            dataMap: dataMap[title],
           ),
           title + "Selector" + setting,
           titleLevel: 5,
@@ -578,6 +614,7 @@ class SchemaRenderService {
     String title = "Input",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
+    required Map<String, dynamic?> dataMap,
     String setting = "DescriptionStyle",
     Widget? clickWidget,
   }) {
@@ -585,27 +622,63 @@ class SchemaRenderService {
     ref.watch(textStyleControllerProvider);
     final colorController = ref.read(colorControllerProvider.notifier);
     final textStyleController = ref.read(textStyleControllerProvider.notifier);
+    dataMap.putIfAbsent(title, () => <String, dynamic>{});
     List<Widget> widgets = [];
     for (int i = 0; i < schema["startAmount"]; i++) {
-      widgets.add(SelectorField(schema: schema["item"], schemata: schemata));
+      widgets.add(
+        SelectorField(
+          schema: schema["item"],
+          schemata: schemata,
+          dataMap: dataMap[title],
+        ),
+      );
     }
-    return DescriptionWidget(
-      title,
-      Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.sizeOf(context).height / 144,
-          vertical: 0,
-        ),
-        decoration: BoxDecoration(
-          color: colorController.getColor(3),
-          borderRadius: BorderRadius.circular(
-            MediaQuery.sizeOf(context).height / 72,
+    return StatefulBuilder(
+      builder: (context, setState) {
+        return DescriptionWidget(
+          title,
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.sizeOf(context).height / 144,
+              vertical: 0,
+            ),
+            decoration: BoxDecoration(
+              color: colorController.getColor(3),
+              borderRadius: BorderRadius.circular(
+                MediaQuery.sizeOf(context).height / 72,
+              ),
+            ),
+            child: Column(children: [...widgets]),
           ),
-        ),
-        child: Column(children: [...widgets]),
-      ),
-      title + "Multiple" + setting,
-      titleLevel: 5,
+          title + "Multiple" + setting,
+          titleWidget: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(title, style: textStyleController.getTextStyle(5, 4)),
+              IconButton(
+                icon: Icon(
+                  Icons.add_box_outlined,
+                  color: colorController.getColor(4),
+                ),
+                onPressed: () {
+                  List<Widget> widgetList = widgets;
+                  widgetList.add(
+                    SelectorField(
+                      schema: schema["item"],
+                      schemata: schemata,
+                      dataMap: dataMap[title],
+                    ),
+                  );
+                  setState(() {
+                    widgets = widgetList;
+                    print(widgets.length);
+                  });
+                },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
@@ -615,10 +688,12 @@ class SchemaRenderService {
     String title = "Input",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
+    required Map<String, dynamic?> dataMap,
     String setting = "DescriptionStyle",
     Widget? clickWidget,
     int color = 3,
   }) {
+    dataMap[title] = schema["initialValue"];
     ref.watch(colorControllerProvider);
     ref.watch(textStyleControllerProvider);
     final colorController = ref.read(colorControllerProvider.notifier);
@@ -627,6 +702,7 @@ class SchemaRenderService {
       title,
       TextFormField(
         style: textStyleController.getTextStyle(6, 4),
+        initialValue: schema["initialValue"],
         decoration: InputDecoration(
           label: Text(title, style: textStyleController.getTextStyle(6, 5)),
           filled: true,
@@ -640,6 +716,10 @@ class SchemaRenderService {
         ),
 
         cursorColor: colorController.getColor(1),
+        onChanged: (value) {
+          dataMap[title] = value;
+          print(dataMap);
+        },
       ),
       title + setting,
     );
@@ -652,10 +732,12 @@ class SelectorField extends ConsumerStatefulWidget {
   Map<String, dynamic> schemata;
   String setting;
   Widget? clickWidget;
+  Map<String, dynamic?> dataMap;
   SelectorField({
     this.title = "Input",
     required this.schema,
     required this.schemata,
+    required Map<String, dynamic> this.dataMap,
     this.setting = "DescriptionStyle",
     this.clickWidget,
   });
@@ -688,13 +770,16 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
       print("PATH");
       item = await JsonService.loadFromPath(widget.schema["path"]);
     } else {
-      item = widget.schema["choices"] ?? {"null": "null "};
+      item = Map<String, dynamic>.from(
+        widget.schema["choices"] ?? {"null": "null"},
+      );
     }
     print(item.keys.first);
     print("\n\n");
     setState(() {
       items = item;
       current = items.keys.first;
+      widget.dataMap["value"] = current;
       loaded = true;
     });
   }
@@ -718,8 +803,21 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
 
       child: Row(
         children: [
+          ...(widget.schema["item"] ?? {}).keys.toList().map((el) {
+            print(el);
+            print(widget.schema["item"][el]);
+            return Flexible(
+              child: SchemaRenderService.renderItem(
+                ref,
+                context,
+                schema: widget.schema["item"][el],
+                schemata: widget.schemata,
+                dataMap: widget.dataMap,
+              ),
+            );
+          }),
           Flexible(
-            flex: 1,
+            flex: 4,
             child: DropdownButtonFormField(
               icon: const SizedBox.shrink(),
               dropdownColor: colorController.getColor(3),
@@ -742,7 +840,9 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
               }).toList(),
               onChanged: (value) async {
                 setState(() {
+                  widget.dataMap["value"] = value;
                   current = value.toString();
+                  print(widget.dataMap);
                 });
               },
             ),

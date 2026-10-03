@@ -106,6 +106,7 @@ class _CharacterSelectionPageState
                         context,
                         title: "Character Creator",
                         schemata: infoData,
+                        dataMap: {},
                         schema:
                             infoData["characterCreator"]["Character Creator"],
                         clickWidget: CircleAvatar(

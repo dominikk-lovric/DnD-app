@@ -340,9 +340,6 @@
                         "type": "selector",
                         "category": "classes",
                         "item": {
-                            "remove": {
-                                "type": "remove"
-                            },
                             "level": {
                                 "type": "textInput",
                                 "initialValue": "1"
@@ -365,7 +362,7 @@
                     "openItem": true
                 },
                 "Starting Equipment": {
-                    "type": "map",
+                    "type": "column",
                     "item": {
                         "class": {
                             "type": "radio",
