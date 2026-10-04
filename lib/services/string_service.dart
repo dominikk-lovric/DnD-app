@@ -17,9 +17,9 @@ class StringService {
     String res = "";
     for (int i = 0; i < list.length; i++) {
       res += list[i].toString();
-      if (i != list.length - 1 || i != list.length - 2) {
+      if (i != list.length - 1 && i != list.length - 2) {
         res += ", ";
-      } else if (i != list.length - 2) {
+      } else if (i != list.length - 1) {
         res += " $end ";
       }
     }
@@ -45,5 +45,11 @@ class StringService {
     name = name.toLowerCase();
     name = name.replaceAll(" ", "-");
     return name;
+  }
+
+  static String joinPath(String parent, String child) {
+    if (parent.isEmpty) return child;
+    if (child.isEmpty) return parent;
+    return "$parent.$child";
   }
 }

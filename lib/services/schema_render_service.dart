@@ -1,4 +1,5 @@
 import 'package:dnd_app/services/color_service.dart';
+import 'package:dnd_app/services/form_service.dart';
 import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
@@ -430,21 +431,20 @@ class SchemaRenderService {
     ref,
     context, {
     String title = "Form",
+    String path = "",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
     String setting = "DescriptionStyle",
     Widget? clickWidget,
+    String formId = "form",
   }) {
     ref.watch(colorControllerProvider);
     ref.watch(textStyleControllerProvider);
     final colorController = ref.read(colorControllerProvider.notifier);
-    final textStyleController = ref.read(textStyleControllerProvider.notifier);
-    final _formKey = GlobalKey();
-    Map<String, dynamic> formMap = {};
+    final formController = ref.read(formControllerProvider(formId).notifier);
     return DescriptionWidget(
       title,
       Form(
-        key: _formKey,
         child: Column(
           children: [
             ...schema["item"].keys.toList().map((el) {
@@ -454,16 +454,19 @@ class SchemaRenderService {
                 schema: schema["item"][el],
                 schemata: schemata,
                 title: el,
-                dataMap: formMap,
+                path: path,
+                formId: formId,
               );
             }),
-
             Row(
               spacing: MediaQuery.sizeOf(context).height / 72,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    formController.reset();
+                    Navigator.pop(context);
+                  },
                   style: TextButton.styleFrom(
                     foregroundColor: colorController.getColor(4),
                     backgroundColor: colorController.getColor(0),
@@ -471,7 +474,9 @@ class SchemaRenderService {
                   child: Text("Cancel"),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   style: TextButton.styleFrom(
                     foregroundColor: colorController.getColor(4),
                     backgroundColor: colorController.getColor(0),
@@ -495,26 +500,29 @@ class SchemaRenderService {
     ref,
     context, {
     String title = "",
+    String path = "",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
-    required Map<String, dynamic?> dataMap,
+    String formId = "form",
     String setting = "DescriptionStyle",
     Widget? clickWidget,
     int color = 3,
   }) {
+    final here = StringService.joinPath(path, title);
     switch (schema["type"]) {
       case "form":
         return renderForm(
           ref,
           context,
           title: title,
+          path: here,
           schema: schema,
           schemata: schemata,
           clickWidget: clickWidget,
-          setting: title + setting,
+          setting: title + "." + setting,
+          formId: formId,
         );
       case "textInput":
-        dataMap[title] = "";
         return renderTextInput(
           ref,
           context,
@@ -523,12 +531,10 @@ class SchemaRenderService {
           schemata: schemata,
           setting: title + setting,
           color: color,
-          dataMap: dataMap,
+          path: here,
+          formId: formId,
         );
       case "column":
-        dataMap.putIfAbsent(title, () => <String, dynamic>{});
-
-        final childData = dataMap[title] as Map<String, dynamic>;
         return DescriptionWidget(
           title,
           Column(
@@ -537,9 +543,11 @@ class SchemaRenderService {
                 return renderItem(
                   ref,
                   context,
+                  title: el,
+                  path: here,
                   schema: schema["item"][el],
                   schemata: schemata,
-                  dataMap: childData,
+                  formId: formId,
                 );
               }),
             ],
@@ -548,10 +556,6 @@ class SchemaRenderService {
           titleLevel: 5,
         );
       case "wrap":
-        dataMap.putIfAbsent(title, () => <String, dynamic>{});
-
-        final childData = dataMap[title] as Map<String, dynamic>;
-
         return DescriptionWidget(
           title,
           Row(
@@ -564,11 +568,12 @@ class SchemaRenderService {
                     ref,
                     context,
                     title: el,
+                    path: here,
                     schema: schema["item"][el],
                     schemata: schemata,
                     setting: "Wrap" + setting,
                     color: 2,
-                    dataMap: childData,
+                    formId: formId,
                   ),
                 );
               }),
@@ -582,26 +587,35 @@ class SchemaRenderService {
           ref,
           context,
           title: title,
+          path: here,
           schema: schema,
           schemata: schemata,
-          dataMap: dataMap,
           setting: "Multiple" + setting,
+          formId: formId,
+          color: 2,
         );
       case "selector":
-        final selectorData =
-            dataMap.putIfAbsent(title, () => <String, dynamic>{})
-                as Map<String, dynamic>;
         return DescriptionWidget(
           title,
           SelectorField(
             title: title,
+            path: here,
             schema: schema,
             schemata: schemata,
             setting: "Selector" + setting,
-            dataMap: dataMap[title],
+            formId: formId,
           ),
           title + "Selector" + setting,
           titleLevel: 5,
+        );
+      case "radio":
+        return RadioField(
+          schema: schema,
+          schemata: schemata,
+          formId: formId,
+          setting: title + setting,
+          title: title,
+          path: here,
         );
       default:
         return Text(title);
@@ -614,71 +628,20 @@ class SchemaRenderService {
     String title = "Input",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
-    required Map<String, dynamic?> dataMap,
+    String formId = "form",
     String setting = "DescriptionStyle",
     Widget? clickWidget,
+    String path = "",
+    int color = 3,
   }) {
-    ref.watch(colorControllerProvider);
-    ref.watch(textStyleControllerProvider);
-    final colorController = ref.read(colorControllerProvider.notifier);
-    final textStyleController = ref.read(textStyleControllerProvider.notifier);
-    dataMap.putIfAbsent(title, () => <String, dynamic>{});
-    List<Widget> widgets = [];
-    for (int i = 0; i < schema["startAmount"]; i++) {
-      widgets.add(
-        SelectorField(
-          schema: schema["item"],
-          schemata: schemata,
-          dataMap: dataMap[title],
-        ),
-      );
-    }
-    return StatefulBuilder(
-      builder: (context, setState) {
-        return DescriptionWidget(
-          title,
-          Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.sizeOf(context).height / 144,
-              vertical: 0,
-            ),
-            decoration: BoxDecoration(
-              color: colorController.getColor(3),
-              borderRadius: BorderRadius.circular(
-                MediaQuery.sizeOf(context).height / 72,
-              ),
-            ),
-            child: Column(children: [...widgets]),
-          ),
-          title + "Multiple" + setting,
-          titleWidget: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(title, style: textStyleController.getTextStyle(5, 4)),
-              IconButton(
-                icon: Icon(
-                  Icons.add_box_outlined,
-                  color: colorController.getColor(4),
-                ),
-                onPressed: () {
-                  List<Widget> widgetList = widgets;
-                  widgetList.add(
-                    SelectorField(
-                      schema: schema["item"],
-                      schemata: schemata,
-                      dataMap: dataMap[title],
-                    ),
-                  );
-                  setState(() {
-                    widgets = widgetList;
-                    print(widgets.length);
-                  });
-                },
-              ),
-            ],
-          ),
-        );
-      },
+    return MultipleSelectField(
+      title: title,
+      schema: schema,
+      schemata: schemata,
+      formId: formId,
+      path: path,
+      setting: setting,
+      color: color,
     );
   }
 
@@ -688,99 +651,279 @@ class SchemaRenderService {
     String title = "Input",
     required Map<String, dynamic> schema,
     required Map<String, dynamic> schemata,
-    required Map<String, dynamic?> dataMap,
+    String path = "",
+    String formId = "form",
     String setting = "DescriptionStyle",
     Widget? clickWidget,
-    int color = 3,
+    int color = 2,
   }) {
-    dataMap[title] = schema["initialValue"];
-    ref.watch(colorControllerProvider);
-    ref.watch(textStyleControllerProvider);
-    final colorController = ref.read(colorControllerProvider.notifier);
-    final textStyleController = ref.read(textStyleControllerProvider.notifier);
     return DescriptionWidget(
       title,
-      TextFormField(
-        style: textStyleController.getTextStyle(6, 4),
-        initialValue: schema["initialValue"],
-        decoration: InputDecoration(
-          label: Text(title, style: textStyleController.getTextStyle(6, 5)),
-          filled: true,
-          fillColor: colorController.getColor(color),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(
-              Radius.circular(MediaQuery.sizeOf(context).height / 72),
-            ),
-          ),
-        ),
-
-        cursorColor: colorController.getColor(1),
-        onChanged: (value) {
-          dataMap[title] = value;
-          print(dataMap);
-        },
+      FormTextField(
+        title: title,
+        formId: formId,
+        path: path,
+        initialValue: (schema["initialValue"] ?? "").toString(),
+        color: color,
       ),
       title + setting,
     );
   }
 }
 
+class FormTextField extends ConsumerStatefulWidget {
+  const FormTextField({
+    super.key,
+    required this.title,
+    required this.formId,
+    required this.path,
+    this.initialValue = "",
+    this.color = 2,
+  });
+  final String title;
+  final String formId;
+  final String path;
+  final String initialValue;
+  final int color;
+
+  @override
+  ConsumerState<FormTextField> createState() => _FormTextFieldState();
+}
+
+class _FormTextFieldState extends ConsumerState<FormTextField> {
+  late final FormController formController;
+  late final List<String> path;
+  late final String startText;
+
+  @override
+  void initState() {
+    super.initState();
+    formController = ref.read(formControllerProvider(widget.formId).notifier);
+    path = widget.path.split(".");
+    final saved = formController.getValue(path);
+    startText = saved is String ? saved : widget.initialValue;
+    Future.microtask(() {
+      if (!mounted) return;
+      formController.initPath(path, widget.initialValue);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+    return TextFormField(
+      scrollPadding: EdgeInsets.all(0),
+      style: textStyleController.getTextStyle(6, 4),
+      initialValue: startText,
+      decoration: InputDecoration(
+        label: Text(
+          widget.title,
+          style: textStyleController.getTextStyle(6, 5),
+        ),
+        filled: true,
+        fillColor: colorController.getColor(widget.color),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(
+            Radius.circular(MediaQuery.sizeOf(context).height / 72),
+          ),
+        ),
+      ),
+      cursorColor: colorController.getColor(1),
+      onChanged: (value) => formController.setValue(path, value),
+    );
+  }
+}
+
+class MultipleSelectField extends ConsumerStatefulWidget {
+  const MultipleSelectField({
+    super.key,
+    required this.title,
+    required this.schema,
+    required this.schemata,
+    required this.formId,
+    required this.path,
+    this.setting = "DescriptionStyle",
+    this.color = 3,
+  });
+  final String title;
+  final Map<String, dynamic> schema;
+  final Map<String, dynamic> schemata;
+  final String formId;
+  final String path;
+  final String setting;
+  final int color;
+
+  @override
+  ConsumerState<MultipleSelectField> createState() =>
+      _MultipleSelectFieldState();
+}
+
+class _MultipleSelectFieldState extends ConsumerState<MultipleSelectField> {
+  late final FormController formController;
+  late final List<String> path;
+  late final List<int> rowIds;
+  late int nextId;
+
+  @override
+  void initState() {
+    super.initState();
+    formController = ref.read(formControllerProvider(widget.formId).notifier);
+    path = widget.path.split(".");
+    final existing = formController.getValue(path);
+    if (existing is Map && existing.isNotEmpty) {
+      rowIds = existing.keys.map((k) => int.parse(k.toString())).toList()
+        ..sort();
+    } else {
+      final int start = widget.schema["startAmount"] ?? 1;
+      rowIds = List.generate(start, (i) => i);
+    }
+    nextId = rowIds.isEmpty ? 0 : rowIds.last + 1;
+    Future.microtask(() {
+      if (!mounted) return;
+      formController.initPath(path, <String, dynamic>{});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final textStyleController = ref.read(textStyleControllerProvider.notifier);
+    final unit = MediaQuery.sizeOf(context).height;
+    return DescriptionWidget(
+      widget.title,
+      Column(
+        children: [
+          for (int i = 0; i < rowIds.length; i++)
+            Container(
+              key: ValueKey(rowIds[i]),
+              padding: EdgeInsets.symmetric(
+                horizontal: unit / 144,
+                vertical: 0,
+              ),
+              decoration: BoxDecoration(
+                color: colorController.getColor(widget.color),
+                borderRadius: BorderRadius.circular(unit / 72),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (i != 0)
+                    IconButton(
+                      onPressed: () {
+                        final id = rowIds[i];
+                        formController.remove([...path, "$id"]);
+                        setState(() => rowIds.removeAt(i));
+                      },
+                      icon: Icon(
+                        Icons.cancel_outlined,
+                        color: colorController.getColor(4),
+                      ),
+                    ),
+                  Flexible(
+                    child: SelectorField(
+                      schema: widget.schema["item"],
+                      schemata: widget.schemata,
+                      formId: widget.formId,
+                      path: StringService.joinPath(widget.path, "${rowIds[i]}"),
+                      color: 3,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+      widget.title + "Multiple" + widget.setting,
+      titleWidget: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(widget.title, style: textStyleController.getTextStyle(5, 4)),
+          IconButton(
+            icon: Icon(
+              Icons.add_box_outlined,
+              color: colorController.getColor(4),
+            ),
+            onPressed: () => setState(() => rowIds.add(nextId++)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class SelectorField extends ConsumerStatefulWidget {
-  String title;
-  Map<String, dynamic> schema;
-  Map<String, dynamic> schemata;
-  String setting;
-  Widget? clickWidget;
-  Map<String, dynamic?> dataMap;
-  SelectorField({
+  const SelectorField({
+    super.key,
     this.title = "Input",
     required this.schema,
     required this.schemata,
-    required Map<String, dynamic> this.dataMap,
+    required this.path,
+    this.formId = "form",
     this.setting = "DescriptionStyle",
     this.clickWidget,
+    this.color = 2,
   });
+  final String title;
+  final Map<String, dynamic> schema;
+  final Map<String, dynamic> schemata;
+  final String path;
+  final String formId;
+  final String setting;
+  final Widget? clickWidget;
+  final int color;
+
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() {
-    return _SelectorFieldState();
-  }
+  ConsumerState<SelectorField> createState() => _SelectorFieldState();
 }
 
 class _SelectorFieldState extends ConsumerState<SelectorField> {
   late final ColorController colorController;
   late final TextStyleController textStyleController;
+  late final FormController formController;
+  late final List<String> valuePath;
 
   bool loaded = false;
   Map<String, dynamic> items = {};
   String current = "";
+
   @override
   void initState() {
     super.initState();
-    loadItems();
     colorController = ref.read(colorControllerProvider.notifier);
     textStyleController = ref.read(textStyleControllerProvider.notifier);
+    formController = ref.read(formControllerProvider(widget.formId).notifier);
+    valuePath = [...widget.path.split("."), "value"];
+    loadItems();
   }
 
   Future<void> loadItems() async {
-    print(widget.schema);
-    print(widget.schema["path"]);
     Map<String, dynamic> item = {};
     if (widget.schema["path"] != null) {
-      print("PATH");
       item = await JsonService.loadFromPath(widget.schema["path"]);
     } else {
       item = Map<String, dynamic>.from(
         widget.schema["choices"] ?? {"null": "null"},
       );
     }
-    print(item.keys.first);
-    print("\n\n");
+    if (!mounted) return;
+    final saved = formController.getValue(valuePath);
+    final start = (saved is String && item.containsKey(saved))
+        ? saved
+        : item.keys.first;
     setState(() {
       items = item;
-      current = items.keys.first;
-      widget.dataMap["value"] = current;
+      current = start;
       loaded = true;
+    });
+    Future.microtask(() {
+      if (!mounted) return;
+      formController.setValue(valuePath, start);
     });
   }
 
@@ -789,98 +932,279 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
     if (!loaded) {
       return Center(child: CircularProgressIndicator());
     }
+    return Row(
+      children: [
+        ...(widget.schema["item"] ?? {}).keys.toList().map((el) {
+          return Flexible(
+            child: SchemaRenderService.renderItem(
+              ref,
+              context,
+              title: el,
+              path: widget.path,
+              schema: widget.schema["item"][el],
+              schemata: widget.schemata,
+              formId: widget.formId,
+              color: widget.color,
+            ),
+          );
+        }),
+        Flexible(
+          flex: 4,
+          child: DropdownButtonFormField(
+            icon: const SizedBox.shrink(),
+            dropdownColor: colorController.getColor(widget.color),
+            initialValue: current,
+            decoration: InputDecoration(
+              suffixIcon: null,
+              filled: true,
+              fillColor: colorController.getColor(widget.color),
+              border: ShapedInputBorder(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(
+                    MediaQuery.sizeOf(context).height / 72,
+                  ),
+                ),
+                borderSide: BorderSide.none,
+              ),
+            ),
+            items: items.keys.toList().map((item) {
+              String i = item;
+              return DropdownMenuItem(
+                value: i,
+                child: Text(
+                  items[item]["name"],
+                  style: textStyleController.getTextStyle(6, 4),
+                ),
+              );
+            }).toList(),
+            onChanged: (value) {
+              if (value == null) return;
+              formController.setValue(valuePath, value);
+              setState(() => current = value.toString());
+            },
+          ),
+        ),
+        if (widget.schema["openItem"] != null)
+          DescriptionWidget(
+            items[current]["name"].toString(),
+            FutureBuilder<dynamic>(
+              future: JsonService.loadFromPath(items[current]["json"]),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (snapshot.hasError) {
+                  return Text("Error loading data: ${snapshot.error}");
+                }
+                if (!snapshot.hasData) {
+                  return const SizedBox.shrink();
+                }
+                final infoData = Map<String, dynamic>.from(
+                  snapshot.data as Map,
+                );
+                return DescriptionColumnWidget(infoData, widget.schemata);
+              },
+            ),
+            widget.schema["category"] ?? "" + "DescriptionStyle",
+            clickWidget: Icon(
+              Icons.open_in_new,
+              color: colorController.getColor(4),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class RadioField extends ConsumerStatefulWidget {
+  RadioField({
+    super.key,
+    this.title = "Radio",
+    required this.schema,
+    required this.schemata,
+    this.formId = "form",
+    this.setting = "DescriptionStyle",
+    this.clickWidget,
+    this.path = "",
+    this.color = 2,
+  });
+  final String title;
+  final Map<String, dynamic> schema;
+  final Map<String, dynamic> schemata;
+  final String formId;
+  final String setting;
+  final Widget? clickWidget;
+  String path;
+  final int color;
+
+  @override
+  ConsumerState<RadioField> createState() => _RadioFieldState();
+}
+
+class _RadioFieldState extends ConsumerState<RadioField> {
+  List<dynamic> options = [];
+  bool loaded = false;
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
+  late final FormController formController;
+
+  List<String>? sourcePath;
+  dynamic lastSource;
+  bool first = true;
+  int loadId = 0;
+
+  dynamic readPath(dynamic cur, List<String> path) {
+    for (final k in path) {
+      if (cur is! Map) return null;
+      cur = cur[k];
+    }
+    return cur;
+  }
+
+  @override
+  initState() {
+    super.initState();
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
+    formController = ref.read(formControllerProvider(widget.formId).notifier);
+
+    final src = widget.schema["from"]["source"];
+    if (src != null) {
+      final sp = src is String ? src.split(".") : List<String>.from(src);
+      final root = widget.path.split(".").first;
+      sourcePath = sp.first == root ? sp : [root, ...sp];
+    }
+  }
+
+  Future<void> getOptions(dynamic source) async {
+    final id = ++loadId;
+    Map<String, dynamic> from = widget.schema["from"];
+    List<dynamic> temp = [];
+    if (from["options"] != null) {
+      temp = from["options"];
+    } else {
+      Map<String, dynamic> path = await JsonService.loadFromPath(from["path"]);
+      if (from["source"] != null) {
+        if (source is Map) source = source["value"];
+        source ??= path.keys.first;
+        path = await JsonService.loadFromPath(path[source]["json"]);
+        if (from["item"] != null) {
+          temp = path[from["item"]];
+        }
+      } else {
+        temp = path.entries.toList();
+      }
+    }
+    if (!mounted || id != loadId) return;
+    setState(() {
+      options = temp;
+      loaded = true;
+    });
+
+    Future.microtask(() {
+      if (!mounted || options.isEmpty) return;
+      final labels = options.map((e) => e.toString()).toList();
+      final valuePath = widget.path.split(".");
+      if (!labels.contains(formController.getValue(valuePath))) {
+        formController.setValue(valuePath, labels.first);
+      }
+    });
+  }
+
+  @override
+  @override
+  Widget build(BuildContext context) {
+    final sp = sourcePath;
+    final dynamic source = sp == null
+        ? null
+        : ref.watch(
+            formControllerProvider(
+              widget.formId,
+            ).select((m) => readPath(m, sp)),
+          );
+
+    if (first || source != lastSource) {
+      first = false;
+      lastSource = source;
+      Future.microtask(() => getOptions(source));
+    }
+    if (!loaded) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    final valuePath = widget.path.split(".");
+
+    final selected = ref.watch(
+      formControllerProvider(widget.formId).select((m) {
+        dynamic cur = m;
+        for (final k in valuePath) {
+          if (cur is! Map) return null;
+          cur = cur[k];
+        }
+        return cur;
+      }),
+    );
+
+    final unit = MediaQuery.sizeOf(context).height;
+
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.sizeOf(context).height / 144,
-        vertical: 0,
+        horizontal: unit / 144,
+        vertical: unit / 72,
       ),
       decoration: BoxDecoration(
-        color: colorController.getColor(2),
-        borderRadius: BorderRadius.circular(
-          MediaQuery.sizeOf(context).height / 72,
-        ),
+        color: colorController.getColor(widget.color),
+        borderRadius: BorderRadius.circular(unit / 72),
       ),
-
-      child: Row(
+      child: Column(
+        spacing: unit / 72,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ...(widget.schema["item"] ?? {}).keys.toList().map((el) {
-            print(el);
-            print(widget.schema["item"][el]);
-            return Flexible(
-              child: SchemaRenderService.renderItem(
-                ref,
-                context,
-                schema: widget.schema["item"][el],
-                schemata: widget.schemata,
-                dataMap: widget.dataMap,
+          Text(
+            "From " + widget.title,
+            style: textStyleController.getTextStyle(5, 4),
+          ),
+          ...options.map((el) {
+            return Container(
+              padding: EdgeInsets.symmetric(horizontal: unit / 144),
+              decoration: BoxDecoration(
+                color: colorController.getColor((widget.color == 2) ? 3 : 2),
+                borderRadius: BorderRadius.circular(unit / 72),
+              ),
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {
+                  formController.setValue(valuePath, el.toString());
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      el.toString() == selected
+                          ? Icons.radio_button_on
+                          : Icons.radio_button_off,
+                      color: colorController.getColor(4),
+                    ),
+                    Expanded(
+                      child: Text(
+                        elToString(el),
+                        style: textStyleController.getTextStyle(5, 4),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           }),
-          Flexible(
-            flex: 4,
-            child: DropdownButtonFormField(
-              icon: const SizedBox.shrink(),
-              dropdownColor: colorController.getColor(3),
-              initialValue: items.keys.first,
-              decoration: InputDecoration(
-                suffixIcon: null,
-                filled: true,
-                fillColor: Colors.transparent,
-                border: InputBorder.none,
-              ),
-              items: items.keys.toList().map((item) {
-                String i = item;
-                return DropdownMenuItem(
-                  value: i,
-                  child: Text(
-                    items[item]["name"],
-                    style: textStyleController.getTextStyle(6, 4),
-                  ),
-                );
-              }).toList(),
-              onChanged: (value) async {
-                setState(() {
-                  widget.dataMap["value"] = value;
-                  current = value.toString();
-                  print(widget.dataMap);
-                });
-              },
-            ),
-          ),
-          if (widget.schema["openItem"] != null)
-            DescriptionWidget(
-              items[current]["name"].toString(),
-              FutureBuilder<dynamic>(
-                future: JsonService.loadFromPath(items[current]["json"]),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-
-                  if (snapshot.hasError) {
-                    return Text("Error loading data: ${snapshot.error}");
-                  }
-
-                  if (!snapshot.hasData) {
-                    return const SizedBox.shrink();
-                  }
-
-                  final infoData = Map<String, dynamic>.from(
-                    snapshot.data as Map,
-                  );
-
-                  return DescriptionColumnWidget(infoData, widget.schemata);
-                },
-              ),
-
-              widget.schema["category"] ?? "" + "DescriptionStyle",
-              clickWidget: Icon(
-                Icons.open_in_new,
-                color: colorController.getColor(4),
-              ),
-            ),
         ],
       ),
     );
+  }
+
+  String elToString(dynamic item) {
+    if (item is List) {
+      return StringService.choicesFromString(item, "and");
+    } else {
+      return item.toString();
+    }
   }
 }

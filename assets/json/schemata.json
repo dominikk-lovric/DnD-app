@@ -290,6 +290,7 @@
                 "Name": {
                     "type": "textInput"
                 },
+
                 "Ability Scores": {
                     "type": "wrap",
                     "item": {
@@ -339,14 +340,25 @@
                     "item": {
                         "type": "selector",
                         "category": "classes",
+                        "openItem": "true",
+                        "path": "assets/json/classes",
                         "item": {
                             "level": {
                                 "type": "textInput",
                                 "initialValue": "1"
                             }
                         },
-                        "openItem": "true",
-                        "path": "assets/json/classes"
+                        "conditionals": {
+                            "Subclass": {
+                                "type": "conditional",
+                                "field": "level",
+                                "operator": ">",
+                                "value": 2,
+                                "item": {
+                                    "type": "selector"
+                                }
+                            }
+                        }
                     }
                 },
                 "Species": {
@@ -367,16 +379,18 @@
                         "class": {
                             "type": "radio",
                             "from": {
-                                "source": "Classes",
-                                "choice": "0",
+                                "path": "assets/json/classes",
+                                "source": "Classes.0.value",
+                                "choice": "first",
                                 "item": "startingEquipment"
                             }
                         },
                         "background": {
                             "type": "radio",
                             "from": {
-                                "source": "Background",
-                                "item": "Equipment"
+                                "path": "assets/json/backgrounds",
+                                "source": "Background.value",
+                                "item": "equipment"
                             }
                         }
                     }
