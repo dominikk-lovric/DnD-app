@@ -538,6 +538,7 @@ class SchemaRenderService {
         return DescriptionWidget(
           title,
           Column(
+            spacing: MediaQuery.sizeOf(context).height / 72,
             children: [
               ...schema["item"].keys.toList().map((el) {
                 return renderItem(
@@ -582,8 +583,8 @@ class SchemaRenderService {
           title + setting,
           titleLevel: 5,
         );
-      case "multipleSelect":
-        return renderMultipleSelecor(
+      case "multiple":
+        return renderMultiple(
           ref,
           context,
           title: title,
@@ -617,12 +618,22 @@ class SchemaRenderService {
           title: title,
           path: here,
         );
+
+      case "multipleChoice":
+        return MultipleChoiceField(
+          schema: schema,
+          schemata: schemata,
+          formId: formId,
+          setting: title + setting,
+          title: title,
+          path: here,
+        );
       default:
         return Text(title);
     }
   }
 
-  static Widget renderMultipleSelecor(
+  static Widget renderMultiple(
     ref,
     context, {
     String title = "Input",
@@ -634,7 +645,7 @@ class SchemaRenderService {
     String path = "",
     int color = 3,
   }) {
-    return MultipleSelectField(
+    return MultipleField(
       title: title,
       schema: schema,
       schemata: schemata,
@@ -715,10 +726,11 @@ class _FormTextFieldState extends ConsumerState<FormTextField> {
     final colorController = ref.read(colorControllerProvider.notifier);
     final textStyleController = ref.read(textStyleControllerProvider.notifier);
     return TextFormField(
-      scrollPadding: EdgeInsets.all(0),
+      scrollPadding: EdgeInsets.zero,
       style: textStyleController.getTextStyle(6, 4),
       initialValue: startText,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.zero,
         label: Text(
           widget.title,
           style: textStyleController.getTextStyle(6, 5),
@@ -738,8 +750,8 @@ class _FormTextFieldState extends ConsumerState<FormTextField> {
   }
 }
 
-class MultipleSelectField extends ConsumerStatefulWidget {
-  const MultipleSelectField({
+class MultipleField extends ConsumerStatefulWidget {
+  const MultipleField({
     super.key,
     required this.title,
     required this.schema,
@@ -758,11 +770,10 @@ class MultipleSelectField extends ConsumerStatefulWidget {
   final int color;
 
   @override
-  ConsumerState<MultipleSelectField> createState() =>
-      _MultipleSelectFieldState();
+  ConsumerState<MultipleField> createState() => _MultipleFieldState();
 }
 
-class _MultipleSelectFieldState extends ConsumerState<MultipleSelectField> {
+class _MultipleFieldState extends ConsumerState<MultipleField> {
   late final FormController formController;
   late final List<String> path;
   late final List<int> rowIds;
@@ -798,6 +809,7 @@ class _MultipleSelectFieldState extends ConsumerState<MultipleSelectField> {
     return DescriptionWidget(
       widget.title,
       Column(
+        spacing: MediaQuery.sizeOf(context).height / 72,
         children: [
           for (int i = 0; i < rowIds.length; i++)
             Container(
@@ -932,86 +944,92 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
     if (!loaded) {
       return Center(child: CircularProgressIndicator());
     }
-    return Row(
-      children: [
-        ...(widget.schema["item"] ?? {}).keys.toList().map((el) {
-          return Flexible(
-            child: SchemaRenderService.renderItem(
-              ref,
-              context,
-              title: el,
-              path: widget.path,
-              schema: widget.schema["item"][el],
-              schemata: widget.schemata,
-              formId: widget.formId,
-              color: widget.color,
-            ),
-          );
-        }),
-        Flexible(
-          flex: 4,
-          child: DropdownButtonFormField(
-            icon: const SizedBox.shrink(),
-            dropdownColor: colorController.getColor(widget.color),
-            initialValue: current,
-            decoration: InputDecoration(
-              suffixIcon: null,
-              filled: true,
-              fillColor: colorController.getColor(widget.color),
-              border: ShapedInputBorder(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(
-                    MediaQuery.sizeOf(context).height / 72,
-                  ),
-                ),
-                borderSide: BorderSide.none,
+    double unit = MediaQuery.sizeOf(context).height;
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: unit / 72, vertical: unit / 72),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(unit / 72)),
+
+      child: Row(
+        children: [
+          ...(widget.schema["item"] ?? {}).keys.toList().map((el) {
+            return Flexible(
+              child: SchemaRenderService.renderItem(
+                ref,
+                context,
+                title: el,
+                path: widget.path,
+                schema: widget.schema["item"][el],
+                schemata: widget.schemata,
+                formId: widget.formId,
+                color: widget.color,
               ),
-            ),
-            items: items.keys.toList().map((item) {
-              String i = item;
-              return DropdownMenuItem(
-                value: i,
-                child: Text(
-                  items[item]["name"],
-                  style: textStyleController.getTextStyle(6, 4),
+            );
+          }),
+          Flexible(
+            flex: 4,
+            child: DropdownButtonFormField(
+              icon: const SizedBox.shrink(),
+              dropdownColor: colorController.getColor(widget.color),
+              initialValue: current,
+              decoration: InputDecoration(
+                suffixIcon: null,
+                filled: true,
+                fillColor: colorController.getColor(widget.color),
+                border: ShapedInputBorder(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(
+                      MediaQuery.sizeOf(context).height / 72,
+                    ),
+                  ),
+                  borderSide: BorderSide.none,
                 ),
-              );
-            }).toList(),
-            onChanged: (value) {
-              if (value == null) return;
-              formController.setValue(valuePath, value);
-              setState(() => current = value.toString());
-            },
-          ),
-        ),
-        if (widget.schema["openItem"] != null)
-          DescriptionWidget(
-            items[current]["name"].toString(),
-            FutureBuilder<dynamic>(
-              future: JsonService.loadFromPath(items[current]["json"]),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-                if (snapshot.hasError) {
-                  return Text("Error loading data: ${snapshot.error}");
-                }
-                if (!snapshot.hasData) {
-                  return const SizedBox.shrink();
-                }
-                final infoData = Map<String, dynamic>.from(
-                  snapshot.data as Map,
+              ),
+              items: items.keys.toList().map((item) {
+                String i = item;
+                return DropdownMenuItem(
+                  value: i,
+                  child: Text(
+                    items[item]["name"],
+                    style: textStyleController.getTextStyle(6, 4),
+                  ),
                 );
-                return DescriptionColumnWidget(infoData, widget.schemata);
+              }).toList(),
+              onChanged: (value) {
+                if (value == null) return;
+                formController.setValue(valuePath, value);
+                setState(() => current = value.toString());
               },
             ),
-            widget.schema["category"] ?? "" + "DescriptionStyle",
-            clickWidget: Icon(
-              Icons.open_in_new,
-              color: colorController.getColor(4),
-            ),
           ),
-      ],
+          if (widget.schema["openItem"] != null)
+            DescriptionWidget(
+              items[current]["name"].toString(),
+              FutureBuilder<dynamic>(
+                future: JsonService.loadFromPath(items[current]["json"]),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (snapshot.hasError) {
+                    return Text("Error loading data: ${snapshot.error}");
+                  }
+                  if (!snapshot.hasData) {
+                    return const SizedBox.shrink();
+                  }
+                  final infoData = Map<String, dynamic>.from(
+                    snapshot.data as Map,
+                  );
+                  return DescriptionColumnWidget(infoData, widget.schemata);
+                },
+              ),
+              widget.schema["category"] ?? "" + "DescriptionStyle",
+              clickWidget: Icon(
+                Icons.open_in_new,
+                color: colorController.getColor(4),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
@@ -1089,7 +1107,7 @@ class _RadioFieldState extends ConsumerState<RadioField> {
         source ??= path.keys.first;
         path = await JsonService.loadFromPath(path[source]["json"]);
         if (from["item"] != null) {
-          temp = path[from["item"]];
+          temp = readPath(path, from["item"].split("."));
         }
       } else {
         temp = path.entries.toList();
@@ -1148,10 +1166,7 @@ class _RadioFieldState extends ConsumerState<RadioField> {
     final unit = MediaQuery.sizeOf(context).height;
 
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: unit / 144,
-        vertical: unit / 72,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: unit / 72, vertical: unit / 72),
       decoration: BoxDecoration(
         color: colorController.getColor(widget.color),
         borderRadius: BorderRadius.circular(unit / 72),
@@ -1164,39 +1179,190 @@ class _RadioFieldState extends ConsumerState<RadioField> {
             "From " + widget.title,
             style: textStyleController.getTextStyle(5, 4),
           ),
-          ...options.map((el) {
-            return Container(
-              padding: EdgeInsets.symmetric(horizontal: unit / 144),
-              decoration: BoxDecoration(
-                color: colorController.getColor((widget.color == 2) ? 3 : 2),
-                borderRadius: BorderRadius.circular(unit / 72),
-              ),
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () {
-                  formController.setValue(valuePath, el.toString());
-                },
-                child: Row(
-                  children: [
-                    Icon(
-                      el.toString() == selected
-                          ? Icons.radio_button_on
-                          : Icons.radio_button_off,
-                      color: colorController.getColor(4),
+          Column(
+            spacing: unit / 72,
+            children: [
+              ...options.map((el) {
+                return Container(
+                  padding: EdgeInsets.symmetric(horizontal: unit / 144),
+                  decoration: BoxDecoration(
+                    color: (el.toString() == selected)
+                        ? colorController.getColor((widget.color == 2) ? 3 : 2)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(unit / 72),
+                  ),
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () {
+                      formController.setValue(valuePath, el.toString());
+                    },
+                    child: Row(
+                      spacing: unit / 72,
+                      children: [
+                        Icon(
+                          el.toString() == selected
+                              ? Icons.radio_button_on
+                              : Icons.radio_button_off,
+                          color: colorController.getColor(4),
+                        ),
+                        Expanded(
+                          child: Text(
+                            elToString(el),
+                            style: textStyleController.getTextStyle(5, 4),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: Text(
-                        elToString(el),
-                        style: textStyleController.getTextStyle(5, 4),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }),
+                  ),
+                );
+              }),
+            ],
+          ),
         ],
       ),
+    );
+  }
+
+  String elToString(dynamic item) {
+    if (item is List) {
+      return StringService.choicesFromString(item, "and");
+    } else {
+      return item.toString();
+    }
+  }
+}
+
+class MultipleChoiceField extends ConsumerStatefulWidget {
+  MultipleChoiceField({
+    super.key,
+    this.title = "Radio",
+    required this.schema,
+    required this.schemata,
+    this.formId = "form",
+    this.setting = "DescriptionStyle",
+    this.clickWidget,
+    this.path = "",
+    this.color = 2,
+  });
+  final String title;
+  final Map<String, dynamic> schema;
+  final Map<String, dynamic> schemata;
+  final String formId;
+  final String setting;
+  final Widget? clickWidget;
+  String path;
+  final int color;
+
+  @override
+  ConsumerState<MultipleChoiceField> createState() =>
+      _MultipleChoiceFieldState();
+}
+
+class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
+  List<dynamic> options = [];
+  bool loaded = false;
+  late final ColorController colorController;
+  late final TextStyleController textStyleController;
+  late final FormController formController;
+
+  List<String>? sourcePath;
+  dynamic lastSource;
+  bool first = true;
+  int loadId = 0;
+
+  dynamic readPath(dynamic cur, List<String> path) {
+    for (final k in path) {
+      if (cur is! Map) return null;
+      cur = cur[k];
+    }
+    return cur;
+  }
+
+  @override
+  initState() {
+    super.initState();
+    colorController = ref.read(colorControllerProvider.notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
+    formController = ref.read(formControllerProvider(widget.formId).notifier);
+
+    final src = widget.schema["from"]["source"];
+    if (src != null) {
+      final sp = src is String ? src.split(".") : List<String>.from(src);
+      final root = widget.path.split(".").first;
+      sourcePath = sp.first == root ? sp : [root, ...sp];
+    }
+  }
+
+  Future<void> getOptions(dynamic source) async {
+    final id = ++loadId;
+    Map<String, dynamic> from = widget.schema["from"];
+    List<dynamic> temp = [];
+    if (from["options"] != null) {
+      temp = from["options"];
+    } else {
+      Map<String, dynamic> path = await JsonService.loadFromPath(from["path"]);
+      if (from["source"] != null) {
+        print(from["source"]);
+        if (source is Map) source = source["value"];
+        source ??= path.keys.first;
+        path = await JsonService.loadFromPath(path[source]["json"]);
+        if (from["item"] != null) {
+          temp = readPath(path, from["item"].split("."));
+        }
+      } else {
+        temp = path.entries.toList();
+      }
+    }
+    if (!mounted || id != loadId) return;
+    setState(() {
+      options = temp;
+      loaded = true;
+    });
+  }
+
+  @override
+  @override
+  Widget build(BuildContext context) {
+    final sp = sourcePath;
+    final dynamic source = sp == null
+        ? null
+        : ref.watch(
+            formControllerProvider(
+              widget.formId,
+            ).select((m) => readPath(m, sp)),
+          );
+
+    if (first || source != lastSource) {
+      first = false;
+      lastSource = source;
+      Future.microtask(() => getOptions(source));
+    }
+    if (!loaded) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    final valuePath = widget.path.split(".");
+
+    final selected = ref.watch(
+      formControllerProvider(widget.formId).select((m) {
+        dynamic cur = m;
+        for (final k in valuePath) {
+          if (cur is! Map) return null;
+          cur = cur[k];
+        }
+        return cur;
+      }),
+    );
+
+    final unit = MediaQuery.sizeOf(context).height;
+
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: unit / 72, vertical: unit / 72),
+      decoration: BoxDecoration(
+        color: colorController.getColor(widget.color),
+        borderRadius: BorderRadius.circular(unit / 72),
+      ),
+      child: Text(options.toString()),
     );
   }
 

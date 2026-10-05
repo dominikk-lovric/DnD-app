@@ -335,7 +335,7 @@
                     }
                 },
                 "Classes": {
-                    "type": "multipleSelect",
+                    "type": "multiple",
                     "startAmount": 1,
                     "item": {
                         "type": "selector",
@@ -393,6 +393,16 @@
                                 "item": "equipment"
                             }
                         }
+                    }
+                },
+                "Skill proficiencies": {
+                    "type": "multipleChoice",
+                    "from": {
+                        "path": "assets/json/classes",
+                        "source": "Classes.0.value",
+                        "choice": "first",
+                        "item": "proficiencies.Skill.proficiencies",
+                        "numOfOptions": "proficiencies.Skill.options"
                     }
                 }
             }

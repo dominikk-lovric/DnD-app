@@ -41,7 +41,7 @@ class DescriptionWidget extends ConsumerStatefulWidget {
     this.titleWidget,
     this.optionList = null,
     this.backgroundChoice = true,
-        this.closeButton= true,
+    this.closeButton = true,
   });
 
   @override
@@ -256,21 +256,18 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
                               ),
                             ),
                           Flexible(child: widget.descrption),
-                          if(widget.closeButton==true)Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () => Navigator.pop(context),
-                              style: TextButton.styleFrom(
-                                foregroundColor: colorController.getColor(
-                                  4,
+                          if (widget.closeButton == true)
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton(
+                                onPressed: () => Navigator.pop(context),
+                                style: TextButton.styleFrom(
+                                  foregroundColor: colorController.getColor(4),
+                                  backgroundColor: colorController.getColor(0),
                                 ),
-                                backgroundColor: colorController.getColor(
-                                  0,
-                                ),
+                                child: Text("Close"),
                               ),
-                              child: Text("Close"),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -365,7 +362,7 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
                       child: SafeArea(
                         child: Padding(
                           padding: EdgeInsetsGeometry.all(20),
-                          child: widget.descrption
+                          child: widget.descrption,
                         ),
                       ),
                     ),
@@ -461,8 +458,8 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(
-              vertical: MediaQuery.sizeOf(context).width / 72,
-              horizontal: MediaQuery.sizeOf(context).width / 72,
+              vertical: bgColor ? MediaQuery.sizeOf(context).width / 72 : 0,
+              horizontal: bgColor ? MediaQuery.sizeOf(context).width / 72 : 0,
             ),
             child: widget.descrption,
           ),
