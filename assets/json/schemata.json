@@ -292,31 +292,36 @@
                 },
 
                 "Ability Scores": {
-                    "type": "wrap",
+                    "type": "column",
                     "item": {
-                        "Str": {
-                            "type": "textInput",
-                            "initialValue": "10"
-                        },
-                        "Dex": {
-                            "type": "textInput",
-                            "initialValue": "10"
-                        },
-                        "Con": {
-                            "type": "textInput",
-                            "initialValue": "10"
-                        },
-                        "Int": {
-                            "type": "textInput",
-                            "initialValue": "10"
-                        },
-                        "Wis": {
-                            "type": "textInput",
-                            "initialValue": "10"
-                        },
-                        "Cha": {
-                            "type": "textInput",
-                            "initialValue": "10"
+                        "Abilities": {
+                            "type": "wrap",
+                            "item": {
+                                "Str": {
+                                    "type": "textInput",
+                                    "initialValue": "10"
+                                },
+                                "Dex": {
+                                    "type": "textInput",
+                                    "initialValue": "10"
+                                },
+                                "Con": {
+                                    "type": "textInput",
+                                    "initialValue": "10"
+                                },
+                                "Int": {
+                                    "type": "textInput",
+                                    "initialValue": "10"
+                                },
+                                "Wis": {
+                                    "type": "textInput",
+                                    "initialValue": "10"
+                                },
+                                "Cha": {
+                                    "type": "textInput",
+                                    "initialValue": "10"
+                                }
+                            }
                         }
                     }
                 },
@@ -380,7 +385,7 @@
                             "type": "radio",
                             "from": {
                                 "path": "assets/json/classes",
-                                "source": "Classes.0.value",
+                                "source": "Character Creator.Classes.0.value",
                                 "choice": "first",
                                 "item": "startingEquipment"
                             }
@@ -389,7 +394,7 @@
                             "type": "radio",
                             "from": {
                                 "path": "assets/json/backgrounds",
-                                "source": "Background.value",
+                                "source": "Character Creator.Background.value",
                                 "item": "equipment"
                             }
                         }
@@ -399,10 +404,17 @@
                     "type": "multipleChoice",
                     "from": {
                         "path": "assets/json/classes",
-                        "source": "Classes.0.value",
+                        "source": "Character Creator.Classes.0.value",
                         "choice": "first",
                         "item": "proficiencies.Skill.proficiencies",
                         "numOfOptions": "proficiencies.Skill.options"
+                    },
+                    "selected": {
+                        "Background": {
+                            "path": "assets/json/backgrounds",
+                            "source": "Character Creator.Background.value",
+                            "item": "skills"
+                        }
                     }
                 }
             }

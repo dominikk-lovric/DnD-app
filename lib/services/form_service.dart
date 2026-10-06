@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dnd_app/services/string_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final formControllerProvider =
@@ -23,9 +24,6 @@ class FormController extends Notifier<Map<String, dynamic>> {
 
   dynamic getValue(List<String> path) {
     dynamic cur = state;
-    if (path.first.toString() != formId.toString()) {
-      cur = cur[formId];
-    }
     for (final k in path) {
       if (cur is! Map) return null;
       cur = cur[k];

@@ -40,7 +40,26 @@
     "proficiencies": {
         "Skill": {
             "options": 2,
-            "proficiencies": ["Choose any 3 skills"]
+            "proficiencies": [
+                "Athletics",
+                "Acrobatics",
+                "Sleight of Hand",
+                "Stealth",
+                "Arcana",
+                "History",
+                "Investigation",
+                "Nature",
+                "Religion",
+                "Animal Handling",
+                "Insight",
+                "Medicine",
+                "Perception",
+                "Survival",
+                "Deception",
+                "Intimidation",
+                "Performance",
+                "Persuasion"
+            ]
         },
         "Armor": {
             "proficiencies": ["Light"]
