@@ -128,7 +128,9 @@ class _MultipleFieldState extends ConsumerState<MultipleField> {
               Icons.add_box_outlined,
               color: colorController.getColor(4),
             ),
-            onPressed: () => setState(() => rowIds.add(nextId++)),
+            onPressed: () {
+              setState(() => rowIds.add(nextId++));
+            },
           ),
         ],
       ),

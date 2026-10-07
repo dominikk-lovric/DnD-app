@@ -296,30 +296,69 @@
                     "item": {
                         "Abilities": {
                             "type": "wrap",
+                            "alignment": "around",
                             "item": {
                                 "Str": {
                                     "type": "textInput",
-                                    "initialValue": "10"
+                                    "initialValue": "10",
+                                    "maxChar": 3
                                 },
                                 "Dex": {
                                     "type": "textInput",
-                                    "initialValue": "10"
+                                    "initialValue": "10",
+                                    "maxChar": 3
                                 },
                                 "Con": {
                                     "type": "textInput",
-                                    "initialValue": "10"
+                                    "initialValue": "10",
+                                    "maxChar": 3
                                 },
                                 "Int": {
                                     "type": "textInput",
-                                    "initialValue": "10"
+                                    "initialValue": "10",
+                                    "maxChar": 3
                                 },
                                 "Wis": {
                                     "type": "textInput",
-                                    "initialValue": "10"
+                                    "initialValue": "10",
+                                    "maxChar": 3
                                 },
                                 "Cha": {
                                     "type": "textInput",
-                                    "initialValue": "10"
+                                    "initialValue": "10",
+                                    "maxChar": 3
+                                }
+                            }
+                        },
+                        "From Background": {
+                            "type": "column",
+                            "item": {
+                                "1": {
+                                    "type": "radio",
+                                    "from": {
+                                        "row": true,
+                                        "path": "assets/json/backgrounds",
+                                        "source": "Character Creator.Background.value",
+                                        "item": "abilities"
+                                    }
+                                },
+                                "2": {
+                                    "type": "radio",
+                                    "from": {
+                                        "row": true,
+                                        "path": "assets/json/backgrounds",
+                                        "source": "Character Creator.Background.value",
+                                        "item": "abilities"
+                                    }
+                                },
+                                "3": {
+                                    "type": "radio",
+                                    "from": {
+                                        "row": true,
+                                        "path": "assets/json/backgrounds",
+                                        "source": "Character Creator.Background.value",
+                                        "item": "abilities"
+                                    }
                                 }
                             }
                         }
@@ -343,24 +382,33 @@
                     "type": "multiple",
                     "startAmount": 1,
                     "item": {
-                        "type": "selector",
-                        "category": "classes",
-                        "openItem": "true",
-                        "path": "assets/json/classes",
+                        "type": "column",
                         "item": {
-                            "level": {
-                                "type": "textInput",
-                                "initialValue": "1"
-                            }
-                        },
-                        "conditionals": {
+                            "Class": {
+                                "type": "selector",
+                                "category": "classes",
+                                "openItem": "true",
+                                "path": "assets/json/classes",
+                                "item": {
+                                    "level": {
+                                        "type": "textInput",
+                                        "initialValue": "1",
+                                        "maxChar": 3
+                                    }
+                                }
+                            },
                             "Subclass": {
                                 "type": "conditional",
-                                "field": "level",
+                                "field": "/.Class.level",
                                 "operator": ">",
                                 "value": 2,
                                 "item": {
-                                    "type": "selector"
+                                    "type": "selector",
+                                    "category": "classes",
+                                    "openItem": "true",
+                                    "path": "assets/json/classes",
+                                    "source": "/.Class.value",
+                                    "item": "archetypes"
                                 }
                             }
                         }
@@ -385,8 +433,7 @@
                             "type": "radio",
                             "from": {
                                 "path": "assets/json/classes",
-                                "source": "Character Creator.Classes.0.value",
-                                "choice": "first",
+                                "source": "Character Creator.Classes.0.Class.value",
                                 "item": "startingEquipment"
                             }
                         },
@@ -404,8 +451,7 @@
                     "type": "multipleChoice",
                     "from": {
                         "path": "assets/json/classes",
-                        "source": "Character Creator.Classes.0.value",
-                        "choice": "first",
+                        "source": "Character Creator.Classes.0.Class.value",
                         "item": "proficiencies.Skill.proficiencies",
                         "numOfOptions": "proficiencies.Skill.options"
                     },

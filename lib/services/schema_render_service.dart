@@ -4,6 +4,7 @@ import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/checklist.dart';
+import 'package:dnd_app/widgets/conditional_field.dart';
 import 'package:dnd_app/widgets/description_column_widget.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:dnd_app/widgets/form_text_field.dart';
@@ -493,7 +494,7 @@ class SchemaRenderService {
           ],
         ),
       ),
-      title + setting,
+      StringService.slugify(title) + setting,
       clickWidget: clickWidget,
       optionList: ["page", "popUp"],
       backgroundChoice: false,
@@ -513,6 +514,10 @@ class SchemaRenderService {
     Widget? clickWidget,
     int color = 3,
   }) {
+    ref.watch(colorControllerProvider);
+    ref.watch(textStyleControllerProvider);
+    final colorController = ref.read(colorControllerProvider.notifier);
+    final formController = ref.read(formControllerProvider(formId).notifier);
     final here = StringService.joinPath(path, title);
     switch (schema["type"]) {
       case "form":
@@ -524,7 +529,7 @@ class SchemaRenderService {
           schema: schema,
           schemata: schemata,
           clickWidget: clickWidget,
-          setting: title + "." + setting,
+          setting: StringService.slugify(title) + "." + setting,
           formId: formId,
         );
       case "textInput":
@@ -532,17 +537,19 @@ class SchemaRenderService {
           title,
           FormTextField(
             title: title,
+            schema: schema,
+            schemata: schemata,
             formId: formId,
             path: here,
-            initialValue: (schema["initialValue"] ?? "").toString(),
             color: color,
           ),
-          title + setting,
+          StringService.slugify(title) + setting,
         );
       case "column":
         return DescriptionWidget(
           title,
           Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             spacing: MediaQuery.sizeOf(context).height / 72,
             children: [
               ...schema["item"].keys.toList().map((el) {
@@ -554,39 +561,82 @@ class SchemaRenderService {
                   schema: schema["item"][el],
                   schemata: schemata,
                   formId: formId,
-                  color: color,
+                  color: color == 2 ? 3 : 2,
+                  setting:
+                      StringService.slugify(el) +
+                      StringService.slugify(title) +
+                      setting,
                 );
               }),
             ],
           ),
-          "Column" + setting,
+          StringService.slugify(title) + "Column" + setting,
+          bgColor: color,
+          titleLevel: 5,
+        );
+      case "row":
+        MainAxisAlignment alignment = MainAxisAlignment.start;
+        switch (schema["alignment"]) {
+          case "even":
+            alignment = MainAxisAlignment.spaceEvenly;
+          case "around":
+            alignment = MainAxisAlignment.spaceAround;
+        }
+        return DescriptionWidget(
+          title,
+          bgColor: color,
+          Row(
+            mainAxisAlignment: alignment,
+            spacing: MediaQuery.sizeOf(context).height / 144,
+            children: [
+              ...schema["item"].keys.toList().map((el) {
+                return renderItem(
+                  ref,
+                  context,
+                  title: el,
+                  path: here,
+                  schema: schema["item"][el],
+                  schemata: schemata,
+                  setting:
+                      StringService.slugify(el) +
+                      StringService.slugify(title) +
+                      setting,
+                  color: color == 2 ? 3 : 2,
+                  formId: formId,
+                );
+              }),
+            ],
+          ),
+          StringService.slugify(title) + setting,
           titleLevel: 5,
         );
       case "wrap":
         return DescriptionWidget(
           title,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
             spacing: MediaQuery.sizeOf(context).height / 144,
             children: [
               ...schema["item"].keys.toList().map((el) {
-                return Expanded(
-                  child: renderItem(
-                    ref,
-                    context,
-                    title: el,
-                    path: here,
-                    schema: schema["item"][el],
-                    schemata: schemata,
-                    setting: "Wrap" + setting,
-                    color: color == 2 ? 3 : 2,
-                    formId: formId,
-                  ),
+                return renderItem(
+                  ref,
+                  context,
+                  title: el,
+                  path: here,
+                  schema: schema["item"][el],
+                  schemata: schemata,
+                  setting:
+                      StringService.slugify(el) +
+                      StringService.slugify(title) +
+                      setting,
+                  color: color == 2 ? 3 : 2,
+                  formId: formId,
                 );
               }),
             ],
           ),
-          title + setting,
+          bgColor: color,
+          StringService.slugify(title) + setting,
           titleLevel: 5,
         );
       case "multiple":
@@ -596,7 +646,7 @@ class SchemaRenderService {
           schemata: schemata,
           formId: formId,
           path: here,
-          setting: setting,
+          setting: StringService.slugify(title) + setting,
           color: color,
         );
       case "selector":
@@ -607,11 +657,11 @@ class SchemaRenderService {
             path: here,
             schema: schema,
             schemata: schemata,
-            setting: "Selector" + setting,
+            setting: StringService.slugify(title) + setting,
             formId: formId,
             color: color,
           ),
-          title + "Selector" + setting,
+          StringService.slugify(title) + "Selector" + setting,
           titleLevel: 5,
         );
       case "radio":
@@ -619,9 +669,10 @@ class SchemaRenderService {
           schema: schema,
           schemata: schemata,
           formId: formId,
-          setting: title + setting,
+          setting: StringService.slugify(title) + setting,
           title: title,
           path: here,
+          color: color,
         );
 
       case "multipleChoice":
@@ -629,10 +680,20 @@ class SchemaRenderService {
           schema: schema,
           schemata: schemata,
           formId: formId,
-          setting: title + setting,
           title: title,
           path: here,
+          setting: StringService.slugify(title) + setting,
           color: 2,
+        );
+      case "conditional":
+        return ConditionalField(
+          schema: schema,
+          schemata: schemata,
+          title: title,
+          path: here,
+          formId: formId,
+          color: 2,
+          setting: StringService.slugify(title) + setting,
         );
       default:
         return Text(title);

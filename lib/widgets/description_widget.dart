@@ -25,6 +25,7 @@ class DescriptionWidget extends ConsumerStatefulWidget {
   List<String>? optionList;
   bool backgroundChoice;
   bool closeButton;
+  int bgColor;
 
   DescriptionWidget(
     this.title,
@@ -42,6 +43,7 @@ class DescriptionWidget extends ConsumerStatefulWidget {
     this.optionList = null,
     this.backgroundChoice = true,
     this.closeButton = true,
+    this.bgColor = 3,
   });
 
   @override
@@ -159,7 +161,9 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
       },
       child: (widget.clickWidget == null)
           ? Card(
-              color: bgColor ? colorController.getColor(3) : Colors.transparent,
+              color: bgColor
+                  ? colorController.getColor(widget.bgColor)
+                  : Colors.transparent,
               shadowColor: bgColor ? null : Colors.transparent,
               child: Padding(
                 padding: EdgeInsetsDirectional.symmetric(
@@ -288,7 +292,9 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
           );
         },
         child: Card(
-          color: bgColor ? colorController.getColor(3) : Colors.transparent,
+          color: bgColor
+              ? colorController.getColor(widget.bgColor)
+              : Colors.transparent,
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -376,7 +382,9 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
       );
     } else if (setting == "expand") {
       return Card(
-        color: bgColor ? colorController.getColor(3) : Colors.transparent,
+        color: bgColor
+            ? colorController.getColor(widget.bgColor)
+            : Colors.transparent,
         shadowColor: bgColor ? null : Colors.transparent,
         child: Padding(
           padding: EdgeInsetsGeometry.symmetric(
@@ -454,7 +462,9 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
           );
         },
         child: Card(
-          color: bgColor ? colorController.getColor(3) : Colors.transparent,
+          color: bgColor
+              ? colorController.getColor(widget.bgColor)
+              : Colors.transparent,
           shadowColor: bgColor ? null : Colors.transparent,
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(
@@ -485,8 +495,8 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
     final result = await showMenu<String>(
       context: context,
       elevation: 8,
-      color: colorController.getColor(3),
-      shadowColor: colorController.getColor(3),
+      color: colorController.getColor(widget.bgColor),
+      shadowColor: colorController.getColor(widget.bgColor),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           MediaQuery.sizeOf(context).width / 72,
@@ -543,7 +553,7 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
             ),
           ),
 
-          Container(height: 1, color: colorController.getColor(3)),
+          Container(height: 1, color: colorController.getColor(widget.bgColor)),
           if (widget.backgroundChoice)
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -583,7 +593,7 @@ class DescriptionWidgetState extends ConsumerState<DescriptionWidget> {
               child: Container(
                 color: selected
                     ? colorController.getColor(0)
-                    : colorController.getColor(3),
+                    : colorController.getColor(widget.bgColor),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 10,

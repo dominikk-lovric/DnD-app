@@ -20,14 +20,16 @@ class FormTextField extends ConsumerStatefulWidget {
     super.key,
     required this.title,
     required this.formId,
+    required this.schema,
+    required this.schemata,
     required this.path,
-    this.initialValue = "",
     this.color = 2,
   });
+  final Map<String, dynamic> schema;
+  final Map<String, dynamic> schemata;
   final String title;
   final String formId;
   final String path;
-  final String initialValue;
   final int color;
 
   @override
@@ -36,19 +38,35 @@ class FormTextField extends ConsumerStatefulWidget {
 
 class _FormTextFieldState extends ConsumerState<FormTextField> {
   late final FormController formController;
+  late final TextStyleController textStyleController;
   late final List<String> path;
-  late final String startText;
+  String startText = "";
+  double maxSize = double.infinity;
+
+  double max(double a, double b) {
+    return a > b ? a : b;
+  }
 
   @override
   void initState() {
     super.initState();
+    startText = widget.schema["initialValue"] ?? "";
+
     formController = ref.read(formControllerProvider(widget.formId).notifier);
+    textStyleController = ref.read(textStyleControllerProvider.notifier);
+    maxSize =
+        (widget.schema["maxChar"] ?? double.infinity) *
+        textStyleController.getFontSize(6);
+    maxSize = max(
+      maxSize,
+      widget.title.length * textStyleController.getFontSize(5),
+    );
     path = widget.path.split(".");
     final saved = formController.getValue(path);
-    startText = saved is String ? saved : widget.initialValue;
+    startText = saved is String ? saved : startText;
     Future.microtask(() {
       if (!mounted) return;
-      formController.initPath(path, widget.initialValue);
+      formController.initPath(path, startText);
     });
   }
 
@@ -58,27 +76,29 @@ class _FormTextFieldState extends ConsumerState<FormTextField> {
     ref.watch(textStyleControllerProvider);
     final colorController = ref.read(colorControllerProvider.notifier);
     final textStyleController = ref.read(textStyleControllerProvider.notifier);
-    return TextFormField(
-      scrollPadding: EdgeInsets.zero,
-      style: textStyleController.getTextStyle(6, 4),
-      initialValue: startText,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.zero,
-        label: Text(
-          widget.title,
-          style: textStyleController.getTextStyle(6, 5),
-        ),
-        filled: true,
-        fillColor: colorController.getColor(widget.color),
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(
-            Radius.circular(MediaQuery.sizeOf(context).height / 72),
+    return SizedBox(
+      width: maxSize,
+      child: TextFormField(
+        scrollPadding: EdgeInsets.zero,
+        style: textStyleController.getTextStyle(6, 4),
+        initialValue: startText,
+        decoration: InputDecoration(
+          label: Text(
+            widget.title,
+            style: textStyleController.getTextStyle(6, 5),
+          ),
+          filled: true,
+          fillColor: colorController.getColor(widget.color),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.all(
+              Radius.circular(MediaQuery.sizeOf(context).height / 72),
+            ),
           ),
         ),
+        cursorColor: colorController.getColor(1),
+        onChanged: (value) => formController.setValue(path, value),
       ),
-      cursorColor: colorController.getColor(1),
-      onChanged: (value) => formController.setValue(path, value),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:dnd_app/services/form_service.dart';
 import 'package:dnd_app/services/json_service.dart';
 import 'package:dnd_app/services/string_service.dart';
 import 'package:dnd_app/services/text_style_service.dart';
+import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -142,27 +143,25 @@ class _RadioFieldState extends ConsumerState<RadioField> {
     );
 
     final unit = MediaQuery.sizeOf(context).height;
-
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: unit / 72, vertical: unit / 72),
-      decoration: BoxDecoration(
-        color: colorController.getColor(widget.color),
-        borderRadius: BorderRadius.circular(unit / 72),
-      ),
-      child: Column(
+    return DescriptionWidget(
+      key: Key(widget.setting),
+      "From " + widget.title,
+      Column(
         spacing: unit / 72,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "From " + widget.title,
-            style: textStyleController.getTextStyle(5, 4),
-          ),
           widget.row
-              ? Row(
+              ? Wrap(
+                  alignment: WrapAlignment.center,
                   spacing: unit / 72,
                   children: [
                     ...options.map((el) {
                       return Container(
+                        width:
+                            el.toString().length *
+                                textStyleController.getFontSize(5) +
+                            unit / 30 +
+                            unit / 72 * 5,
                         padding: EdgeInsets.symmetric(horizontal: unit / 144),
                         decoration: BoxDecoration(
                           color: (el.toString() == selected)
@@ -177,12 +176,14 @@ class _RadioFieldState extends ConsumerState<RadioField> {
                           onTap: () {
                             formController.setValue(valuePath, el.toString());
                           },
+
                           child: ListTile(
                             leading: Padding(
                               padding: EdgeInsetsGeometry.directional(
                                 end: unit / 72,
                               ),
                               child: Icon(
+                                size: unit / 30,
                                 el.toString() == selected
                                     ? Icons.radio_button_on
                                     : Icons.radio_button_off,
@@ -224,6 +225,7 @@ class _RadioFieldState extends ConsumerState<RadioField> {
                                 end: unit / 72,
                               ),
                               child: Icon(
+                                size: unit / 30,
                                 el.toString() == selected
                                     ? Icons.radio_button_on
                                     : Icons.radio_button_off,
@@ -242,6 +244,9 @@ class _RadioFieldState extends ConsumerState<RadioField> {
                 ),
         ],
       ),
+      widget.setting,
+      titleLevel: 5,
+      bgColor: widget.color,
     );
   }
 

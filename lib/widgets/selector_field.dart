@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SelectorField extends ConsumerStatefulWidget {
-  const SelectorField({
+  SelectorField({
     super.key,
     this.title = "Input",
     required this.schema,
@@ -24,14 +24,14 @@ class SelectorField extends ConsumerStatefulWidget {
     this.formId = "form",
     this.setting = "DescriptionStyle",
     this.clickWidget,
-    this.color = 2,
+    this.color = 3,
   });
   final String title;
   final Map<String, dynamic> schema;
   final Map<String, dynamic> schemata;
   final String path;
   final String formId;
-  final String setting;
+  String setting;
   final Widget? clickWidget;
   final int color;
 
@@ -61,13 +61,7 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
 
   Future<void> loadItems() async {
     Map<String, dynamic> item = {};
-    if (widget.schema["path"] != null) {
-      item = await JsonService.loadFromPath(widget.schema["path"]);
-    } else {
-      item = Map<String, dynamic>.from(
-        widget.schema["choices"] ?? {"null": "null"},
-      );
-    }
+    item = await getItems();
     if (!mounted) return;
     final saved = formController.getValue(valuePath);
     final start = (saved is String && item.containsKey(saved))
@@ -84,17 +78,38 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
     });
   }
 
+  Future<Map<String, dynamic>> getItems() async {
+    Map<String, dynamic> item = {};
+    if (widget.schema["path"] != null) {
+      item = await JsonService.loadFromPath(widget.schema["path"]);
+      if (widget.schema["source"] != null) {
+        dynamic source = formController.getValue(
+          widget.schema["source"].split("."),
+        );
+        String path = item[source]["json"] ?? item["source"]["path"] ?? "";
+      }
+    } else {
+      item = Map<String, dynamic>.from(
+        widget.schema["choices"] ?? {"null": "null"},
+      );
+    }
+
+    return item;
+  }
+
   @override
   Widget build(BuildContext context) {
+    widget.setting = widget.path + widget.setting;
     if (!loaded) {
       return Center(child: CircularProgressIndicator());
     }
-    print(widget.color);
     double unit = MediaQuery.sizeOf(context).height;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: unit / 72, vertical: unit / 72),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(unit / 72)),
-
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(unit / 72),
+        color: colorController.getColor(widget.color == 2 ? 3 : 2),
+      ),
       child: Row(
         spacing: unit / 72,
         children: [
