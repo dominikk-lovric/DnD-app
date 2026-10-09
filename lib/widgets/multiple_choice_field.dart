@@ -6,6 +6,7 @@ import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:collection/collection.dart';
 
 class MultipleChoiceField extends ConsumerStatefulWidget {
   MultipleChoiceField({
@@ -43,9 +44,11 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
   int numOfOptions = 0;
 
   List<String>? sourcePath;
-  dynamic lastSource;
+  List<dynamic> lastSources = [];
   bool first = true;
   int loadId = 0;
+
+  final _eq = const DeepCollectionEquality();
 
   dynamic readPath(dynamic cur, List<String> path) {
     for (final k in path) {
@@ -61,13 +64,7 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
     colorController = ref.read(colorControllerProvider.notifier);
     textStyleController = ref.read(textStyleControllerProvider.notifier);
     formController = ref.read(formControllerProvider(widget.formId).notifier);
-
-    final src = widget.schema["from"]["source"];
-    if (src != null) {
-      final sp = src is String ? src.split(".") : List<String>.from(src);
-      final root = widget.path.split(".").first;
-      sourcePath = sp.first == root ? sp : [root, ...sp];
-    }
+    getOptions();
   }
 
   Future<void> getOptions() async {
@@ -75,10 +72,16 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
     final id = ++loadId;
     List<dynamic> temp = [];
     int num = 0;
-    temp = await loadItems(widget.schema["from"]);
-    num = await loadNumOfOptions(widget.schema["from"]);
+    temp = await formController.getItem(widget.schema["from"]);
+    if (widget.schema["numOfOptions"] is Map) {
+      num = await formController.getItem(widget.schema["numOfOptions"]);
+    } else {
+      num = widget.schema["numOfOptions"] ?? 0;
+    }
     for (final key in widget.schema["selected"].keys.toList()) {
-      selectedTmp.addAll(await loadItems(widget.schema["selected"][key]));
+      selectedTmp.addAll(
+        await formController.getItem(widget.schema["selected"][key]),
+      );
     }
 
     if (!mounted || id != loadId) return;
@@ -90,35 +93,55 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
     });
   }
 
-  @override
+  List<dynamic> getSources(dynamic form, int j) {
+    dynamic source;
+    if (form["choice"] != null) {
+      final sp = form["choice"] != null ? form["choice"].split("/") : [];
+      source = ref.watch(
+        formControllerProvider(widget.formId).select((m) => readPath(m, sp)),
+      );
+    }
+    List<dynamic> selected = [];
+    if (form["from"] != null) {
+      selected = getSources(form["from"], j + 1);
+    }
+    return [source, ...selected];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final sp = sourcePath;
-    final dynamic source = sp == null
-        ? null
-        : ref.watch(formControllerProvider(widget.formId).select((m) => m));
+    List<dynamic> sources = getSources(widget.schema["from"], 0);
 
-    if (first || source != lastSource) {
-      first = false;
-      lastSource = source;
-      Future.microtask(() => getOptions());
+    for (final k in widget.schema["selected"].keys.toList()) {
+      sources.addAll(getSources(widget.schema["selected"][k], 0));
     }
+
+    if (!_eq.equals(sources, lastSources)) {
+      final isFirst = first;
+      first = false;
+
+      final oldOptions = List<dynamic>.of(options);
+      lastSources = List.of(sources);
+
+      Future.microtask(() async {
+        if (!mounted) return;
+
+        if (!isFirst) {
+          for (final el in oldOptions) {
+            final removePath = [...widget.path.split("/"), el.toString()];
+            if (formController.getValue(removePath) != null) {
+              formController.remove(removePath);
+            }
+          }
+        }
+
+        await getOptions();
+      });
+    }
+
     if (!loaded) {
       return const Center(child: CircularProgressIndicator());
     }
-
-    final valuePath = widget.path.split(".");
-
-    final selected = ref.watch(
-      formControllerProvider(widget.formId).select((m) {
-        dynamic cur = m;
-        for (final k in valuePath) {
-          if (cur is! Map) return null;
-          cur = cur[k];
-        }
-        return cur;
-      }),
-    );
 
     final unit = MediaQuery.sizeOf(context).height;
 
@@ -155,7 +178,7 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
                       splashRadius: 0,
                       value:
                           (formController.getValue(
-                            (widget.path + "." + el).split("."),
+                            (widget.path + "/" + el).split("/"),
                           ) ??
                           false || baseSelected.contains(el)),
                       checkColor: colorController.getColor(widget.color),
@@ -192,7 +215,7 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
   }
 
   void _toggleCheckbox(String el) {
-    final path = (widget.path + "." + el).split(".");
+    final path = (widget.path + "/" + el).split("/");
     final value = formController.getValue(path);
 
     final isChecked = value == true || value == "true";
@@ -200,49 +223,13 @@ class _MultipleChoiceFieldState extends ConsumerState<MultipleChoiceField> {
     if (isChecked) {
       formController.remove(path);
     } else {
-      if ((formController.getValue(widget.path.split(".")) ?? {}).keys
+      if ((formController.getValue(widget.path.split("/")) ?? {}).keys
               .toList()
               .length <
           numOfOptions) {
         formController.setValue(path, true);
       }
     }
-  }
-
-  Future<dynamic> loadItems(Map<String, dynamic> from) async {
-    List<dynamic> temp = [];
-    if (from["options"] != null) {
-      temp = from["options"];
-    } else {
-      Map<String, dynamic> path = await JsonService.loadFromPath(from["path"]);
-      dynamic source = formController.getValue(from["source"].split("."));
-      if (from["source"] != null) {
-        if (source is Map) source = source["value"];
-        source ??= path.keys.first;
-        path = await JsonService.loadFromPath(path[source]["json"]);
-        if (from["item"] != null) {
-          temp = readPath(path, from["item"].split("."));
-        }
-      } else {
-        temp = path.entries.toList();
-      }
-    }
-    return temp;
-  }
-
-  Future<int> loadNumOfOptions(Map<String, dynamic> from) async {
-    int num = 0;
-    Map<String, dynamic> path = await JsonService.loadFromPath(from["path"]);
-    if (from["source"] != null) {
-      dynamic source = formController.getValue(from["source"].split("."));
-      if (source is Map) source = source["value"];
-      source ??= path.keys.first;
-      path = await JsonService.loadFromPath(path[source]["json"]);
-      if (from["numOfOptions"] != null) {
-        num = readPath(path, from["numOfOptions"].split("."));
-      }
-    }
-    return num;
   }
 
   String elToString(dynamic item) {

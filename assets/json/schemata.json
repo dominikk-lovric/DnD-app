@@ -335,29 +335,38 @@
                             "item": {
                                 "1": {
                                     "type": "radio",
+                                    "row": true,
                                     "from": {
-                                        "row": true,
                                         "path": "assets/json/backgrounds",
-                                        "source": "Character Creator.Background.value",
-                                        "item": "abilities"
+                                        "choice": "Character Creator/Background/value",
+                                        "open": true,
+                                        "from": {
+                                            "toChoice": "abilities"
+                                        }
                                     }
                                 },
                                 "2": {
                                     "type": "radio",
+                                    "row": true,
                                     "from": {
-                                        "row": true,
                                         "path": "assets/json/backgrounds",
-                                        "source": "Character Creator.Background.value",
-                                        "item": "abilities"
+                                        "choice": "Character Creator/Background/value",
+                                        "open": true,
+                                        "from": {
+                                            "toChoice": "abilities"
+                                        }
                                     }
                                 },
                                 "3": {
                                     "type": "radio",
+                                    "row": true,
                                     "from": {
-                                        "row": true,
                                         "path": "assets/json/backgrounds",
-                                        "source": "Character Creator.Background.value",
-                                        "item": "abilities"
+                                        "choice": "Character Creator/Background/value",
+                                        "open": true,
+                                        "from": {
+                                            "toChoice": "abilities"
+                                        }
                                     }
                                 }
                             }
@@ -366,16 +375,18 @@
                 },
                 "Alignment": {
                     "type": "selector",
-                    "choices": {
-                        "1": { "name": "Lawful Good" },
-                        "2": { "name": "Neutral Good" },
-                        "3": { "name": "Chaotic Good" },
-                        "4": { "name": "Lawful Neutral" },
-                        "5": { "name": "True Neutral" },
-                        "6": { "name": "Chaotic Neutral" },
-                        "7": { "name": "Lawful Evil" },
-                        "8": { "name": "Neutral Evil" },
-                        "9": { "name": "Chaotic Evil" }
+                    "from": {
+                        "choices": {
+                            "1": { "name": "Lawful Good" },
+                            "2": { "name": "Neutral Good" },
+                            "3": { "name": "Chaotic Good" },
+                            "4": { "name": "Lawful Neutral" },
+                            "5": { "name": "True Neutral" },
+                            "6": { "name": "Chaotic Neutral" },
+                            "7": { "name": "Lawful Evil" },
+                            "8": { "name": "Neutral Evil" },
+                            "9": { "name": "Chaotic Evil" }
+                        }
                     }
                 },
                 "Classes": {
@@ -388,7 +399,9 @@
                                 "type": "selector",
                                 "category": "classes",
                                 "openItem": "true",
-                                "path": "assets/json/classes",
+                                "from": {
+                                    "path": "assets/json/classes"
+                                },
                                 "item": {
                                     "level": {
                                         "type": "textInput",
@@ -399,16 +412,21 @@
                             },
                             "Subclass": {
                                 "type": "conditional",
-                                "field": "/.Class.level",
+                                "field": "./Class/level",
                                 "operator": ">",
                                 "value": 2,
                                 "item": {
                                     "type": "selector",
                                     "category": "classes",
                                     "openItem": "true",
-                                    "path": "assets/json/classes",
-                                    "source": "/.Class.value",
-                                    "item": "archetypes"
+                                    "from": {
+                                        "path": "assets/json/classes",
+                                        "choice": "../Class/value",
+                                        "open": true,
+                                        "from": {
+                                            "item": "archetypes"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -416,13 +434,17 @@
                 },
                 "Species": {
                     "type": "selector",
-                    "path": "assets/json/species",
+                    "from": {
+                        "path": "assets/json/species"
+                    },
                     "category": "species",
                     "openItem": true
                 },
                 "Background": {
                     "type": "selector",
-                    "path": "assets/json/backgrounds",
+                    "from": {
+                        "path": "assets/json/backgrounds"
+                    },
                     "category": "backgrounds",
                     "openItem": true
                 },
@@ -433,33 +455,52 @@
                             "type": "radio",
                             "from": {
                                 "path": "assets/json/classes",
-                                "source": "Character Creator.Classes.0.Class.value",
-                                "item": "startingEquipment"
+                                "choice": "Character Creator/Classes/0/Class/value",
+                                "open": true,
+                                "from": {
+                                    "item": "startingEquipment"
+                                }
                             }
                         },
                         "background": {
                             "type": "radio",
                             "from": {
                                 "path": "assets/json/backgrounds",
-                                "source": "Character Creator.Background.value",
-                                "item": "equipment"
+                                "choice": "Character Creator/Background/value",
+                                "open": true,
+                                "from": {
+                                    "item": "equipment"
+                                }
                             }
                         }
                     }
                 },
                 "Skill proficiencies": {
                     "type": "multipleChoice",
+                    "numOfOptions": {
+                        "path": "assets/json/classes",
+                        "choice": "Character Creator/Classes/0/Class/value",
+                        "open": true,
+                        "from": {
+                            "item": "proficiencies/Skill/options"
+                        }
+                    },
                     "from": {
                         "path": "assets/json/classes",
-                        "source": "Character Creator.Classes.0.Class.value",
-                        "item": "proficiencies.Skill.proficiencies",
-                        "numOfOptions": "proficiencies.Skill.options"
+                        "choice": "Character Creator/Classes/0/Class/value",
+                        "open": true,
+                        "from": {
+                            "item": "proficiencies/Skill/proficiencies"
+                        }
                     },
                     "selected": {
                         "Background": {
                             "path": "assets/json/backgrounds",
-                            "source": "Character Creator.Background.value",
-                            "item": "skills"
+                            "choice": "Character Creator/Background/value",
+                            "open": true,
+                            "from": {
+                                "item": "skills"
+                            }
                         }
                     }
                 }

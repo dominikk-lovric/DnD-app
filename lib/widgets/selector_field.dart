@@ -13,6 +13,7 @@ import 'package:dnd_app/widgets/radio_field.dart';
 import 'package:dnd_app/widgets/table_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:collection/collection.dart';
 
 class SelectorField extends ConsumerStatefulWidget {
   SelectorField({
@@ -48,6 +49,8 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
   bool loaded = false;
   Map<String, dynamic> items = {};
   String current = "";
+  List<dynamic> lastSources = [];
+  final _eq = const DeepCollectionEquality();
 
   @override
   void initState() {
@@ -55,7 +58,7 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
     colorController = ref.read(colorControllerProvider.notifier);
     textStyleController = ref.read(textStyleControllerProvider.notifier);
     formController = ref.read(formControllerProvider(widget.formId).notifier);
-    valuePath = [...widget.path.split("."), "value"];
+    valuePath = [...widget.path.split("/"), "value"];
     loadItems();
   }
 
@@ -67,6 +70,7 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
     final start = (saved is String && item.containsKey(saved))
         ? saved
         : item.keys.first;
+
     setState(() {
       items = item;
       current = start;
@@ -80,29 +84,60 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
 
   Future<Map<String, dynamic>> getItems() async {
     Map<String, dynamic> item = {};
-    if (widget.schema["path"] != null) {
-      item = await JsonService.loadFromPath(widget.schema["path"]);
-      if (widget.schema["source"] != null) {
-        dynamic source = formController.getValue(
-          widget.schema["source"].split("."),
-        );
-        String path = item[source]["json"] ?? item["source"]["path"] ?? "";
-      }
-    } else {
+    if (widget.schema["from"]["choices"] != null) {
       item = Map<String, dynamic>.from(
-        widget.schema["choices"] ?? {"null": "null"},
+        widget.schema["from"]["choices"] ?? {"null": "null"},
       );
+    } else {
+      item =
+          await (formController.getItem(widget.schema["from"])) ??
+          {"null": "null"};
     }
 
     return item;
   }
 
+  List<dynamic> getSources(dynamic form) {
+    dynamic source;
+    if (form["choice"] != null) {
+      final sp = formController
+          .getRelativePath(form["choice"], widget.path)
+          .split("/");
+      source = ref.watch(
+        formControllerProvider(
+          widget.formId,
+        ).select((m) => formController.readPath(m, sp)),
+      );
+      print(sp);
+      print(source);
+      print("\n");
+    }
+    List<dynamic> selected = [];
+    if (form["from"] != null) {
+      selected = getSources(form["from"]);
+    }
+    return [source, ...selected];
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<dynamic> sources = getSources(widget.schema["from"]);
+
+    if (!_eq.equals(sources, lastSources)) {
+      lastSources = List.of(sources);
+      print("yess");
+
+      Future.microtask(() async {
+        if (!mounted) return;
+        await getItems();
+      });
+    }
+
     widget.setting = widget.path + widget.setting;
     if (!loaded) {
       return Center(child: CircularProgressIndicator());
     }
+    print(items);
     double unit = MediaQuery.sizeOf(context).height;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: unit / 72, vertical: unit / 72),
@@ -151,7 +186,9 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
                 return DropdownMenuItem(
                   value: i,
                   child: Text(
-                    items[item]["name"],
+                    items[item]["name"] != null
+                        ? items[item]["name"].toString()
+                        : item.toString(),
                     style: textStyleController.getTextStyle(6, 4),
                   ),
                 );
@@ -165,9 +202,13 @@ class _SelectorFieldState extends ConsumerState<SelectorField> {
           ),
           if (widget.schema["openItem"] != null)
             DescriptionWidget(
-              items[current]["name"].toString(),
+              items[current]["name"] != null
+                  ? items[current]["name"].toString()
+                  : current.toString(),
               FutureBuilder<dynamic>(
-                future: JsonService.loadFromPath(items[current]["json"]),
+                future: JsonService.loadFromPath(
+                  items[current]["json"] ?? items[current]["path"] ?? "",
+                ),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator());

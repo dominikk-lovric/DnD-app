@@ -6,6 +6,7 @@ import 'package:dnd_app/services/text_style_service.dart';
 import 'package:dnd_app/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:collection/collection.dart';
 
 class RadioField extends ConsumerStatefulWidget {
   RadioField({
@@ -42,17 +43,12 @@ class _RadioFieldState extends ConsumerState<RadioField> {
   late final FormController formController;
 
   List<String>? sourcePath;
-  dynamic lastSource;
+
+  List<dynamic> lastSources = [];
   bool first = true;
   int loadId = 0;
 
-  dynamic readPath(dynamic cur, List<String> path) {
-    for (final k in path) {
-      if (cur is! Map) return null;
-      cur = cur[k];
-    }
-    return cur;
-  }
+  final _eq = const DeepCollectionEquality();
 
   @override
   initState() {
@@ -61,36 +57,20 @@ class _RadioFieldState extends ConsumerState<RadioField> {
     textStyleController = ref.read(textStyleControllerProvider.notifier);
     formController = ref.read(formControllerProvider(widget.formId).notifier);
 
-    if (widget.schema["from"]["row"] == true) {
+    if (widget.schema["row"] == true) {
       widget.row = true;
     }
-
-    final src = widget.schema["from"]["source"];
-    if (src != null) {
-      final sp = src is String ? src.split(".") : List<String>.from(src);
-      final root = widget.path.split(".").first;
-      sourcePath = sp.first == root ? sp : [root, ...sp];
-    }
+    getOptions();
   }
 
-  Future<void> getOptions(dynamic source) async {
+  Future<void> getOptions() async {
     final id = ++loadId;
     Map<String, dynamic> from = widget.schema["from"];
     List<dynamic> temp = [];
     if (from["options"] != null) {
       temp = from["options"];
     } else {
-      Map<String, dynamic> path = await JsonService.loadFromPath(from["path"]);
-      if (from["source"] != null) {
-        if (source is Map) source = source["value"];
-        source ??= path.keys.first;
-        path = await JsonService.loadFromPath(path[source]["json"]);
-        if (from["item"] != null) {
-          temp = readPath(path, from["item"].split("."));
-        }
-      } else {
-        temp = path.entries.toList();
-      }
+      temp = await formController.getItem(from);
     }
     if (!mounted || id != loadId) return;
     setState(() {
@@ -101,35 +81,46 @@ class _RadioFieldState extends ConsumerState<RadioField> {
     Future.microtask(() {
       if (!mounted || options.isEmpty) return;
       final labels = options.map((e) => e.toString()).toList();
-      final valuePath = widget.path.split(".");
+      final valuePath = widget.path.split("/");
       if (!labels.contains(formController.getValue(valuePath))) {
         formController.setValue(valuePath, labels.first);
       }
     });
   }
 
-  @override
+  List<dynamic> getSources(dynamic form, int j) {
+    dynamic source;
+    if (form["choice"] != null) {
+      final sp = form["choice"] != null ? form["choice"].split("/") : [];
+      source = ref.watch(
+        formControllerProvider(
+          widget.formId,
+        ).select((m) => formController.readPath(m, sp)),
+      );
+    }
+    List<dynamic> selected = [];
+    if (form["from"] != null) {
+      selected = getSources(form["from"], j + 1);
+    }
+    return [source, ...selected];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final sp = sourcePath;
-    final dynamic source = sp == null
-        ? null
-        : ref.watch(
-            formControllerProvider(
-              widget.formId,
-            ).select((m) => readPath(m, sp)),
-          );
+    List<dynamic> sources = getSources(widget.schema["from"], 0);
 
-    if (first || source != lastSource) {
-      first = false;
-      lastSource = source;
-      Future.microtask(() => getOptions(source));
+    if (!_eq.equals(sources, lastSources)) {
+      lastSources = List.of(sources);
+      Future.microtask(() async {
+        formController.remove(widget.path.split("/"));
+        await getOptions();
+      });
     }
     if (!loaded) {
       return const Center(child: CircularProgressIndicator());
     }
 
-    final valuePath = widget.path.split(".");
+    final valuePath = widget.path.split("/");
 
     final selected = ref.watch(
       formControllerProvider(widget.formId).select((m) {

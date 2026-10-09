@@ -53,76 +53,49 @@ class _ConditionalFieldState extends ConsumerState<ConditionalField> {
   bool buildBool = true;
   @override
   void initState() {
-    path = getPath();
     colorController = ref.read(colorControllerProvider.notifier);
     textStyleController = ref.read(textStyleControllerProvider.notifier);
     formController = ref.read(formControllerProvider(widget.formId).notifier);
   }
 
-  String getPath() {
-    String tempPath = "";
-    if (widget.schema["field"].toString().startsWith("/.")) {
-      tempPath = widget.path.toString();
-      tempPath = tempPath.substring(0, tempPath.lastIndexOf("."));
-      tempPath =
-          tempPath + "." + widget.schema["field"].toString().substring(2);
-    } else {
-      tempPath = widget.schema["field"];
-    }
-    return tempPath;
-  }
-
-  dynamic readPath(dynamic cur, List<String> path) {
-    for (final k in path) {
-      if (cur is! Map) return null;
-      cur = cur[k];
-    }
-    return cur;
-  }
-
   @override
   Widget build(BuildContext context) {
+    List<String> fullPath = formController
+        .getRelativePath(widget.schema["field"] ?? "", widget.path)
+        .split("/");
     dynamic watch = ref.watch(
-      formControllerProvider(
-        widget.formId,
-      ).select((m) => readPath(m, path.split("."))),
+      formControllerProvider(widget.formId).select((m) {
+        return formController.readPath(m, fullPath);
+      }),
     );
     switch (widget.schema["operator"]) {
       case ">":
         buildBool =
-            (int.tryParse(formController.getValue(path.split(".")) ?? "0") ??
-                0) >
+            (int.tryParse(formController.getValue(fullPath) ?? "0") ?? 0) >
             widget.schema["value"];
       case "<":
         buildBool =
-            (int.tryParse(formController.getValue(path.split(".")) ?? "0") ??
-                0) <
+            (int.tryParse(formController.getValue(fullPath) ?? "0") ?? 0) <
             widget.schema["value"];
       case ">=":
         buildBool =
-            (int.tryParse(formController.getValue(path.split(".")) ?? "0") ??
-                0) >=
+            (int.tryParse(formController.getValue(fullPath) ?? "0") ?? 0) >=
             widget.schema["value"];
       case "<=":
         buildBool =
-            (int.tryParse(formController.getValue(path.split(".")) ?? "0") ??
-                0) <=
+            (int.tryParse(formController.getValue(fullPath) ?? "0") ?? 0) <=
             widget.schema["value"];
       case "=" || "==":
         buildBool =
-            (int.tryParse(formController.getValue(path.split(".")) ?? "0") ??
-                0) ==
+            (int.tryParse(formController.getValue(fullPath) ?? "0") ?? 0) ==
             widget.schema["value"];
       case "in":
-        if (formController.getValue(path.split(".")) is Map) {
-          List<String> keys = formController
-              .getValue(path.split("."))
-              .keys
-              .toList();
+        if (formController.getValue(fullPath) is Map) {
+          List<String> keys = formController.getValue(fullPath).keys.toList();
           buildBool = keys.contains(widget.schema["value"]);
-        } else if (formController.getValue(path.split(".")) is List) {
+        } else if (formController.getValue(fullPath) is List) {
           buildBool = formController
-              .getValue(path.split("."))
+              .getValue(fullPath)
               .contains(widget.schema["value"]);
         }
     }
@@ -130,6 +103,7 @@ class _ConditionalFieldState extends ConsumerState<ConditionalField> {
       return SchemaRenderService.renderItem(
         ref,
         context,
+        formId: widget.formId,
         schema: widget.schema["item"],
         schemata: widget.schemata,
         title: widget.title,

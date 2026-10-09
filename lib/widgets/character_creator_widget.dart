@@ -292,7 +292,6 @@ class CharacterCreatorWidgetState
                         "class-$i-$id",
                         afterClickFunction: (i == 0)
                             ? (el) => {
-                                print("reset"),
                                 selectedMap["startingEquipment"]["class"] = el,
                               }
                             : (el) {},
@@ -383,7 +382,6 @@ class CharacterCreatorWidgetState
                   "backgrounds",
                   "backgrounds",
                   afterClickFunction: (el) => {
-                    print("reset"),
                     selectedMap["startingEquipment"]["background"] = el,
                   },
                 ),
@@ -440,7 +438,6 @@ class CharacterCreatorWidgetState
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
-                    print(selectedMap);
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: colorController.getColor(4),
@@ -589,7 +586,6 @@ class CharacterCreatorWidgetState
           groupValue: int.parse(valueSelector(selectedMap)) as int?,
           onChanged: (value) => setState(() {
             setter(selectedMap, value.toString());
-            print(value);
           }),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -48,7 +48,7 @@ class _MultipleFieldState extends ConsumerState<MultipleField> {
   void initState() {
     super.initState();
     formController = ref.read(formControllerProvider(widget.formId).notifier);
-    path = widget.path.split(".");
+    path = widget.path.split("/");
     final existing = formController.getValue(path);
     if (existing is Map && existing.isNotEmpty) {
       rowIds = existing.keys.map((k) => int.parse(k.toString())).toList()

@@ -61,7 +61,7 @@ class _FormTextFieldState extends ConsumerState<FormTextField> {
       maxSize,
       widget.title.length * textStyleController.getFontSize(5),
     );
-    path = widget.path.split(".");
+    path = widget.path.split("/");
     final saved = formController.getValue(path);
     startText = saved is String ? saved : startText;
     Future.microtask(() {

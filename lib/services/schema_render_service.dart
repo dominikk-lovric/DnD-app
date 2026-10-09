@@ -529,7 +529,7 @@ class SchemaRenderService {
           schema: schema,
           schemata: schemata,
           clickWidget: clickWidget,
-          setting: StringService.slugify(title) + "." + setting,
+          setting: StringService.slugify(title) + "/" + setting,
           formId: formId,
         );
       case "textInput":
@@ -690,7 +690,7 @@ class SchemaRenderService {
           schema: schema,
           schemata: schemata,
           title: title,
-          path: here,
+          path: path,
           formId: formId,
           color: 2,
           setting: StringService.slugify(title) + setting,

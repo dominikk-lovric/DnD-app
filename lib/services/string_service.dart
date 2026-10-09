@@ -50,6 +50,6 @@ class StringService {
   static String joinPath(String parent, String child) {
     if (parent.isEmpty) return child;
     if (child.isEmpty) return parent;
-    return "$parent.$child";
+    return "$parent/$child";
   }
 }
